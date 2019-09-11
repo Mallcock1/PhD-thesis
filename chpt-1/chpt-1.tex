@@ -1,4 +1,4 @@
-\documentclass[12pt, twoside]{../style-files/uosthesis}
+\documentclass[12pt]{../style-files/ociamthesis}
 
 \usepackage{amssymb}
 \usepackage{titlesec}
@@ -7,17 +7,15 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subfig}
-\usepackage{graphicx}
 \usepackage{xcolor}
-\usepackage[round]{natbib}
 \usepackage[section]{placeins}
 \usepackage{mathrsfs}
 \usepackage{bm}
 \usepackage{stmaryrd}
-\usepackage[utf8]{inputenc}
 \usepackage{siunitx}
-\usepackage{combelow}
-\usepackage{afterpage}
+\usepackage{rotating}
+\usepackage[utf8]{inputenc}
+\usepackage[round]{natbib}
 
 \usepackage{geometry}
  \geometry{
@@ -65,65 +63,34 @@
 \newcommand{\solphys}{{\it Solar Phys.}}
 \newcommand{\sovast}{ {\it Soviet  Astron.}} 
 \newcommand{\ssr}{    {\it Space Sci. Rev.}}
-\newcommand{\caa}{{\it Chinese Astron. Astrohpys.}} 
-\newcommand{\apjs}{    {\it Astrophys. J. Suppl.}}
-
-\def\UrlFont{\sf}
-
-\title{The Sun's Asymmetric Waveguides}   %note \\[1ex] is a line break in the title
-
-\author{Matthew Allcock}
-
-\degree{Doctor of Philosophy}
-\degreedate{January 2020?}
+\newcommand{\caa}{    {\it Chinese Astron. Astrohpys.}} 
+\newcommand{\apjs}{   {\it Astrophys. J. Suppl.}}
 
 \begin{document}
 
-%this baselineskip gives sufficient line spacing for an examiner to easily
-%markup the thesis with comments
-\baselineskip=18pt plus1pt
+\baselineskip=18pt
 
-%set the number of sectioning levels that get number and appear in the contents
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
-\maketitle
 
-\afterpage{\null\newpage}
-\include{0.0-dedication/dedication}
+%------------------------------------------------------------------------------
+\chapter{Introduction}
+\label{chap:intro}
+%------------------------------------------------------------------------------
 
-\afterpage{\null\newpage}
-\include{0.1-acknowledgements/acknowledgements}
+%------------------------------------------------------------------------------
+\section{Overview}
+\label{sec:overview}
+%------------------------------------------------------------------------------
 
-\afterpage{\null\newpage}
-\include{0.2-declaration/declaration}
+%------------------------------------------------------------------------------
+\section{Thesis outline}
+\label{sec:outline}
+%------------------------------------------------------------------------------
 
-\afterpage{\null\newpage}
-\include{0.3-abstract/abstract}
 
-\afterpage{\null\newpage}
-\include{0.4-publications/publications}
-
-\begin{romanpages}          % start roman page numbering
-\tableofcontents            % generate and include a table of contents
-\listoffigures              % generate and include a list of figures
-\end{romanpages}            % end roman page numbering
-
-%now include the files of latex for each of the chapters etc
-\include{1-chpt/chpt-1}
-%\include{2-chpt/chpt-2}
-%\include{3-chpt/chpt-3}
-\include{4-conclusions/conclusions}
-
-%now enable appendix numbering format and include any appendices
-\appendix
-%\include{5-appendices/appendix1}
-
-%%next line adds the Bibliography to the contents page
-\addcontentsline{toc}{chapter}{Bibliography}
-%uncomment next line to change bibliography name to references
-%\renewcommand{\bibname}{References}
-\bibliographystyle{agsm}
-\bibliography{references}
+\bibliographystyle{plainnat}
+\bibliography{references}  
 
 \end{document}
