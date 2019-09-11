@@ -1,0 +1,114 @@
+\documentclass[12pt, twoside]{uosthesis}
+
+\usepackage{amssymb}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[round]{natbib}
+\usepackage[section]{placeins}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{stmaryrd}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+\usepackage{combelow}
+\usepackage{afterpage}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ left=40mm,
+ right=30mm,
+ top=30mm,
+ bottom=30mm
+ }
+
+\definecolor{theblue}{HTML}{0000CD}
+
+% disable this package for printed version
+\usepackage[colorlinks=true, linktocpage=true, allcolors=theblue]{hyperref}
+
+\titleformat{\chapter}[display]
+  {\bfseries\Large}
+  {\filright\MakeUppercase{\chaptertitlename} \Large\thechapter}
+  {1ex}
+  {}
+  [\vspace{1ex} \hrule \vspace{1pt} \hrule]
+
+\newcommand{\adv}{    {\it Adv. Space Res.}} 
+\newcommand{\annG}{   {\it Ann. Geophys.}} 
+\newcommand{\aap}{    {\it Astron. Astrophys.}}
+\newcommand{\aaps}{   {\it Astron. Astrophys. Suppl.}}
+\newcommand{\aapr}{   {\it Astron. Astrophys. Rev.}}
+\newcommand{\ag}{     {\it Ann. Geophys.}}
+\newcommand{\aj}{     {\it Astron. J.}} 
+\newcommand{\apj}{    {\it Astrophys. J.}}
+\newcommand{\apjl}{   {\it Astrophys. J. Lett.}}
+\newcommand{\apss}{   {\it Astrophys. Space Sci.}} 
+\newcommand{\cjaa}{   {\it Chin. J. Astron. Astrophys.}} 
+\newcommand{\gafd}{   {\it Geophys. Astrophys. Fluid Dyn.}}
+\newcommand{\grl}{    {\it Geophys. Res. Lett.}}
+\newcommand{\ijga}{   {\it Int. J. Geomagn. Aeron.}}
+\newcommand{\jastp}{  {\it J. Atmos. Solar-Terr. Phys.}} 
+\newcommand{\jgr}{    {\it J. Geophys. Res.}}
+\newcommand{\mnras}{  {\it Mon. Not. Roy. Astron. Soc.}}
+\newcommand{\na}{     {\it New Astronomy}}
+\newcommand{\nat}{    {\it Nature}}
+\newcommand{\pasp}{   {\it Pub. Astron. Soc. Pac.}}
+\newcommand{\pasj}{   {\it Pub. Astron. Soc. Japan}}
+\newcommand{\pre}{    {\it Phys. Rev. E}}
+\newcommand{\solphys}{{\it Solar Phys.}}
+\newcommand{\sovast}{ {\it Soviet  Astron.}} 
+\newcommand{\ssr}{    {\it Space Sci. Rev.}}
+\newcommand{\caa}{{\it Chinese Astron. Astrohpys.}} 
+\newcommand{\apjs}{    {\it Astrophys. J. Suppl.}}
+
+\def\UrlFont{\sf}
+
+\title{The Sun's Asymmetric Waveguides}   %note \\[1ex] is a line break in the title
+
+\author{Matthew Allcock}
+
+\degree{Doctor of Philosophy}
+\degreedate{January 2020}
+
+\begin{document}
+
+%this baselineskip gives sufficient line spacing for an examiner to easily
+%markup the thesis with comments
+\baselineskip=18pt plus1pt
+
+%set the number of sectioning levels that get number and appear in the contents
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\maketitle
+
+\afterpage{\null\newpage}
+%\include{}
+
+\begin{romanpages}          % start roman page numbering
+\tableofcontents            % generate and include a table of contents
+\listoffigures              % generate and include a list of figures
+\end{romanpages}            % end roman page numbering
+
+%now include the files of latex for each of the chapters etc
+%\include{}
+
+%now enable appendix numbering format and include any appendices
+\appendix
+%\include{}
+
+%%next line adds the Bibliography to the contents page
+%\addcontentsline{toc}{chapter}{Bibliography}
+%%uncomment next line to change bibliography name to references
+%%\renewcommand{\bibname}{References}
+%\bibliographystyle{agsm}
+%\bibliography{references}
+
+\end{document}
