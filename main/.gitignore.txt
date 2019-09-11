@@ -98,3 +98,6 @@ sympy-plots-for-*.tex/
 
 # pdfs
 main.pdf
+
+# backup files
+*.bak
