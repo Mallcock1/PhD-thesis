@@ -73,6 +73,9 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bB}{\mathbf{B}}
+
 
 %------------------------------------------------------------------------------
 \chapter{Introduction}
@@ -86,20 +89,157 @@
 
 Its significance, structure, and magnetic phenomena.
 
+From my confirmation report:
+\textit{The Sun is hot. So hot, in fact, that many of the constituent particles cannot form
+	neutral atoms, but exist as a soup of negatively charged electrons and positively
+	charged nuclei. Matter in this state is known as plasma. Because many of the charges
+	are dissociated in a plasma, it can conduct electricity and therefore induce a magnetic
+	field. This magnetic field can interact with the fluid to produce a nonlinear coupling
+	between the magnetic field and the plasma motion. This coupling is described by
+	magnetohydrodynamic (MHD) theory.}
+
+\textit{The atmosphere of the Sun is multi-layered. Starting in the lowest layer, known as
+	the photosphere, and moving up through the chromosphere and transition region we
+	reach the upper atmosphere, known as the corona. The solar atmosphere, particularly
+	the corona, is dominated by a complex and dynamic magnetic field that makes it
+	highly inhomogeneous. This gives rise to many high-energy events such as jets,
+	eruptions, and flares. These dynamic solar events, amongst other things, drive MHD
+	1waves in the solar atmosphere which can be guided by the inhomogeneous magnetic
+	field. MHD waves are similar to waves in terrestrial fluids, such as sound waves in
+	air, but as well as a pressure gradient restoring force, MHD waves owe their existence
+	to a restoring force due to perturbations of the magnetic field. MHD waves whose
+	restoring force is a combination of the pressure gradient and this magnetic force, but
+	not other forces such as gravity and Coriolis, are known as magneto-acoustic waves.}
+
+\textit{MHD waves in the Sun can be used to approximate plasma parameters, such as
+	the magnetic field strength, that are difficult to measure using traditional methods
+	(Nakariakov and Verwichte, 2005; De Moortel and Nakariakov, 2012). This is done
+	by comparing observations of MHD waves in the solar atmosphere to theoretical results from studying MHD wave propagation in waveguides that approximate those
+	in the solar atmosphere, formed by a complex structuring of the magnetic field. This
+	technique, known as solar magneto-seismology, has been an emerging field over the
+	last few decades, and is on track to become a key tool for solar physics as the next
+	generation of solar telescopes with greater spatial and temporal resolution are developed. The significance of making good approximations of plasma parameters in the
+	solar atmosphere is so that we can use realistic parameters in numerical simulations
+	and to gain an understanding of what conditions lead to instability and thus leading
+	to solar flares and coronal mass ejections, which pose a significant threat to modern
+	society on Earth (Cabinet Office, 2015).}
+
+
+
+\subsection{Solar plasma}
+Plasma - a quasineutral gas of
+charged particles
+exhibiting
+collective
+behaviour.
+$>99$ percent of baryonic
+matter in universe
+is in plasma state.
+Plasmas create
+magnetic fields
+and interact with
+magnetic fields.
+
 %------------------------------------------------------------------------------
 \section{Magnetohydrodynamics}
 \label{sec: MHD}
 %------------------------------------------------------------------------------
 
+\subsection{The equations of ideal magnetohydrodynamics}
+
+\textcolor{red}{To do: include charge neutrality? Single fluid? More discussion of amperes equation and the non-relativistic assumption?}
+
 To build up a mathematical description of the Sun's plasma dynamics, let's motivate some assumptions.
 
-The Sun's plasma, just like all matter in the Universe, is made up of particles\footnote{atoms or subatomic particles, depending on the temperature of its location in the Sun}, but the phenomena such as MHD waves that we are concerned with in this Thesis operate on a \textit{macroscopic} level. By this we mean on length-scales much larger than the \textit{mean free path}\footnote{Approximately 1 cm - 1 km in the Sun. \textcolor{red}{REFERENCE}}. This means that the \textit{Knudsen number}, the dimensionless parameter defined by the ratio of the mean free path to a characteristic length scale, in the Sun is much less than unity. This motivates the \textbf{continuum assumption}, where the fluid is considered to ``fill up" the space in which is is contained, so that small-scale inhomogeneities caused by particle dynamics are negligible. This gives us a coherent notion of fluid density, $\rho$ and pressure, $p$.
+The Sun's plasma, just like all matter in the Universe, is made up of particles\footnote{atoms or subatomic particles, depending on the temperature of its location in the Sun}, but the phenomena such as MHD waves that we are concerned with in this Thesis operate on a \textit{macroscopic} level. By this we mean on length-scales much larger than the \textit{mean free path}\footnote{Approximately 1 cm - 1 km in the Sun. \textcolor{red}{REFERENCE}}. This means that the \textit{Knudsen number}, the dimensionless parameter defined by the ratio of the mean free path to a characteristic length scale, in the Sun is much less than unity. This motivates the \textbf{continuum assumption}, where the fluid is considered to ``fill up" the space in which is is contained, so that small-scale inhomogeneities caused by particle dynamics are negligible. This gives us a coherent notion of fluid velocity, $\mathbf{v}(\mathbf{x}, t) = (v_1(\mathbf{x}, t), v_2(\mathbf{x}, t), v_3(\mathbf{x}, t))$, density, $\rho(\mathbf{x}, t)$, and pressure, $p(\mathbf{x}, t)$, as functions of continuous position, $\mathbf{x}$, and time, $t$.
 
-We are gratefully gifted fundamental laws that are universally obeyed by classical mechanics systems upon which we can build our framework. These are the \textbf{conservation of mass}, \textit{conservation of momentum}, and \textit{conservation of energy}. The conservation of mass tells us that the change in density in a fixed infinitesimal volume is due only to mass entering or leaving the volume. Mathematically, we can equate the rate of change of density, $\partial\rho/\partial t$ to the incoming density flux $- \nabla(\rho \mathbf{v})$, \textit{i.e.}
+The universe gifts us fundamental laws that are obeyed by all classical mechanics systems upon which we can build our framework. Firstly, the \textbf{conservation of mass} tells us that the change in density in a fixed volume is due only to mass entering or leaving the volume. The rate of change of density in a fixed volume $V$ is
 \begin{equation}
-	\frac{\partial\rho}{\partial t} + \nabla(\rho \mathbf{v}) = 0,
+	\frac{d}{dt} \int_V \rho ~d\mathbf{x} = \int_V \frac{\partial\rho}{\partial t} ~d\mathbf{x} \label{cont der 1}
 \end{equation}
-where $\mathbf{v} = (v_1, v_2, v_3)$ is the velocity of the fluid. 
+and the rate of mass flux into this volume, whose bounding surface we denote by $S$, which has infinitesimal surface normal component $d\mathbf{s}$, is
+\begin{equation}
+	-\int_S \rho \mathbf{v} ~d\mathbf{s} = \int_V -\nabla\cdot(\rho\mathbf{v}) ~d\mathbf{x}, \label{cont der 2}
+\end{equation}
+by use of the divergence theorem. Equations~\eqref{cont der 1} and~\eqref{cont der 2} must be equal for any volume $V$ so the integrands must be equal, that is
+\begin{equation}
+	\frac{\partial\rho}{\partial t} + \nabla\cdot(\rho \bv) = 0, \label{cont eqn}
+\end{equation}
+known as the \textbf{continuity equation}.
+
+Secondly, the \textbf{conservation of momentum} tells us that the momentum in a volume $V$ that moves with the fluid is only changed by forces exerted on the fluid. The rate of change of momentum in this volume is
+\begin{equation}
+	\frac{d}{dt} \int_V \rho\bv ~d\mathbf{x} = \int_V  ~d\mathbf{x}, \label{mom der 1}
+\end{equation}
+where $D/Dt = \partial/\partial t + \bv\cdot\nabla$ is derivative observed when moving with the fluid, known as the \textit{material derivative}. The forces acting upon the fluid are either \textit{body} forces, $b$, (such as gravity and magnetic forces) that act on the whole volume, or \textit{surface} forces (such as pressure gradient force and viscosity) that act on an internal or external surface. The surface forces form a stress tensor $\sigma$, so that the total force exerted on a volume of fluid is
+\begin{equation}
+	\int_V \mathbf{b} ~d\mathbf{x} + \int_S \sigma\cdot d\mathbf{s} = \int_V (\mathbf{b} + \nabla\cdot \sigma) ~d\mathbf{x}, \label{mom der 2}
+\end{equation}
+using the divergence theorem. Equations~\eqref{mom der 1} and~\eqref{mom der 2} must be equal for any volume $V$ so the integrands must be equal, that is
+\begin{equation}
+\rho\frac{D\bv}{Dt} = \nabla\cdot \sigma + \mathbf{b}. \label{mom der 3}
+\end{equation}
+Motivated by the large role they play in the dynamics of small to medium scale solar phenomena, in this Thesis we focus on the effects of magnetic forces and neglect commonly used other forces such as gravity and viscosity. Denoting the magnetic field and permeability by $\mathbf{B}$ and $\mu$, respectively, the magnetic force felt by a (non-relativistic) fluid element is $(\nabla\times\mathbf{B})\times\mathbf{B}/\mu$. By neglecting viscosity, we can write the stress tensor as $\sigma = -pI$, where $I$ is the $3\times3$ identity matrix. This reduces Equation\eqref{mom der 3} to the \textbf{momentum equation} that we will use throughout
+\begin{equation}
+\rho\frac{D\bv}{Dt} = -\nabla p + (\nabla\times\mathbf{B})\times\mathbf{B}/\mu. \label{mom eqn}
+\end{equation}
+
+Finally, \textbf{conservation of entropy} occurs during processes that are \textit{adiabatic} and \textit{reversible}. The entropy per unit mass, $s$, for an \textit{ideal fluid} is given by
+\begin{equation}
+	s = C_v\ln\left(\frac{p}{\rho^\gamma}\right) + const, \label{entropy}
+\end{equation}
+where $C_v$ and $\gamma$ are the specific heat at constant volume and the adiabatic index, respectively. Entropy is conserved when moving with the fluid, which, using Equation~\eqref{entropy}, can be written in the form
+\begin{equation}
+\frac{D}{Dt}\left(\frac{p}{\rho^\gamma}\right) = 0, \label{energy eqn}
+\end{equation}
+which we call the \textbf{energy equation} because it can also be interpreted as the fundamental law of conservation of energy.
+
+Equations~\eqref{cont eqn}, \eqref{energy eqn}, and the three components of \eqref{mom eqn} are a system of five equations that relate eight unknowns ($\rho, p$, and three components of $\bv$ and $\bB$). Three additional equations are required to close the system. To establish these additional equations, we use \textbf{Ohm's Law}, which asserts that the current density, $\mathbf{j}$ is proportional to the total electric field when moving with the fluid,
+\begin{equation}
+	\mathbf{j} = \frac{1}{\eta}(\mathbf{E} + \bv\times\bB),
+\end{equation}
+where $\mathbf{E}$ is the electric field. In this Thesis, we are concerned with plasmas where resistive effects, including magnetic reconnection and diffusion, are unimportant. Therefore, we can neglect the left hand side of this equation to give
+\begin{equation}
+\mathbf{E} + \bv\times\bB = 0. \label{ohms law}
+\end{equation}
+\textbf{Faraday's law} of electromagnetism relates the gradient of the electric field to the change in magnetic field:
+\begin{equation}
+	\nabla\times\mathbf{E} = -\frac{\partial\bB}{\partial t}. \label{faraday eqn}
+\end{equation}
+Combining Equations~\eqref{ohms law} and~\eqref{faraday eqn} gives us the \textbf{induction equation}
+\begin{equation}
+	\frac{\partial\bB}{\partial t} = \nabla\times(\bv\times\bB). \label{ind eqn}
+\end{equation}
+Equations~\eqref{cont eqn}, \eqref{mom eqn}, \eqref{energy eqn}, and \eqref{ind eqn} constitute a complete set of equations that describe the evolution of an \textit{ideal plasma} and are known as the \textbf{ideal MHD equations}.
+
+In addition, \textbf{Gauss' Law}, which states that $\nabla\cdot\bB = 0$, puts a constraint on the choice of initial magnetic field. Integrating Equation~\eqref{ind eqn} shows us that initial satisfaction of Gauss' Law ensures its satisfaction for all later time.
+
+
+\subsection{Ideal magnetohydrodynamic behaviour}
+The ideal plasma assumption approximates the plasma to be perfectly conducting. Ideal plasmas behave in unique and surprisingly simple ways that will be discussed in this subsection. We will briefly discuss the decomposition of the Lorentz force into magnetic tension and pressure, the conservation of magnetic flux, and the conservation of magnetic field lines.
+
+In this discussion it is helpful to define the notion of a \textit{magnetic field line}. Magnetic field lines, or just ``field lines", are lines parallel to the magnetic field, $\bB$. The local strength of the magnetic field is proportional to the local field line density. Magnetic field lines are fictitious and are conceived of merely for ease of understanding and visualisation.
+
+
+\subsubsection{Magnetic tension and pressure}
+The Lorentz force in the momentum Equation~\eqref{mom eqn} can be decomposed as
+\begin{equation}
+	\frac{1}{\mu}(\nabla\times\bB)\times\bB = \frac{1}{\mu}(\bB\cdot\nabla)\bB - \nabla\left(\frac{\bB^2}{2\mu}\right).
+\end{equation}
+The first term on the right hand side is the \textit{magnetic tension} force which acts normal to $\bB$. It acts to ``straighten out" magnetic field lines and it's strength is proportional ot the field line's curvature. The second term on the right hand side is the \textit{magnetic pressure} force which acts along any negative gradient in magnetic field strength. It acts to ``spread out" magnetic field lines.
+
+
+\subsubsection{Magnetic flux conservation}
+Magnetic pressure and tension. Magnetic flux conservation. Frozen in.
+
+
+\subsubsection{Magnetic field line conservation}
+
+
+
+
+
+
 
 
 
@@ -110,6 +250,7 @@ where $\mathbf{v} = (v_1, v_2, v_3)$ is the velocity of the fluid.
 %------------------------------------------------------------------------------
 
 \subsection{Magnetohydrodynamic waves in homogeneous plasma}
+\subsubsection{Linearised ideal magnetohydrodynamic equations}
 
 \subsection{Magnetohydrodynamic waves in homogeneous plasma}
 
