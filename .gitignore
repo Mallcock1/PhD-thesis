@@ -97,7 +97,7 @@ sympy-plots-for-*.tex/
 # Figures?!
 
 # pdfs
-main.pdf
+*.pdf
 
 # backup files
 *.bak
