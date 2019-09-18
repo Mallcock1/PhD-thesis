@@ -145,7 +145,7 @@ magnetic fields.
 \label{sec: MHD}
 %------------------------------------------------------------------------------
 
-\subsection{The equations of ideal magnetohydrodynamics}
+\subsection{The equations of ideal magnetohydrodynamics} \label{sec: MHD eqns}
 
 \textcolor{red}{To do: include charge neutrality? Single fluid? More discussion of amperes equation and the non-relativistic assumption?}
 
@@ -253,7 +253,7 @@ This result has the important corollary that the plasma and the magnetic field l
 %------------------------------------------------------------------------------
 
 \subsection{Magnetohydrodynamic waves in homogeneous plasma}
-Whilst the Sun's inhomogeneity is undeniable, it is instructive to first study the MHD waves that propagate in a homogeneous plasma. We start with the ideal MHD equations
+Whilst the Sun's inhomogeneity is undeniable, it is instructive to first study the MHD waves that propagate in a homogeneous plasma. We start with the ideal MHD equations derived in Section~\ref{sec: MHD eqns}
 \begin{align}
 	\frac{\partial\rho}{\partial t} + \nabla\cdot(\rho \bv) &= 0, \\
 	\rho\frac{D\bv}{Dt} &= -\nabla p + \frac{1}{\mu}(\nabla\times\mathbf{B})\times\mathbf{B}, \\
@@ -262,10 +262,10 @@ Whilst the Sun's inhomogeneity is undeniable, it is instructive to first study t
 \end{align}
 The complexity of these equations is due to their non-linearity. Consider a stationary homogeneous plasma with equilibrium magnetic field given by $\mathbf{B_0} = (0, 0, B_0)$, without loss of generality. Each parameter can be written as a sum of its equilibrium quantity and a perturbation from that equilibrium, namely, $f = f_0 + f'$, where $f$ is a placeholder for parameters $\rho, p, \bv$, and $\bB$. The equilibrium plasma is stationary and homogeneous, so $\bv_0 = 0$, and each equilibrium parameter is uniform in space. By considering just small perturbations from equilibrium, \textit{i.e.} $f' \ll f_0$ for each parameter, we can remove the non-linearity from the governing equations. Substituting this form of the parameters into the ideal MHD equations and neglecting terms of quadratic order in small perturbation parameters gives us the linearised ideal MHD equations
 \begin{align}
-	\frac{\partial\rho'}{\partial t} + \rho_0(\nabla\cdot\bv') &= 0, \\
-	\rho_0\frac{\partial\bv'}{\partial t} &= -\nabla p' + \frac{1}{\mu}(\nabla\times\bB')\times\bB_0, \\
-	\frac{\partial p'}{\partial t} - c_0^2\frac{\partial\rho'}{\partial t} &= 0, \\
-	\frac{\partial\bB'}{\partial t} &= \nabla\times(\bv'\times\bB_0),
+	\frac{\partial\rho'}{\partial t} + \rho_0(\nabla\cdot\bv') &= 0, \label{cont eqn lin} \\
+	\rho_0\frac{\partial\bv'}{\partial t} &= -\nabla p' + \frac{1}{\mu}(\nabla\times\bB')\times\bB_0, \label{mom eqn lin} \\
+	\frac{\partial p'}{\partial t} - c_0^2\frac{\partial\rho'}{\partial t} &= 0, \label{energy eqn lin} \\
+	\frac{\partial\bB'}{\partial t} &= \nabla\times(\bv'\times\bB_0), \label{ind eqn lin}
 \end{align}
 where $c_0 = \sqrt{\gamma p_0/\rho_0}$ is the \textit{sound speed}. This system of equations can be combined into the generalised wave equation
 \begin{equation}
@@ -273,9 +273,9 @@ where $c_0 = \sqrt{\gamma p_0/\rho_0}$ is the \textit{sound speed}. This system 
 \end{equation}
 where we have dropped the apostrophe on $\bv'$ for brevity. The form of this equation motivates a search for solutions of the form
 \begin{equation}
-	\bv(\mathbf{x}, t) = \hat{\bv}(\mathbf{x})e^{i(\mathbf{k}\cdot\mathbf{x} - \omega t)},
+	\bv(\mathbf{x}, t) = \hat{\bv}e^{i(\mathbf{k}\cdot\mathbf{x} - \omega t)},
 \end{equation}
-corresponding to \textit{plane-waves} with wavenumber vector $\mathbf{k}$, circular frequency $\omega$, and amplitude $\hat{\bv}(\mathbf{x})$. This reduces Equation~\eqref{homogeneous wave eqn} to an eigenvalue problem with eigenfrequency $\omega^2$, namely
+corresponding to \textit{plane-waves} with wavenumber vector $\mathbf{k}$, circular frequency $\omega$, and amplitude $\hat{\bv}$ that is spatially independent. This reduces Equation~\eqref{homogeneous wave eqn} to an eigenvalue problem with eigenfrequency $\omega^2$, namely
 \begin{equation}
 	\omega^2\hat{\bv} = c_0^2\mathbf{k}(\mathbf{k}\cdot\hat{\bv}) + \frac{1}{\mu\rho_0}(\mathbf{k}\times(\mathbf{k}\times(\hat{\bv}\times\bB_0)))\times\bB_0. \label{homogeneous wave eqn 2}
 \end{equation}
@@ -309,22 +309,26 @@ where we have defined $k^2 = k_x^2 + k_z^2$.
 
 The first set of solutions to Equation~\eqref{det sol} are $\omega = \pm k_zv_A$. These solutions correspond to forward and backwards propagating \textit{Alfv\'{e}n waves}. They are transverse oscillations of the magnetic field that propagate parallel to the magnetic field. They are described as purely magnetic waves because they are not associated with density perturbation.
 
-The second set of solutions to Equation~\eqref{det sol} are 
-
-
-
-
-\subsubsection{Linearised ideal magnetohydrodynamic equations}
-
+The second set of solutions to Equation~\eqref{det sol} are
+\begin{equation}
+	\omega^2 = \frac{1}{2}k^2(c_0^2 + v_A^2)\left(1 \pm \sqrt{1 - 4c_T^2\frac{k_z^2}{k^2}}\right),
+\end{equation}
+where $c_T = c_0^2v_A^2/\sqrt{c_0^2 + v_A^2}$ is the \textit{tube speed}, so called because it is the phase speed of slow waves in a thin magnetic flux tube (see Section~\ref{sec: MHD waves tube}). These solutions correspond \textit{magnetoacoustic waves}, which are oscillations restored by a combination of both the pressure gradient and Lorentz forces. The solutions with the higher frequency (and hence faster phase speed) are known as \textit{fast magnetoacoustic waves} and the solutions with the lower frequency are known as \textit{slow magnetoacoustic waves}. Physically, perturbations in the fast mode are restored by the pressure gradient and Lorentz forces working in phase, whereas perturbations in the slow mode are restored by the forces working in anti-phase, leading to a less strong restoring force for slow modes.
 
 
 \subsection{Magnetohydrodynamic waves in inhomogeneous plasma}
+The Sun's atmosphere is far from homogeneous. To progress towards an understanding of MHD waves in the solar atmosphere, we must study MHD waves in simple inhomogeneous plasma.
 
-\subsubsection{Tangential interface}
+In this subsection, we review the linear MHD waves along simple inhomogeneous structures: a tangential interface (Section~\ref{sec: MHD waves interface}), a symmetric slab (Section~\ref{sec: MHD waves sym slab}), and a magnetic flux tube (Section~\ref{sec: MHD waves tube}).
 
-\subsubsection{Symmetric slab}
+\text{red}{Consider adding a figure showing an interface, slab, and tube.}
 
-\subsubsection{Cylinder}
+
+\subsubsection{Tangential interface} \label{sec: MHD waves interface}
+
+\subsubsection{Symmetric slab} \label{sec: MHD waves sym slab}
+
+\subsubsection{Magnetic flux tube} \label{sec: MHD waves tube}
 
 %------------------------------------------------------------------------------
 \section{Thesis outline}
