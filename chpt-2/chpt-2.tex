@@ -183,9 +183,9 @@ To ensure that the model is in equilibrium, the total pressure in each external 
 \begin{equation}
 	p_1 + \frac{B_1^2}{2\mu_0} = p_0 + \frac{B_0^2}{2\mu_0} = p_2 + \frac{B_2^2}{2\mu_0}, \label{pressure balance}
 \end{equation}
-where $\mu_0$ is the permeability of free space. Defining the sound speed in each region by $c_j=\sqrt{\gamma p_j/\rho_j}$ for $j = 0, 1, 2$, where $\gamma$ is the adiabatic index\footnote{The adiabatic index is assumed uniform across the whole domain under the single-fluid approximation.}, we can rewrite Equation~\eqref{pressure balance} as \textcolor{red}{change to mag outside}
+where $\mu_0$ is the permeability of free space. Defining the sound speed in each region by $c_j=\sqrt{\gamma p_j/\rho_j}$ for $j = 0, 1, 2$, where $\gamma$ is the adiabatic index\footnote{The adiabatic index is assumed uniform across the whole domain under the single-fluid approximation.}, we can rewrite Equation~\eqref{pressure balance} as
 \begin{equation}
-\frac{c_1^2}{c_2^2}=\frac{\rho_2}{\rho_1}. \label{sound speeds}
+\rho_i\left(c_i^2 + \frac{\gamma}{2}v_{Ai}^2\right) = \rho_j\left(c_j^2 + \frac{\gamma}{2}v_{Aj}^2\right). \label{sound speeds}
 \end{equation}
 
 
@@ -222,7 +222,7 @@ B\cosh{m_0x} + C\sinh{m_0x}, & \text{if } |x| \leq {x_0}, \\
 D(\cosh{m_2x} - \sinh{m_2x}), & \text{if  } x > x_0, 
 \end{cases} \label{vsoln}
 \end{equation}
-where $A$, $B$, $C$, and $D$ are arbitrary constants (with respect to $x$). The plasma pressure perturbation can be assumed to be of the form $p(\mathbf{x},t)=\hat{p}(x)e^{i(kz - \omega t)}$, then the total pressure perturbation amplitude across the whole domain is
+where $A$, $B$, $C$, and $D$ are arbitrary constants (with respect to $x$). The plasma pressure perturbation can be assumed to be of the form $p(\mathbf{x},t)=\hat{p}(x)e^{i(kz - \omega t)}$, then the perturbation in total pressure (plasma pressure plus magnetic pressure) across the whole domain has amplitude
 \begin{equation}
 \hat{P}(x) = \hat{v}_x'(x)
 \begin{cases}
@@ -266,13 +266,14 @@ D
 \end{equation}
 where $c_j = \cosh{m_jx_0}$ and $s_j = \sinh{m_jx_0}$ for $j=0,1,2$, for brevity. The condition for the existence of non-trivial solutions to this system of equations is that the determinant of the matrix is zero. Applying this condition gives us the dispersion relation for an asymmetric slab, namely
 \begin{equation}
-2(\Lambda_0^2+\Lambda_1\Lambda_2)+\Lambda_0(\Lambda_1+\Lambda_2)\left(\tanh{m_0x_0}+\coth{m_0x_0}\right)=0. \label{DR lambda}
+(\Lambda_0^2 + \Lambda_1\Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)\coth{2m_0x_0} = 0. \label{DR lambda}
 \end{equation}
-By expanding $\Lambda_j$, we can write this as \textcolor{red}{change to mag outside}
+By expanding $\Lambda_j$, we can write this as
 \begin{align}
-&\omega^4m_0^2+\frac{\rho_0}{\rho_1}m_1\frac{\rho_0}{\rho_2}m_2(k^2v_\textrm{A}^2-\omega^2)^2 \notag \\
-&-\frac{1}{2}m_0\omega^2(k^2v_\textrm{A}^2-\omega^2)\left(\frac{\rho_0}{\rho_1}m_1+\frac{\rho_0}{\rho_2}m_2\right)\left(\tanh{m_0x_0}+\coth{m_0x_0}\right)=0. \label{DR}
+&m_0^2(k^2v_{A1}^2 - \omega^2)(k^2v_{A1}^2 - \omega^2) + \frac{\rho_0}{\rho_1}m_1\frac{\rho_0}{\rho_2}m_2(k^2v_\textrm{A0}^2 - \omega^2)^2 \notag \\
+& + m_0(k^2v_\textrm{A0}^2-\omega^2)\left[\frac{\rho_0}{\rho_1}m_1(k^2v_{A2}^2 - \omega^2) + \frac{\rho_0}{\rho_2}m_2(k^2v_{A1}^2 - \omega^2)\right]\coth{2m_0x_0} = 0. \label{DR}
 \end{align}
+
 
 \subsubsection{First-order symmetric slab}
 
@@ -282,13 +283,39 @@ Under the approximation that the densities and temperatures of the external plas
 \begin{equation}
 \left[\Lambda_0(\Lambda_1+\Lambda_2)+2\Lambda_1\Lambda_2\tanh{m_0x_0}\right]\left[\Lambda_0(\Lambda_1+\Lambda_2)+2\Lambda_1\Lambda_2\coth{m_0x_0}\right]=0.
 \end{equation}
+To show this, define each bracket as the following functions
+\begin{align}
+D_k(\omega) &:= \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth{m_0x_0}, \\
+D_s(\omega) &:= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh{m_0x_0}.
+\end{align}
+There product is then
+\begin{align}
+D_k(\omega) D_s(\omega) &= \left[ \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth{m_0x_0} \right] \left[ \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh{m_0x_0} \right] \\
+&= \Lambda_0^2 (\Lambda_1 + \Lambda_2)^2 + 2\Lambda_0(\Lambda_1 + \Lambda_2)\Lambda_1\Lambda_2(\tanh{m_0x_0} + \coth{m_0x_0}) + 4\Lambda_1^2\Lambda_2^2 \\
+&= 4\Lambda_1\Lambda_2 \left[ (\Lambda_0^2F + \Lambda_1\Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)\coth(2m_0x_0) \right] \\
+\end{align}
+where
+\begin{equation}
+F = \frac{(\Lambda_1 + \Lambda_2)^2}{4\Lambda_1\Lambda_2},
+\end{equation}
+which, when the conditions on each side of the slab are approximately symmetric, \textit{i.e.} $\Lambda_2 = \Lambda_1 (1 + \epsilon L)$, with $\epsilon \ll 1$ and $L \approx 1$, becomes
+\begin{equation}
+F = \frac{(2 + \epsilon L)^2}{4(1 + \epsilon L)} = 1 + \mathcal{O}(\epsilon^2).
+\end{equation}
+Therefore, 
+\begin{align}
+D(\omega) &= (\Lambda_0^2 + \Lambda_1\Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)\coth(2m_0x_0), \\
+&= \frac{1}{4\Lambda_1\Lambda_2} D_k(\omega) D_s(\omega) + \mathcal{O}(\epsilon^2).
+\end{align}
+Therefore, to linear order, the approximate dispersion relation is satisfied if the waveguide asymmetry is small.
+
 The expressions for the variables $\Lambda_i$ for $i=0,1,2$ in Equations~\eqref{Lambdas} can be employed to yield the approximately symmetric dispersion relation
 \begin{equation}
-(k^2v_\textrm{A}^2-\omega^2)\left(\frac{\rho_0}{\rho_1}m_1+\frac{\rho_0}{\rho_2}m_2\right)=2\omega^2m_0\left(\hspace{-0.06in}\begin{matrix}&\tanh \\&\coth \end{matrix}\right)(m_0x_0). \label{DRapprox}
+(k^2v_\textrm{A0}^2-\omega^2)\left(\frac{\rho_0}{\rho_1}\frac{m_1}{(k^2v_\textrm{A1}^2-\omega^2)} + \frac{\rho_0}{\rho_2}\frac{m_2}{k^2v_\textrm{A2}^2-\omega^2}\right) + 2m_0\left(\begin{matrix}\tanh \\ \coth \end{matrix}\right)(m_0x_0) = 0. \label{DRapprox}
 \end{equation}
 This equation is now in an analogous form to the dispersion relation corresponding to MHD waves along a symmetric magnetic slab \citep{rob81b}, namely
 \begin{equation}
-(k^2v_\textrm{A}^2-\omega^2)\frac{\rho_0}{\rho_\textrm{e}}m_\textrm{e}=\omega^2m_0\left(\hspace{-0.06in}\begin{matrix}&\tanh \\&\coth \end{matrix}\right)(m_0x_0), \label{DRsym}
+(k^2v_\textrm{A}^2-\omega^2)\frac{\rho_0}{\rho_\textrm{e}}m_\textrm{e}=\omega^2m_0\left(\begin{matrix}\tanh \\ \coth \end{matrix}\right)(m_0x_0), \label{DRsym}
 \end{equation}
 where external parameters are denoted by subscript $\textrm{e}$.
 
@@ -298,7 +325,7 @@ where external parameters are denoted by subscript $\textrm{e}$.
 \label{sec: EVP non-mag}
 %------------------------------------------------------------------------------
 
-In the present case, we let $B_1 = B_2 = 0$ so that the plasma in the environment is non-magnetic.
+By letting $B_1 = B_2 = 0$, the plasma in the external regions is non-magnetic.
 
 \subsection{Analytical solutions}
 
