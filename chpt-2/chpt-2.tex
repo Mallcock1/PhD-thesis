@@ -1,5 +1,5 @@
 \documentclass[12pt]{../style-files/ociamthesis}
- 
+
 \usepackage{amssymb}
 \usepackage{titlesec}
 \usepackage{amsmath}
@@ -19,6 +19,91 @@
 \usepackage{tikz}
 \usetikzlibrary{fadings}
 \usetikzlibrary{snakes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the following is to alter tikz settings to improve springs figure.
+\usetikzlibrary{decorations.pathmorphing,calc,patterns}
+\makeatletter
+\def\pgfdecorationspringstraightlinelength{0.5cm}
+\def\pgfdecorationspringnumberofelement{8}
+\def\pgfdecorationspringnaturallength{5cm}
+\pgfkeys{%
+	/pgf/decoration/.cd,
+	spring straight line length/.code={%
+		\pgfmathsetlengthmacro\pgfdecorationspringstraightlinelength{#1}},
+	spring natural length/.code={%
+		\pgfmathsetlengthmacro\pgfdecorationspringnaturallength{#1}},
+	spring number of element/.store in=\pgfdecorationspringnumberofelement
+}
+
+\pgfdeclaredecoration{coil spring}{straight line}{%
+	\state{straight line}[%
+	persistent precomputation = {%
+		% Compute the effective length of the spring (without the length
+		% of the two straight lines): \pgfdecorationspringeffectivelength
+		\pgfmathsetlengthmacro{\pgfdecorationspringeffectivelength}%
+		{\pgfdecoratedpathlength-2*\pgfdecorationspringstraightlinelength}
+		% Compute the effective length of one coil pattern:
+		% \pgfdecorationspringeffectivelengthofonecoil
+		\pgfmathsetlengthmacro{\pgfdecorationspringeffectivelengthofonecoil}%
+		{\pgfdecorationspringeffectivelength/\pgfdecorationspringnumberofelement}
+	},
+	width = \pgfdecorationspringstraightlinelength,
+	next state = draw spring]{%
+		\pgfpathlineto{%
+			\pgfqpoint{%
+				\pgfdecorationspringstraightlinelength}{0pt}}
+	}
+	\state{draw spring}%
+	[width=\pgfdecorationspringeffectivelengthofonecoil,
+	repeat state=\pgfdecorationspringnumberofelement-1,next state=final]{%
+		\pgfpathcurveto
+		{\pgfpoint@onspringcoil{0    }{ 0.555}{1}}
+		{\pgfpoint@onspringcoil{0.445}{ 1    }{2}}
+		{\pgfpoint@onspringcoil{1    }{ 1    }{3}}
+		\pgfpathcurveto
+		{\pgfpoint@onspringcoil{1.555}{ 1    }{4}}
+		{\pgfpoint@onspringcoil{2    }{ 0.555}{5}}
+		{\pgfpoint@onspringcoil{2    }{ 0    }{6}}
+		\pgfpathcurveto
+		{\pgfpoint@onspringcoil{2    }{-0.555}{7}}
+		{\pgfpoint@onspringcoil{1.555}{-1    }{8}}
+		{\pgfpoint@onspringcoil{1    }{-1    }{9}}
+		\pgfpathcurveto
+		{\pgfpoint@onspringcoil{0.445}{-1    }{10}}
+		{\pgfpoint@onspringcoil{0    }{-0.555}{11}}
+		{\pgfpoint@onspringcoil{0    }{ 0    }{12}}
+	}
+	\state{final}{%
+		\pgfpathlineto{\pgfpointdecoratedpathlast}
+	}
+}
+
+\def\pgfpoint@onspringcoil#1#2#3{%
+	\pgf@x=#1\pgfdecorationsegmentamplitude%
+	\pgf@x=.5\pgf@x%
+	\pgf@y=#2\pgfdecorationsegmentamplitude%
+	\pgfmathparse{0.083333333333*\pgfdecorationspringeffectivelengthofonecoil}%
+	\pgf@xa=\pgfmathresult pt
+	\advance\pgf@x by#3\pgf@xa%
+}
+
+\makeatother
+
+\tikzset{%
+	Spring/.style = {%
+		decoration = {%
+			coil spring,
+			spring straight line length = 0.2cm,
+			% To be added
+			spring natural length = #1,
+			spring number of element = 4,
+			amplitude=2mm},
+		decorate,
+		very thick},
+	Spring/.default = {4cm}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \usepackage{geometry}
  \geometry{
@@ -102,7 +187,7 @@ Section~\ref{sec: EVP non-mag} is based on \cite{all_etal17} and Section~\ref{se
 \label{sec: asym slab}
 %------------------------------------------------------------------------------
 \subsection{Model description}
-Figure~\ref{fig:eq} illustrates the construction of this mathematical model, where a three-dimensional, unbounded, inviscid plasma is separated into three regions by two parallel planar interfaces at $x = \pm x_0$. The magnetic field is in the $z$-direction and has magnitude
+Figure~\ref{fig:eq} illustrates the construction of this mathematical model, where a three-dimensional, unbounded, inviscid plasma is separated into three regions by two parallel planar interfaces at $x = \pm x_0$. The equilibrium magnetic field is in the $z$-direction and has magnitude
 \begin{equation}
 	B(x)=
 	\begin{cases}
@@ -111,7 +196,7 @@ Figure~\ref{fig:eq} illustrates the construction of this mathematical model, whe
 		B_2 & \text{if } x > x_0,
 	\end{cases}
 \end{equation}
-where $B_j$, for $j = 0, 1, 2$ are constant. Within each region, denoted by subscripts 0, 1, and 2, the plasma is uniform and the equilibrium plasma pressure, density, and temperature are denoted by $p_j$, $\rho_j$, and $T_j$, respectively, for $j = 0, 1, 2$.
+where $B_j$, for $j = 0, 1, 2$ are constant. Within each region, denoted by subscripts 0, 1, and 2, the plasma is uniform and the equilibrium plasma pressure, density, and temperature are denoted by $p_j$, $\rho_j$, and $T_j$, respectively, for $j = 0, 1, 2$. This defines an \textit{isolated} waveguide, by which we mean there is no adjacent waveguides that can effect the oscillations.
 
 \begin{figure}
 	\centering
@@ -194,7 +279,7 @@ where $\mu_0$ is the permeability of free space. Defining the sound speed in eac
 In the derivation of the dispersion relation, we decompose the linearised ideal MHD equations into Fourier forms then combine them into an ordinary differential equation (ODE) for the transverse velocity perturbation for each of the three plasma regions. After finding the general solution to each of these ODEs, we match the solutions across each interface at $\pm x_0$. The condition for the existence of non-trivial solutions will lead to the dispersion relation. In mathematical terms, we're converting a set of partial differential equations into ordinary differential equations into algebraic equations, into a single equation. From a form we cannot solve into a form we can.
 
 
-\subsubsection{Derivation}
+\subsubsection{Derivation} \label{sec: asym slab DR der}
 
 After linearising about a static equilibrium state, we can combine the governing equations and seek solutions of the form
 \begin{equation}
@@ -281,37 +366,36 @@ There is an intrinsic difference between perturbations along symmetric and asymm
 
 Under the approximation that the densities and temperatures of the external plasma are of the same order, the dispersion relation, Equation~\eqref{DR}, can be factorised to give the approximate dispersion relation
 \begin{equation}
-\left[\Lambda_0(\Lambda_1+\Lambda_2)+2\Lambda_1\Lambda_2\tanh{m_0x_0}\right]\left[\Lambda_0(\Lambda_1+\Lambda_2)+2\Lambda_1\Lambda_2\coth{m_0x_0}\right]=0.
+\left[\Lambda_0(\Lambda_1+\Lambda_2)+2\Lambda_1\Lambda_2\tanh{m_0x_0}\right]\left[\Lambda_0(\Lambda_1+\Lambda_2)+2\Lambda_1\Lambda_2\coth{m_0x_0}\right]=0. \label{DR approx lambda}
 \end{equation}
 To show this, define each bracket as the following functions
 \begin{align}
-D_k(\omega) &:= \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth{m_0x_0}, \\
-D_s(\omega) &:= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh{m_0x_0}.
+D_s(\omega) &:= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh{m_0x_0}, \\
+D_k(\omega) &:= \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth{m_0x_0}.
 \end{align}
-There product is then
+There product is
 \begin{align}
-D_k(\omega) D_s(\omega) &= \left[ \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth{m_0x_0} \right] \left[ \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh{m_0x_0} \right] \\
+D_s(\omega)D_k(\omega) &= \left[ \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh{m_0x_0} \right] \left[ \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth{m_0x_0} \right] \\
 &= \Lambda_0^2 (\Lambda_1 + \Lambda_2)^2 + 2\Lambda_0(\Lambda_1 + \Lambda_2)\Lambda_1\Lambda_2(\tanh{m_0x_0} + \coth{m_0x_0}) + 4\Lambda_1^2\Lambda_2^2 \\
 &= 4\Lambda_1\Lambda_2 \left[ (\Lambda_0^2F + \Lambda_1\Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)\coth(2m_0x_0) \right] \\
 \end{align}
 where
 \begin{equation}
-F = \frac{(\Lambda_1 + \Lambda_2)^2}{4\Lambda_1\Lambda_2},
+F = \frac{(\Lambda_1 + \Lambda_2)^2}{4\Lambda_1\Lambda_2}.
 \end{equation}
-which, when the conditions on each side of the slab are approximately symmetric, \textit{i.e.} $\Lambda_2 = \Lambda_1 (1 + \epsilon L)$, with $\epsilon \ll 1$ and $L \approx 1$, becomes
+When the plasma parameters on each side of the slab are approximately equal, \textit{i.e.} $\Lambda_2 = \Lambda_1 (1 + \epsilon L)$, with $\epsilon \ll 1$ and $L \approx 1$, $F$ becomes
 \begin{equation}
 F = \frac{(2 + \epsilon L)^2}{4(1 + \epsilon L)} = 1 + \mathcal{O}(\epsilon^2).
 \end{equation}
 Therefore, 
-\begin{align}
-D(\omega) &= (\Lambda_0^2 + \Lambda_1\Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)\coth(2m_0x_0), \\
-&= \frac{1}{4\Lambda_1\Lambda_2} D_k(\omega) D_s(\omega) + \mathcal{O}(\epsilon^2).
-\end{align}
-Therefore, to linear order, the approximate dispersion relation is satisfied if the waveguide asymmetry is small.
+\begin{equation}
+(\Lambda_0^2 + \Lambda_1\Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)\coth(2m_0x_0) = \frac{1}{4\Lambda_1\Lambda_2} D_s(\omega) D_k(\omega) + \mathcal{O}(\epsilon^2).
+\end{equation}
+Therefore, to linear order of waveguide asymmetry, if the dispersion relation, Equation~\eqref{DR lambda} is satisfied, then either $D_s(\omega) = 0$ or $D_k(\omega) = 0$, which completes the proof of Equation~\eqref{DR approx lambda}.
 
 The expressions for the variables $\Lambda_i$ for $i=0,1,2$ in Equations~\eqref{Lambdas} can be employed to yield the approximately symmetric dispersion relation
 \begin{equation}
-(k^2v_\textrm{A0}^2-\omega^2)\left(\frac{\rho_0}{\rho_1}\frac{m_1}{(k^2v_\textrm{A1}^2-\omega^2)} + \frac{\rho_0}{\rho_2}\frac{m_2}{k^2v_\textrm{A2}^2-\omega^2}\right) + 2m_0\left(\begin{matrix}\tanh \\ \coth \end{matrix}\right)(m_0x_0) = 0. \label{DRapprox}
+(k^2v_\textrm{A0}^2-\omega^2)\left(\frac{\rho_0}{\rho_1}\frac{m_1}{(k^2v_\textrm{A1}^2-\omega^2)} + \frac{\rho_0}{\rho_2}\frac{m_2}{(k^2v_\textrm{A2}^2-\omega^2)}\right) + 2m_0\left(\begin{matrix}\tanh \\ \coth \end{matrix}\right)(m_0x_0) = 0. \label{DRapprox}
 \end{equation}
 This equation is now in an analogous form to the dispersion relation corresponding to MHD waves along a symmetric magnetic slab \citep{rob81b}, namely
 \begin{equation}
@@ -320,14 +404,341 @@ This equation is now in an analogous form to the dispersion relation correspondi
 where external parameters are denoted by subscript $\textrm{e}$.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Asymmetric eigenmodes}
+\textcolor{red}{need to go through and check/change/reference prev sections fro this bit}
+
+There is a rich spectrum of MHD waves supported by a magnetic slab. In a symmetric slab, the dispersion relation, Equation~\eqref{DRsym}, consists of two decoupled equations that correspond to the two types of fundamental wave supported by the slab: the ``sausage" and ``kink" MHD waves. Sausage and kink modes have been observed, for example, in chromospheric fibrils, where the ubiquity of these waves has been linked to coronal heating \citep{mor12}.
+
+Sausage and kink modes can be further categorised into ``surface" and ``body" modes. Surface modes are waves more enhanced at the slab boundaries, whereas body waves are characterised by oscillations permeating spatially throughout the slab, having their maximum amplitude within the slab. Mathematically, surface waves correspond to exponential solutions of Equation~\eqref{O}, that is, they exist when $m_0^2>0$, which occurs when the phase speed $\omega/k$ satisfies
+\begin{equation}
+\frac{\omega}{k}<c_\textrm{T} \quad \text{or} \quad \text{min}\{c_0, v_\textrm{A}\}<\frac{\omega}{k}<\text{max}\{c_0, v_\textrm{A}\}.
+\end{equation}
+Body waves correspond to spatially oscillatory solutions (\textit{i.e.} they can have nodes inside the slab), that is, they exist when $m_0^2<0$, which occurs when
+\begin{equation}
+c_\textrm{T}<\frac{\omega}{k}<\text{min}\{c_0, v_\textrm{A}\} \quad \text{or} \quad \text{max}\{c_0, v_\textrm{A}\}<\frac{\omega}{k}. \label{bconditions}
+\end{equation}
+
+For an asymmetric slab, the sausage and kink modes are modified by the external density difference, causing an asymmetry of the oscillation amplitude on each side of the slab (for visualisation see Figures~\ref{fig:saus} and~\ref{fig:kink}). We call these asymmetric eigenmodes quasi-sausage and quasi-kink modes. In a symmetric slab, sausage modes are characterised by a line of zero perturbation at the centre of the slab. In an asymmetric slab, this line is shifted towards the side of greatest external density. For symmetric kink modes, the width of the perturbed slab remains constant along the slab, but this characteristic is dropped in an asymmetric slab. This highlights the mixed nature of these modes.
+
+\begin{figure}
+	\makebox[\textwidth][c]{
+		\subfloat[Quasi-kink]{\scalebox{1}{
+				\begin{tikzpicture}[scale=0.78]
+				\draw [->] (0,0) -- (7,0);
+				
+				\shade[bottom color=lightgray,top color=white, opacity=0.7] (1.5,2) to [out=-90,in=90] (2.5,0.75) to (5.25,0.75) to [out=90,in=-90] (4.75,2) to (1.5,2);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.7] (2.5,0.75) to (5.25,0.75) to [out=-90,in=90] (4.75,-0.5) to (1.5,-0.5) to [out=90,in=-90] (2.5,0.75);
+				
+				\draw [thick] (1.5,2) to [out=-90,in=90] (2.5,0.75) to [out=-90,in=90] (1.5,-0.5);
+				\draw [thick] (4.75,2) to [out=-90,in=90] (5.25,0.75) to [out=-90,in=90] (4.75,-0.5);
+				
+				\draw [thick, red, -stealth] (2.0417,-0.5) to [out=90,in=-90] (2.9583, 0.75) to [out=90,in=-90] (2.0417,2);
+				\draw [thick, red, -stealth] (2.5833,-0.5) to [out=90,in=-90] (3.4167, 0.75) to [out=90,in=-90] (2.5833,2);
+				\draw [thick, red, -stealth] (3.125,-0.5) to [out=90,in=-90] (3.875, 0.75) to [out=90,in=-90] (3.125,2);
+				\draw [thick, red, -stealth] (3.6667,-0.5) to [out=90,in=-90] (4.3333, 0.75) to [out=90,in=-90] (3.6667,2);
+				\draw [thick, red, -stealth] (4.2083,-0.5) to [out=90,in=-90] (4.7917, 0.75) to [out=90,in=-90] (4.2083,2);
+				
+				\draw [thick, dashed, opacity=0.5] (2.5,2) to [out=-90,in=90] (1.5,0.75) to [out=-90,in=90] (2.5,-0.5);
+				\draw [thick, dashed, opacity=0.5] (5.25,2) to [out=-90,in=90] (4.75,0.75) to [out=-90,in=90] (5.25,-0.5);
+				
+				% % % % % % % % % % % % % % % % % % % % % % % % % %
+				
+				\draw [->] (0,0) -- (0,2);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node at (3.65,0.8) {$\rho_0$};
+				
+				\footnotesize
+				\node [below] at (2,-0.5) {$-x_0$};
+				\node [below] at (5,-0.5) {$x_0$};
+				
+				\node [left] at (0,2) {$z$};
+				\node [below] at (7,0) {$x$};
+				\draw [-] (2,-0.5) -- (2,2);
+				\draw [-] (5,-0.5) -- (5,2);
+				\end{tikzpicture}
+				\label{fig:saus}}}
+		%
+		%
+		%
+		%
+		\subfloat[Quasi-sausage]{\scalebox{1}{
+				\begin{tikzpicture}[scale=0.78]
+				\draw [->] (0,0) -- (7,0);
+				
+				\shade[bottom color=lightgray,top color=white, opacity=0.7] (1.75,2) to [out=-90,in=90] (2.25,0.75) to (4.5,0.75) to [out=90,in=-90] (5.5,2) to (1.75,2);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.7] (2.25,0.75) to (4.5,0.75) to [out=-90,in=90] (5.5,-0.5) to (1.75,-0.5) to [out=90,in=-90] (2.25,0.75);
+				
+				\draw [thick] (1.75,2) to [out=-90,in=90] (2.25,0.75) to [out=-90,in=90] (1.75,-0.5);
+				\draw [thick, dashed, opacity=0.5] (4.5,2) to [out=-90,in=90] (5.5,0.75) to [out=-90,in=90] (4.5,-0.5);
+				
+				\draw [thick, red, -stealth] (2.375,-0.5) to [out=90,in=-90] (2.625, 0.75) to [out=90,in=-90] (2.375,2);
+				\draw [thick, red, -stealth] (3,-0.5) to [out=90,in=-90] (3, 0.75) to [out=90,in=-90] (3,2);
+				\draw [thick, red, -stealth] (3.625,-0.5) to [out=90,in=-90] (3.375, 0.75) to [out=90,in=-90] (3.625,2);
+				\draw [thick, red, -stealth] (4.25,-0.5) to [out=90,in=-90] (3.75, 0.75) to [out=90,in=-90] (4.25,2);
+				\draw [thick, red, -stealth] (4.875,-0.5) to [out=90,in=-90] (4.125, 0.75) to [out=90,in=-90] (4.875,2);
+				
+				\draw [thick, dashed, opacity=0.5] (2.25,2) to [out=-90,in=90] (1.75,0.75) to [out=-90,in=90] (2.25,-0.5);
+				\draw [thick] (5.5,2) to [out=-90,in=90] (4.5,0.75) to [out=-90,in=90] (5.5,-0.5);
+				
+				% % % % % % % % % % % % % % % % % % % % % % % % % %
+				
+				\draw [->] (0,0) -- (0,2);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node [right] at (2.86,1.3) {$\rho_0$};
+				
+				\footnotesize
+				\node [below] at (2,-0.5) {$-x_0$};
+				\node [below] at (5,-0.5) {$x_0$};
+				
+				\node [left] at (0,2) {$z$};
+				\node [below] at (7,0) {$x$};
+				\draw [-] (2,-0.5) -- (2,2);
+				\draw [-] (5,-0.5) -- (5,2);
+				\end{tikzpicture}
+				\label{fig:kink}}}}
+	\caption{Quasi-kink and quasi-sausage modes with external density ordering $\rho_1>\rho_2$. The red lines illustrate the perturbed magnetic field, the thick solid black lines illustrate the perturbed slab boundaries, and the dashed lines illustrate the future position of the slab boundaries after half a period.}
+\end{figure} 
+
+The surface and body properties also take a modified form in an asymmetric slab. For a surface mode (for visualisation see Figures~\ref{fig:surf quasi-kink} and~\ref{fig:surf quasi-saus}), the wave power distribution across the slab has a single minimum. The displacement of this minimum from the centre of the slab is a consequence of the asymmetry in the external plasma. The intensity of the maximum amplitudes on the left and right boundaries of the slab ($x=\pm{}x_0$) is different, reflecting the asymmetry in the external plasma.
+
+Body modes are also affected by the asymmetric external environment (for visualisation see Figures~\ref{fig:body quasi-kink} and~\ref{fig:body quasi-saus}). Local maxima and minima in wave power are shifted towards the external plasma of higher density for a quasi-kink body mode and towards the external plasma of lower density for a quasi-sausage mode. However, body modes depend only weakly on the external plasma parameters and are less affected than surface modes. This is shown analytically in Sections~\ref{sec:thin} and~\ref{sec:wide}.
+
+\begin{figure}
+	\makebox[\textwidth][c]{
+		\subfloat[Quasi-kink surface mode]{\scalebox{1}{
+				\begin{tikzpicture}[scale=0.76]
+				\path [fill=lightgray, opacity=0.5] (2,-1.5) -- (2,1.5) -- (5,1.5) -- (5,-1.5) -- (2,-1.5);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.5] (2,-2) to (5,-2) to (5,-1.5) to (2,-1.5) to (2,-2);
+				
+				\shade[top color=white,bottom color=lightgray, opacity=0.5] (2,2) to (5,2) to (5,1.5) to (2,1.5) to (2,2);
+				
+				\draw [-] (2,-2) -- (2,2);
+				\draw [-] (5,-2) -- (5,2);
+				
+				\draw [ultra thick, red, -stealth,opacity=0.7] (2.5,-1.5) -- (2.5,2);
+				\draw [ultra thick, red, path fading=south, opacity=0.5] (2.5,-2) -- (2.5,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (3,-1.5) -- (3,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (3,-2) -- (3,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (3.5,-1.5) -- (3.5,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (3.5,-2) -- (3.5,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (4,-1.5) -- (4,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (4,-2) -- (4,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (4.5,-1.5) -- (4.5,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (4.5,-2) -- (4.5,-1.5);
+				
+				\draw [thick] (0,0.2) to [out=10, in=245] (2, 1.5) to [out=295, in=180] (4,0.1) to [out=0, in=230] (5,0.5) to [out=300, in=178] (6.2,0.04) to [out=358, in=180] (7,0.02);
+				
+				\draw [->] (0,0) -- (0,2);
+				\draw [->] (0,0) -- (7,0);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node [right] at (2.88,1.3) {$\rho_0$};
+				
+				\footnotesize
+				\node [below left] at (2.1,0) {$-x_0$};
+				\node [below left] at (5.1,0) {$x_0$};
+				
+				\node [left] at (0,2) {$\widehat{v}_x$};
+				\node [below] at (7,0) {$x$};
+				\end{tikzpicture}
+				\label{fig:surf quasi-kink}}}
+		%
+		%
+		%
+		%
+		\subfloat[Quasi-sausage surface mode]{\scalebox{1}{
+				\begin{tikzpicture}[scale=0.76]
+				\path [fill=lightgray, opacity=0.5] (2,-1.5) -- (2,1.5) -- (5,1.5) -- (5,-1.5) -- (2,-1.5);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.5] (2,-2) to (5,-2) to (5,-1.5) to (2,-1.5) to (2,-2);
+				
+				\shade[top color=white,bottom color=lightgray, opacity=0.5] (2,2) to (5,2) to (5,1.5) to (2,1.5) to (2,2);
+				
+				\draw [-] (2,-2) -- (2,2);
+				\draw [-] (5,-2) -- (5,2);
+				
+				\draw [ultra thick, red, -stealth,opacity=0.7] (2.5,-1.5) -- (2.5,2);
+				\draw [ultra thick, red, path fading=south, opacity=0.5] (2.5,-2) -- (2.5,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (3,-1.5) -- (3,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (3,-2) -- (3,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (3.5,-1.5) -- (3.5,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (3.5,-2) -- (3.5,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (4,-1.5) -- (4,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (4,-2) -- (4,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (4.5,-1.5) -- (4.5,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (4.5,-2) -- (4.5,-1.5);
+				
+				\draw [thick] (0,0.025) to [out=0, in=-178] (1.2, 0.05) to [out=2, in=-120] (2,0.5) to [out=-50, in=165] (3,0) to [out=-15, in=115] (5,-1.5) to [out=65, in=-170] (7,-0.2);
+				\draw [->] (0,0) -- (0,2);
+				\draw [->] (0,0) -- (7,0);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node [right] at (2.88,1.3) {$\rho_0$};
+				
+				\footnotesize
+				\node [below left] at (2.1,0) {$-x_0$};
+				\node [below left] at (5.1,0) {$x_0$};
+				
+				\node [left] at (0,2) {$\widehat{v}_x$};
+				\node [below] at (7,0) {$x$};
+				\end{tikzpicture}
+				\label{fig:surf quasi-saus}}}}
+	%
+	%
+	\\
+	%
+	%
+	\makebox[\textwidth][c]{
+		\subfloat[Quasi-kink body mode]{\scalebox{1}{
+				\begin{tikzpicture}[scale=0.76]
+				\path [fill=lightgray, opacity=0.5] (2,-1.5) -- (2,1.5) -- (5,1.5) -- (5,-1.5) -- (2,-1.5);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.5] (2,-2) to (5,-2) to (5,-1.5) to (2,-1.5) to (2,-2);
+				
+				\shade[top color=white,bottom color=lightgray, opacity=0.5] (2,2) to (5,2) to (5,1.5) to (2,1.5) to (2,2);
+				
+				\draw [-] (2,-2) -- (2,2);
+				\draw [-] (5,-2) -- (5,2);
+				
+				\draw [thick] (7,0.025) to [out=180, in=358] (5.5, 0.05) to [out=178, in=300] (5,0.25);
+				
+				
+				\draw [ultra thick, red, -stealth,opacity=0.7] (2.5,-1.5) -- (2.5,2);
+				\draw [ultra thick, red, path fading=south, opacity=0.5] (2.5,-2) -- (2.5,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (3,-1.5) -- (3,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (3,-2) -- (3,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (3.5,-1.5) -- (3.5,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (3.5,-2) -- (3.5,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (4,-1.5) -- (4,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (4,-2) -- (4,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (4.5,-1.5) -- (4.5,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (4.5,-2) -- (4.5,-1.5);
+				
+				\draw [thick, smooth, samples=100, domain=2:5] plot (\x,{1.6*cos(2.7*(\x+0.18) r)});
+				
+				\draw [thick] (0,0.2) to [out=10, in=245] (2, 1.5);
+				
+				\draw [->] (0,0) -- (0,2);
+				\draw [->] (0,0) -- (7,0);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node [right] at (2.88,1.3) {$\rho_0$};
+				
+				\footnotesize
+				\node [below left] at (2.1,0) {$-x_0$};
+				\node [below left] at (5.1,0) {$x_0$};
+				
+				\node [left] at (0,2) {$\widehat{v}_x$};
+				\node [below] at (7,0) {$x$};
+				\end{tikzpicture}
+				\label{fig:body quasi-kink}}}
+		%
+		%
+		%
+		%
+		\subfloat[Quasi-sausage body mode]{\scalebox{1}{
+				\begin{tikzpicture}[scale=0.76]
+				\path [fill=lightgray, opacity=0.5] (2,-1.5) -- (2,1.5) -- (5,1.5) -- (5,-1.5) -- (2,-1.5);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.5] (2,-2) to (5,-2) to (5,-1.5) to (2,-1.5) to (2,-2);
+				
+				\shade[top color=white,bottom color=lightgray, opacity=0.5] (2,2) to (5,2) to (5,1.5) to (2,1.5) to (2,2);
+				
+				\draw [-] (2,-2) -- (2,2);
+				\draw [-] (5,-2) -- (5,2);
+				
+				\draw [thick] (0,0.025) to [out=0, in=-178] (1.5, 0.05) to [out=2, in=-120] (2,0.25);
+				
+				\draw [ultra thick, red, -stealth,opacity=0.7] (2.5,-1.5) -- (2.5,2);
+				\draw [ultra thick, red, path fading=south, opacity=0.5] (2.5,-2) -- (2.5,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (3,-1.5) -- (3,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (3,-2) -- (3,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (3.5,-1.5) -- (3.5,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (3.5,-2) -- (3.5,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (4,-1.5) -- (4,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (4,-2) -- (4,-1.5);
+				\draw [ultra thick, red, -stealth,opacity=0.7] (4.5,-1.5) -- (4.5,2);
+				\draw [ultra thick, red, path fading=south,opacity=0.5] (4.5,-2) -- (4.5,-1.5);
+				
+				%\draw [thick] (2,0.5) to [out=-50, in=180] (2.3,0.25) to [out=0, in=180] (3.2,1) to [out=0, in=180] (4.1,0.1) to [out=-0, in=-120] (5,1.5);
+				
+				\draw [thick, smooth, samples=100, domain=2:5] plot (\x,{1.6*cos(3.75*(\x-0.705) r)});
+				
+				\draw [thick] (5,-1.5) to [out=65, in=-170] (7,-0.2);
+				
+				\draw [->] (0,0) -- (0,2);
+				\draw [->] (0,0) -- (7,0);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node [right] at (2.88,1.3) {$\rho_0$};
+				
+				\footnotesize
+				\node [below left] at (2.1,0) {$-x_0$};
+				\node [below left] at (5.1,0) {$x_0$};
+				
+				\node [left] at (0,2) {$\widehat{v}_x$};
+				\node [below] at (7,0) {$x$};
+				\end{tikzpicture}
+				\label{fig:body quasi-saus}}}}
+	\caption{The transverse velocity perturbation amplitude, $\widehat{v}_x$ as a function of the transverse spatial coordinate, $x$, for quasi-sausage and quasi-kink modes in an isolated magnetic slab with external density ordering $\rho_1 > \rho_2$.}
+\end{figure}
+
+
 %------------------------------------------------------------------------------
 \section{Asymmetric slab in a non-magnetic environment}
 \label{sec: EVP non-mag}
 %------------------------------------------------------------------------------
 
-By letting $B_1 = B_2 = 0$, the plasma in the external regions is non-magnetic.
+Much of the interesting physics due to waveguide asymmetry is exhibited by a magnetic slab with non-magnetic external plasma. We study this system in this Section.
+
+By letting $B_1 = B_2 = 0$, the plasma in the external regions is non-magnetic. Then the dispersion relation, Equation~\eqref{DR}, simplifies slightly to
+\begin{align}
+&m_0^2\omega^4 + \frac{\rho_0}{\rho_1}m_1\frac{\rho_0}{\rho_2}m_2(k^2v_\textrm{A0}^2 - \omega^2)^2 \notag \\
+& - m_0(k^2v_{A0}^2 - \omega^2)\left[\frac{\rho_0}{\rho_1}m_1 + \frac{\rho_0}{\rho_2}m_2\right]\coth{2m_0x_0} = 0, \label{DR non-mag}
+\end{align}
+and the dispersion relation for an approximately symmetric slab simplifies slightly to
+\begin{equation}
+(k^2v_\textrm{A0}^2-\omega^2)\left(\frac{\rho_0}{\rho_1}m_1 + \frac{\rho_0}{\rho_2}m_2\right) = 2\omega^2m_0\left(\begin{matrix}\tanh \\ \coth \end{matrix}\right)(m_0x_0) = 0. \label{DRapprox non-mag}
+\end{equation}
+
 
 \subsection{Analytical solutions}
+
+
+The full dispersion relation, Equation~\eqref{DRapprox non-mag} does not allow for 
+
 
 \subsubsection{Spurious solutions}
 
@@ -343,9 +754,7 @@ By letting $B_1 = B_2 = 0$, the plasma in the external regions is non-magnetic.
 
 \subsubsection{Varying the degree of asymmetry}
 
-\subsection{Eigenfunctions}
-
-\subsubsection{Analogy to coupled spring and mass oscillator}
+\subsection{Analogy to coupled spring and mass oscillator}
 Actually do the maths for this.
 
 
