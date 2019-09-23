@@ -351,9 +351,9 @@ Be^{-m_+x}, & \text{if } x > 0,
 \end{equation}
 where $A$ and $B$ are constant with respect to $x$. The boundary conditions across the interface are that the velocity and total (gas plus magnetic) pressure are continuous\footnote{These boundary conditions are equivalent to the familiar \textit{kinematic} and \textit{dynamic} boundary conditions on a free surface \cite{goe_etal04}.}. Applying these boundary conditions leads to a system of linear algebraic equations in the unknowns $A$ and $B$. The requirement that there exists non-trivial solutions is that the determinant of this system be zero. this gives us the dispersion relation, namely
 \begin{equation}
-	\frac{\omega^2}{k^2} = \frac{\rho_+m_-v_{A+}^2 + \rho_-m_+v_{A-}^2}{\rho_+m_- + \rho_-m_+}, \quad \text{where} \quad m_\pm^2 = \frac{(k^2v_{A\pm}^2 - \omega^2)(k^2c_\pm^2 - \omega^2)}{(c_\pm^2 + v_{A\pm}^2)(k^2c_{T\pm}^2 - \omega^2)}.
+	\frac{\omega^2}{k^2} = \frac{\rho_+m_-v_{A+}^2 + \rho_-m_+v_{A-}^2}{\rho_+m_- + \rho_-m_+}, \quad \text{where} \quad m_\pm^2 = \frac{(\omega_{A\pm}^2 - \omega^2)(\omega_\pm^2 - \omega^2)}{(c_\pm^2 + v_{A\pm}^2)(\omega_{T\pm}^2 - \omega^2)}, \label{gov eqn}
 \end{equation}
-The solutions to this equation correspond to ``surface" magnetoacoustic modes. These are modes whose eigenfunction decays exponentially away from the interface and owe their existence to the interface. The radicals in $m_\pm$ resist the use of analytical methods to find the solutions, unless further approximations are made (see Section~\ref{sec: asym slab}).
+and $\omega_{A\pm} = kv_{A\pm}$, $\omega_{\pm} = kc_{\pm}$, and $\omega_{T\pm} = kc_{T\pm}$, are each region's respective Alfv\'{e}n, sound, and tube frequency. The solutions to this equation correspond to ``surface" magnetoacoustic modes. These are modes whose eigenfunction decays exponentially away from the interface and owe their existence to the interface. The radicals in $m_\pm$ resist the use of analytical methods to find the solutions, unless further approximations are made (see Section~\ref{sec: asym slab}).
 
 There also exists shear Alfv\'{e}n modes, which we decoupled from the magnetoacoustic modes due to our choice of Fourier ansatz. Shear Alfv\'{e}n modes propagate along the magnetic field and perturb it tangentially to the interface, without perturbing the density. Since the perturbations are tangential to the interface, each magnetic isosurface, defined as a surface of constant magnetic field, is free to oscillate independently. These are local modes in that they only oscillate a strict subset of the whole domain, therefore, they do not owe their existence to the interface, and are therefore not discussed in any more detail here.
 
@@ -377,10 +377,9 @@ Following the same derivation as in Section~\ref{sec: MHD waves interface}, we c
 where
 \begin{align}
 	D_s(\omega) &= \rho_em_i(k^2v_\textrm{Ae}^2 - \omega^2)\tanh{m_ix_0} + \rho_im_e(k^2v_\textrm{Ai}^2 - \omega^2), \\
-	D_k(\omega) &= \rho_em_i(k^2v_\textrm{Ae}^2 - \omega^2)\coth{m_ix_0} + \rho_im_e(k^2v_\textrm{Ai}^2 - \omega^2).
- \label{DRsym}
+	D_k(\omega) &= \rho_em_i(k^2v_\textrm{Ae}^2 - \omega^2)\coth{m_ix_0} + \rho_im_e(k^2v_\textrm{Ai}^2 - \omega^2),
 \end{align}
-The subscript $S$ and $k$ in the above dispersion functions refer to the ``sausage" and ``kink" modes that the eigenmodes can be categorised into depending on whether each of the interfaces oscillate in anti-phase or in phase, respectively.
+where $m_i$ and $m_e$ are defined in the fashion equivalent to Equation~\eqref{gov eqn}. The subscript $s$ and $k$ in the above dispersion functions refer to the ``sausage" and ``kink" modes that the eigenmodes can be categorised into depending on whether each of the interfaces oscillate in anti-phase or in phase, respectively.
 
 Whilst the sign of $m_e^2$ must be negative to ensure that the perturbation is attenuated in the limit far from the slab, the sign of $m_i^2$ can be positive or negative. If $m_i^2 > 0$, then the transverse velocity perturbation within the slab is a linear combination of exponential functions. Modes of this type are known as surface modes. If $m_i^2 < 0$, then the transverse velocity perturbation within the slab is a linear combination of trigonometric functions. Modes of this type are known as body modes.
 
@@ -399,9 +398,23 @@ B_i & \text{if } r < r_0, \\
 B_e & \text{if } r > r_0.
 \end{cases}
 \end{equation}
-By Fourier decomposing into the form $f(\mathbf{r}) = \hat{f}(r)e^{i()}$ for each parameter, inside the tube the radial velocity perturbation obeys the equation
+We Fourier decompose each variable into the form $f(\mathbf{r}) = \hat{f}(r)e^{i(kz + m\phi - \omega t)}$. Note that this form necessitates that $m \in \mathbb{Z}$, to maintain azimuthal continuity in each variable. Then, dropping the hat for brevity, the perturbation in total pressure, $p_T$, inside the tube obeys the equation
+\begin{equation}
+	p_T'' + \frac{1}{r}p_T' - (m_i^2 + \frac{m^2}{r^2})p_T = 0.
+\end{equation}
+Outside of the tube, an equivalent equation, with subscripts $e$ is satisfied. For $m_i^2 > 0$, this is the modified Bessel's equation of order $m$ and for $m_i^2 > 0$, it is Bessel's equation of order $m$. Requiring that the perturbations approach zero far from the tube outside means that for $r > r_0$,
+\begin{equation}
+	p_T(r) = A K_m(m_e r),
+\end{equation}
+where $K_m$ is the modified Bessel function of the second kind with $m_e^2 > 0$, and $A$ is a constant to be determined (\textcolor{red}{Maybe think about this a bit more, the Bessel functions also go to zero far from the tube, but maybe they go to zero too slowly $~z^{-1/2}$. Maybe something to do with energy still being able to propagate away from the tube?}). Inside the tube, we require that the perturbation not be singular as $r \to 0$, so for $r > r_0$,
+\begin{equation}
+	p_T(r) = 
+\end{equation}
 
-\textcolor{red}{Try to get a nice explanation for getting to cylindrical governing ODE}
+Given that each kind of the modified Bessel functions of integer order, when considered as functions of their order, are even functions (\textit{i.e.} $I_{-n} (z) = I_n(z)$ and $K_{-n} (z) = K_n(z)$), modes with negative orders are identical modes to their positive order counterparts.
+
+
+
 
 Following the same derivation as in Section~\ref{sec: MHD waves interface}, we can derive the dispersion relation for transverse eigenmodes of a symmetric slab, namely
 \begin{equation}
