@@ -376,8 +376,8 @@ Following the same derivation as in Section~\ref{sec: MHD waves interface}, we c
 \end{equation}
 where
 \begin{align}
-	D_s(\omega) &= \rho_em_i(k^2v_\textrm{Ae}^2 - \omega^2)\tanh{m_ix_0} + \rho_im_e(k^2v_\textrm{Ai}^2 - \omega^2), \\
-	D_k(\omega) &= \rho_em_i(k^2v_\textrm{Ae}^2 - \omega^2)\coth{m_ix_0} + \rho_im_e(k^2v_\textrm{Ai}^2 - \omega^2),
+	D_s(\omega) &= \rho_em_i(\omega_\textrm{Ae}^2 - \omega^2)\tanh{m_ix_0} + \rho_im_e(k^2v_\textrm{Ai}^2 - \omega^2), \\
+	D_k(\omega) &= \rho_em_i(\omega_\textrm{Ae}^2 - \omega^2)\coth{m_ix_0} + \rho_im_e(k^2v_\textrm{Ai}^2 - \omega^2),
 \end{align}
 where $m_i$ and $m_e$ are defined in the fashion equivalent to Equation~\eqref{gov eqn}. The subscript $s$ and $k$ in the above dispersion functions refer to the ``sausage" and ``kink" modes that the eigenmodes can be categorised into depending on whether each of the interfaces oscillate in anti-phase or in phase, respectively.
 
@@ -402,37 +402,29 @@ We Fourier decompose each variable into the form $f(\mathbf{r}) = \hat{f}(r)e^{i
 \begin{equation}
 	p_T'' + \frac{1}{r}p_T' - (m_i^2 + \frac{m^2}{r^2})p_T = 0.
 \end{equation}
-Outside of the tube, an equivalent equation, with subscripts $e$ is satisfied. For $m_i^2 > 0$, this is the modified Bessel's equation of order $m$ and for $m_i^2 > 0$, it is Bessel's equation of order $m$. Requiring that the perturbations approach zero far from the tube outside means that for $r > r_0$,
+Outside of the tube, an equivalent equation, with subscripts $e$ is satisfied. For $m_i^2 > 0$, this is the modified Bessel's equation of integer order $m$ and for $m_i^2 > 0$, it is Bessel's equation of integer order $m$. Requiring that the perturbations approach zero far from the tube outside means that for $r > r_0$,
 \begin{equation}
-	p_T(r) = A K_m(m_e r),
+	p_T(r) = A K_m(m_e r), \label{p_T outside}
 \end{equation}
 where $K_m$ is the modified Bessel function of the second kind with $m_e^2 > 0$, and $A$ is a constant to be determined (\textcolor{red}{Maybe think about this a bit more, the Bessel functions also go to zero far from the tube, but maybe they go to zero too slowly $~z^{-1/2}$. Maybe something to do with energy still being able to propagate away from the tube?}). Inside the tube, we require that the perturbation not be singular as $r \to 0$, so for $r > r_0$,
 \begin{equation}
-	p_T(r) = 
+	p_T(r) = B I_m(m_i r), \label{p_T inside}
 \end{equation}
+where $I_m$ is the modified Bessel function of the first kind and $B$ is a constant to be determined. It can be the case that either $m_i^2 > 0$ or $m_i^2 < 0$. If $m_i^2 < 0$, then Equation~\eqref{p_T inside} can be formulated in terms of the Bessel function of the first kind, $J_m$, because $I_m(iz) \propto J_m(z)$. Also, since that each kind of the modified Bessel functions of integer order, when considered as functions of their order, are even functions (\textit{i.e.} $I_{-n} (z) = I_n(z)$ and $K_{-n} (z) = K_n(z)$), modes with negative orders are identical modes to their positive order counterparts.
 
-Given that each kind of the modified Bessel functions of integer order, when considered as functions of their order, are even functions (\textit{i.e.} $I_{-n} (z) = I_n(z)$ and $K_{-n} (z) = K_n(z)$), modes with negative orders are identical modes to their positive order counterparts.
-
-
-
-
-Following the same derivation as in Section~\ref{sec: MHD waves interface}, we can derive the dispersion relation for transverse eigenmodes of a symmetric slab, namely
+Now applying the boundary conditions of continuity in velocity and total pressure using Equations~\eqref{p_T inside} and~\eqref{p_T outside} leads to the dispersion relation for magnetoacoustic waves in a magnetic flux tube
 \begin{equation}
-D_s(\omega)D_k(\omega) = 0,
+\rho_i(\omega_{Ai}^2 - \omega^2)m_e\frac{K_m'(m_er_0)}{K_m(m_er_0)} = \rho_e(\omega_{Ae}^2 - \omega^2)m_i\frac{I_m'(m_ir_0)}{I_m(m_ir_0)},
 \end{equation}
-where
-\begin{align}
-D_s(\omega) &= \rho_em_i(k^2v_\textrm{Ae}^2 - \omega^2)\tanh{m_ix_0} + \rho_im_e(k^2v_\textrm{Ai}^2 - \omega^2), \\
-D_k(\omega) &= \rho_em_i(k^2v_\textrm{Ae}^2 - \omega^2)\coth{m_ix_0} + \rho_im_e(k^2v_\textrm{Ai}^2 - \omega^2).
-\label{DRsym}
-\end{align}
-The subscript $S$ and $k$ in the above dispersion functions refer to the ``sausage" and ``kink" modes that the eigenmodes can be categorised into depending on whether each of the interfaces oscillate in anti-phase or in phase, respectively.
 
-Whilst the sign of $m_e^2$ must be negative to ensure that the perturbation is attenuated in the limit far from the slab, the sign of $m_i^2$ can be positive or negative. If $m_i^2 > 0$, then the transverse velocity perturbation within the slab is a linear combination of exponential functions. Modes of this type are known as surface modes. If $m_i^2 < 0$, then the transverse velocity perturbation within the slab is a linear combination of trigonometric functions. Modes of this type are known as body modes.
+Similar to the symmetric slab, eigenmodes for which $m_i^2 > 0$ are surface modes and eigenmodes for which $m_i^2 < 0$ are body modes and can have any positive integer number of radial nodes and anti-nodes within the tube. Modes for which $m = 0$ have axisymmetric perturbations and are known as ``sausage modes". Modes for which $m = 1$ have axisymmetric perturbations and are known as ``sausage modes". 
 
-Exponential functions are monotonic, so there is only one way in which an internally exponential function can satisfy the continuity conditions at the interfaces. This means that for both sausage and kink varieties, there exists only one surface mode. On the other hand, trigonometric functions are periodic, so there is an infinite number of ways in which an internally trigonometric function can satisfy the continuity conditions at the interfaces. This means that for both sausage or kink varieties, there exists an infinite number of body modes, each with a different integer number of nodes and anti-nodes within the slab.
 
-There also exists shear Alfv\'{e}n modes that behave in the same way as the tangential interface.
+
+
+
+
+There also exists torsional Alfv\'{e}n modes which oscillate individual magnetic isosurfaces, which in this case are 
 
 
 
