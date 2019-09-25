@@ -140,6 +140,10 @@ magnetic fields
 and interact with
 magnetic fields.
 
+
+\subsection{Waves}
+Sausage and kink waves have been observed, for example, in chromospheric fibrils, where the ubiquity of these waves has been linked to coronal heating \citep{mor12}.
+
 %------------------------------------------------------------------------------
 \section{Magnetohydrodynamics}
 \label{sec: MHD}
@@ -323,7 +327,6 @@ In this subsection, we review the linear MHD waves along simple inhomogeneous st
 
 \textcolor{red}{Consider adding a figure showing an interface, slab, and tube.}
 
-
 \subsubsection{Tangential interface} \label{sec: MHD waves interface}
 
 Consider a plasma at equilibrium  with piecewise uniform magnetic field, $\bB_0(x) = (0, 0, B_0(x))$, given by
@@ -339,9 +342,9 @@ The interface between the two regions is at $x = 0$ without loss of generality. 
 To derive the dispersion relation, first we Fourier decompose the linearised ideal MHD equations, Equations\eqref{cont eqn lin}-\eqref{ind eqn lin} by assuming that parameters behave like $f(x) = \hat{f}e^{i(kz - \omega t)}$, where $k$ and $\omega$ are the wavenumber and angular frequency of $z$-ward propagating waves. They are then combined to give an ordinary differential equation for the transverse velocity perturbation, $\hat{v}_x(x)$, for each of the two plasma regions, denoted by subscript $-$ and $+$, namely
 \begin{equation}
 \hat{v}_x'' - m_\pm^2\hat{v}_x = 0, \quad \text{where} \quad
-m_\pm^2 = \frac{(k^2v_{A\pm}^2 - \omega^2)(k^2c_\pm^2 - \omega^2)}{(c_\pm^2 + v_{A\pm}^2)(k^2c_{T\pm}^2 - \omega^2)},
+m_\pm^2 = \frac{(\omega_{A\pm}^2 - \omega^2)(\omega_\pm^2 - \omega^2)}{(c_\pm^2 + v_{A\pm}^2)(\omega_{T\pm}^2 - \omega^2)},
 \end{equation}
-where $'=\textrm{d}/\textrm{d}x$. Physically relevant solutions to this equation are a linear combination of exponential functions, $e^{\pm m_\pm x}$, if $m_\pm^2 > 0$, or trigonometric functions, $\cos{m_\pm x}$ and $\sin{m_\pm x}$, if $m_\pm^2 < 0$. We restrict our model to waves trapped by the slab by imposing the boundary condition $\hat{v}_x \to 0$ as $|x| \to \infty$. This ensures that $m_\pm^2 > 0$, leading to solutions of the form
+where $'=\textrm{d}/\textrm{d}x$ and $\omega_{A\pm} = kv_{A\pm}$, $\omega_{\pm} = kc_{\pm}$, and $\omega_{T\pm} = kc_{T\pm}$, are each region's respective Alfv\'{e}n, sound, and tube frequency. Physically relevant solutions to this equation are a linear combination of exponential functions, $e^{\pm m_\pm x}$, if $m_\pm^2 > 0$, or trigonometric functions, $\cos{m_\pm x}$ and $\sin{m_\pm x}$, if $m_\pm^2 < 0$. We restrict our model to waves trapped by the slab by imposing the boundary condition $\hat{v}_x \to 0$ as $|x| \to \infty$. This ensures that $m_\pm^2 > 0$, leading to solutions of the form
 \begin{equation}
 \hat{v}_x(x)=
 \begin{cases}
@@ -349,13 +352,13 @@ Ae^{m_-x}, & \text{if } x < 0, \\
 Be^{-m_+x}, & \text{if } x > 0,
 \end{cases} \label{vsoln}
 \end{equation}
-where $A$ and $B$ are constant with respect to $x$. The boundary conditions across the interface are that the velocity and total (gas plus magnetic) pressure are continuous\footnote{These boundary conditions are equivalent to the familiar \textit{kinematic} and \textit{dynamic} boundary conditions on a free surface \cite{goe_etal04}.}. Applying these boundary conditions leads to a system of linear algebraic equations in the unknowns $A$ and $B$. The requirement that there exists non-trivial solutions is that the determinant of this system be zero. this gives us the dispersion relation, namely
+where $A$ and $B$ are constant with respect to $x$. The boundary conditions across the interface are that the velocity and total (gas plus magnetic) pressure are continuous\footnote{These boundary conditions are equivalent to the familiar \textit{kinematic} and \textit{dynamic} boundary conditions on a free surface \cite{goe_etal04}.}. Applying these boundary conditions leads to a system of linear algebraic equations in the unknowns $A$ and $B$. The requirement that there exist non-trivial solutions is that the determinant of this system be zero. this gives us the dispersion relation, namely
 \begin{equation}
-	\frac{\omega^2}{k^2} = \frac{\rho_+m_-v_{A+}^2 + \rho_-m_+v_{A-}^2}{\rho_+m_- + \rho_-m_+}, \quad \text{where} \quad m_\pm^2 = \frac{(\omega_{A\pm}^2 - \omega^2)(\omega_\pm^2 - \omega^2)}{(c_\pm^2 + v_{A\pm}^2)(\omega_{T\pm}^2 - \omega^2)}, \label{gov eqn}
+	\frac{\omega^2}{k^2} = \frac{\rho_+m_-v_{A+}^2 + \rho_-m_+v_{A-}^2}{\rho_+m_- + \rho_-m_+}. \label{gov eqn}
 \end{equation}
-and $\omega_{A\pm} = kv_{A\pm}$, $\omega_{\pm} = kc_{\pm}$, and $\omega_{T\pm} = kc_{T\pm}$, are each region's respective Alfv\'{e}n, sound, and tube frequency. The solutions to this equation correspond to ``surface" magnetoacoustic modes. These are modes whose eigenfunction decays exponentially away from the interface and owe their existence to the interface. The radicals in $m_\pm$ resist the use of analytical methods to find the solutions, unless further approximations are made (see Section~\ref{sec: asym slab}).
+The solutions to this equation correspond to ``surface" magnetoacoustic modes. These are modes whose eigenfunction decays exponentially away from the interface and owe their existence to the interface. The radicals in $m_\pm$ resist the use of analytical methods to find the solutions, unless further approximations are made (see Section~\ref{sec: asym slab}).
 
-There also exists shear Alfv\'{e}n modes, which we decoupled from the magnetoacoustic modes due to our choice of Fourier ansatz. Shear Alfv\'{e}n modes propagate along the magnetic field and perturb it tangentially to the interface, without perturbing the density. Since the perturbations are tangential to the interface, each magnetic isosurface, defined as a surface of constant magnetic field, is free to oscillate independently. These are local modes in that they only oscillate a strict subset of the whole domain, therefore, they do not owe their existence to the interface, and are therefore not discussed in any more detail here.
+There also exist shear Alfv\'{e}n modes, which we decoupled from the magnetoacoustic modes due to our choice of Fourier ansatz. Shear Alfv\'{e}n modes propagate along the magnetic field and perturb it tangentially to the interface, without perturbing the density. Since the perturbations are tangential to the interface, each magnetic isosurface, defined as a surface of constant magnetic field, is free to oscillate independently. These are local modes in that they only oscillate a strict subset of the whole domain, therefore, they do not owe their existence to the interface, and are therefore not discussed in any more detail here.
 
 
 \subsubsection{Symmetric slab} \label{sec: MHD waves sym slab}
@@ -372,20 +375,20 @@ Here, the word ``symmetric" refers to the reflectional symmetry of the waveguide
 
 Following the same derivation as in Section~\ref{sec: MHD waves interface}, we can derive the dispersion relation for transverse eigenmodes of a symmetric slab, namely
 \begin{equation}
-	D_s(\omega)D_k(\omega) = 0,
+	D_s(\omega)D_k(\omega) = 0, \label{DR sym slab}
 \end{equation}
 where
 \begin{align}
-	D_s(\omega) &= \rho_em_i(\omega_\textrm{Ae}^2 - \omega^2)\tanh{m_ix_0} + \rho_im_e(k^2v_\textrm{Ai}^2 - \omega^2), \\
-	D_k(\omega) &= \rho_em_i(\omega_\textrm{Ae}^2 - \omega^2)\coth{m_ix_0} + \rho_im_e(k^2v_\textrm{Ai}^2 - \omega^2),
+	D_s(\omega) &= \rho_em_i(\omega_\textrm{Ae}^2 - \omega^2)\tanh{m_ix_0} + \rho_im_e(\omega_\textrm{Ai}^2 - \omega^2), \\
+	D_k(\omega) &= \rho_em_i(\omega_\textrm{Ae}^2 - \omega^2)\coth{m_ix_0} + \rho_im_e(\omega_\textrm{Ai}^2 - \omega^2),
 \end{align}
-where $m_i$ and $m_e$ are defined in the fashion equivalent to Equation~\eqref{gov eqn}. The subscript $s$ and $k$ in the above dispersion functions refer to the ``sausage" and ``kink" modes that the eigenmodes can be categorised into depending on whether each of the interfaces oscillate in anti-phase or in phase, respectively.
+where $m_i$ and $m_e$ are defined in the fashion equivalent to Equation~\eqref{gov eqn}. Therefore, either $D_s = 0$ or $D_k = 0$. Solutions to $D_s = 0$ are the eigenfrequencies of ``sausage" modes and solutions to $D_k = 0$ are the eigenfrequencies of ``kink" modes. For sausage modes, the boundaries of the slab oscillate in anti-phase and for kink modes, they oscillate in phase.
 
 Whilst the sign of $m_e^2$ must be negative to ensure that the perturbation is attenuated in the limit far from the slab, the sign of $m_i^2$ can be positive or negative. If $m_i^2 > 0$, then the transverse velocity perturbation within the slab is a linear combination of exponential functions. Modes of this type are known as surface modes. If $m_i^2 < 0$, then the transverse velocity perturbation within the slab is a linear combination of trigonometric functions. Modes of this type are known as body modes.
 
-Exponential functions are monotonic, so there is only one way in which an internally exponential function can satisfy the continuity conditions at the interfaces. This means that for both sausage and kink varieties, there exists only one surface mode. On the other hand, trigonometric functions are periodic, so there is an infinite number of ways in which an internally trigonometric function can satisfy the continuity conditions at the interfaces. This means that for both sausage or kink varieties, there exists an infinite number of body modes, each with a different integer number of nodes and anti-nodes within the slab.
+Exponential functions are monotonic, so there is only one way in which an internally exponential function can satisfy the continuity conditions at the interfaces. This means that for both sausage and kink varieties, there exists only one surface mode. On the other hand, trigonometric functions are periodic, so there is an infinite number of ways in which an internally trigonometric function can satisfy the continuity conditions at the interfaces. This means that for both sausage or kink varieties, there exist an infinite number of body modes, each with a different integer number of nodes and anti-nodes within the slab.
 
-There also exists shear Alfv\'{e}n modes that behave in the same way as the tangential interface.
+There also exist shear Alfv\'{e}n modes that behave in the same way as the tangential interface.
 
 
 \subsubsection{Magnetic flux tube} \label{sec: MHD waves tube}
@@ -412,19 +415,22 @@ where $K_m$ is the modified Bessel function of the second kind with $m_e^2 > 0$,
 \end{equation}
 where $I_m$ is the modified Bessel function of the first kind and $B$ is a constant to be determined. It can be the case that either $m_i^2 > 0$ or $m_i^2 < 0$. If $m_i^2 < 0$, then Equation~\eqref{p_T inside} can be formulated in terms of the Bessel function of the first kind, $J_m$, because $I_m(iz) \propto J_m(z)$. Also, since that each kind of the modified Bessel functions of integer order, when considered as functions of their order, are even functions (\textit{i.e.} $I_{-n} (z) = I_n(z)$ and $K_{-n} (z) = K_n(z)$), modes with negative orders are identical modes to their positive order counterparts.
 
-Now applying the boundary conditions of continuity in velocity and total pressure using Equations~\eqref{p_T inside} and~\eqref{p_T outside} leads to the dispersion relation for magnetoacoustic waves in a magnetic flux tube
+Applying the boundary conditions of continuity in velocity and total pressure using Equations~\eqref{p_T inside} and~\eqref{p_T outside} leads to the dispersion relation for magnetoacoustic waves in a magnetic flux tube
 \begin{equation}
 \rho_i(\omega_{Ai}^2 - \omega^2)m_e\frac{K_m'(m_er_0)}{K_m(m_er_0)} = \rho_e(\omega_{Ae}^2 - \omega^2)m_i\frac{I_m'(m_ir_0)}{I_m(m_ir_0)},
 \end{equation}
 
-Similar to the symmetric slab, eigenmodes for which $m_i^2 > 0$ are surface modes and eigenmodes for which $m_i^2 < 0$ are body modes and can have any positive integer number of radial nodes and anti-nodes within the tube. Modes for which $m = 0$ have axisymmetric perturbations and are known as ``sausage modes". Modes for which $m = 1$ have axisymmetric perturbations and are known as ``sausage modes". 
+Similar to the symmetric slab, eigenmodes for which $m_i^2 > 0$ are surface modes and eigenmodes for which $m_i^2 < 0$ are body modes and can have any positive integer number of radial nodes and anti-nodes within the tube. The integer $m$ is half the number of azimuthal nodes. In particular, modes for which $m = 0$ have no azimuthal nodes and therefore correspond to axisymmetric perturbations. These are known as ``sausage modes". Modes for which $m = 1$ have two azimuthal nodes and perturbations and are known as ``kink modes". Modes for which $m > 1$ are known as ``fluting modes". Each of these modes are illustrated in Figure~\ref{fig: magnetoacoustic waves flux tube}.
+\begin{figure}
+	\caption{\textcolor{red}{Magnetoacoustic waves in a cylindrical flux tube.}}
+	\label{fig: magnetoacoustic waves flux tube}
+\end{figure}
 
-
-
-
-
-
-There also exists torsional Alfv\'{e}n modes which oscillate individual magnetic isosurfaces, which in this case are 
+There also exist torsional Alfv\'{e}n modes which oscillate individual magnetic isosurfaces. As with the magnetoacoustic modes, they can oscillate with any even number of azimuthal nodes, as can be seen in Figure~\ref{fig: alvfen modes flux tube}.
+\begin{figure}
+	\caption{\textcolor{red}{Alfv\'{e}n waves in a cylindrical flux tube.}}
+	\label{fig: alvfen modes flux tube}
+\end{figure}
 
 
 
