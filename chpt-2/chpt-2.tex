@@ -413,7 +413,7 @@ Therefore, to linear order of waveguide asymmetry, if the dispersion relation, E
 
 The expressions for the variables $\Lambda_i$ for $i=0,1,2$ in Equations~\eqref{Lambdas} can be employed to yield the approximately symmetric dispersion relation
 \begin{equation}
-(\omega^2 - \omega_{A0}^2)\left(\frac{\rho_0}{\rho_1}\frac{m_1}{(\omega^2 - \omega_{A1}^2)} + \frac{\rho_0}{\rho_2}\frac{m_2}{(\omega^2 - \omega_{A2}^2)}\right) + 2m_0\left(\begin{matrix}\tanh \\ \coth \end{matrix}\right)(m_0x_0) = 0. \label{DRapprox}
+(\omega^2 - \omega_{A0}^2)\left(\frac{\rho_0}{\rho_1}\frac{m_1}{(\omega^2 - \omega_{A1}^2)} + \frac{\rho_0}{\rho_2}\frac{m_2}{(\omega^2 - \omega_{A2}^2)}\right) + 2m_0\left(\begin{matrix}\tanh \\ \coth \end{matrix}\right)(m_0x_0) = 0. \label{DR approx}
 \end{equation}
 This equation is now in a form similar to Equation~\eqref{DR sym slab}, the dispersion relation corresponding to MHD waves along a symmetric magnetic slab (Section~\ref{sec: MHD waves sym slab}), namely
 \begin{equation}
@@ -737,13 +737,12 @@ Body modes are also affected by the asymmetric external environment (Figures~\re
 Much of the interesting physics due to waveguide asymmetry is exhibited by a magnetic slab with non-magnetic external plasma. We study this system in this Section.
 
 By letting $B_1 = B_2 = 0$, the plasma in the asymmetric external regions is non-magnetic. Then the dispersion relation, Equation~\eqref{DR}, simplifies to
-\begin{align}
-&m_0^2\omega^4 + \frac{\rho_0}{\rho_1}m_1\frac{\rho_0}{\rho_2}m_2(\omega^2 - \omega_\textrm{A0}^2)^2 \notag \\
-& + m_0(\omega^2 - \omega_{A0}^2)\left(\frac{\rho_0}{\rho_1}m_1 + \frac{\rho_0}{\rho_2}m_2\right)\coth{2m_0x_0} = 0, \label{DR non-mag}
-\end{align}
+\begin{equation}
+m_0^2\omega^4 + \frac{\rho_0}{\rho_1}m_1\frac{\rho_0}{\rho_2}m_2(\omega^2 - \omega_\textrm{A0}^2)^2 + m_0(\omega^2 - \omega_{A0}^2)\left(\frac{\rho_0}{\rho_1}m_1 + \frac{\rho_0}{\rho_2}m_2\right)\coth{2m_0x_0} = 0, \label{DR non-mag}
+\end{equation}
 and the dispersion relation for a slab with first order asymmetry simplifies to
 \begin{equation}
-(k^2v_\textrm{A0}^2-\omega^2)\left(\frac{\rho_0}{\rho_1}m_1 + \frac{\rho_0}{\rho_2}m_2\right) = 2\omega^2m_0\left(\begin{matrix}\tanh \\ \coth \end{matrix}\right)(m_0x_0) = 0. \label{DRapprox non-mag}
+(\omega^2 - \omega_\textrm{A0}^2)\left(\frac{\rho_0}{\rho_1}m_1 + \frac{\rho_0}{\rho_2}m_2\right)  +  2\omega^2m_0\left(\begin{matrix}\tanh \\ \coth \end{matrix}\right)(m_0x_0) = 0. \label{DR approx non-mag}
 \end{equation}
 
 
@@ -785,7 +784,7 @@ Compressibility is essential for the propagation of sound waves. Consider the di
 \begin{equation}
 \omega^4 + \frac{\rho_0^2}{\rho_1\rho_2}(\omega^2 - \omega_{A0}^2)^2 + \omega^2(\omega^2 - \omega_{A0}^2)\left(\frac{\rho_0}{\rho_1} + \frac{\rho_0}{\rho_2}\right) \coth{2kx_0} = 0. \label{DR incomp}
 \end{equation}
-This is a special case of the dispersion relation previously derived by \cite{rud92}, who found solitons propagating on a system of $N$ tangential discontinuities. This is a quadratic equation in $\omega^2$ which has solutions
+This is a special case of the dispersion relation previously derived by \cite{rud92}, who found solitons propagating on a system of $N$ tangential discontinuities. Equation~\eqref{DR incomp} is a quadratic equation in $\omega^2$ which has solutions
 \begin{equation}
 \omega^2 = k^2v_{A0}^2\left(\frac{2 + \sigma \pm \sqrt{\sigma^2 - 4\frac{\rho_1\rho_2}{\rho_0^2}}}{1 + \sigma + \frac{\rho_1\rho_2}{\rho_0^2}}\right),
 \end{equation}
@@ -793,7 +792,7 @@ where
 \begin{equation}
 \sigma = \left(\frac{\rho_1}{\rho_0} + \frac{\rho_2}{\rho_0}\right)\coth{2kx_0}.
 \end{equation}
-These solutions hold for all $kx_0 > 0$ and describe surface modes with sub-Alfv\'enic phase speed. The solution found by the positive (negative) on the numerator is the sausage (kink) mode.
+These solutions hold for all $kx_0 > 0$ and describe surface modes with sub-Alfv\'enic phase speed. The solution found by the plus (minus) on the numerator is the sausage (kink) eigenfrequency.
 
 Figures~\ref{fig:incomp22}-\ref{fig:incomp10001} demonstrate that in a thin ($kx_0 \ll 1$) incompressible slab, the phase speeds of these modes approach zero or the Alfv\'{e}n speed. In a symmetric wide incompressible slab, the phase speeds converge to the same speed (Figure~\ref{fig:incomp22}), whereas in an asymmetric slab, the phase speeds converge to different speeds (Figures~\ref{fig:incomp102}-\ref{fig:incomp10001}) that depend upon the values of the external densities. This observation is mirrored by both fast and slow surface modes in the more general solutions of a compressible slab solved numerically to give Figure~\ref{fig:slow modes density}.
 
@@ -811,15 +810,110 @@ Figures~\ref{fig:incomp22}-\ref{fig:incomp10001} demonstrate that in a thin ($kx
 \end{figure}
 
 
+\subsubsection{Limiting case - low-beta} \label{sec: zero-beta}
 
-\subsubsection{Limiting case - zero-beta} \label{sec: zero-beta}
+The case when the magnetic pressure strongly dominates the gas pressure within the slab, \textit{i.e.} $\beta := 2\mu_0{p_0}/B_0^2 \ll 1$, is known as the \textit{low-beta approximation}. This approximation is equivalent to the Alfv\'{e}n speed dominating the sound speed in the slab and provides a good approximation of the solar coronal environment. In this section, the results are to quadratic order in $\beta$.
+
+Under this speed ordering, $m_0^2\approx{}k^2-\omega^2/v_\textrm{A}^2$. After a numerical investigation, it is clear that the frequency of waves in this approximation satisfies $\omega^2\ll{}k^2v_\textrm{A}^2$, in which case $m_0^2\approx k^2$ provides a valid approximation. This means that $m_0^2>0$ and the solutions are surface modes. For a symmetric slab of low-beta plasma (\textit{e.g.} \citealt{rob81b}), the dispersion relation reduces to a quadratic expression in $\omega^2$ whose solutions are the fast sausage and kink surface modes given by
+\begin{equation}
+\omega^2=k^2c_\textrm{e}^2\left(\frac{\sqrt{1+\gamma^2\left(\hspace{-0.11in}\begin{matrix}&\tanh^2 \\&\coth^2 \end{matrix}\right)(kx_0)}-1}{\frac{1}{2}\gamma^2\left(\hspace{-0.11in}\begin{matrix}&\tanh^2 \\&\coth^2 \end{matrix}\right)(kx_0)}\right),
+\end{equation}
+where $c_\textrm{e}$ is the external sound speed, along with a spurious solution.
+
+Unfortunately, for the more general case of an asymmetric slab of low-beta plasma, the dispersion relation does not reduce to an analytically solvable equation. However, we find numerically that there are two fast surface modes. The quasi-sausage surface mode is not present for small $kx_0$, but becomes a solution at an intermediate value of $kx_0$ with phase speed $\omega^2/k^2=\min{(c_1^2,c_2^2)}$. The quasi-kink surface mode is present for all values of $kx_0$. Qualitatively, the solutions for a low-beta plasma are analogous to the fast quasi-sausage and quasi-kink mode solutions, discussed later in Sections~\ref{sec:thin} and~\ref{sec:wide}.
+
+In the following section, thin and wide slab approximations are made to the approximate dispersion relation, Equation~\eqref{DR approx}, rather than the exact dispersion relation, Equation~\eqref{DR}. Here, the aim is to retrieve the variety of wave modes with future applications in mind.
+
 
 \subsubsection{Limiting case - thin slab} \label{sec: thin slab}
 
+Consider the case where the wavelength, $\lambda$, is much greater than the width of the slab, $2x_0$, \textit{i.e} $2x_0/\lambda = kx_0/\pi \ll 1$, or equivalently $kx_0 \ll 1$.
+
+First, consider the quasi-sausage surface modes, which are governed by the $\tanh$ version of Equation~\eqref{DR approx non-mag}, for $m_0^2 > 0$. In the thin slab limit, this equation reduces to
+\begin{equation}
+(\omega^2 - \omega_\textrm{A0}^2)\left(\frac{\rho_0}{\rho_1}m_1 + \frac{\rho_0}{\rho_2}m_2\right) -  2\omega^2m_0^2x_0 = 0. \label{thin}
+\end{equation}
+Clearly, $\omega^2={k^2v_\textrm{A}^2}$ is a solution, but as noted in Section~\ref{sec: spurious}, it is spurious. The other solution for $\omega^2$ behaves like $\omega^2 \to k^2c_\textrm{T0}^2$ as $kx_0 \to 0$. To first order in $kx_0$, this solution is a slow quasi-sausage surface mode given by
+\begin{equation}
+\omega^2 = k^2c_\textrm{T0}^2 \left[1 - \frac{2(kx_0)(c_0^2 - c_\textrm{T0}^2)}{(c_0^2 + v_\textrm{A0}^2)\left(\frac{\rho_0}{\rho_1}\frac{\sqrt{c_1^2 - c_\textrm{T0}^2}}{c_1} + \frac{\rho_0}{\rho_2}\frac{\sqrt{c_2^2 - c_\textrm{T}^2}}{c_2}\right)}\right],
+\label{thin slab slow saus surf}
+\end{equation}
+which is less than $k^2c_\textrm{T0}^2$ and exists only when $c_1 > c_\textrm{T0}$ and $c_2 > c_\textrm{T0}$. 
+
+It is interesting to note that if $c_1 = c_2 = c_\textrm{e}$ (and therefore $\rho_1 = \rho_2 = \rho_\textrm{e}$ by Equation~\eqref{sound and density}), then there exists a second solution to Equation~\eqref{thin}. By letting $\omega^2 = k^2c_\textrm{e}^2(1 + \nu)$ for some $\nu \ll 1$ in Equation~\eqref{thin}, we find the solution to be
+\begin{equation}
+\omega^2 = k^2c_\textrm{e}^2\left(1 - \left[\frac{\rho_\textrm{e}}{\rho_0}\frac{c_\textrm{e}^2(c_0^2 - c_\textrm{e}^2)(kx_0)}{(c_0^2 + v_\textrm{A0}^2)(c_\textrm{T0}^2 - c_\textrm{e}^2)}\right]^2\right)
+\label{thin slab fast saus surf}
+\end{equation}
+in the thin slab limit. This is a fast sausage surface mode, and it degenerates (as a solution in the thin slab limit) as $c_1$ and $c_2$ become distinct. This mode can still exist with a phase speed below the cut-off at $\min(c_1, c_2)$ (see Section~\ref{sec: disp diagrams}).
+
+Next, consider quasi-kink surface mode solutions in the thin slab limit, which are governed by the $\coth$ version of Equation~\eqref{DR approx non-mag}, for $m_0^2 > 0$. As $kx_0 \to 0$, we have $m_0x_0 \to 0$, so $\coth{m_0x_0} \to 1/m_0x_0$. This simplifies the dispersion relation to
+\begin{equation}
+\omega^2 = \frac{k^2x_0v_\textrm{A0}^2\left(\frac{\rho_0}{\rho_1}m_1 + \frac{\rho_0}{\rho_2}m_2\right)}{\left(\frac{\rho_0}{\rho_1}m_1x_0 + \frac{\rho_0}{\rho_2}m_2x_0\right) + 2} \approx \frac{1}{2}k^2v_\textrm{A0}^2\left(\frac{\rho_0}{\rho_1} + \frac{\rho_0}{\rho_2}\right)kx_0.
+\label{thin slab slow kink surf}
+\end{equation}
+This is a slow quasi-kink surface mode that behaves like $\omega/k \to 0$ in the thin slab limit.
+
+For body waves in the thin slab approximation, following the same procedure as for surface waves turns out to be fruitless, so we must reconsider our assumptions. Unfortunately, letting $m_0x_0 \to 0$ as $kx_0 \to 0$, whilst valid for surface modes, is not valid for body modes. Instead, we must consider the scenario where $m_0x_0$ remains finite as $kx_0 \to 0$. This can occur only if $|m_0^2| \to \infty$ as $kx_0 \to 0$.  To ensure that $|m_0^2| \to \infty$, we are restricted to solutions that behave like $\omega^2 \to k^2c_\textrm{T0}^2$ as $kx_0 \to 0$. Considering Equation~\eqref{DR approx non-mag}, this can only be the case when $m_0^2 < 0$, \textit{i.e.} only for body modes. To find these solutions, set $\omega^2 = k^2c_\textrm{T0}^2(1 + \nu(kx_0)^2)$ for some $\nu > 0$ that is to be determined. To see why this form has been chosen, a substitution into the definition of $m_0^2$ demonstrates that $|m_0^2| \to \infty$ and $m_0x_0$ remains bounded as $kx_0 \to 0$, as required. Using this ansatz, Equation~\eqref{DR approx} has a countably infinite set of quasi-sausage body solutions which, in the thin slab limit, behave like
+\begin{equation}
+\omega^2 = k^2c_\textrm{T0}^2\left[1 + \frac{c_\textrm{T0}^4(kx_0)^2}{c_0^2v_\textrm{A0}^2\pi^2j^2}\right], \quad \text{for} \quad j = 1, 2, \ldots. \label{thin slab saus body}
+\end{equation}
+There are also quasi-kink body solutions that, in the thin slab limit, behave like
+\begin{equation}
+\omega^2 = k^2c_\textrm{T0}^2\left[1 + \frac{c_\textrm{T0}^4(kx_0)^2}{c_0^2v_\textrm{A0}^2\pi^2(j - \frac{1}{2})^2}\right], \quad \text{for} \quad j = 1, 2, \ldots. \label{thin slab kink body}
+\end{equation}
+Equations~\eqref{thin slab saus body} and \eqref{thin slab kink body} show us that to quadratic order in $kx_0$ the quasi-sausage and quasi-kink body modes do not depend on the external environment parameters. The effects of external density and temperature are felt in the higher order terms, which explains why Equations~\eqref{thin slab saus body} and~\eqref{thin slab saus body} are identical to the corresponding solutions in a thin symmetric slab derived by \citealt{rob81b}. This also explains theoretically why body modes only weakly depend on the asymmetry of the external plasma, as discussed in the context of magnetic field diagnostics in Section~\ref{sec: SMS}.
+
+
 \subsubsection{Limiting case - wide slab} \label{sec: wide slab}
 
-\subsection{Numerical solutions}
-\subsubsection{Dispersion diagrams}
+The wide slab approximation the limit of the slab width being is much larger than the wavelength, \textit{i.e.} when $kx_0 \gg 1$. To understand the properties of the eigenfrequencies in a wide asymmetric slab, it is instructive to return to the dispersion relation in lambda notation, Equation~\eqref{DR lambda}. For surface modes in the slab, the wide slab approximation implies that $m_0x_0 \gg 1$, therefore $\coth{m_0x_0} \approx 1$ (this is checked \textit{a posteriori} by \cite{rob81b}). Under this approximation, Equation~\eqref{DR lambda}, becomes
+\begin{equation}
+(\Lambda_0 + \Lambda_1)(\Lambda_0 + \Lambda_2) = 0,
+\end{equation}
+which gives us two families of solutions, one satisfying $\Lambda_0 + \Lambda_1 = 0$ and the other satisfying $\Lambda_0 + \Lambda_2 = 0$. These are equivalent to
+\begin{equation}
+	\rho_0m_j(\omega^2 - \omega_\textrm{A0}^2) + \rho_jm_0\omega^2 = 0,
+\end{equation}
+for $j = 1, 2$, respectively. This equation is the same as the dispersion relation governing surface waves along a single interface between a magnetized and a non-magnetized plasma, Equation\eqref{DR interface}. Hence, the surface mode solutions of a wide asymmetric slab are just the surface modes that propagate along each interface independently. This corroborates our intuition that as the slab is widened the interfaces will have diminishing influence on each other, with the limit of no influence at all, in which case each interface can oscillate independently with its own characteristic frequency.
+
+Unfortunately, the body waves have no parallel in the single interface model because body waves in a slab that are externally evanescent owe their existence to the two interfaces. For body modes in the wide slab limit, there exists a solution that behaves like $\omega^2 \to k^2c_0^2$ as $kx_0 \to \infty$. To see this, substitute the ansatz $\omega^2 = k^2c_0^2\left(1 + \nu/(kx_0)^2\right)$ into the dispersion relation, Equation~\eqref{DR approx non-mag}, to retrieve the family of quasi-sausage body modes given by
+\begin{equation}
+\omega^2 = k^2c_0^2\left(1 - \frac{\pi^2(j - \frac{1}{2})^2c_0^2}{(v_\textrm{A0}^2 - c_0^2)(kx_0)^2}\right), \quad j = 1, 2, \ldots \label{wide slab saus body}
+\end{equation}
+in the wide slab limit. Similarly, there exist quasi-kink body mode solutions given by
+\begin{equation}
+\omega^2 = k^2c_0^2\left(1 - \frac{\pi^2j^2c_0^2}{(v_\textrm{A0}^2 - c_0^2)(kx_0)^2}\right), \quad j = 1, 2, \ldots \label{wide slab kink body}
+\end{equation}
+in the wide slab limit. These are valid solutions only when $v_\textrm{A0} > c_0$.
+
+This analysis may then be repeated for $v_\textrm{A} < c_0$ to find that, in the wide slab limit, there exist quasi-sausage body mode solutions given by
+\begin{equation}
+\omega^2 = k^2v_\textrm{A0}^2\left(1 - \frac{\pi^2(j - \frac{1}{2})^2v_\textrm{A0}^2}{(c_0^2 - v_\textrm{A0}^2)(kx_0)^2}\right), \quad \text{for} \quad j = 1, 2, \ldots \label{wide slab saus body2}
+\end{equation}
+and quasi-kink body mode solutions of the form
+\begin{equation}
+\omega^2 = k^2v_\textrm{A0}^2\left(1 - \frac{\pi^2j^2v_\textrm{A0}^2}{(c_0^2 - v_\textrm{A0}^2)(kx_0)^2}\right), \quad \text{for} \quad j = 1, 2, \ldots. \label{wide slab kink body2}
+\end{equation}
+These solutions to the approximate asymmetric slab dispersion relation demonstrate that to quadratic order of $1/kx_0$, the wide slab body modes are independent of the external plasma parameters. Therefore, Equations~\eqref{wide slab saus body}, \eqref{wide slab kink body}, \eqref{wide slab saus body2}, and \eqref{wide slab kink body2} are identical to the body mode solutions in a wide symmetric slab \citep{rob81b}. Equations~\eqref{thin slab slow saus surf}-\eqref{thin slab kink body},~\eqref{wide slab saus body} and~\eqref{wide slab kink body} also appear in~\cite{li_etal13} for a symmetric magnetic slab with shear flow when the shear flow speed is set to zero.
+
+
+\subsection{Numerical solutions} \label{sec: numerical solutions}
+\subsubsection{Dispersion diagrams} \label{sec: disp diagrams}
+
+By solving the dispersion relation numerically, it can be shown that although the fast quasi-sausage surface mode does not exist in the thin slab limit for an asymmetric slab, it can exist in the wide slab limit (\textit{i.e.} as a solution to Equation~\eqref{DRwide}) when $c_0 < v_\textrm{A0}$, $c_1 < v_\textrm{A0}$, and $c_2 < v_\textrm{A0}$. For example, Figure~\ref{fig:disp sbs} shows that the minimum of $c_1$ and $c_2$ becomes a new cut-off, causing the fast quasi-sausage surface mode to degenerate for small $kx_0$.
+
+%\begin{figure}[]
+%	\centering
+%	\subfloat[$v_\textrm{A}>c_0$]{\includegraphics[scale=0.45]{disp_sbs_R1-5.pdf}
+%		\label{fig:disp sbs}}
+%	\subfloat[$v_\textrm{A}<c_0$]{\includegraphics[scale=0.45]{disp_sbb_R1-5.pdf}
+%		\label{fig:disp sbb}}
+%	\caption{Dispersion diagram for the dispersion relation, Equation~\eqref{DR}. The surface (body) modes are in plotted red (blue) and the sausage (kink) modes are represented by solid (dashed) lines. The density ratios are $\rho_1/\rho_0 = 1.5$ and $\rho_2/\rho_0 = 2$, and the characteristic speed orderings are $c_2=1.2c_0$ and (a)$v_\textrm{A}=1.3c_0$ and (b)$v_\textrm{A}=0.9c_0$.}
+%\end{figure}
+
+
+
 
 \textcolor{red}{Below is all from extra details section and should be reread and maybe edited.}
 \textbf{Fast mode cut-off}
@@ -841,7 +935,6 @@ where
 \begin{equation}
 B = c_2c_1^2\frac{\rho_1}{\rho_0}\sqrt{\frac{(c_0^2 - c_1^2)}{(c_0^2 + v_A^2)(c_T^2 - c_1^2)(v_A^2 - c_1^2)(c_T^2 - c_1^2)}}.
 \end{equation}
-
 
 \textbf{Transition value}
 Let $\omega^2 = k^2c_0^2(1+\nu)$ for some $\nu \ll 1$. Then we have
@@ -869,6 +962,8 @@ kx_0 = \frac{c_0^2 c_e \frac{\rho_e}{\rho_0}}{(v_A^2 - c_0^2)\sqrt{(c_e^2 - c_0^
 
 \subsection{Analogy to coupled spring and mass oscillator}
 Actually do the maths for this.
+
+\textcolor{red}{This is analogous to the mechanical example introduced by \cite{all_etal17}. Consider two masses connected by a spring, with spring constant $k_0$, and each mass is also connected to a fixed wall on each side by springs with spring constants $k_1$ and $k_2$, respectively (see Figure~\ref{fig: wide slab mechanical analogy}). When the middle spring has a spring constant $k_0 \neq 0$, there are two modes, an in-phase mode (analogous to kink modes in a slab) and an in-anti-phase mode (analogous to sausage modes in a slab). When the two masses are decoupled by removing the middle spring, equivalently setting $k_0 = 0$, each mass oscillates independently at the natural frequency of that side of the spring-mass system. This decoupling provides a good analogy to the wide slab limit for the magnetic slab. Each interface can oscillate at its own natural frequency, independent of the other interface. Given that we are considering magnetoacoustic waves, there are two restoring forces, the magnetic tension force and the pressure gradient force, which means that each independent interface has two natural frequencies (depending on the parameters of the system, there can be 0, 1, or 2 frequencies), corresponding to the fast and slow magnetoacoustic modes. With this understanding of the modes in the wide slab limit, the amplitude ratio, $R_\textrm{A}$, is either $0$ or \textit{undefined}, depending on which interface the wave is propagating and is therefore not useful for magnetoseismology.}
 
 
 %------------------------------------------------------------------------------

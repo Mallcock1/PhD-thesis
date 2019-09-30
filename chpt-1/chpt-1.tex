@@ -354,7 +354,7 @@ Be^{-m_+x}, & \text{if } x > 0,
 \end{equation}
 where $A$ and $B$ are constant with respect to $x$. The boundary conditions across the interface are that the velocity and total (gas plus magnetic) pressure are continuous\footnote{These boundary conditions are equivalent to the familiar \textit{kinematic} and \textit{dynamic} boundary conditions on a free surface \cite{goe_etal04}.}. Applying these boundary conditions leads to a system of linear algebraic equations in the unknowns $A$ and $B$. The requirement that there exist non-trivial solutions is that the determinant of this system be zero. this gives us the dispersion relation, namely
 \begin{equation}
-	\frac{\omega^2}{k^2} = \frac{\rho_+m_-v_{A+}^2 + \rho_-m_+v_{A-}^2}{\rho_+m_- + \rho_-m_+}. \label{gov eqn}
+	\rho_+m_-(\omega^2 - \omega_{A+}^2) + \rho_-m_+(\omega^2 - \omega_{A-}^2) = 0. \label{DR interface}
 \end{equation}
 The solutions to this equation correspond to ``surface" magnetoacoustic modes. These are modes whose eigenfunction decays exponentially away from the interface and owe their existence to the interface. The radicals in $m_\pm$ resist the use of analytical methods to find the solutions, unless further approximations are made (see Section~\ref{sec: asym slab}).
 
