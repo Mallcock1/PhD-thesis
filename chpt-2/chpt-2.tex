@@ -875,48 +875,87 @@ which gives us two families of solutions, one satisfying $\Lambda_0 + \Lambda_1 
 \begin{equation}
 	\rho_0m_j(\omega^2 - \omega_\textrm{A0}^2) + \rho_jm_0\omega^2 = 0,
 \end{equation}
-for $j = 1, 2$, respectively. This equation is the same as the dispersion relation governing surface waves along a single interface between a magnetized and a non-magnetized plasma, Equation\eqref{DR interface}. Hence, the surface mode solutions of a wide asymmetric slab are just the surface modes that propagate along each interface independently. This corroborates our intuition that as the slab is widened the interfaces will have diminishing influence on each other, with the limit of no influence at all, in which case each interface can oscillate independently with its own characteristic frequency.
+for $j = 1, 2$, respectively. This equation is the same as the dispersion relation governing surface waves along a single interface between a magnetized and a non-magnetized plasma, Equation\eqref{DR interface} for $v_{A1} = v_{A2} = 0$. Hence, the surface mode solutions of a wide asymmetric slab are precisely the those that propagate along each interface independently. This corroborates our intuition that, as the slab width increases, the interfaces have diminishing influence on each other. In the wide slab limit, the interfaces have no influence on each other at all, allowing each to oscillate independently with its own characteristic frequency.
 
-Unfortunately, the body waves have no parallel in the single interface model because body waves in a slab that are externally evanescent owe their existence to the two interfaces. For body modes in the wide slab limit, there exists a solution that behaves like $\omega^2 \to k^2c_0^2$ as $kx_0 \to \infty$. To see this, substitute the ansatz $\omega^2 = k^2c_0^2\left(1 + \nu/(kx_0)^2\right)$ into the dispersion relation, Equation~\eqref{DR approx non-mag}, to retrieve the family of quasi-sausage body modes given by
+Unfortunately, the body waves have no parallel in the single interface model because body waves in a slab owe their existence to both of the two interfaces. In the wide slab limit, body waves behave like $\omega^2 \to k^2c_0^2$ as $kx_0 \to \infty$. To see this, substitute the ansatz $\omega^2 = k^2c_0^2 \left(1 + \nu/(kx_0)^2\right)$ into the dispersion relation, Equation~\eqref{DR approx non-mag}, to retrieve the family of quasi-sausage body modes given by
 \begin{equation}
-\omega^2 = k^2c_0^2\left(1 - \frac{\pi^2(j - \frac{1}{2})^2c_0^2}{(v_\textrm{A0}^2 - c_0^2)(kx_0)^2}\right), \quad j = 1, 2, \ldots \label{wide slab saus body}
+\omega^2 = k^2c_0^2\left[1 - \frac{\pi^2(j - \frac{1}{2})^2c_0^2}{(v_{A0}^2 - c_0^2)(kx_0)^2}\right], \quad j = 1, 2, \ldots \label{wide slab saus body}
 \end{equation}
-in the wide slab limit. Similarly, there exist quasi-kink body mode solutions given by
+in the wide slab limit. Similarly, there exist quasi-kink body modes given by
 \begin{equation}
-\omega^2 = k^2c_0^2\left(1 - \frac{\pi^2j^2c_0^2}{(v_\textrm{A0}^2 - c_0^2)(kx_0)^2}\right), \quad j = 1, 2, \ldots \label{wide slab kink body}
+\omega^2 = k^2c_0^2\left[1 - \frac{\pi^2j^2c_0^2}{(v_{A0}^2 - c_0^2)(kx_0)^2}\right], \quad j = 1, 2, \ldots \label{wide slab kink body}
 \end{equation}
-in the wide slab limit. These are valid solutions only when $v_\textrm{A0} > c_0$.
+in the wide slab limit. These solutions are valid only when $v_{A0} > c_0$.
 
-This analysis may then be repeated for $v_\textrm{A} < c_0$ to find that, in the wide slab limit, there exist quasi-sausage body mode solutions given by
+This analysis may be repeated for $v_{A0} < c_0$ to find that, in the wide slab limit, there exist quasi-sausage body modes given by
 \begin{equation}
-\omega^2 = k^2v_\textrm{A0}^2\left(1 - \frac{\pi^2(j - \frac{1}{2})^2v_\textrm{A0}^2}{(c_0^2 - v_\textrm{A0}^2)(kx_0)^2}\right), \quad \text{for} \quad j = 1, 2, \ldots \label{wide slab saus body2}
+\omega^2 = k^2v_\textrm{A0}^2\left[1 - \frac{\pi^2(j - \frac{1}{2})^2v_{A0}^2}{(c_0^2 - v_{A0}^2)(kx_0)^2}\right], \quad \text{for} \quad j = 1, 2, \ldots \label{wide slab saus body2}
 \end{equation}
-and quasi-kink body mode solutions of the form
+and quasi-kink body modes of the form
 \begin{equation}
-\omega^2 = k^2v_\textrm{A0}^2\left(1 - \frac{\pi^2j^2v_\textrm{A0}^2}{(c_0^2 - v_\textrm{A0}^2)(kx_0)^2}\right), \quad \text{for} \quad j = 1, 2, \ldots. \label{wide slab kink body2}
+\omega^2 = k^2v_{A0}^2\left[1 - \frac{\pi^2j^2v_\textrm{A0}^2}{(c_0^2 - v_{A0}^2)(kx_0)^2}\right], \quad \text{for} \quad j = 1, 2, \ldots . \label{wide slab kink body2}
 \end{equation}
-These solutions to the approximate asymmetric slab dispersion relation demonstrate that to quadratic order of $1/kx_0$, the wide slab body modes are independent of the external plasma parameters. Therefore, Equations~\eqref{wide slab saus body}, \eqref{wide slab kink body}, \eqref{wide slab saus body2}, and \eqref{wide slab kink body2} are identical to the body mode solutions in a wide symmetric slab \citep{rob81b}. Equations~\eqref{thin slab slow saus surf}-\eqref{thin slab kink body},~\eqref{wide slab saus body} and~\eqref{wide slab kink body} also appear in~\cite{li_etal13} for a symmetric magnetic slab with shear flow when the shear flow speed is set to zero.
+These solutions demonstrate that, to quadratic order in $1/kx_0$, the wide slab body modes are independent of the external plasma parameters. Therefore, Equations~\eqref{wide slab saus body}-\eqref{wide slab kink body2} are identical to the body mode solutions in a wide symmetric slab \citep{rob81b}. Equations~\eqref{thin slab slow saus surf}-\eqref{thin slab kink body},~\eqref{wide slab saus body} and~\eqref{wide slab kink body} also appear in~\cite{li_etal13} for a symmetric magnetic slab with shear flow when the shear flow speed is set to zero.
 
 
 \subsection{Numerical solutions} \label{sec: numerical solutions}
+
+Numerical methods are required to investigate solutions to the asymmetric slab dispersion relation, Equation~\eqref{DR non-mag}, without having to rely on further approximations. Focus is placed on the additional physics that arises from the asymmetry of the external plasma.
+
+
+\subsubsection{Description of numerical procedure}
+To solve Equation~\eqref{DR non-mag} numerically, we view the left-hand-side as a function of the wave frequency, $\omega$, and wavenumber $k$. We call this function a \textit{dispersion function}. This means that for a given wavenumber value, we are solving a simple root-finding problem, where the aim is to find the zeros of the dispersion function. To accomplish this, we use the \textit{Secant method}. The Secant method is a standard root-finding procedure that is equivalent to the Newton-Raphson method utilising a finite difference approximation to the derivative of the dispersion function.
+
+
 \subsubsection{Dispersion diagrams} \label{sec: disp diagrams}
 
-By solving the dispersion relation numerically, it can be shown that although the fast quasi-sausage surface mode does not exist in the thin slab limit for an asymmetric slab, it can exist in the wide slab limit (\textit{i.e.} as a solution to Equation~\eqref{DRwide}) when $c_0 < v_\textrm{A0}$, $c_1 < v_\textrm{A0}$, and $c_2 < v_\textrm{A0}$. For example, Figure~\ref{fig:disp sbs} shows that the minimum of $c_1$ and $c_2$ becomes a new cut-off, causing the fast quasi-sausage surface mode to degenerate for small $kx_0$.
+\begin{figure}[]
+	\centering
+	\subfloat[$v_{A0} > c_0$]{\includegraphics[scale=0.45]{../main/figures/disp_sbs_R1-5.pdf}
+		\label{fig: disp sbs}}
+	\subfloat[$v_{A0} < c_0$]{\includegraphics[scale=0.45]{../main/figures/disp_sbb_R1-5.pdf}
+		\label{fig: disp sbb}}
+	\caption{Dispersion diagram for the dispersion relation, Equation~\eqref{DR}. The surface (body) modes are in plotted red (blue) and the sausage (kink) modes are represented by solid (dashed) lines. The density ratios are $\rho_1/\rho_0 = 1.5$ and $\rho_2/\rho_0 = 2$, and the characteristic speed orderings are $c_2 = 1.2c_0$ and (a)$v_{A0} = 1.3c_0$ and (b)$v_{A0} = 0.9c_0$.}
+	\label{fig: disp}
+\end{figure}
 
-%\begin{figure}[]
-%	\centering
-%	\subfloat[$v_\textrm{A}>c_0$]{\includegraphics[scale=0.45]{disp_sbs_R1-5.pdf}
-%		\label{fig:disp sbs}}
-%	\subfloat[$v_\textrm{A}<c_0$]{\includegraphics[scale=0.45]{disp_sbb_R1-5.pdf}
-%		\label{fig:disp sbb}}
-%	\caption{Dispersion diagram for the dispersion relation, Equation~\eqref{DR}. The surface (body) modes are in plotted red (blue) and the sausage (kink) modes are represented by solid (dashed) lines. The density ratios are $\rho_1/\rho_0 = 1.5$ and $\rho_2/\rho_0 = 2$, and the characteristic speed orderings are $c_2=1.2c_0$ and (a)$v_\textrm{A}=1.3c_0$ and (b)$v_\textrm{A}=0.9c_0$.}
-%\end{figure}
+Figure~\ref{fig: disp} illustrates the solutions to the dispersion relation, Equation~\eqref{DR non-mag}, for two orderings of the characteristic speeds. Figure~\ref{fig: disp sbs} illustrates the spectrum of modes we would expect to find in the corona and Figure~\ref{fig: disp sbb} illustrates the spectrum of modes we would expect to find in the photosphere.
+
+In both coronal and photospheric conditions, there are slow sausage and kink surface modes (illustrated by the slowest red solution lines) and an infinite sequence of slow sausage and kink body modes (illustrated by the slowest blue solution lines). Each sausage body mode propagates faster than its corresponding kink mode, which agrees with the analytical solutions in Equations~\eqref{thin slab saus body},~\eqref{thin slab kink body},~\eqref{wide slab saus body}-\eqref{wide slab kink body2}.
+
+In coronal conditions, there exist fast sausage and kink surface modes with phase speeds between $c_0$ and $\min{c_1, c_2}$. Figure~\ref{fig: disp sbs} shows that the minimum of $c_1$ and $c_2$ becomes a new cut-off, causing the fast kink surface mode to transfigure into a slow kink first-order body mode for smaller values of the slab width\footnote{More precisely, non-dimensionalised slab half-width.}, $kx_0$. In Section~\ref{sec: critical slab width}, the precise value of this critical slab width is determined and the eigenfunction is analysed across this transition.
+
+In photospheric conditions, there exists and infinite sequence of fast sausage and kink body modes with phase speeds between $c_0$ and $\min{c_1, c_2}$. The
 
 
+\subsubsection{Critical slab width for kink mode transfiguration} \label{sec: critical slab width}
+First, let's derive an analytical expression for the critical slab width, over which the slow kink first-order body mode transitions into a fast kink surface mode. To do this, let $\omega^2 = k^2c_0^2(1 + \nu)$ for some $\nu \ll 1$. Then we have
+\begin{equation}
+m_0^2 = -\frac{\nu k^2c_0^2(v_A^2 - c_0^2(1 + \nu))}{(c_0^2 + v_A^2)(c_T^2 - c_0^2(1 + \nu))},
+\end{equation}
+which, when terms of quadratic and higher order in $\nu$ are neglected, reduces to
+\begin{equation}
+m_0^2 = \frac{\nu k^2(v_A^2 - c_0^2)}{c_0^2},
+\end{equation}
+and therefore,
+\begin{equation}
+\tanh(2m_0x_0) \approx 2kx_0\sqrt{\frac{\nu(v_A^2 - c_0^2)}{c_0^2}}.
+\end{equation}
+Substituting these into the dispersion relation for quasi-kink modes, neglecting terms of quadratic and higher order in $\nu$, and solving for $kx_0$ gives us the critical value for the 1st fast kink body mode as
+\begin{equation}
+kx_0 = \frac{c_0^2 \left(\frac{\rho_2}{\rho_0}c_2\sqrt{c_1^2 - c_0^2} + \frac{\rho_1}{\rho_0}c_1\sqrt{c_2^2 - c_0^2}\right)}{2(v_A^2 - c_0^2)\sqrt{(c_1^2 - c_0^2)(c_2^2 - c_0^2)}}.
+\end{equation}
+
+Across this transitional value, the eigenfunction changes functional form inside the slab from a trigonometric to a hyperbolic function (see Figure~\ref{fig: transitional kink eigenfunction}). 
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../main/figures/xi_of_x_body_surface_conversion.png}
+	\caption{The eigenfunction of the transitional kink mode. The critical slab width occurs between $kx_0 = 4$ and $kx_0 = 5$.}
+	\label{fig: transitional kink eigenfunction}
+\end{figure}
 
 
-\textcolor{red}{Below is all from extra details section and should be reread and maybe edited.}
-\textbf{Fast mode cut-off}
+\subsubsection{Fast mode cut-off}
 If $c_1 = c_2$, we have a symmetric slab and therefore no fast mode cut-off. Let $c_1 \neq c_2$ and let $\omega = \min(kc_1, kc_2)$. This makes either $m_1 = 0$ or $m_2 = 0$. Without loss of generality, consider the case where $\omega = kc_1$ and therefore $m_1 = 0$. This makes
 \begin{equation}
 m_0^2 = \frac{k^2 (c_0^2 - c_1^2)(v_A^2 - c_1^2)}{(c_0^2 + v_A^2)(c_T^2 - c_1^2)},
@@ -936,32 +975,239 @@ where
 B = c_2c_1^2\frac{\rho_1}{\rho_0}\sqrt{\frac{(c_0^2 - c_1^2)}{(c_0^2 + v_A^2)(c_T^2 - c_1^2)(v_A^2 - c_1^2)(c_T^2 - c_1^2)}}.
 \end{equation}
 
-\textbf{Transition value}
-Let $\omega^2 = k^2c_0^2(1+\nu)$ for some $\nu \ll 1$. Then we have
-\begin{equation}
-m_0^2 = -\frac{\nu k^2c_0^2(v_A^2 - c_0^2(1 + \nu))}{(c_0^2 + v_A^2)(c_T^2 - c_0^2(1 + \nu))},
-\end{equation}
-which, when terms of order $\nu^2$ and smaller are neglected, reduces to
-\begin{equation}
-m_0^2 = \frac{\nu k^2(v_A^2 - c_0^2)}{c_0^2},
-\end{equation}
-and therefore,
-\begin{equation}
-\tanh(2m_0x_0) \approx 2kx_0\sqrt{\frac{\nu(v_A^2 - c_0^2)}{c_0^2}}.
-\end{equation}
-Substituting these into the dispersion relation for quasi-kink modes , neglecting terms of order $\nu^2$ and smaller, and solving for $kx_0$ gives us the transition value for the 1st fast kink body mode as
-\begin{equation}
-kx_0 = \frac{c_0^2 \left(\frac{\rho_2}{\rho_0}c_2\sqrt{c_1^2 - c_0^2} + \frac{\rho_1}{\rho_0}c_1\sqrt{c_2^2 - c_0^2}\right)}{2(v_A^2 - c_0^2)\sqrt{(c_1^2 - c_0^2)(c_2^2 - c_0^2)}}.
-\end{equation}
-When the slab is symmetric, i.e. $c_1 = c_2 = c_e$, the transition value becomes
-\begin{equation}
-kx_0 = \frac{c_0^2 c_e \frac{\rho_e}{\rho_0}}{(v_A^2 - c_0^2)\sqrt{(c_e^2 - c_0^2)}}.
-\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{figure}[h!]
+	\centering
+	\subfloat[]{\includegraphics[scale=0.5]{../main/figures/SS_SK_DS_v2.pdf}
+		\label{fig:densityratio}} \\
+	%\vspace{-0.4in}
+	\subfloat[$\frac{\rho_\textrm{e}}{\rho_0}=0.1$]{\includegraphics[scale=0.45]{../main/figures/SS_SK_Re01_v2.pdf}
+		\label{fig:densityratio0.1}}
+	\subfloat[$\frac{\rho_\textrm{e}}{\rho_0}=10$]{\includegraphics[scale=0.45]{../main/figures/SS_SK_Re10_v2.pdf}
+		\label{fig:densityratio10}}
+	\caption{The effect of varying the ratio, $\rho_\textrm{e}/\rho_0$, of the slab density to the symmetric external density, on the dispersion of the slow surface modes of a magnetic slab in a symmetric external plasma. The red and blue surfaces correspond to the kink and sausage modes, respectively. Panels (b) and (c) are slices of panel (a) at specific values of $\rho_\textrm{e}/\rho_0$. These slices are superimposed onto panel (a) as black lines. The characteristic speed orderings are $v_\textrm{A}=0.5c_0$, $c_\textrm{e}=c_0$.}
+\end{figure}
+
+
+\begin{figure} [ph!]
+	\centering
+	\subfloat[]{\includegraphics[scale=0.5]{../main/figures/FullDR_SS_SK_DS_v2.pdf}
+		\label{fig:slow modes density}} \\
+	\subfloat[$kx_0=0.01$]{\includegraphics[scale=0.45]{../main/figures/FullDR_SS_SK_Kfixed001_v2.pdf}
+		\label{fig:slow modes density0.01}}
+	\subfloat[$kx_0=0.1$]{\includegraphics[scale=0.45]{../main/figures/FullDR_SS_SK_Kfixed01_v2.pdf}
+		\label{fig:slow modes density0.1}} \\
+	\subfloat[$kx_0=1$]{\includegraphics[scale=0.45]{../main/figures/FullDR_SS_SK_Kfixed1_v2.pdf}
+		\label{fig:slow modes density1}}
+	\subfloat[$kx_0=3$]{\includegraphics[scale=0.45]{../main/figures/FullDR_SS_SK_Kfixed3_v2.pdf}
+		\label{fig:slow modes density3}}
+	\caption{(a) The slow quasi-sausage (blue) and quasi-kink (red) surface mode solutions of the dispersion relation (Equation~\eqref{DR}) are plotted showing the variation of the dispersion as the ratio of one external density to the internal density is changed. The other density ratio is held fixed at $\rho_2/\rho_0=2$. The characteristic speed orderings are $c_2=0.7c_0$, $v_\textrm{A}=0.4c_0$, and $c_1$ varies to satisfy equilibrium pressure balance, given by Equation~\eqref{sound and density}. Panels (b)-(e) are slices of panel (a) for specific values of the non-dimensional slab width, $kx_0$.}
+\end{figure}
+
+
+First, consider a magnetised slab with symmetric non-magnetic external plasma, as described by \cite{rob81b}. Figures~\ref{fig:densityratio}-\ref{fig:densityratio10} illustrate how varying the ratio of external to internal density affects the propagation speeds of the slow kink and sausage surface modes. An increase in the density ratio, $\rho_\textrm{e}/\rho_0$, causes a decrease in the propagation speed of the slow modes. The fast surface modes demonstrate an identical behaviour (not shown). The body modes are weakly dependent on the external density, so that the propagation speed decreases only negligibly as $\rho_\textrm{e}/\rho_0$ increases.
+
+More generally, consider an asymmetric slab whose equilibrium conditions are given by Figure~\ref{fig:eq}. In Section~\ref{sec:symmetric comp} it was shown that the dispersion relation does not decouple into separate sausage and kink mode equations. However, their characteristics remain by and large, therefore the labels of ``quasi-sausage" and ``quasi-kink" may be used by referring to the anti-phase and in-phase oscillatory behaviour of the slab boundaries. However, we note that the quasi-kink mode now does not retain the width of the perturbed slab like the symmetric kink mode does.
+
+Figures~\ref{fig:slow modes density}-\ref{fig:slow modes density3} illustrate the behaviour of the slow surface modes as the external density on one side of the slab is varied while holding fixed the other external density. The slice where $\rho_1/\rho_0=2$ corresponds to a symmetric slab, where the usual behaviour is observed: the phase speed of the two slow surface modes converges to a speed that is slower than the tube speed, $c_\textrm{T}$, as the slab width increases. However, as the external densities become distinct, the phase speeds of these modes become distinct for a wide slab. This can also be seen in Figures~\ref{fig:disp sbs} and~\ref{fig:disp sbb}.
+
+For a wide slab width, $kx_0\gg1$, Figure~\ref{fig:slow modes density3} illustrates that the eigencurves of the slow surface modes demonstrate a wave phenomenon known as ``avoided crossing". Avoided crossings occur when the phase speeds of two wave modes avoid crossing when a parameter of the system is varied due to constraints preventing them from being equal; it demonstrates a transferral of properties between the two modes and can be used to give insight into the modal structure. There is rich literature regarding avoided crossings for the eigensolutions of a wide range of physical processes including energy level repulsion in quantum physics \citep{naq_etal72} and coupled spring oscillations in classical mechanics \citep{nov10}; in MHD the subject has been covered only briefly, for example between fast and slow magneto-acoustic gravity waves in a magnetically stratified plasma by \cite{abd90} and \cite{mat_etal2016}.
+
+\begin{figure} []
+	\centering
+	\subfloat[]{\includegraphics[scale=0.5]{../main/figures/disp.pdf}
+		\label{fig:disp}} \\
+	\makebox[\textwidth][c]{
+		\subfloat[]{\includegraphics[scale=0.47]{../main/figures/xix_v2.pdf}
+			\label{fig:xi}}}
+	\caption{(a) The slow surface mode solutions of the dispersion relation, Equation~\eqref{DR}, are plotted showing the variation of the dispersion as the ratio of one external density to the internal density is changed. The other density ratio is held fixed at $\rho_2/\rho_0=2$ and the non-dimensionalised slab width $kx_0 = 1.5$. The characteristic speed orderings are $c_2=0.7c_0$, $v_\textrm{A}=0.4c_0$, and $c_1$ varies to satisfy equilibrium pressure balance, given by Equation~\eqref{sound and density}. The parameters at each blue and red dot in panel(a) are used to plot the spatial variation of the transverse displacement perturbation, $\widehat{\xi}_x$, given by panel (b). The upper (lower) plots in panel (b) correspond to the quasi-sausage (quasi-kink) mode solutions.}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{../main/figures/xi_of_x_slow_body.png}
+	\caption{The variation (or lack thereof) of the first three slow sausage and kink body eigenfunctions as the asymmetry in the background plasma is varied. The first, third, and fifth rows are kink modes and the second, fourth, and sixth rows are sausage modes. The density ratio $\rho_1/\rho_0$ is varied while the other density ratio is held fixed at $\rho_2/\rho_0 = 2.0$. The middle column of panels for which $\rho_1/\rho_0 = 2.0$ corresponds to a symmetric slab.}
+	\label{fig: body eigenmodes}
+\end{figure}
+
+In the present study, the avoided crossing occurs between quasi-kink and quasi-sausage surface solutions to the asymmetric slab. This explains why the dispersion relation does not decouple into a sausage and a kink equation (Section~\ref{sec:symmetric comp}). Figures~\ref{fig:disp} and~\ref{fig:xi} demonstrate that during the transition across the avoided crossing, the quasi-sausage and quasi-kink modes exchange the slab boundary upon which the largest perturbation occurs. For example, the left plots of Figure~\ref{fig:xi} show that the quasi-sausage mode has its highest amplitude on the interface of highest local phase-speed (equivalently, lowest external density). The quasi-kink mode demonstrates the opposite behaviour. The central plots show the special case of a symmetric slab, where $\rho_1 = \rho_2$, demonstrating the spatial antisymmetry and symmetry in the symmetric sausage and kink mode, respectively. As the left external density, $\rho_1$, dominates the right external density, $\rho_2$, the right plots of Figure~\ref{fig:xi} show that again the quasi-sausage mode has its higher amplitude on the interface of higher local phase-speed, but this is now on the other interface. By the term local phase speed we are referring to the phase-speed of a slow surface mode travelling parallel to the magnetic field at an isolated density and magnetic interface between a magnetised and non-magnetised plasma, \textit{i.e.} half of the magnetic slab model. Each interface of an asymmetric magnetic slab has a distinct ''local" phase-speed, and according to \cite{rob81a}, these phase speeds are inversely proportional to the density in the non-magnetic region.
+
+When they exist, the fast quasi-sausage and quasi-kink surface modes demonstrate an identical behaviour (not shown). As demonstrated analytically in Equations~\eqref{thin slab saus body}-\eqref{thin slab kink body} and \eqref{wide slab saus body}-\eqref{wide slab kink body2}, the body modes are not dependent on internal or external densities to leading order in $kx_0$. This means that body modes demonstrate only a weak dependence on the external densities, and an avoided crossing does not occur between these modes as the external densities are varied.
+
 
 \subsubsection{Varying the degree of asymmetry}
 
 \subsection{Analogy to coupled spring and mass oscillator}
-Actually do the maths for this.
+\textcolor{red}{All this section needs editting. Also, maybe actually do the maths for this.}
+
+To understand this further, we propose an analogy with a coupled mechanical simple harmonic oscillation system (more information can be found in \citealp{nov10}). Consider a system of two identical masses, between two fixed walls, with springs connecting the left wall to the left mass, the masses together, and the right mass to the right wall (Figure~\ref{fig:springs sym eq}). The three springs correspond to the three regions of plasma, and the masses to the interfaces. If the left and right springs have the same spring constant, then the two normal modes of oscillation are the oscillations where the masses are in phase (Figure~\ref{fig:springs sym inphase}) or in anti-phase (Figure~\ref{fig:springs sym inanti-phase}). These are analogous to the kink and sausage surface modes, respectively, in a symmetric magnetic slab. Consider now the case when the spring constants in the left and right springs are distinct (Figure~\ref{fig:springs asym eq}). In this case, the normal modes are asymmetric in-phase (Figure~\ref{fig:springs asym inphase}) and in-anti-phase oscillations (Figure~\ref{fig:springs asym inanti-phase}), analogous to the asymmetric quasi-kink and quasi-sausage magnetic slab modes, respectively. In this mechanical analogy, it is clear that for the in-phase mode, the higher amplitude will be on the side with smaller spring constant, and \textit{vice versa} for the in-anti-phase mode. A higher spring constant in the left or right springs in this analogy corresponds to a lower density outside the magnetic slab because a higher spring constant in an uncoupled spring gives a higher characteristic frequency. This gives us some motivation as to why the surface modes of the asymmetric magnetic slab have higher amplitudes on different sides for quasi-sausage and quasi-kink modes.
+
+\begin{figure}
+	\makebox[\textwidth][c]{
+		\subfloat[Symmetric equilibrium]{\scalebox{0.6}{
+				\begin{tikzpicture}
+				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
+				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
+				\draw[Spring] (0,0) -- (2,0);
+				\draw[Spring, thin] (2,0) -- (4,0);
+				\draw[Spring] (4,0) -- (6,0);
+				
+				\draw [dashed] (2,1) -- (2,-1);
+				\draw [dashed] (4,1) -- (4,-1);
+				
+				\draw (2,0) node [fill=red,circle,scale=0.8] {};
+				\draw (4,0) node [fill=red,circle,scale=0.8] {};
+				
+				\Large
+				\draw (1,0.6) node [] {$k_\textrm{e}$};
+				\draw (3,0.6) node [] {$k_0$};
+				\draw (5,0.6) node [] {$k_\textrm{e}$};
+				\end{tikzpicture}
+				\label{fig:springs sym eq}}}
+		%
+		%
+		%
+		%
+		%
+		\subfloat[Symmetric in-phase]{\scalebox{0.6}{
+				\begin{tikzpicture}
+				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
+				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
+				\draw[Spring] (0,0) -- (1.5,0);
+				\draw[Spring, thin] (1.5,0) -- (3.5,0);
+				\draw[Spring] (3.5,0) -- (6,0);
+				
+				\draw [dashed] (2,1) -- (2,-1);
+				\draw [dashed] (4,1) -- (4,-1);
+				
+				\draw (1.5,0) node [fill=red,circle,scale=0.8] {};
+				\draw (3.5,0) node [fill=red,circle,scale=0.8] {};
+				
+				\Large
+				\draw (1,0.6) node [] {$k_\textrm{e}$};
+				\draw (3,0.6) node [] {$k_0$};
+				\draw (5,0.6) node [] {$k_\textrm{e}$};
+				\end{tikzpicture}
+				\label{fig:springs sym inphase}}}
+		%
+		%
+		\subfloat[Symmetric anti-phase]{\scalebox{0.6}{
+				\begin{tikzpicture}
+				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
+				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
+				\draw[Spring] (0,0) -- (1.5,0);
+				\draw[Spring, thin] (1.5,0) -- (4.5,0);
+				\draw[Spring] (4.5,0) -- (6,0);
+				
+				\draw [dashed] (2,1) -- (2,-1);
+				\draw [dashed] (4,1) -- (4,-1);
+				
+				\draw (1.5,0) node [fill=red,circle,scale=0.8] {};
+				\draw (4.5,0) node [fill=red,circle,scale=0.8] {};
+				
+				\Large
+				\draw (1,0.6) node [] {$k_\textrm{e}$};
+				\draw (3,0.6) node [] {$k_0$};
+				\draw (5,0.6) node [] {$k_\textrm{e}$};
+				\end{tikzpicture}
+				\label{fig:springs sym inanti-phase}}}}
+	%
+	\\
+	%
+	\makebox[\textwidth][c]{
+		\subfloat[Asymmetric equilibrium]{\scalebox{0.6}{
+				\begin{tikzpicture}
+				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
+				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
+				\draw[Spring, line width=2] (0,0) -- (2,0);
+				\draw[Spring, thin] (2,0) -- (4,0);
+				\draw[Spring, line width=1] (4,0) -- (6,0);
+				
+				\draw [dashed] (2,1) -- (2,-1);
+				\draw [dashed] (4,1) -- (4,-1);
+				
+				\draw (2,0) node [fill=red,circle,scale=0.8] {};
+				\draw (4,0) node [fill=red,circle,scale=0.8] {};
+				
+				\Large
+				\draw (1,0.6) node [] {$k_1$};
+				\draw (3,0.6) node [] {$k_0$};
+				\draw (5,0.6) node [] {$k_2$};
+				\end{tikzpicture}
+				\label{fig:springs asym eq}}}
+		%
+		%
+		%
+		%
+		%
+		\subfloat[Asymmetric in-phase]{\scalebox{0.6}{
+				\begin{tikzpicture}
+				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
+				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
+				\draw[Spring, line width=2] (0,0) -- (1.8,0);
+				\draw[Spring, thin] (1.8,0) -- (3.2,0);
+				\draw[Spring, line width=1] (3.2,0) -- (6,0);
+				
+				\draw [dashed] (2,1) -- (2,-1);
+				\draw [dashed] (4,1) -- (4,-1);
+				
+				\draw (1.8,0) node [fill=red,circle,scale=0.8] {};
+				\draw (3.2,0) node [fill=red,circle,scale=0.8] {};
+				
+				\Large
+				\draw (1,0.6) node [] {$k_1$};
+				\draw (3,0.6) node [] {$k_0$};
+				\draw (5,0.6) node [] {$k_2$};
+				\end{tikzpicture}
+				\label{fig:springs asym inphase}}}
+		%
+		%
+		%
+		\subfloat[Asymmetric anti-phase]{\scalebox{0.6}{
+				\begin{tikzpicture}
+				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
+				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
+				\draw[Spring, line width=2] (0,0) -- (1.2,0);
+				\draw[Spring, thin] (1.2,0) -- (4.2,0);
+				\draw[Spring, line width=1] (4.2,0) -- (6,0);
+				
+				\draw [dashed] (2,1) -- (2,-1);
+				\draw [dashed] (4,1) -- (4,-1);
+				
+				\draw (1.2,0) node [fill=red,circle,scale=0.8] {};
+				\draw (4.2,0) node [fill=red,circle,scale=0.8] {};
+				
+				\Large
+				\draw (1,0.6) node [] {$k_1$};
+				\draw (3,0.6) node [] {$k_0$};
+				\draw (5,0.6) node [] {$k_2$};
+				\end{tikzpicture}
+				\label{fig:springs asym inanti-phase}}}}
+	%
+	%
+	\caption{A coupled mechanical oscillator gives an analogy to the eigenmodes of symmetric and asymmetric magnetic slabs. Spring constants are denoted $k$, with a thicker spring corresponding to a higher spring constant. Figures~(a) and~(d) show the symmetric and asymmetric spring systems in equilibrium. Figures~(b) and~(c) show the normal modes of a symmetric system. Figures~(e) and~(f) show the normal modes of an asymmetric system with spring constants $k_1>k_2$. In each panel, the vertical dashed lines give the positions of the red masses at equilibrium.}
+	\label{fig:springs all}
+\end{figure}
 
 \textcolor{red}{This is analogous to the mechanical example introduced by \cite{all_etal17}. Consider two masses connected by a spring, with spring constant $k_0$, and each mass is also connected to a fixed wall on each side by springs with spring constants $k_1$ and $k_2$, respectively (see Figure~\ref{fig: wide slab mechanical analogy}). When the middle spring has a spring constant $k_0 \neq 0$, there are two modes, an in-phase mode (analogous to kink modes in a slab) and an in-anti-phase mode (analogous to sausage modes in a slab). When the two masses are decoupled by removing the middle spring, equivalently setting $k_0 = 0$, each mass oscillates independently at the natural frequency of that side of the spring-mass system. This decoupling provides a good analogy to the wide slab limit for the magnetic slab. Each interface can oscillate at its own natural frequency, independent of the other interface. Given that we are considering magnetoacoustic waves, there are two restoring forces, the magnetic tension force and the pressure gradient force, which means that each independent interface has two natural frequencies (depending on the parameters of the system, there can be 0, 1, or 2 frequencies), corresponding to the fast and slow magnetoacoustic modes. With this understanding of the modes in the wide slab limit, the amplitude ratio, $R_\textrm{A}$, is either $0$ or \textit{undefined}, depending on which interface the wave is propagating and is therefore not useful for magnetoseismology.}
 
