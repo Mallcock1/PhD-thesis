@@ -1043,13 +1043,31 @@ One particularly interesting characteristic of asymmetric eigenmodes is that the
 
 Consider a system of two identical masses of mass $m$ between two fixed walls, with light springs connecting the left wall to the left mass, the masses together, and the right mass to the right wall (Figure~\ref{fig: springs sym eq}). The springs have spring constants $k_1$, $k_0$, and $k_2$, respectively. The coordinates $x_1$ and $x_2$, which give the displacements of the two masses at time $t$, uniquely specify the system. Applying Newton's Second Law of Motion gives a coupled system of differential equations
 \begin{equation}
-	m\frac{d^2x_1}{dt^2} = -k_1x_1 + k_0(x_2 - x_1), \quad m\frac{d^2x_2}{dt^2} = -k_1x_1 + k_0(x_2 - x_1).
+	m\frac{d^2}{dt^2}\left(
+	\begin{matrix}
+		x_1 \\
+		x_2
+	\end{matrix}
+	\right)
+	=
+	\left(
+	\begin{matrix}
+		-k_1 - k_0 & k_0 \\
+		k_0 & -k_2 - k_0
+	\end{matrix}
+	\right)
+	\left(
+	\begin{matrix}
+	x_1 \\
+	x_2
+	\end{matrix}
+	\right).
 \end{equation}
 Looking for wave solutions of the form $x_1(t) = \hat{x}_1 e^{-i\omega t}$, and similar for $x_2(t)$, and defining $\omega_j = k_j/m$ for $j = 0, 1, 2$, gives
 \begin{equation}
 	\left(
 	\begin{matrix}
-		\omega_1^2 + \omega_0^2 - \omega^2 & \omega_0^2 \\
+		\omega_1^2 + \omega_0^2 - \omega^2 & -\omega_0^2 \\
 		-\omega_0^2 & \omega_2^2 + \omega_0^2 - \omega^2
 	\end{matrix}
 	\right)
@@ -1064,14 +1082,24 @@ Looking for wave solutions of the form $x_1(t) = \hat{x}_1 e^{-i\omega t}$, and 
 		0 \\
 		0
 	\end{matrix}
-	\right).
+	\right). \label{coupled oscillator matrix}
 \end{equation}
+For non-trivial solutions to exist, the matrix must be singular. For this to occur, its determinant must vanish, \textit{i.e.}
+\begin{equation}
+	(\omega_1^2 + \omega_0^2 - \omega^2)(\omega_1^2 + \omega_0^2 - \omega^2) - \omega_0^4 = 0,
+\end{equation}
+which has solutions
+\begin{equation}
+	\omega_\pm^2 = \frac{1}{2}\left[ \omega_2^2 - \omega_1^2 + 2\omega_0^2 \pm \sqrt{(\omega_2^2 - \omega_2^2) + \omega_0^4} \right].
+\end{equation}
+Thus, there are two eigenfrequences of the system. This is to be expected because the system has two degrees of freedom. The eigenfunctions (\textit{i.e.} the values of $\hat{x}_1$ and $\hat{x}_2$) associated with these eigenfrequencies are found by substituting the eigenfrequencies back into Equation~\eqref{coupled oscillator matrix}. Thus, we find that the ratio of the oscillation amplitudes of each mass is
+\begin{align}
+	\frac{\hat{x}_1}{\hat{x}_2} & = -\frac{1}{\omega_0^2}(\omega_2^2 + \omega_0^2 - \omega_\pm^2) \\
+	& = -\frac{1}{2W}\left[1 \pm \sqrt{1 + 4W^2} \right]. \label{coupled oscillator ratio}
+\end{align}
+where $W = \omega_0^2 / (\omega_2^2 - \omega_1^2)$. Without loss of generality, let $\omega_2 > \omega_1$ so that $W > 0$. Then, considering Equation~\ref{coupled oscillator ratio}, the eigenmode with eigenfrequency $\omega_+$ gives $\hat{x}_1 / \hat{x}_2 < 0$, \textit{i.e.} the masses oscillate in anti-phase. This is known as the \textit{breathing mode} and is equivalent to the sausage modes of the magnetic slab model. The eigenmode with eigenfrequency $\omega_-$ gives $\hat{x}_1 / \hat{x}_2 > 0$, \textit{i.e.} the masses oscillate in phase. This is known as the \textit{sloshing mode} and is equivalent to the kink modes of the magnetic slab model.
 
-
-
-
-
-The three springs correspond to the three regions of plasma, and the masses to the interfaces. If the left and right springs have the same spring constant, then the two normal modes of oscillation are the oscillations where the masses are in phase (Figure~\ref{fig:springs sym inphase}) or in anti-phase (Figure~\ref{fig:springs sym inanti-phase}). These are analogous to the kink and sausage surface modes, respectively, in a symmetric magnetic slab. Consider now the case when the spring constants in the left and right springs are distinct (Figure~\ref{fig:springs asym eq}). In this case, the normal modes are asymmetric in-phase (Figure~\ref{fig:springs asym inphase}) and in-anti-phase oscillations (Figure~\ref{fig:springs asym inanti-phase}), analogous to the asymmetric quasi-kink and quasi-sausage magnetic slab modes, respectively. In this mechanical analogy, it is clear that for the in-phase mode, the higher amplitude will be on the side with smaller spring constant, and \textit{vice versa} for the in-anti-phase mode. A higher spring constant in the left or right springs in this analogy corresponds to a lower density outside the magnetic slab because a higher spring constant in an uncoupled spring gives a higher characteristic frequency. This gives us some motivation as to why the surface modes of the asymmetric magnetic slab have higher amplitudes on different sides for quasi-sausage and quasi-kink modes.
+Comparing to the magnetic slab model, the three springs here correspond to the three regions of plasma, and the masses to the plasma interfaces. In Appendix~\ref{app: coupled oscillator modes}, we show that the breathing mode has highest amplitude on the mass connected to the external spring with lowest spring constant and the sloshing mode has highest amplitude on the mass connected to the external spring with highest spring constant. A higher spring constant in this model is analogous to a lower density outside the magnetic slab. This is because a higher spring constant in an uncoupled spring-mass system gives a higher characteristic frequency. This gives motivation as to why the surface modes of the asymmetric magnetic slab have higher amplitudes on different sides for quasi-sausage and quasi-kink modes.
 
 \begin{figure}
 	\makebox[\textwidth][c]{
@@ -1095,12 +1123,8 @@ The three springs correspond to the three regions of plasma, and the masses to t
 				\draw (5,0.6) node [] {$k_\textrm{e}$};
 			\end{tikzpicture}
 			\label{fig: springs sym eq}}}
-		%
-		%
-		%
-		%
-		%
-		\subfloat[Symmetric in-phase]{\scalebox{0.6}{
+
+		\subfloat[Symmetric sloshing]{\scalebox{0.6}{
 			\begin{tikzpicture}
 				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
 				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
@@ -1119,10 +1143,9 @@ The three springs correspond to the three regions of plasma, and the masses to t
 				\draw (3,0.6) node [] {$k_0$};
 				\draw (5,0.6) node [] {$k_\textrm{e}$};
 			\end{tikzpicture}
-			\label{fig: springs sym inphase}}}
-		%
-		%
-		\subfloat[Symmetric anti-phase]{\scalebox{0.6}{
+			\label{fig: springs sym in-phase}}}
+
+		\subfloat[Symmetric breathing]{\scalebox{0.6}{
 			\begin{tikzpicture}
 				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
 				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
@@ -1141,18 +1164,16 @@ The three springs correspond to the three regions of plasma, and the masses to t
 				\draw (3,0.6) node [] {$k_0$};
 				\draw (5,0.6) node [] {$k_\textrm{e}$};
 			\end{tikzpicture}
-			\label{fig: springs sym inanti-phase}}}}
-	%
+			\label{fig: springs sym anti-phase}}}}
 	\\
-	%
 	\makebox[\textwidth][c]{
 		\subfloat[Asymmetric equilibrium]{\scalebox{0.6}{
 			\begin{tikzpicture}
 				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
 				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
-				\draw[Spring, line width=2] (0,0) -- (2,0);
+				\draw[Spring, line width=1] (0,0) -- (2,0);
 				\draw[Spring, thin] (2,0) -- (4,0);
-				\draw[Spring, line width=1] (4,0) -- (6,0);
+				\draw[Spring, line width=2] (4,0) -- (6,0);
 				
 				\draw [dashed] (2,1) -- (2,-1);
 				\draw [dashed] (4,1) -- (4,-1);
@@ -1166,18 +1187,14 @@ The three springs correspond to the three regions of plasma, and the masses to t
 				\draw (5,0.6) node [] {$k_2$};
 			\end{tikzpicture}
 			\label{fig: springs asym eq}}}
-		%
-		%
-		%
-		%
-		%
-		\subfloat[Asymmetric in-phase]{\scalebox{0.6}{
+
+		\subfloat[Asymmetric sloshing]{\scalebox{0.6}{
 			\begin{tikzpicture}
 				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
 				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
-				\draw[Spring, line width=2] (0,0) -- (1.8,0);
+				\draw[Spring, line width=1] (0,0) -- (1.8,0);
 				\draw[Spring, thin] (1.8,0) -- (3.2,0);
-				\draw[Spring, line width=1] (3.2,0) -- (6,0);
+				\draw[Spring, line width=2] (3.2,0) -- (6,0);
 				
 				\draw [dashed] (2,1) -- (2,-1);
 				\draw [dashed] (4,1) -- (4,-1);
@@ -1190,17 +1207,15 @@ The three springs correspond to the three regions of plasma, and the masses to t
 				\draw (3,0.6) node [] {$k_0$};
 				\draw (5,0.6) node [] {$k_2$};
 			\end{tikzpicture}
-			\label{fig: springs asym inphase}}}
-		%
-		%
-		%
-		\subfloat[Asymmetric anti-phase]{\scalebox{0.6}{
+			\label{fig: springs asym in-phase}}}
+
+		\subfloat[Asymmetric breathing]{\scalebox{0.6}{
 			\begin{tikzpicture}
 				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
 				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
-				\draw[Spring, line width=2] (0,0) -- (1.2,0);
+				\draw[Spring, line width=1] (0,0) -- (1.2,0);
 				\draw[Spring, thin] (1.2,0) -- (4.2,0);
-				\draw[Spring, line width=1] (4.2,0) -- (6,0);
+				\draw[Spring, line width=2] (4.2,0) -- (6,0);
 				
 				\draw [dashed] (2,1) -- (2,-1);
 				\draw [dashed] (4,1) -- (4,-1);
@@ -1213,14 +1228,11 @@ The three springs correspond to the three regions of plasma, and the masses to t
 				\draw (3,0.6) node [] {$k_0$};
 				\draw (5,0.6) node [] {$k_2$};
 			\end{tikzpicture}
-			\label{fig: springs asym inanti-phase}}}}
-	%
-	%
-	\caption{A coupled mechanical oscillator gives an analogy to the eigenmodes of symmetric and asymmetric magnetic slabs. Spring constants are denoted $k$, with a thicker spring corresponding to a higher spring constant. Figures~(a) and~(d) show the symmetric and asymmetric spring systems in equilibrium. Figures~(b) and~(c) show the normal modes of a symmetric system. Figures~(e) and~(f) show the normal modes of an asymmetric system with spring constants $k_1>k_2$. In each panel, the vertical dashed lines give the positions of the red masses at equilibrium.}
+			\label{fig: springs asym anti-phase}}}}
+
+	\caption{A coupled mechanical oscillator gives an analogy to the eigenmodes of symmetric and asymmetric magnetic slabs. Spring constants are denoted $k$, with a thicker spring corresponding to a higher spring constant. Figures~(a) and~(d) show the symmetric and asymmetric spring systems in equilibrium. Figures~(b) and~(c) show the normal modes of a symmetric system. Figures~(e) and~(f) show the normal modes of an asymmetric system with spring constants $k_2 > k_1$. In each panel, the vertical dashed lines give the positions of the red masses at equilibrium.}
 	\label{fig: springs all}
 \end{figure}
-
-\textcolor{red}{This is analogous to the mechanical example introduced by \cite{all_etal17}. Consider two masses connected by a spring, with spring constant $k_0$, and each mass is also connected to a fixed wall on each side by springs with spring constants $k_1$ and $k_2$, respectively (see Figure~\ref{fig: wide slab mechanical analogy}). When the middle spring has a spring constant $k_0 \neq 0$, there are two modes, an in-phase mode (analogous to kink modes in a slab) and an in-anti-phase mode (analogous to sausage modes in a slab). When the two masses are decoupled by removing the middle spring, equivalently setting $k_0 = 0$, each mass oscillates independently at the natural frequency of that side of the spring-mass system. This decoupling provides a good analogy to the wide slab limit for the magnetic slab. Each interface can oscillate at its own natural frequency, independent of the other interface. Given that we are considering magnetoacoustic waves, there are two restoring forces, the magnetic tension force and the pressure gradient force, which means that each independent interface has two natural frequencies (depending on the parameters of the system, there can be 0, 1, or 2 frequencies), corresponding to the fast and slow magnetoacoustic modes. With this understanding of the modes in the wide slab limit, the amplitude ratio, $R_\textrm{A}$, is either $0$ or \textit{undefined}, depending on which interface the wave is propagating and is therefore not useful for magnetoseismology.}
 
 
 %------------------------------------------------------------------------------
@@ -1248,6 +1260,41 @@ Possibilities:
 \end{itemize}
 Include discussion about how to differentiate between these.
 
+\appendix
+\section{Coupled oscillator asymmetric eigenmodes} \label{app: coupled oscillator modes}
+In this appendix, we prove that the breathing mode has highest amplitude on the mass connected to the external spring with lowest spring constant and the sloshing mode has highest amplitude on the mass connected to the external spring with highest spring constant.
+
+Without loss of generality, let $\omega_2 > \omega_1$, so that the spring on the right has higher spring constant than the spring on the left. First, consider the case when $W < 1$. For the breathing mode, which has eigenfrequency $\omega_+$,
+\begin{align}
+	\left| \frac{\hat{x}_1}{\hat{x}_2} \right| & = \frac{1}{2W} \left(1 + \sqrt{1 + 4W^2}\right) \\
+	& >  \frac{1}{2} \left(1 + \sqrt{1}\right), \quad \text{since $0 < W < 1$,} \\
+	& = 1.
+\end{align}
+Therefore, the oscillation amplitude of the mass on the left is higher. For the sloshing mode, which has eigenfrequency $\omega_-$,
+\begin{align}
+	\left| \frac{\hat{x}_1}{\hat{x}_2} \right| & = \frac{1}{2W} \left|1 - \sqrt{1 + 4W^2}\right| \\
+	& = \frac{1}{2W} \left(\sqrt{1 + 4W^2} - 1\right) \\
+	& \leq \frac{1}{2W} \left(\sqrt{1} + \sqrt{4W^2} - 1\right), \quad \text{by the triangle inequality,} \\
+	& = 1.
+\end{align}
+Therefore, the oscillation amplitude of the mass on the right is higher.
+
+Next, consider the case when $W > 1$. For the breathing mode,
+\begin{align}
+\left| \frac{\hat{x}_1}{\hat{x}_2} \right| & = \frac{1}{2W} \left(1 + \sqrt{1 + 4W^2}\right) \\
+& \geq \frac{1}{2W} \sqrt{2 + 4W^2}, \quad \text{by the triangle inequality,} \\
+& = \sqrt{\frac{1}{2W} + 1} \\
+& > 1,  \quad \text{since $W > 0$.}
+\end{align}
+Therefore, the oscillation amplitude of the mass on the left is higher. For the sloshing mode,
+\begin{align}
+\left| \frac{\hat{x}_1}{\hat{x}_2} \right| & = \frac{1}{2W} \left(\sqrt{1 + 4W^2} - 1\right) \\
+& \leq \frac{1}{2W} \left(\sqrt{1 + 4W^2 - 1}\right), \quad \text{by the reverse triangle inequality,} \\
+& = 1.
+\end{align}
+Therefore, the oscillation amplitude of the mass on the right is higher.
+
+Finally, it is trivial to show the same result holds in the case where $W = 1$. This completes the proof that the breathing mode has highest amplitude on the mass connected to the external spring with lowest spring constant and the sloshing mode has highest amplitude on the mass connected to the external spring with highest spring constant.
 
 
 \bibliographystyle{plainnat}
