@@ -915,7 +915,7 @@ To solve Equation~\eqref{DR non-mag} numerically, we view the left-hand-side as 
 		\label{fig: disp sbs}}
 	\subfloat[$v_{A0} < c_0$]{\includegraphics[scale=0.45]{../main/figures/disp_sbb_R1-5.pdf}
 		\label{fig: disp sbb}}
-	\caption{Dispersion diagram for the dispersion relation, Equation~\eqref{DR}. The surface (body) modes are in plotted red (blue) and the sausage (kink) modes are represented by solid (dashed) lines. The density ratios are $\rho_1/\rho_0 = 1.5$ and $\rho_2/\rho_0 = 2$, and the characteristic speed orderings are $c_2 = 1.2c_0$ and (a)$v_{A0} = 1.3c_0$ and (b)$v_{A0} = 0.9c_0$.}
+	\caption{Dispersion diagram for the dispersion relation, Equation~\eqref{DR non-mag}. The surface (body) modes are in plotted red (blue) and the sausage (kink) modes are represented by solid (dashed) lines. The density ratios are $\rho_1/\rho_0 = 1.5$ and $\rho_2/\rho_0 = 2$, and the characteristic speed orderings are $c_2 = 1.2c_0$ and (a)$v_{A0} = 1.3c_0$ and (b)$v_{A0} = 0.9c_0$.}
 	\label{fig: disp}
 \end{figure}
 
@@ -1240,25 +1240,107 @@ Comparing to the magnetic slab model, the three springs here correspond to the t
 \label{sec: EVP mag}
 %------------------------------------------------------------------------------
 
-\subsection{Model description}
+Returning to the general model for a magnetic slab, that is, a magnetic slab with asymmetric external environment. While the 
 
-\subsection{The dispersion relation}
+\subsection{Summary of the eigenmode}
+
+The eigenmodes and their dispersion is broadly similar to the slab in a non-magnetic environment. The differences, where they exist, are briefly discussed here.
+
+\begin{figure}[]
+	\centering
+	\subfloat[$v_{A0} > c_0$]{\includegraphics[scale=0.45]{../main/figures/disp-mag-outside-photophere.png}
+		\label{fig: disp mag 1}}
+	\subfloat[$v_{A0} < c_0$]{\includegraphics[scale=0.45]{../main/figures/disp-mag-outside-2.png}
+		\label{fig: disp mag 2}}
+	\caption{Dispersion diagram for the dispersion relation, Equation~\eqref{DR}. \textcolor{red}{Finish}}
+	\label{fig: disp mag}
+\end{figure}
+
 
 \subsection{Implications for observations}
 
-\subsubsection{Quasi-symmetric modes}
+Accurate mode identification is a key aspect of SMS. Different modes can differ in characteristics such as damping rate, phase and group speed, and, most relevant to this Thesis, response to waveguide asymmetry. Therefore, inaccurate mode identification can lead to significant error in diagnosis of background parameters. This subsection warns observational solar physicists of two possible ways in which errors in mode identification  could be made due to waveguide asymmetry.
+
+
+\subsubsection{Quasi-symmetric eigenmodes}
+
+It is possible for asymmetric MHD waves to have similar observational qualities to symmetric MHD waves. This can occur when the restoring force of perturbations (that is, the sum of the pressure gradient and Lorentz forces) is equal at both interfaces. This can occur in an asymmetric slab when the asymmetry in the pressure gradient force is precisely balanced to the asymmetry in the Lorentz force. We define these as \textit{quasi-symmetric} modes.
+
+More precisely, we define quasi-symmetric modes to be eigenmodes which have equal transverse displacement amplitude on each boundary of the slab. This is equivalent to setting $\hat{v}_x (-x_0) = - \hat{v}_x (x_0)$ for quasi-sausage modes and $\hat{v}_x (-x_0) = \hat{v}_x (x_0)$ for quasi-kink modes.
+
+The aim here is to prove that the necessary and sufficient condition for the existence of quasi-symmetric eigenmodes of an asymmetric magnetic slab is
+\begin{equation}
+\frac{\rho_1}{m_1}(k^2v_{A1}^2 - \omega^2) = \frac{\rho_2}{m_2}(k^2v_{A2}^2 - \omega^2), \label{quasi-sym condition}
+\end{equation}
+for a given frequency, $\omega$, and wavenumber, $k$.
+
+To show that Equation~\eqref{quasi-sym condition} is sufficient for there to exist quasi-symmetric modes, consider an asymmetric magnetic slab with parameters that satisfy Equation~\eqref{quasi-sym condition}. Under this supposition, the transverse velocity perturbation solution for quasi-sausage modes reduces to
+\begin{equation}
+\hat{v}_x(x) =
+\begin{cases}
+A(\cosh{m_1x} + \sinh{m_1x}) & \text{if } x < -x_0, \\
+C\sinh{m_0x} & \text{if } |x| \leq x_0, \\
+D(\cosh{m_2x} - \sinh{m_2x}) & \text{if  } x > x_0,
+\end{cases}
+\end{equation}
+where
+\begin{equation}
+A = \frac{-Cs_0}{c_1 - s_1}, \quad
+D = \frac{Cs_0}{c_2 - s_2}, \quad
+C \text{ is arbitrary}.
+\end{equation}
+The solution within the slab, $|x| \leq x_0$, is an odd function of $x$, therefore $\hat{v}_x(x_0) = -\hat{v}_x(-x_0)$. Therefore Equation~\eqref{quasi-sym condition} is a sufficient condition for the existence of quasi-symmetric modes. For quasi-kink modes, a similar proof is followed, where we find that $\hat{v}_x(x)$ is an even function within the slab.
+
+To show that Equation~\eqref{quasi-sym condition} is necessary for there to exist quasi-symmetric modes, consider an asymmetric magnetic slab which supports quasi-symmetric modes. The transverse velocity perturbation solution is given by
+\begin{equation}
+\hat{v}_x(x) =
+\begin{cases}
+A(\cosh{m_1x} + \sinh{m_1x}) & \text{if } x < -x_0, \\
+B\cosh{m_0x} + C\sinh{m_0x} & \text{if } |x| \leq x_0, \\
+D(\cosh{m_2x} - \sinh{m_2x}) & \text{if } x > x_0, \label{vsoln}
+\end{cases}
+\end{equation}
+where
+\begin{align}
+A &= \frac{1}{c_1 - s_1}(Bc_0 - Cs_0), \label{constA C} \\ 
+D &= \frac{1}{c_2 - s_2}(Bc_0 + Cs_0), \label{constD C} \\
+B &= \frac{\Lambda_0c_0 + \Lambda_1s_0}{\Lambda_0s_0 + \Lambda_1c_0}C = -\frac{\Lambda_0c_0 + \Lambda_2s_0}{\Lambda_0s_0 + \Lambda_2c_0}C, \label{constB C} \\
+C & \text{ is arbitrary},
+\end{align}
+for quasi-sausage modes, and
+\begin{align}
+A &= \frac{1}{c_1 - s_1}(Bc_0 - Cs_0), \label{constA B} \\ 
+D &= \frac{1}{c_2 - s_2}(Bc_0 + Cs_0), \label{constD B} \\
+C &= \frac{\Lambda_0s_0 + \Lambda_1c_0}{\Lambda_0c_0 + \Lambda_1s_0}B = -\frac{\Lambda_0s_0 + \Lambda_2c_0}{\Lambda_0c_0 + \Lambda_2s_0}B, \label{constB B} \\
+B & \text{ is arbitrary},
+\end{align}
+for quasi-kink modes. Given the supposition that the slab supports quasi-symmetric modes, we have, for quasi-sausage modes,
+\begin{align}
+\hat{v}_x(-x_0) &= -\hat{v}_x(x_0), \\
+\implies \left(\frac{\Lambda_0c_0 + \Lambda_1s_0}{\Lambda_0s_0 + \Lambda_1c_0}\right) c_0 - s_0 &= -\left(\frac{\Lambda_0c_0 + \Lambda_1s_0}{\Lambda_0s_0 + \Lambda_1c_0}\right)c_0 - s_0, \\
+\implies \Lambda_0c_0 + \Lambda_1s_0 &= 0.
+\end{align}
+Similarly, taking the second expression for $B$, we deduce that 
+\begin{equation}
+\Lambda_0c_0 + \Lambda_2s_0 = 0.
+\end{equation}
+It follows that $\Lambda_1 = \Lambda_2$, which is equivalent to Equation~\eqref{quasi-sym condition}, which concludes the proof that it is a necessary condition for the existence of quasi-symmetric quasi-sausage modes. For quasi-kink modes, a similar proof can be followed to show that $\hat{v}_x(x_0) = \hat{v}_x(-x_0)$ implies Equation~\eqref{quasi-sym condition}.
+
+
+
+
+
+
+If we further specify that the penetration depth of perturbations in the external plasma be equal on each side of the slab, so that the eigenfunction is fully symmetric, then this implies that the external parameters are equal and we have a symmetric slab.
+
+The main corollary to this result is that one can not conclude from an observation of a symmetric-looking MHD wave that the underlying waveguide is symmetric. This fallacy has been made in a number of previous studies (CITE) and could have lead to incorrect mode identification or diagnosis of the background plasma.
+
+The question is then this: is it possible to differentiate between a symmetric and a quasi-symmetric eigenmode? The answer to this is unclear. Theoretically, the answer is \textit{yes}. Although quasi-symmetric modes have symmetric amplitudes at the boundaries, they have asymmetric penetration depths into the external plasmas \textcolor{red}{(consider making a figure to show this in python)}. In theory, one could track the attenuation of the oscillation amplitude of plasma further away from the slab on each side. If the attenuation is asymmetric, the mode is quasi-symmetric. In practice, however, this will prove difficult. Although we currently have the required spatial resolution for measuring the spatial attenuation of MHD waves in many solar waveguides, the waveguides are unlikely to be isolated enough to allow for good measurements of this.
+
 
 \subsubsection{Asymmetric mode or superposition of symmetric modes?}
 Table of observable indicators of each case.
 
-\subsubsection{Possible alternative causes of observed asymmetry}
-Possibilities: 
-\begin{itemize}
-	\item Asymmetric ICs
-	\item Non-collective oscillations
-	\item Observational artefact
-\end{itemize}
-Include discussion about how to differentiate between these.
 
 \appendix
 \section{Coupled oscillator asymmetric eigenmodes} \label{app: coupled oscillator modes}
