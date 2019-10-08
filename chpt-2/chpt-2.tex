@@ -904,7 +904,7 @@ Numerical methods are required to investigate solutions to the asymmetric slab d
 
 
 \subsubsection{Description of numerical procedure}
-To solve Equation~\eqref{DR non-mag} numerically, we view the left-hand-side as a function of the wave frequency, $\omega$, and wavenumber $k$. We call this function a \textit{dispersion function}. This means that for a given wavenumber value, we are solving a simple root-finding problem, where the aim is to find the zeros of the dispersion function. To accomplish this, we use the \textit{Secant method}. The Secant method is a standard root-finding procedure that is equivalent to the Newton-Raphson method utilising a finite difference approximation to the derivative of the dispersion function.
+To solve Equation~\eqref{DR non-mag} numerically, we view the left-hand-side as a function $D(\omega)$ of the wave frequency, $\omega$, and wavenumber $k$. We call this function a \textit{dispersion function}. This means that for a given wavenumber value, we are solving a simple root-finding problem, where the aim is to find the zeros of the dispersion function, \textit{i.e.} $\omega$ such that $D(\omega) = 0$. To accomplish this, we use the \textit{secant method}. The Secant method is a standard root-finding procedure that is equivalent to the Newton-Raphson method utilising a finite difference approximation to the derivative of the dispersion function. this is chosen because the derivative of the dispersion function is not easily found and there is only a small trade-off with algorithmic efficiency\footnote{The order of convergence of the Newton-Raphson method is 2 and whereas the order of convergence of the secant method is the golden ratio, $\psi \approx 1.618$.}.
 
 
 \subsubsection{Dispersion diagrams} \label{sec: disp diagrams}
@@ -923,7 +923,7 @@ Figure~\ref{fig: disp} illustrates the solutions to the dispersion relation, Equ
 
 In both coronal and photospheric conditions, there are slow sausage and kink surface modes (illustrated by the slowest red solution lines) and an infinite sequence of slow sausage and kink body modes (illustrated by the slowest blue solution lines). Each sausage body mode propagates faster than its corresponding kink mode, which agrees with the analytical solutions in Equations~\eqref{thin slab saus body},~\eqref{thin slab kink body},~\eqref{wide slab saus body}-\eqref{wide slab kink body2}.
 
-In coronal conditions, there exist fast sausage and kink surface modes with phase speeds between $c_0$ and $\min{c_1, c_2}$. Figure~\ref{fig: disp sbs} shows that the minimum of $c_1$ and $c_2$ becomes a new cut-off, causing the fast kink surface mode to transform into a slow kink first-order body mode for smaller values of the slab width\footnote{More precisely, non-dimensionalised slab half-width.}, $kx_0$. In Section~\ref{sec: critical slab width}, the precise value of this critical slab width is determined and the eigenfunction is analysed across this transition.
+In coronal conditions, there exist fast sausage and kink surface modes with phase speeds between $c_0$ and $\min{c_1, c_2}$. Figure~\ref{fig: disp sbs} shows that the minimum of $c_1$ and $c_2$ becomes a new cut-off, causing the fast kink surface mode to transform into a slow kink first-order body mode for smaller values of the slab width\footnote{More precisely, the non-dimensionalised slab half-width.}, $kx_0$. In Section~\ref{sec: critical slab width}, the precise value of this critical slab width is determined and the eigenfunction is analysed across this transition.
 
 In photospheric conditions, there exists an infinite sequence of fast sausage and kink body modes with phase speeds between $c_0$ and $\min{c_1, c_2}$. For values of the slab width below a cut-off value (that is unique for every order of body mode), these modes cease to be trapped by the slab and leak energy into the surrounding plasma. In Section~\ref{sec: fast mode cut-off}, the precise value of these cut-off values is determined.
 
@@ -939,7 +939,7 @@ m_0^2 = \frac{\nu k^2(v_A^2 - c_0^2)}{c_0^2},
 \end{equation}
 and therefore,
 \begin{equation}
-\tanh(2m_0x_0) \approx 2kx_0\sqrt{\frac{\nu(v_A^2 - c_0^2)}{c_0^2}}.
+\tanh(2m_0x_0) = 2kx_0\sqrt{\frac{\nu(v_A^2 - c_0^2)}{c_0^2}}.
 \end{equation}
 Substituting these into the dispersion relation for quasi-kink modes, neglecting terms of quadratic and higher order in $\nu$, and solving for $kx_0$ gives us the critical value for the 1st fast kink body mode as
 \begin{equation}
@@ -1099,7 +1099,7 @@ Thus, there are two eigenfrequences of the system. This is to be expected becaus
 \end{align}
 where $W = \omega_0^2 / (\omega_2^2 - \omega_1^2)$. Without loss of generality, let $\omega_2 > \omega_1$ so that $W > 0$. Then, considering Equation~\ref{coupled oscillator ratio}, the eigenmode with eigenfrequency $\omega_+$ gives $\hat{x}_1 / \hat{x}_2 < 0$, \textit{i.e.} the masses oscillate in anti-phase. This is known as the \textit{breathing mode} and is equivalent to the sausage modes of the magnetic slab model. The eigenmode with eigenfrequency $\omega_-$ gives $\hat{x}_1 / \hat{x}_2 > 0$, \textit{i.e.} the masses oscillate in phase. This is known as the \textit{sloshing mode} and is equivalent to the kink modes of the magnetic slab model.
 
-Comparing to the magnetic slab model, the three springs here correspond to the three regions of plasma, and the masses to the plasma interfaces. In Appendix~\ref{app: coupled oscillator modes}, we show that the breathing mode has highest amplitude on the mass connected to the external spring with lowest spring constant and the sloshing mode has highest amplitude on the mass connected to the external spring with highest spring constant. A higher spring constant in this model is analogous to a lower density outside the magnetic slab. This is because a higher spring constant in an uncoupled spring-mass system gives a higher characteristic frequency. This gives motivation as to why the surface modes of the asymmetric magnetic slab have higher amplitudes on different sides for quasi-sausage and quasi-kink modes.
+Comparing to the magnetic slab model, the three springs here correspond to the three regions of plasma, and the masses to the plasma interfaces. In Appendix~\ref{app: coupled oscillator modes}, we show analytically that the breathing mode has highest amplitude on the mass connected to the external spring with lowest spring constant and the sloshing mode has highest amplitude on the mass connected to the external spring with highest spring constant. A higher spring constant in this model is analogous to a lower density outside the magnetic slab. This is because a higher spring constant in an uncoupled spring-mass system gives a higher characteristic frequency. This gives motivation as to why the surface modes of the asymmetric magnetic slab have higher amplitudes on different sides for quasi-sausage and quasi-kink modes.
 
 \begin{figure}
 	\makebox[\textwidth][c]{
@@ -1240,7 +1240,7 @@ Comparing to the magnetic slab model, the three springs here correspond to the t
 \label{sec: EVP mag}
 %------------------------------------------------------------------------------
 
-Returning to the general model for a magnetic slab, that is, a magnetic slab with asymmetric external environment. While the 
+Now we return to the general model for a magnetic slab, that is, a magnetic slab with asymmetric external environment.
 
 \subsection{Summary of the eigenmode}
 
@@ -1335,11 +1335,36 @@ If we further specify that the penetration depth of perturbations in the externa
 
 The main corollary to this result is that one can not conclude from an observation of a symmetric-looking MHD wave that the underlying waveguide is symmetric. This fallacy has been made in a number of previous studies (CITE) and could have lead to incorrect mode identification or diagnosis of the background plasma.
 
-The question is then this: is it possible to differentiate between a symmetric and a quasi-symmetric eigenmode? The answer to this is unclear. Theoretically, the answer is \textit{yes}. Although quasi-symmetric modes have symmetric amplitudes at the boundaries, they have asymmetric penetration depths into the external plasmas \textcolor{red}{(consider making a figure to show this in python)}. In theory, one could track the attenuation of the oscillation amplitude of plasma further away from the slab on each side. If the attenuation is asymmetric, the mode is quasi-symmetric. In practice, however, this will prove difficult. Although we currently have the required spatial resolution for measuring the spatial attenuation of MHD waves in many solar waveguides, the waveguides are unlikely to be isolated enough to allow for good measurements of this.
+The question is then this: \textit{is it possible to differentiate between a symmetric and a quasi-symmetric eigenmode?} The answer to this is unclear. Theoretically, the answer is \textit{yes}. Although quasi-symmetric modes have symmetric amplitudes at the boundaries, they have asymmetric penetration depths into the external plasmas \textcolor{red}{(consider making a figure to show this in python)}. In theory, one could track the attenuation of the oscillation amplitude of plasma further away from the slab on each side. If the attenuation is asymmetric, the mode is quasi-symmetric. In practice, however, this will prove difficult. Although we currently have the required spatial resolution for measuring the spatial attenuation of MHD waves in many solar waveguides, the waveguides are unlikely to be isolated enough to allow for good measurements of this.
 
 
 \subsubsection{Asymmetric mode or superposition of symmetric modes?}
-Table of observable indicators of each case.
+
+%\begin{table}
+%	\centering
+%	\begin{tabular}{ccccc}
+%		\toprule
+%		\multirow{2}{*}{Mode type} & Boundary & Constant & Axis & Unperturbed \\
+%		& oscillations & width & displacement & position \\ \midrule
+%		Symmetric sausage & Anti-phase & No & No & Middle \\
+%		Asymmetric sausage & Anti-phase & No & Yes & Shifted \\
+%		Symmetric kink & In-phase & Yes & Yes & - \\
+%		Asymmetric kink & In-phase & No	& Yes & - \\
+%		\bottomrule
+%	\end{tabular}
+%	\caption{The qualitative differences between symmetric and asymmetric surface modes.}
+%	\label{tab: eigenmode differences}
+%\end{table}
+
+A second implication that asymmetric eigenmodes have on mode identification in solar observations is that a waveguide oscillating in an asymmetric mode could be indistinguishable from one oscillating in a superposition of symmetric eigenmodes.
+
+To appreciate this, consider how one has traditionally identified sausage and kink eigenmodes of a symmetric waveguide. To identify sausage modes, it has been presumed sufficient to identify oscillation in the cross-sectional width. To identify kink modes, it has been presumed sufficient to identify oscillation in the waveguide axis.
+
+
+This is due to the mixed properties of asymmetric eigenmodes i
+
+
+\textcolor{red}{Table of observable indicators of each case.}
 
 
 \appendix
