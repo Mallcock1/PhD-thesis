@@ -315,7 +315,7 @@ These equations can be combined to give an ordinary differential equation for $\
 \hat{v}_x'' - m_j^2\hat{v}_x = 0, \quad \text{where} \quad
 m_j^2 = \frac{(k^2v_\textrm{Aj}^2 - \omega^2)(k^2c_j^2 - \omega^2)}{(c_j^2 + v_\textrm{Aj}^2)(k^2c_\textrm{Tj}^2 - \omega^2)}. \label{v_x ODE}
 \end{equation}
-This is identical to the corresponding equation governing, for example, a tangential interface or a symmetric slab, derived in Sections~\ref{sec: MHD waves interface} and~\ref{sec: MHD waves sym slab} by \cite{rob81a,rob81c}.
+This is identical to the corresponding equation governing, for example, a tangential interface or a symmetric slab, derived in Sections~\ref{sec: MHD waves interface} and~\ref{sec: MHD waves sym slab} by \cite{rob81a,edw_etal82}.
 
 Solutions of Equations~\eqref{v_x ODE} are a linear combination of hyperbolic functions. We restrict our model to waves trapped by the slab by imposing the boundary condition $\hat{v}_x \to 0$ as $|x| \to \infty$. Thus, the general solution for the velocity perturbation in the $x$-direction is
 \begin{equation}
@@ -423,9 +423,9 @@ where internal and external parameters are denoted by subscripts $i$ and $e$.
 
 
 \subsection{Asymmetric eigenmodes}
-There is a rich spectrum of MHD eigenmodes on a magnetic slab. In a symmetric slab, the dispersion relation, Equation~\eqref{DRsym}, consists of two decoupled equations that correspond to the two types of eigenmodes supported by the slab: the \textit{sausage} and \textit{kink} MHD waves.
+There is a rich spectrum of MHD eigenmodes on an asymmetric magnetic slab. The key distinctions of these modes from the eigenmodes of a symmetric slab are discussed in this subsection. To aid the reader's understanding, we have created over one hundred 3D animations of symmetric and asymmetric eigenmodes in a magnetic slab \cite{all_etal18c}. We visualise the oscillations in the slab boundaries, magnetic field, density, and velocity field.
 
-In an asymmetric slab, the sausage and kink modes are modified by the external density difference, causing an asymmetry of the oscillation amplitude on each side of the slab (for visualisation see Figures~\ref{fig:saus} and~\ref{fig:kink}). We call these asymmetric eigenmodes quasi-sausage and quasi-kink modes. In a symmetric slab, sausage modes are characterised by an undisplaced slab axis in the centre of the slab. In an asymmetric slab, this undisplaced position is shifted towards the side of greatest external density for kink modes and towards the side of lowest external density for sausage modes. For symmetric kink modes, the width of the perturbed slab remains constant along the slab, but this characteristic is lost in an asymmetric slab. This highlights the mixed nature of these modes. 
+The dispersion relation for a symmetric slab, Equation~\eqref{DRsym}, consists of two decoupled equations that correspond to the two types of eigenmodes supported by the slab: the \textit{sausage} and \textit{kink} MHD waves. In an asymmetric slab, the sausage and kink modes are modified by the external density difference, causing an asymmetry of the oscillation amplitude on each side of the slab (for visualisation see Figures~\ref{fig:saus} and~\ref{fig:kink}). We call these asymmetric eigenmodes quasi-sausage and quasi-kink modes. In a symmetric slab, sausage modes are characterised by an undisplaced slab axis in the centre of the slab. In an asymmetric slab, this undisplaced position is shifted towards the side of greatest external density for kink modes and towards the side of lowest external density for sausage modes. For symmetric kink modes, the width of the perturbed slab remains constant along the slab, but this characteristic is lost in an asymmetric slab. This highlights the mixed nature of these modes. 
 
 Additionally, this shows that it is the phase of the boundary oscillations that is a more fundamental distinguishing characteristic of sausage and kink modes. For this reason, when we refer to \textit{sausage} and \textit{kink} modes of an asymmetric slab, we refer strictly to modes with boundary oscillations in \textit{anti-phase} and \textit{in-phase}, respectively. The differences between symmetric and asymmetric eigenmodes are summarised in Table~\ref{tab: eigenmode differences}.
 
@@ -526,6 +526,8 @@ c_\textrm{T}<\frac{\omega}{k}<\text{min}\{c_0, v_\textrm{A}\} \quad \text{or} \q
 For a surface mode (Figures~\ref{fig:surf quasi-kink} and~\ref{fig:surf quasi-saus}), the wave power distribution across the slab has a single minimum. The displacement of this minimum from the centre of the slab is a consequence of the asymmetry in the external plasma. The intensity of the maximum amplitudes on the left and right boundaries of the slab is different, reflecting the asymmetry in the external plasma.
 
 Body modes are also affected by the asymmetric external environment (Figures~\ref{fig:body quasi-kink} and~\ref{fig:body quasi-saus}). Local maxima and minima in wave power are shifted towards the external plasma of higher density for a quasi-kink body mode and towards the external plasma of lower density for a quasi-sausage mode. However, this is a much weaker effect than for surface modes because the eigenfrequencies of body waves do not depend strongly on the parameters of the external plasma, and therefore they do not depend strongly on the asymmetry of the waveguide, as shown in Sections~\ref{sec: analytical solutions} and~\ref{sec: numerical solutions}. The same can be said for the eigenfunctions of body modes. These results corroborate the intuition that because the majority of the wave power is confined to within the slab, rather than its boundaries, the body modes don't \textit{feel} the external plasma as much as surface waves do.
+
+\cite{all_etal18c} 
 
 \begin{table}
 	\centering
@@ -1340,35 +1342,20 @@ The question is then this: \textit{is it possible to differentiate between a sym
 
 \subsubsection{Asymmetric mode or superposition of symmetric modes?}
 
-%\begin{table}
-%	\centering
-%	\begin{tabular}{ccccc}
-%		\toprule
-%		\multirow{2}{*}{Mode type} & Boundary & Constant & Axis & Unperturbed \\
-%		& oscillations & width & displacement & position \\ \midrule
-%		Symmetric sausage & Anti-phase & No & No & Middle \\
-%		Asymmetric sausage & Anti-phase & No & Yes & Shifted \\
-%		Symmetric kink & In-phase & Yes & Yes & - \\
-%		Asymmetric kink & In-phase & No	& Yes & - \\
-%		\bottomrule
-%	\end{tabular}
-%	\caption{The qualitative differences between symmetric and asymmetric surface modes.}
-%	\label{tab: eigenmode differences}
-%\end{table}
-A second implication that asymmetric eigenmodes have on mode identification in solar observations is that a waveguide oscillating in an asymmetric mode could be indistinguishable from one oscillating in a superposition of symmetric eigenmodes.
+A second implication that asymmetric eigenmodes have on mode identification in solar observations is that a waveguide oscillating in an asymmetric mode could be indistinguishable from a superposition of symmetric eigenmodes.
 
 Consider how one has traditionally identified sausage and kink eigenmodes of a symmetric waveguide. To identify sausage modes, it has been presumed sufficient to identify oscillation in the cross-sectional width. To identify kink modes, it has been presumed sufficient to identify oscillation in the waveguide axis \textcolor{red}{(CITE?)}. The mixed characteristics of sausage and kink modes in asymmetric waveguides (see Table~\ref{tab: eigenmode differences}) tell us that these two characteristics are \textit{necessary} but not \textit{sufficient} for identification of the respective modes.
 
-To appreciate the potential misidentification, consider an observation of a waveguide in the solar atmosphere from which oscillations can be identified in both the cross-sectional width and the axis (for example, Figure~\ref{}, based on the same dataset at was analysed by \cite{mor12}). The naive approach is to assume symmetry of the waveguide, so that the only explanation for the 
+To appreciate the potential misidentification, consider a hypothetical observation of a waveguide in the solar atmosphere from which oscillations can be identified in both the cross-sectional width and the axis (for example, Figure~\ref{}, which uses the same dataset analysed by \cite{mor12}). If the oscillation is linear, the naive approach is to assume that the waveguide is symmetric, so that the only explanation for the cross-sectional oscillation is a symmetric sausage mode and the only explanation for the axial oscillation is a symmetric kink mode. One might then conclude that the observation is of a superposition of a sausage mode and a kink mode. However, 
 
+One possible resolution to this problem is to measure the background parameters on each side of the waveguide to determine the degree of asymmetry before identifying the modes. If the waveguide is determined to be symmetric, symmetric modes can be identified. If not, the more general asymmetric modes can be identified.
 
+One problem with this approach is that determining the key background parameters, the density and magnetic field strength, is often very difficult and estimates will have an associated uncertainty large enough that it would often not be possible to rule out the possibility of asymmetry. Another problem with this approach is that even relatively small degrees of waveguide asymmetry can cause significant asymmetry in the eigenmodes. For example, Figure~\ref{} gives a case where the ratio of the external densities is only \textcolor{red}{<CHANGE ME>}, yet the asymmetry in the eigenmodes (measured for example by the ratio of the oscillation amplitudes at each interface) is sufficient to show up in observations.
 
+A second resolution is to independently measure the propagation speeds of the cross-sectional width oscillation and axial oscillation. Distinct eigenmodes propagate at distinct phase speeds\footnote{This is because of the uniqueness of eigenvalues in Sturm-Liouville systems \citep{boy_etal12}.}. If, in fact, the observation is of a superposition of symmetric sausage and kink eigenmodes, then each eigenmode will propagate at a distinct phase speed. Specifically, the cross-sectional oscillation will propagate at a different speed to the axial oscillation, and the oscillations will become out of phase. Whereas, if the oscillations in cross-sectional width and axis are both due to a single asymmetric eigenmode, then they will both share the same propagation speed and remain in phase. If different propagation speeds between these oscillation can be identified, then it will more likely be a superposition of symmetric modes than asymmetric modes.
 
+One problem with this approach is that often only a small number of periods are observed before either the wave is damped or the waveguide disappears from observational view or breaks up. A notable exception to this are decayless kink oscillations \citep{nis_etal13}. When only a small number of periods are observed, there are often either too few periods to observe the cross-sectional width oscillations to become out of phase with axial oscillations, or errors in the phase-speed measurements too large to determine a difference. A second problem is that for some equilibrium parameters, the phase speeds of the symmetric sausage and kink eigenmodes are very similar. For example, this is true for body modes in most parameter regimes and for surface modes in a wide slab (Figure~\ref{} \textcolor{red}{Include a figure of symmetric slab dispersion diagrams}).
 
-This is due to the mixed properties of asymmetric eigenmodes i
-
-
-\textcolor{red}{Table of observable indicators of each case.}
 
 
 \appendix

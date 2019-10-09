@@ -108,7 +108,7 @@ Continually improving spatial-resolution of solar telescopes has brought about a
 
 To build up a mathematical description of the Sun's plasma dynamics, let's motivate some assumptions.
 
-The Sun's plasma, just like all matter in the Universe, is made up of particles\footnote{atoms or subatomic particles, depending on the temperature of its location in the Sun}, but the phenomena such as MHD waves that we are concerned with in this Thesis operate on a \textit{macroscopic} level. By this we mean on length-scales much larger than the \textit{mean free path}\footnote{Approximately 1 cm - 1 km in the Sun. \textcolor{red}{REFERENCE}}. This means that the \textit{Knudsen number}, the dimensionless parameter defined by the ratio of the mean free path to a characteristic length scale, in the Sun is much less than unity. This motivates the \textbf{continuum assumption}, where the fluid is considered to ``fill up" the space in which is is contained, so that small-scale inhomogeneities caused by particle dynamics are negligible. This gives us a coherent notion of fluid velocity, $\mathbf{v}(\mathbf{x}, t) = (v_1(\mathbf{x}, t), v_2(\mathbf{x}, t), v_3(\mathbf{x}, t))$, density, $\rho(\mathbf{x}, t)$, and pressure, $p(\mathbf{x}, t)$, as functions of continuous position, $\mathbf{x}$, and time, $t$.
+The Sun's plasma, just like all matter in the Universe, is made up of particles\footnote{atoms or subatomic particles, depending on the temperature of its location in the Sun}, but the phenomena such as MHD waves that we are concerned with in this Thesis operate on a \textit{macroscopic} level. By this we mean on length-scales much larger than the \textit{mean free path}\footnote{Approximately 1 cm - 1 km in the Sun. \textcolor{red}{REFERENCE}}. This means that the \textit{Knudsen number}, the dimensionless parameter defined by the ratio of the mean free path to a characteristic length scale, in the Sun is much less than unity. This motivates the \textbf{continuum assumption}, where the fluid is considered to \textit{fill up} the space in which is is contained, so that small-scale inhomogeneities caused by particle dynamics are negligible. This gives us a coherent notion of fluid velocity, $\mathbf{v}(\mathbf{x}, t) = (v_1(\mathbf{x}, t), v_2(\mathbf{x}, t), v_3(\mathbf{x}, t))$, density, $\rho(\mathbf{x}, t)$, and pressure, $p(\mathbf{x}, t)$, as functions of continuous position, $\mathbf{x}$, and time, $t$.
 
 The universe gifts us fundamental laws that are obeyed by all classical mechanics systems upon which we can build our framework. Firstly, the \textbf{conservation of mass} tells us that the change in density in a fixed volume is due only to mass entering or leaving the volume. The rate of change of density in a fixed volume $V$ is
 \begin{equation}
@@ -175,7 +175,7 @@ In addition, \textbf{Gauss' Law}, which states that $\nabla\cdot\bB = 0$, puts a
 \subsection{Ideal magnetohydrodynamic behaviour}
 The ideal plasma assumption approximates the plasma to be perfectly conducting. Ideal plasmas behave in unique and surprisingly simple ways that will be discussed in this subsection. We will briefly discuss the decomposition of the Lorentz force into magnetic tension and pressure, the conservation of magnetic flux, and the conservation of magnetic field lines.
 
-In this discussion it is helpful to define the notion of a \textit{magnetic field line}. Magnetic field lines, or just ``field lines", are lines parallel to the magnetic field, $\bB$. The local strength of the magnetic field is proportional to the local field line density. Magnetic field lines are fictitious and are conceived of merely for ease of understanding and visualisation.
+In this discussion it is helpful to define the notion of a \textit{magnetic field line}. Magnetic field lines, or just \textit{field lines}, are lines parallel to the magnetic field, $\bB$. The local strength of the magnetic field is proportional to the local field line density. Magnetic field lines are fictitious and are conceived of merely for ease of understanding and visualisation.
 
 
 \subsubsection{Magnetic tension and pressure}
@@ -183,7 +183,7 @@ The Lorentz force in the momentum Equation~\eqref{mom eqn} can be decomposed as
 \begin{equation}
 	\frac{1}{\mu}(\nabla\times\bB)\times\bB = \frac{1}{\mu}(\bB\cdot\nabla)\bB - \nabla\left(\frac{\bB^2}{2\mu}\right).
 \end{equation}
-The first term on the right hand side is the \textit{magnetic tension} force which acts normal to $\bB$. It acts to ``straighten out" magnetic field lines and it's strength is proportional ot the field line's curvature. The second term on the right hand side is the \textit{magnetic pressure} force which acts along any negative gradient in magnetic field strength. It acts to ``spread out" magnetic field lines.
+The first term on the right hand side is the \textit{magnetic tension} force which acts normal to $\bB$. It acts to \textit{straighten out} magnetic field lines and it's strength is proportional ot the field line's curvature. The second term on the right hand side is the \textit{magnetic pressure} force which acts along any negative gradient in magnetic field strength. It acts to \textit{spread out} magnetic field lines.
 
 
 \subsubsection{Magnetic flux conservation} \label{sec: mag flux conservation}
@@ -201,7 +201,7 @@ where $d\mathbf{l}$ is an element parallel to curve $C$. Using Stokes' Theorem o
 \end{equation}
 using Equation~\eqref{ind eqn}. Therefore, magnetic flux is conserved in an ideal plasma.
 
-This result has the important corollary that the plasma and the magnetic field lines are ``frozen in". That is, wherever the magnetic field moves, the plasma follows, and \textit{vice versa}. In other words, plasma elements that initially occupy the same field line will always do so. This is known as \textbf{Alfv\'{e}n's frozen flux theorem}.
+This result has the important corollary that the magnetic field lines are \textit{frozen-in} to the plasma. That is, wherever the magnetic field moves, the plasma follows, and \textit{vice versa}. In other words, plasma elements that initially occupy the same field line will always do so. This is known as \textbf{Alfv\'{e}n's frozen flux theorem}.
 
 
 %------------------------------------------------------------------------------
@@ -309,7 +309,7 @@ where $A$ and $B$ are constant with respect to $x$. The boundary conditions acro
 \begin{equation}
 	\rho_+m_-(\omega^2 - \omega_{A+}^2) + \rho_-m_+(\omega^2 - \omega_{A-}^2) = 0. \label{DR interface}
 \end{equation}
-The solutions to this equation correspond to ``surface" magnetoacoustic modes. These are modes whose eigenfunction decays exponentially away from the interface and owe their existence to the interface. The radicals in $m_\pm$ resist the use of analytical methods to find the solutions, unless further approximations are made (see Section~\ref{sec: asym slab}).
+The solutions to this equation correspond to \textit{surface} magnetoacoustic modes. These are modes whose eigenfunction decays exponentially away from the interface and owe their existence to the interface. The radicals in $m_\pm$ resist the use of analytical methods to find the solutions, unless further approximations are made (see Section~\ref{sec: asym slab}).
 
 There also exist shear Alfv\'{e}n modes, which we decoupled from the magnetoacoustic modes due to our choice of Fourier ansatz. Shear Alfv\'{e}n modes propagate along the magnetic field and perturb it tangentially to the interface, without perturbing the density. Since the perturbations are tangential to the interface, each magnetic isosurface, defined as a surface of constant magnetic field, is free to oscillate independently. These are local modes in that they only oscillate a strict subset of the whole domain, therefore, they do not owe their existence to the interface, and are therefore not discussed in any more detail here.
 
@@ -324,7 +324,7 @@ B_i & \text{if } |x| < x_0, \\
 B_e & \text{if } |x| > x_0.
 \end{cases}
 \end{equation}
-Here, the word ``symmetric" refers to the reflectional symmetry of the waveguide over the $x = 0$ plane.
+Here, the word \textit{symmetric} refers to the reflectional symmetry of the waveguide over the $x = 0$ plane. we refer to eigenmodes of symmetric waveguides as \textit{symmetric modes}. Any waveguide or eigenmode that is not symmetric is refered to as \textit{asymmetric}\footnote{Some publications have used the terms \textit{symmetric mode} and \textit{antisymmetric mode} to refer to the sausage and kink eigenmodes of a symmetric slab or tube. This is motivated by the symmetry/antisymmetry of the eigenfunctions over the axis of the waveguide. In this Thesis, we use the terms \textit{sausage mode} and \textit{kink mode} instead of \textit{symmetric mode} and \textit{antisymmetric mode} to avoid confusion.}.
 
 Following the same derivation as in Section~\ref{sec: MHD waves interface}, we can derive the dispersion relation for transverse eigenmodes of a symmetric slab, namely
 \begin{equation}
@@ -335,7 +335,7 @@ where
 	D_s(\omega) &= \rho_em_i(\omega_\textrm{Ae}^2 - \omega^2)\tanh{m_ix_0} + \rho_im_e(\omega_\textrm{Ai}^2 - \omega^2), \\
 	D_k(\omega) &= \rho_em_i(\omega_\textrm{Ae}^2 - \omega^2)\coth{m_ix_0} + \rho_im_e(\omega_\textrm{Ai}^2 - \omega^2),
 \end{align}
-where $m_i$ and $m_e$ are defined in the fashion equivalent to Equation~\eqref{gov eqn}. Therefore, either $D_s = 0$ or $D_k = 0$. Solutions to $D_s = 0$ are the eigenfrequencies of ``sausage" modes and solutions to $D_k = 0$ are the eigenfrequencies of ``kink" modes. For sausage modes, the boundaries of the slab oscillate in anti-phase and for kink modes, they oscillate in phase.
+where $m_i$ and $m_e$ are defined in the fashion equivalent to Equation~\eqref{gov eqn}. Therefore, either $D_s = 0$ or $D_k = 0$. Solutions to $D_s = 0$ are the eigenfrequencies of \textit{sausage modes} and solutions to $D_k = 0$ are the eigenfrequencies of \textit{kink modes}. For sausage modes, the boundaries of the slab oscillate in anti-phase and for kink modes, they oscillate in phase.
 
 Whilst the sign of $m_e^2$ must be negative to ensure that the perturbation is attenuated in the limit far from the slab, the sign of $m_i^2$ can be positive or negative. If $m_i^2 > 0$, then the transverse velocity perturbation within the slab is a linear combination of exponential functions. Modes of this type are known as surface modes. If $m_i^2 < 0$, then the transverse velocity perturbation within the slab is a linear combination of trigonometric functions. Modes of this type are known as body modes.
 
@@ -373,7 +373,7 @@ Applying the boundary conditions of continuity in velocity and total pressure us
 \rho_i(\omega_{Ai}^2 - \omega^2)m_e\frac{K_m'(m_er_0)}{K_m(m_er_0)} = \rho_e(\omega_{Ae}^2 - \omega^2)m_i\frac{I_m'(m_ir_0)}{I_m(m_ir_0)},
 \end{equation}
 
-Similar to the symmetric slab, eigenmodes for which $m_i^2 > 0$ are surface modes and eigenmodes for which $m_i^2 < 0$ are body modes and can have any positive integer number of radial nodes and anti-nodes within the tube. The integer $m$ is half the number of azimuthal nodes. In particular, modes for which $m = 0$ have no azimuthal nodes and therefore correspond to axisymmetric perturbations. These are known as ``sausage modes". Modes for which $m = 1$ have two azimuthal nodes and perturbations and are known as ``kink modes". Modes for which $m > 1$ are known as ``fluting modes". Each of these modes are illustrated in Figure~\ref{fig: magnetoacoustic waves flux tube}.
+Similar to the symmetric slab, eigenmodes for which $m_i^2 > 0$ are surface modes and eigenmodes for which $m_i^2 < 0$ are body modes and can have any positive integer number of radial nodes and anti-nodes within the tube. The integer $m$ is half the number of azimuthal nodes. In particular, modes for which $m = 0$ have no azimuthal nodes and therefore correspond to axisymmetric perturbations. These are known as sausage modes. Modes for which $m = 1$ have two azimuthal nodes and perturbations and are known as kink modes. Modes for which $m > 1$ are known as \textit{fluting modes}. Each of these modes are illustrated in Figure~\ref{fig: magnetoacoustic waves flux tube}.
 \begin{figure}
 	\caption{\textcolor{red}{Magnetoacoustic waves in a cylindrical flux tube.}}
 	\label{fig: magnetoacoustic waves flux tube}
