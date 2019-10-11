@@ -170,6 +170,8 @@
 \newcommand{\bB}{\mathbf{B}}
 
 
+\newcommand{\figdir}{../main/figures/chpt-2/} % where figures are stored
+
 %------------------------------------------------------------------------------
 \chapter{Asymmetric waveguides - eigenvalue problem}
 \label{chap: EVP}
@@ -528,14 +530,13 @@ For a surface mode (Figures~\ref{fig:surf quasi-kink} and~\ref{fig:surf quasi-sa
 
 Body modes are also affected by the asymmetric external environment (Figures~\ref{fig:body quasi-kink} and~\ref{fig:body quasi-saus}). Local maxima and minima in wave power are shifted towards the external plasma of higher density for a quasi-kink body mode and towards the external plasma of lower density for a quasi-sausage mode. However, this is a much weaker effect than for surface modes because the eigenfrequencies of body waves do not depend strongly on the parameters of the external plasma, and therefore they do not depend strongly on the asymmetry of the waveguide, as shown in Sections~\ref{sec: analytical solutions} and~\ref{sec: numerical solutions}. The same can be said for the eigenfunctions of body modes. These results corroborate the intuition that because the majority of the wave power is confined to within the slab, rather than its boundaries, the body modes don't \textit{feel} the external plasma as much as surface waves do.
 
-\cite{all_etal18c} 
-
 \begin{table}
 	\centering
 	\begin{tabular}{ccccc}
 		\toprule
 		\multirow{2}{*}{Mode type} & Boundary & Constant & Axis & Unperturbed \\
-		 & oscillations & width & displacement & position \\ \midrule
+		 & oscillations & width & displacement & position \\
+		\midrule
 		Symmetric sausage & Anti-phase & No & No & Middle \\
 		Asymmetric sausage & Anti-phase & No & Yes & Shifted \\
 		Symmetric kink & In-phase & Yes & Yes & - \\
@@ -801,13 +802,13 @@ Figures~\ref{fig:incomp22}-\ref{fig:incomp10001} demonstrate that in a thin ($kx
 
 \begin{figure}
 	\centering
-	\subfloat[$\rho_1/\rho_0=2$, $\rho_2/\rho_0=2$]{\includegraphics[scale=0.45]{../main/figures/Incomp_2_2.pdf}
+	\subfloat[$\rho_1/\rho_0=2$, $\rho_2/\rho_0=2$]{\includegraphics[scale=0.45]{\figdir Incomp_2_2.pdf}
 		\label{fig:incomp22}}
-	\subfloat[$\rho_1/\rho_0=10$, $\rho_2/\rho_0=2$]{\includegraphics[scale=0.45]{../main/figures/Incomp_10_2.pdf}
+	\subfloat[$\rho_1/\rho_0=10$, $\rho_2/\rho_0=2$]{\includegraphics[scale=0.45]{\figdir Incomp_10_2.pdf}
 		\label{fig:incomp102}} \\
-	\subfloat[$\rho_1/\rho_0=10$, $\rho_2/\rho_0=0.1$]{\includegraphics[scale=0.45]{../main/figures/Incomp_10_01.pdf}
+	\subfloat[$\rho_1/\rho_0=10$, $\rho_2/\rho_0=0.1$]{\includegraphics[scale=0.45]{\figdir Incomp_10_01.pdf}
 		\label{fig:incomp1001}}
-	\subfloat[$\rho_1/\rho_0=100$, $\rho_2/\rho_0=0.1$]{\includegraphics[scale=0.45]{../main/figures/Incomp_100_01.pdf}
+	\subfloat[$\rho_1/\rho_0=100$, $\rho_2/\rho_0=0.1$]{\includegraphics[scale=0.45]{\figdir Incomp_100_01.pdf}
 		\label{fig:incomp10001}}
 	\caption{The behaviour of the modes in an incompressible slab. The fast surface modes and all the body modes degenerate leaving two sub-Alfv\'{e}nic surface modes. (a) A symmetric slab, (b)-(d) asymmetric slabs.}
 \end{figure}
@@ -914,9 +915,9 @@ To solve Equation~\eqref{DR non-mag} numerically, we view the left-hand-side as 
 
 \begin{figure}[]
 	\centering
-	\subfloat[$v_{A0} > c_0$]{\includegraphics[scale=0.45]{../main/figures/disp_sbs_R1-5.pdf}
+	\subfloat[$v_{A0} > c_0$]{\includegraphics[scale=0.45]{\figdir disp_sbs_R1-5.pdf}
 		\label{fig: disp sbs}}
-	\subfloat[$v_{A0} < c_0$]{\includegraphics[scale=0.45]{../main/figures/disp_sbb_R1-5.pdf}
+	\subfloat[$v_{A0} < c_0$]{\includegraphics[scale=0.45]{\figdir disp_sbb_R1-5.pdf}
 		\label{fig: disp sbb}}
 	\caption{Dispersion diagram for the dispersion relation, Equation~\eqref{DR non-mag}. The surface (body) modes are in plotted red (blue) and the sausage (kink) modes are represented by solid (dashed) lines. The density ratios are $\rho_1/\rho_0 = 1.5$ and $\rho_2/\rho_0 = 2$, and the characteristic speed orderings are $c_2 = 1.2c_0$ and (a)$v_{A0} = 1.3c_0$ and (b)$v_{A0} = 0.9c_0$.}
 	\label{fig: disp}
@@ -952,7 +953,7 @@ kx_0 = \frac{c_0^2 \left(\frac{\rho_2}{\rho_0}c_2\sqrt{c_1^2 - c_0^2} + \frac{\r
 Across this transitional value, the eigenfunction changes functional form inside the slab from a trigonometric to a hyperbolic function (see Figure~\ref{fig: transitional kink eigenfunction}). 
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{../main/figures/xi_of_x_body_surface_conversion.png}
+	\includegraphics[width=\textwidth]{\figdir xi_of_x_body_surface_conversion.png}
 	\caption{The eigenfunction of the transitional kink mode. The critical slab width occurs between $kx_0 = 4$ and $kx_0 = 5$.}
 	\label{fig: transitional kink eigenfunction}
 \end{figure}
@@ -985,12 +986,12 @@ When the slab is symmetric, the cut-off for both the fast sausage surface mode a
 
 \begin{figure}
 	\centering
-	\subfloat[]{\includegraphics[scale=0.5]{../main/figures/SS_SK_DS_v2.pdf}
+	\subfloat[]{\includegraphics[scale=0.5]{\figdir SS_SK_DS_v2.pdf}
 		\label{fig: density ratio}} \\
 	%\vspace{-0.4in}
-	\subfloat[$\frac{\rho_\textrm{e}}{\rho_0}=0.1$]{\includegraphics[scale=0.45]{../main/figures/SS_SK_Re01_v2.pdf}
+	\subfloat[$\frac{\rho_\textrm{e}}{\rho_0}=0.1$]{\includegraphics[scale=0.45]{\figdir SS_SK_Re01_v2.pdf}
 		\label{fig: density ratio 0.1}}
-	\subfloat[$\frac{\rho_\textrm{e}}{\rho_0}=10$]{\includegraphics[scale=0.45]{../main/figures/SS_SK_Re10_v2.pdf}
+	\subfloat[$\frac{\rho_\textrm{e}}{\rho_0}=10$]{\includegraphics[scale=0.45]{\figdir SS_SK_Re10_v2.pdf}
 		\label{fig: density ratio 10}}
 	\caption{The effect of varying the ratio, $\rho_\textrm{e}/\rho_0$, of the slab density to the symmetric external density, on the dispersion of the slow surface modes of a magnetic slab in a symmetric external plasma. The red and blue surfaces correspond to the kink and sausage modes, respectively. Panels (b) and (c) are slices of panel (a) at specific values of $\rho_\textrm{e}/\rho_0$. These slices are superimposed onto panel (a) as black lines. The characteristic speed orderings are $v_\textrm{A0} = 0.5c_0$, $c_\textrm{e} = c_0$.}
 \end{figure}
@@ -998,15 +999,15 @@ When the slab is symmetric, the cut-off for both the fast sausage surface mode a
 
 \begin{figure}
 	\centering
-	\subfloat[]{\includegraphics[scale=0.5]{../main/figures/FullDR_SS_SK_DS_v2.pdf}
+	\subfloat[]{\includegraphics[scale=0.5]{\figdir FullDR_SS_SK_DS_v2.pdf}
 		\label{fig: slow modes density}} \\
-	\subfloat[$kx_0 = 0.01$]{\includegraphics[scale=0.45]{../main/figures/FullDR_SS_SK_Kfixed001_v2.pdf}
+	\subfloat[$kx_0 = 0.01$]{\includegraphics[scale=0.45]{\figdir FullDR_SS_SK_Kfixed001_v2.pdf}
 		\label{fig: slow modes density 0.01}}
-	\subfloat[$kx_0 = 0.1$]{\includegraphics[scale=0.45]{../main/figures/FullDR_SS_SK_Kfixed01_v2.pdf}
+	\subfloat[$kx_0 = 0.1$]{\includegraphics[scale=0.45]{\figdir FullDR_SS_SK_Kfixed01_v2.pdf}
 		\label{fig:slow modes density 0.1}} \\
-	\subfloat[$kx_0 = 1$]{\includegraphics[scale=0.45]{../main/figures/FullDR_SS_SK_Kfixed1_v2.pdf}
+	\subfloat[$kx_0 = 1$]{\includegraphics[scale=0.45]{\figdir FullDR_SS_SK_Kfixed1_v2.pdf}
 		\label{fig: slow modes density 1}}
-	\subfloat[$kx_0 = 3$]{\includegraphics[scale=0.45]{../main/figures/FullDR_SS_SK_Kfixed3_v2.pdf}
+	\subfloat[$kx_0 = 3$]{\includegraphics[scale=0.45]{\figdir FullDR_SS_SK_Kfixed3_v2.pdf}
 		\label{fig: slow modes density 3}}
 	\caption{(a) The slow quasi-sausage (blue) and quasi-kink (red) surface mode solutions of the dispersion relation (Equation~\eqref{DR}) are plotted showing the variation of the dispersion as the ratio of one external density to the internal density is changed. The other density ratio is held fixed at $\rho_2/\rho_0=2$. The characteristic speed orderings are $c_2=0.7c_0$, $v_\textrm{A}=0.4c_0$, and $c_1$ varies to satisfy equilibrium pressure balance, given by Equation~\eqref{sound and density}. Panels (b)-(e) are slices of panel (a) for specific values of the non-dimensional slab width, $kx_0$.}
 \end{figure}
@@ -1020,10 +1021,10 @@ For a wide slab width, $kx_0 \gg 1$, Figure~\ref{fig: slow modes density 3} illu
 
 \begin{figure} []
 	\centering
-	\subfloat[]{\includegraphics[scale=0.5]{../main/figures/disp.pdf}
+	\subfloat[]{\includegraphics[scale=0.5]{\figdir disp.pdf}
 		\label{fig: disp avoided crossing}} \\
 	\makebox[\textwidth][c]{
-		\subfloat[]{\includegraphics[scale=0.47]{../main/figures/xix_v2.pdf}
+		\subfloat[]{\includegraphics[scale=0.47]{\figdir xix_v2.pdf}
 			\label{fig: xi}}}
 	\caption{(a) The slow surface mode solutions of the dispersion relation, Equation~\eqref{DR}, are plotted showing the variation of the dispersion as the ratio of one external density to the internal density is changed. The other density ratio is held fixed at $\rho_2/\rho_0=2$ and the non-dimensionalised slab width $kx_0 = 1.5$. The characteristic speed orderings are $c_2=0.7c_0$, $v_\textrm{A}=0.4c_0$, and $c_1$ varies to satisfy equilibrium pressure balance, given by Equation~\eqref{sound and density}. The parameters at each blue and red dot in panel(a) are used to plot the spatial variation of the transverse displacement perturbation, $\widehat{\xi}_x$, given by panel (b). The upper (lower) plots in panel (b) correspond to the quasi-sausage (quasi-kink) mode solutions.}
 	\label{fig: avoided crossing}
@@ -1031,7 +1032,7 @@ For a wide slab width, $kx_0 \gg 1$, Figure~\ref{fig: slow modes density 3} illu
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{../main/figures/xi_of_x_slow_body.png}
+	\includegraphics[width=\textwidth]{\figdir xi_of_x_slow_body.png}
 	\caption{The variation (or lack thereof) of the first three slow sausage and kink body eigenfunctions as the asymmetry in the background plasma is varied. The first, third, and fifth rows are kink modes and the second, fourth, and sixth rows are sausage modes. The density ratio $\rho_1/\rho_0$ is varied while the other density ratio is held fixed at $\rho_2/\rho_0 = 2.0$. The middle column of panels for which $\rho_1/\rho_0 = 2.0$ corresponds to a symmetric slab.}
 	\label{fig: body eigenmodes}
 \end{figure}
@@ -1251,9 +1252,9 @@ The eigenmodes and their dispersion is broadly similar to the slab in a non-magn
 
 \begin{figure}[]
 	\centering
-	\subfloat[$v_{A0} > c_0$]{\includegraphics[scale=0.45]{../main/figures/disp-mag-outside-photophere.png}
+	\subfloat[$v_{A0} > c_0$]{\includegraphics[scale=0.45]{\figdir disp-mag-outside-photophere.png}
 		\label{fig: disp mag 1}}
-	\subfloat[$v_{A0} < c_0$]{\includegraphics[scale=0.45]{../main/figures/disp-mag-outside-2.png}
+	\subfloat[$v_{A0} < c_0$]{\includegraphics[scale=0.45]{\figdir disp-mag-outside-2.png}
 		\label{fig: disp mag 2}}
 	\caption{Dispersion diagram for the dispersion relation, Equation~\eqref{DR}. \textcolor{red}{Finish}}
 	\label{fig: disp mag}
