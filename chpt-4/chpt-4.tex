@@ -598,7 +598,7 @@ Using the second form of $C$ in Equation~\eqref{constB B} yields
 We now define the \emph{amplitude ratio}, $R_\textrm{A} := \hat{\xi}_x(x_0) / \hat{\xi}_x(-x_0)$, as the ratio of the amplitude of oscillation of the left interface ($x = x_0$) to that of the right interface ($x = -x_0$) (see Figure~\ref{fig: RA}). Given that ${\hat{\xi}_x(x) = i\hat{v}_x(x) / \omega}$, we also have $R_\textrm{A} = \hat{v}_x(x_0) / \hat{v}_x(-x_0)$. Firstly, using Equations~\eqref{v-x_01 C} and~\eqref{vx_02 C}, the amplitude ratio for quasi-sausage modes is
 \begin{align}
 R_A &= -\frac{\Lambda_0 + \Lambda_1\frac{1}{\tau_0}}{\Lambda_0 + \Lambda_2\frac{1}{\tau_0}} \notag \\
-&= -\frac{\rho_1m_2}{\rho_2m_1}\left[\frac{(k^2v_\textrm{A}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1} - \omega^2m_0\frac{1}{\tanh{m_0x_0}}}{(k^2v_\textrm{A}^2 - \omega^2)m_2\frac{\rho_0}{\rho_2} - \omega^2m_0\frac{1}{\tanh{m_0x_0}}}\right]. \label{cross-slab ratio saus}
+&= -\frac{\rho_1m_2}{\rho_2m_1}\left[\frac{(k^2v_\textrm{A}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1} - \omega^2m_0\coth{m_0x_0}}{(k^2v_\textrm{A}^2 - \omega^2)m_2\frac{\rho_0}{\rho_2} - \omega^2m_0\coth{m_0x_0}}\right]. \label{cross-slab ratio saus}
 \end{align}
 Using Equations~\eqref{v-x_01 B} and~\eqref{vx_02 B}, the corresponding expression for quasi-kink modes can be obtained, namely
 \begin{align}
@@ -874,7 +874,7 @@ x = \frac{1}{m_0} \tanh^{-1}\left(-\frac{B}{C}\right). \label{disp of min power 
 \end{equation}
 Therefore, the minimum perturbation shift for quasi-sausage modes is
 \begin{equation}
-\Delta_\textrm{min} = \frac{1}{m_0}\tanh^{-1}\left(-\frac{(k^2{v_\textrm{A}}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1} - \omega^2{m_0}\tanh{m_0x_0}}{(k^2{v_\textrm{A}}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1}\tanh{m_0x_0} - \omega^2{m_0}}\right). \label{shift min saus}
+\Delta_\textrm{min} = \frac{1}{m_0}\tanh^{-1}\left[-\frac{(k^2{v_\textrm{A}}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1} - \omega^2{m_0}\tanh{m_0x_0}}{(k^2{v_\textrm{A}}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1}\tanh{m_0x_0} - \omega^2{m_0}}\right]. \label{shift min saus}
 \end{equation}
 Similarly, for quasi-kink modes, using Equations~\eqref{vsoln} and~\eqref{constB B}, we calculate the minimum perturbation shift to be
 \begin{equation}
@@ -965,52 +965,135 @@ v_\textrm{A}^2 = \frac{\omega^2}{k^2}\left[1 + \frac{k\rho_1}{m_1\rho_0}\left(\b
 
 
 %------------------------------------------------------------------------------
-\section{Discussion of inversion procedure}
+\section{Numerical inversion procedure}
 \label{sec: inversion}
 %------------------------------------------------------------------------------
-\color{red}
-REWRITE FROM HERE
 
 We have introduced the amplitude ratio and the minimum perturbation shift which quantify the spatial asymmetry in magnetic slab eigenmodes. These expressions can be applied to determine the Alfv\'{e}n speed, for a given set of observed equilibrium parameters, providing us a novel method to diagnose information about the background plasma, thus advancing the field of spatial magneto-seismology.
 
-A summary of the analytical expressions for estimating the Alfv\'{e}n speed, $v_\textrm{A}$, within an asymmetric magnetic slab is given in Tables~\ref{table: amp ratio} and~\ref{table: min pert shift}, utilising the amplitude method and the minimum perturbation shift methods, respectively. In practice, a numerical procedure could be made relatively simple and computationally inexpensive by making use of a standard root finding method once the observed parameters have been prescribed but in some cases it might be valid to use an analytical solution from Tables~\ref{table: amp ratio} and~\ref{table: min pert shift} under the necessary approximation.
+A summary of the analytical expressions for estimating the Alfv\'{e}n speed, $v_\textrm{A}$, within an asymmetric magnetic slab is given in Tables~\ref{table: amp ratio} and~\ref{table: min pert shift}, utilising the amplitude ratio method and the minimum perturbation shift method, respectively. With these analytical inversions, theoretical simplicity comes at the cost of having to use an additional approximation.
+
+A second option is to solve the inverse problem numerically. In practice, a numerical procedure could be made relatively simple and computationally inexpensive by making use of a standard root finding method once the observed parameters have been prescribed.
+
+
+\subsubsection{Estimating a single parameter} \label{sec: single param}
+
+The diagnosis procedure for one background parameter - the Alfv\'{e}n speed, for example - is as follows:
+\begin{enumerate}
+	\item Observe an oscillating asymmetric MHD waveguide in the solar atmosphere.
+	\item Decompose into asymmetric MHD wave modes.
+	\item Measure wave parameters: angular frequency and wavelength.
+	\item Measure background parameters: waveguide width, density, and temperature (and hence sound speed).
+	\item Measure a diagnostic parameter: amplitude ratio or minimum perturbation shift.
+	\item Use a root-finding technique to solve the diagnostic equation (Equation~\eqref{cross-slab ratio saus}, \eqref{cross-slab ratio kink}, \eqref{shift min saus}, or~\eqref{shift min kink}, depending on the mode identified and the diagnostic parameter used) for the Alfv\'{e}n speed.
+\end{enumerate}
+In practice, Step~3 us often extremely difficult. In addition to the Alfv\'{e}n speed, the density across the waveguide is very difficult to measure \citep{war_etal09}. One way around this is to estimate multiple parameters simultaneously, as discussed in Section~\ref{sec: multiple params}.
+
+Figure~\ref{fig: AR MPS} illustrates the dependency of the amplitude ratio and minimum perturbation shift on the (non-dimensionalised half) slab width, $kx_0$, and the density ratio, $\rho_1/\rho_0$, of one external plasma density to the slab density, holding the other external density fixed. Varying one density ratio in this way is equivalent to changing the degree of asymmetry of the waveguide. The amplitude ratio is positive (negative) for quasi-kink (quasi-sausage) modes, because the oscillations on each boundary are in phase (anti-phase). Figures~\ref{fig: AR slow kink surf} and~\ref{fig: AR slow saus surf} further show that, for a given background parameter regime, the boundary with the highest amplitude is different for quasi-kink and quasi-sausage modes. This is demonstrated by the absolute value of the amplitude ratio being greater than 1 for quasi-sausage modes when it is less than 1 for quasi-kink modes, and \textit{vice versa}. This is in agreement with the properties of the eigenmodes of the analogous spring-mass system introduced by \cite{all_etal17} and discussed in Section~\ref{sec: mechanical analogy}. Figures~\ref{fig: MPS slow kink surf} and~\ref{fig: MPS slow saus surf} demonstrate that the position of minimum perturbation for quasi-kink modes is shifted in the opposite direction to that of quasi-sausage modes.
 
 \begin{figure}
 	\centering
-	\subfloat[Quasi-kink]{\includegraphics[scale=0.38]{\figuredir slow-kink-surf_amp-ratio.pdf}
+	\subfloat[Quasi-kink]{\includegraphics[scale=0.38]{\figdir slow-kink-surf_amp-ratio.pdf}
 		\label{fig: AR slow kink surf}}
-	\subfloat[Quasi-sausage]{\includegraphics[scale=0.38]{\figuredir slow-saus-surf_amp-ratio.pdf}
+	\subfloat[Quasi-sausage]{\includegraphics[scale=0.38]{\figdir slow-saus-surf_amp-ratio.pdf}
 		\label{fig: AR slow saus surf}}
 	\\
-	\subfloat[Quasi-kink]{\includegraphics[scale=0.38]{\figuredir slow-kink-surf_min-pert-shift.pdf}
+	\subfloat[Quasi-kink]{\includegraphics[scale=0.38]{\figdir slow-kink-surf_min-pert-shift.pdf}
 		\label{fig: MPS slow kink surf}}
-	\subfloat[Quasi-sausage]{\includegraphics[scale=0.38]{\figuredir slow-saus-surf_min-pert-shift.pdf}
+	\subfloat[Quasi-sausage]{\includegraphics[scale=0.38]{\figdir slow-saus-surf_min-pert-shift.pdf}
 		\label{fig: MPS slow saus surf}}
 	\caption{(\protect\subref*{fig: AR slow kink surf}, \protect\subref*{fig: AR slow saus surf}) The amplitude ratio, $R_\textrm{A}$, and (\protect\subref*{fig: MPS slow kink surf}, \protect\subref*{fig: MPS slow saus surf}) the minimum perturbation shift, $\Delta_\textrm{min}$, as a function of the slab width, non-dimensionalised to $kx_0$, and the density ratio, $\rho_1/\rho_0$, for slow (\protect\subref*{fig: AR slow kink surf}, \protect\subref*{fig: MPS slow kink surf}) quasi-kink and (\protect\subref*{fig: AR slow saus surf}, \protect\subref*{fig: MPS slow saus surf}) quasi-sausage surface modes. The other density ratio is set to $\rho_2/\rho_0 = 2$, the characteristic speed ordering inside the slab is $v_\textrm{A}=1.3c_0$, and the sound speed outside the slab is determined to ensure equilibrium pressure balance.}
 	\label{fig: AR MPS}
 \end{figure}
 
-Figure~\ref{fig: AR MPS} illustrates the dependency of the amplitude ratio and minimum perturbation shift on the (non-dimensionalised) slab width, $kx_0$, and the density ratio, $\rho_1/\rho_0$, of one external plasma density to the slab density, holding the other external density fixed. Varying one density ratio in this way is equivalent to changing the asymmetry of the system. The amplitude ratio is positive (negative) for quasi-kink (quasi-sausage) modes, because the oscillations on each boundary are in phase (anti-phase). Figures~\ref{fig: AR slow kink surf} and~\ref{fig: AR slow saus surf} further show that, for a given background parameter regime, the boundary with the highest amplitude is different for quasi-kink and quasi-sausage modes. This is demonstrated by the absolute value of the amplitude ratio being greater than 1 for quasi-sausage modes when it is less than 1 for quasi-kink modes, and \textit{vice versa}. This is in agreement with the properties of the eigenmodes of the analogous spring-mass system introduced by \cite{all_etal17}. Figures~\ref{fig: MPS slow kink surf} and~\ref{fig: MPS slow saus surf} demonstrate that the position of minimum perturbation for quasi-kink modes is shifted in the opposite direction to that of quasi-sausage modes.
 
-There are a number of ways that the amplitude ratio or minimum perturbation shift can be used for spatial seismology. For a given observed wave event in a slab-like solar atmospheric structure, the most simple procedure is as follows. Take measurements for the wave parameters (period and wavelength), and the background parameters (width of structure, plasma density in each region). Determine the sound speeds by assuming equilibrium pressure balance across the slab boundaries. Take a measurement of either the amplitude ratio or minimum perturbation shift. Then invert the corresponding expression for the spatial wave distribution parameter, Equation~\eqref{cross-slab ratio saus}, \eqref{cross-slab ratio kink}, \eqref{shift min saus}, or~\eqref{shift min kink}, to estimate the Alfv\'{e}n speed.
+\subsubsection{Estimating multiple parameters} \label{sec: multiple params}
 
-However, it is often the case that not all the non-magnetic parameters characterising a waveguide are well-observable. In this case, the dispersion relation can be solved simultaneously with the equation for the amplitude ratio or the minimum perturbation shift to approximate the Alfv\'{e}n speed and another unknown parameter. For example, Figure~\ref{fig: vA approx} shows the inversion curves for a particular parameter regime typical of a slow surface mode. It is plotted by prescribing (as if they were observed quantities) all plasma parameters except the Alfv\'{e}n speed, $v_\textrm{A}$, and one of the density ratios, $\rho_1/\rho_0$, then simultaneously solving the dispersion relation, Equation~\eqref{disp rel}, with the expressions for the amplitude ratio, Equation~\eqref{cross-slab ratio saus} or~\eqref{cross-slab ratio kink}, or the minimum perturbation shift, Equation~\eqref{shift min saus} or~\eqref{shift min kink}. The solution curves were found numerically.
+It is often the case that not all the non-magnetic parameters characterising a waveguide are well-observable. In particular, the density distribution across the waveguide is, like the Alfv\'{e}n speed, often impossible to determine. Thankfully, a combination of the amplitude ratio method and minimum perturbation shift method can be employed to diagnose multiple unknown background parameters.
+
+The motivation for this combined technique is as follows. The dispersion relation, the amplitude ratio method, and minimum perturbation shift method give us a set of three functions where the zeros of each function correspond to solutions of the respective equation. Denoting the wave parameters and background parameters by $p_\mathrm{w}$ and $p_\mathrm{bg}$, respectively, these functions (for a quasi-sausage mode) are
+\begin{align}
+D(p_\mathrm{w}, p_\mathrm{bg}) &= (\Lambda_0c_0 + \Lambda_2s_0)(\Lambda_0s_0 + \Lambda_1c_0) + (\Lambda_0c_0 + \Lambda_1s_0)(\Lambda_0s_0 + \Lambda_2c_0), \label{disp func} \\
+f_{\mathrm{AR}}(R_\mathrm{A}, p_\mathrm{w}, p_\mathrm{bg}) &= R_A + \frac{\rho_1m_2}{\rho_2m_1}\left[\frac{(k^2v_\textrm{A}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1} - \omega^2m_0\coth{m_0x_0}}{(k^2v_\textrm{A}^2 - \omega^2)m_2\frac{\rho_0}{\rho_2} - \omega^2m_0\coth{m_0x_0}}\right], \label{AR func} \\
+f_{\mathrm{MPS}}(\Delta_\mathrm{min}, p_\mathrm{w}, p_\mathrm{bg}) &= \Delta_\textrm{min} - \frac{1}{m_0}\tanh^{-1}\left[-\frac{(k^2{v_\textrm{A}}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1} - \omega^2{m_0}\tanh{m_0x_0}}{(k^2{v_\textrm{A}}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1}\tanh{m_0x_0} - \omega^2{m_0}}\right]. \label{MPS func} \\
+\end{align}
+The zeros of each of these functions correspond to solutions of Equations~\eqref{disp rel}, \eqref{cross-slab ratio saus}, and~\eqref{shift min saus}. The single parameter estimation involves using a single-variable root-finding scheme (such as the secant method) to find the zeros of either $f_\mathrm{AR}$ or $f_\mathrm{MPS}$, depending on whether the diagnostic parameter is the amplitude ratio or the minimum perturbation shift (see Section~\ref{sec: single param}). Alternatively, notice that setting Equations~\eqref{disp func}-\eqref{MPS func} to zero forms a system of three coupled equations. Therefore, given measurements of one or two diagnostic parameters, $R_\mathrm{A}$ or $\Delta_\mathrm{min}$, all but up to three background parameters, $p_\mathrm{bg}$, we can use a multivariate root-finding algorithm to solve up to three of these equations. Effectively, the extra diagnostic parameter and the dispersion relation each reduce the number of degrees of freedom. Thus, we can estimate up to three parameters.
+
+As an example, the procedure to estimate the Alfv\'{e}n speed and both the density ratios is as follows:
+\begin{enumerate}
+	\item Observe an oscillating asymmetric MHD waveguide in the solar atmosphere.
+	\item Decompose into asymmetric MHD wave modes.
+	\item Measure wave parameters: angular frequency and wavelength.
+	\item Measure background parameters: waveguide width and temperature (and hence sound speed).
+	\item Measure diagnostic parameters: amplitude ratio and minimum perturbation shift.
+	\item Use a multi-variate root-finding algorithm to find the values of the Alfv\'{e}n speed and the two density ratios for which the functions~\eqref{disp func}-\eqref{MPS func} are zero.
+\end{enumerate}
+
+As an example, Figure~\ref{fig: vA approx} shows the inversion curves for a particular parameter regime typical of a slow surface mode. It is plotted by prescribing (as if they were observed quantities) all plasma parameters except the Alfv\'{e}n speed, $v_\textrm{A}$, and one of the density ratios, $\rho_1/\rho_0$, then simultaneously solving the dispersion relation, Equation~\eqref{disp rel}, with the equations for the amplitude ratio, Equation~\eqref{cross-slab ratio saus} or~\eqref{cross-slab ratio kink}, or the minimum perturbation shift, Equation~\eqref{shift min saus} or~\eqref{shift min kink}. The solution curves were calculated numerically using Powell's Method, which is an efficient algorithm for calculating the minimum of a multivariate function when the partial derivatives are not available analytically \citep{pow64}.
 
 \begin{figure}
 	\centering
-	\subfloat[Amplitude ratio inversion]{\includegraphics[scale=0.42]{\figuredir RA_vA_approx_2var.pdf}
+	\subfloat[Amplitude ratio inversion]{\includegraphics[scale=0.42]{\figdir RA_vA_approx_2var.pdf}
 		\label{fig: RA vA approx}}
-	\subfloat[Minimum perturbation shift inversion]{\includegraphics[scale=0.42]{\figuredir DM_vA_approx_2var.pdf}
+	\subfloat[Minimum perturbation shift inversion]{\includegraphics[scale=0.42]{\figdir DM_vA_approx_2var.pdf}
 		\label{fig: DM vA approx}}
 	\caption{Using prescribed values for~\protect\subref{fig: RA vA approx}~the amplitude ratio, $R_\textrm{A}$, or~\protect\subref{fig: DM vA approx}~the minimum perturbation shift, $\Delta_\textrm{min}$, a numerical inversion is used to approximate the background equilibrium parameters, in this case the Alfv\'{e}n speed, $v_\textrm{A}$, and one of the density ratios, $\rho_1 / \rho_0$, for slow magneto-acoustic modes. Dashed (solid) lines correspond to the inversion curves for slow quasi-kink (quasi-sausage) surface modes. The dotted lines indicate the inversion for symmetric kink and sausage modes. The light-shaded area indicates the values of the Alfv\'{e}n speed which correspond to body modes, rather than surface modes, so are not important for SMS application. The dark shaded region in Figure~\protect\subref{fig: DM vA approx} illustrates the region outside the slab, outside the bounds of the minimum perturbation shift.}
 	\label{fig: vA approx}
 \end{figure}
 
+
+The ability to diagnose multiple parameters simultaneously could get around the hurdle of uncertain density measurements. However, the cost of this is that by estimating several parameters, we are more likely to encounter multiple roots. 
+
+To my knowledge, this is the first time that using a combination of SMS techniques to simultaneously diagnose multiple parameters has been proposed.
+
+
+
+	
+	
+	My approach to this problem utilises a version of \textit{Powell's Hybrid method} for optimisation, modified for finding roots of a system of multivariate functions. This is particularly valuable because, although it is the magnetic field strength that is traditionally thought of as being impossible to measure, measurements of the density in solar structures also come with significant uncertainties. 
+
+\subsubsection{Error analysis}
+
+From 2 year report:
+Every measurement comes with error, and when assessing the efficacy of a new measurement technique, an analysis of the errors must be undertaken. There are two kinds of error in a diagnosis made using the AR and MPS methods: \textit{propagated input errors} that are due to the measurement errors of the input parameters, and \textit{systematic errors} that are due to the model fitting the real structure less than perfectly. We do not currently know of any way to quantify the systematic errors. However, it is possible to make an estimation of the propagated input errors. Because of the low sensitivity of density sensitive absorption lines in the observed light spectra, the largest input error is in the measurement of the background density. I found that the contribution of this error to that of the magnetic field diagnosis after propagation through the inversion is a half of the original error in the density measurement. This is on par with the best previous methods (\textit{e.g.} \citealt{nak_etal01}).
+
+
+From paper:
 Plasma density measurements often have low accuracy and large uncertainty. These uncertainties will propagate through the inversion of the amplitude ratio or minimum perturbation shift to lead to uncertainties in the diagnosis of the Alfv\'{e}n speed. Measuring the density ratio is likely to be the source of the largest uncertainty in the estimation, since errors in spatial parameters such as the half slab width, $x_0$, and temporal parameters, such as the angular frequency, $\omega$, are generally much smaller. The propagation of the error in the density ratios is reduced by a factor of two by the square root that is introduced when inverting $v_A$ from $k^2v_A^2/\omega^2$ (in a similar way to \citealt{nak_etal01}). Furthermore, by following the numerical approach described in the previous paragraph, measurement of only one of the density ratios is necessary to estimate the Alfv\'{e}n speed. Therefore, combined with high precision methods using density-sensitive emission lines \citep{you_etal09}, the propagation of density measurement errors can be reduced.
 
 The amplitude ratio has a strong sensitivity to the changes in the external densities, and therefore the external asymmetry, whereas the minimum perturbation shift has a weaker dependency. Therefore, the amplitude ratio is likely to be a more effective parameter for diagnosing background parameters. Furthermore, observations of the location of the minimum wave power within a solar magnetic slab will be fraught with noise, potentially causing the detection of a false minimum. Noise in amplitude ratio measurements is less likely to introduce large errors because the locations of the slab boundaries are a more obvious features and can be identified by the steep gradients in the wavelength of observed light, for example, and is stable to larger noise signals.
 
 Both the amplitude ratio and minimum perturbation shift are more sensitive to small changes in the background equilibrium parameters, \emph{i.e.} the asymmetry in the background plasma, than the eigenfrequencies are. On a theoretical level, this corroborates with the result that eigenfunctions of linear operators on a Hilbert space are often more sensitive to small perturbations of the operator than their corresponding eigenvalues \citep{kat95}. The amplitude ratio and minimum perturbation shift both depend on the eigenfunctions, $\widehat{v}_x(x)$, and their eigenvalues, $\omega^2$. This means that spatial seismology techniques can be theoretically more effective than temporal techniques for many solar structure. Therefore, we are excited to see a push for increased spatial resolution with next-generational observational instrumentation such as the Daniel K. Inouye Solar Telescope (DKIST). Upon completion, this will equip us to be able to use the magneto-seismology techniques developed here to better understand the diagnostic properties of asymmetric slab-like solar atmospheric structures such as elongated magnetic bright points, prominences, and sunspot light walls.
+
+
+
+
+
+
+
+
+
+\subsubsection{Dealing with multiple roots}
+
+
+
+
+
+
+
+
+%------------------------------------------------------------------------------
+\section{Discussion of the application of these techniques}
+\label{sec: }
+%------------------------------------------------------------------------------
+
+
+
+There are a number of ways that the amplitude ratio or minimum perturbation shift can be used for spatial seismology. For a given observed wave event in a slab-like solar atmospheric structure, the most simple procedure is as follows. Take measurements for the wave parameters (period and wavelength), and the background parameters (width of structure, plasma density in each region). Determine the sound speeds by assuming equilibrium pressure balance across the slab boundaries. Take a measurement of either the amplitude ratio or minimum perturbation shift. Then invert the corresponding expression for the spatial wave distribution parameter, Equation~\eqref{cross-slab ratio saus}, \eqref{cross-slab ratio kink}, \eqref{shift min saus}, or~\eqref{shift min kink}, to estimate the Alfv\'{e}n speed.
+
+
+
+
 
 Large magnetic bright points (MBPs), with characteristic length $L > 500$ km, along inter-granular lanes are often rather elongated \citep{cro_etal10}. The application of SMS techniques to MBPs is limited by the low spatial resolution of current observations. DKIST is going to have a spatial resolution of 19 km for structures on the solar surface \citep{tri_etal15}, sufficient enough to resolve oscillations in MBPs. This unprecedented resolution will hopefully give the sufficient number of pixels (5-10) across an MBP to determine whether their oscillations have maximum power at the boundaries of or within the waveguide, that is, to differentiate between the transverse eigenfunctions of surface and body MHD modes, respectively. This is crucial for the accurate employment of these SMS techniques, and would build upon previous work on mode identification such as the surface modes that were identified in photospheric pores \citep{mor_etal15}.
 
