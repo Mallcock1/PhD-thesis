@@ -1041,43 +1041,36 @@ As an example, Figure~\ref{fig: vA approx} shows the inversion curves for a part
 	\label{fig: vA approx}
 \end{figure}
 
+The ability to diagnose multiple parameters simultaneously could in some cases get around the hurdle of uncertain density measurements. However, the cost of this is that by estimating several parameters, we are more likely to encounter multiple roots (Section~\ref{sec: multiple roots}).
 
-The ability to diagnose multiple parameters simultaneously could get around the hurdle of uncertain density measurements. However, the cost of this is that by estimating several parameters, we are more likely to encounter multiple roots. 
-
-To my knowledge, this is the first time that using a combination of SMS techniques to simultaneously diagnose multiple parameters has been proposed.
-
-
-
-	
-	
-	My approach to this problem utilises a version of \textit{Powell's Hybrid method} for optimisation, modified for finding roots of a system of multivariate functions. This is particularly valuable because, although it is the magnetic field strength that is traditionally thought of as being impossible to measure, measurements of the density in solar structures also come with significant uncertainties. 
 
 \subsubsection{Error analysis}
 
-From 2 year report:
-Every measurement comes with error, and when assessing the efficacy of a new measurement technique, an analysis of the errors must be undertaken. There are two kinds of error in a diagnosis made using the AR and MPS methods: \textit{propagated input errors} that are due to the measurement errors of the input parameters, and \textit{systematic errors} that are due to the model fitting the real structure less than perfectly. We do not currently know of any way to quantify the systematic errors. However, it is possible to make an estimation of the propagated input errors. Because of the low sensitivity of density sensitive absorption lines in the observed light spectra, the largest input error is in the measurement of the background density. I found that the contribution of this error to that of the magnetic field diagnosis after propagation through the inversion is a half of the original error in the density measurement. This is on par with the best previous methods (\textit{e.g.} \citealt{nak_etal01}).
+Every measurement comes with error, and when assessing the efficacy of a new measurement technique, an analysis of the errors must be undertaken. There are two kinds of error in a diagnosis made using the AR and MPS methods: \textit{propagated errors} that are due to errors in them measurement of the input parameters, and \textit{systematic errors} that are due to the asymmetric waveguide model approximating the real structure less than perfectly.
+
+To analyse the propagated error, we determine which input parameters are most uncertain and hence are likely to contribute the most uncertainty to the diagnosed parameters. When density is used as an input parameter, it is often the case that the error in its measurement dominates the errors in all other input parameters. Errors in spatial parameters, such as the waveguide width, and temporal parameters, such as the angular frequency, are generally much smaller. The propagation of the error in the density is reduced by a factor of two by the square root that is introduced when inverting $v_A$ from $k^2v_A^2/\omega^2$ (in a similar way to \citealt{nak_etal01}). That is, a relative error of 10\% in the density leads to a relative error of approximately 5\% in the Alfv\'{e}n speed estimation. Furthermore, with high precision methods using density-sensitive emission lines \citep{you_etal09}, the propagation of density measurement errors can be reduced.
+
+As we have seen in Section~\ref{sec: multiple params}, the density need not be an input parameter if both the amplitude ratio and the minimum perturbation shift are observable. In this case, I expect that the input parameter with the highest uncertainty would be the minimum perturbation shift. This is because .... Nevertheless, in the same way as the error in density, the relative error in the measurement of the minimum perturbation shift reduces by a factor of two when propagated through to the relative uncertainty in the estimated parameters. \textcolor{red}{CHECK THIS! HOW DOES THIS WORK WHEN WE ESTIMATE MULTIPLE PARAMS?}
+
+The systematic error is more difficult to analyse quantitatively. The main sources of systematic error include:
+\begin{itemize}
+	\item The waveguide is not well modelled as an asymmetric slab.
+	\item The wave is significantly non-linear.
+	\item The wrong solution is found to the parameter inversion (Section~\ref{sec: multiple roots}).
+	\item 
+\end{itemize}
 
 
-From paper:
-Plasma density measurements often have low accuracy and large uncertainty. These uncertainties will propagate through the inversion of the amplitude ratio or minimum perturbation shift to lead to uncertainties in the diagnosis of the Alfv\'{e}n speed. Measuring the density ratio is likely to be the source of the largest uncertainty in the estimation, since errors in spatial parameters such as the half slab width, $x_0$, and temporal parameters, such as the angular frequency, $\omega$, are generally much smaller. The propagation of the error in the density ratios is reduced by a factor of two by the square root that is introduced when inverting $v_A$ from $k^2v_A^2/\omega^2$ (in a similar way to \citealt{nak_etal01}). Furthermore, by following the numerical approach described in the previous paragraph, measurement of only one of the density ratios is necessary to estimate the Alfv\'{e}n speed. Therefore, combined with high precision methods using density-sensitive emission lines \citep{you_etal09}, the propagation of density measurement errors can be reduced.
+\subsubsection{Sensitivity to input parameters}
 
 The amplitude ratio has a strong sensitivity to the changes in the external densities, and therefore the external asymmetry, whereas the minimum perturbation shift has a weaker dependency. Therefore, the amplitude ratio is likely to be a more effective parameter for diagnosing background parameters. Furthermore, observations of the location of the minimum wave power within a solar magnetic slab will be fraught with noise, potentially causing the detection of a false minimum. Noise in amplitude ratio measurements is less likely to introduce large errors because the locations of the slab boundaries are a more obvious features and can be identified by the steep gradients in the wavelength of observed light, for example, and is stable to larger noise signals.
 
 Both the amplitude ratio and minimum perturbation shift are more sensitive to small changes in the background equilibrium parameters, \emph{i.e.} the asymmetry in the background plasma, than the eigenfrequencies are. On a theoretical level, this corroborates with the result that eigenfunctions of linear operators on a Hilbert space are often more sensitive to small perturbations of the operator than their corresponding eigenvalues \citep{kat95}. The amplitude ratio and minimum perturbation shift both depend on the eigenfunctions, $\widehat{v}_x(x)$, and their eigenvalues, $\omega^2$. This means that spatial seismology techniques can be theoretically more effective than temporal techniques for many solar structure. Therefore, we are excited to see a push for increased spatial resolution with next-generational observational instrumentation such as the Daniel K. Inouye Solar Telescope (DKIST). Upon completion, this will equip us to be able to use the magneto-seismology techniques developed here to better understand the diagnostic properties of asymmetric slab-like solar atmospheric structures such as elongated magnetic bright points, prominences, and sunspot light walls.
 
 
+\subsubsection{Dealing with multiple roots} \label{sec: multiple roots}
 
-
-
-
-
-
-
-\subsubsection{Dealing with multiple roots}
-
-
-
-
+A common pitfall when solving inverse problems is identifying the \textit{wrong} solution\footnote{The \textit{wrong} solutions are not wrong in the sense that they don't mathematically solve the equations, rather they are wrong in the sense that they do not map to reality.}. 
 
 
 
@@ -1104,6 +1097,11 @@ Light bridge surges also present a possible application for the SMS techniques d
 Of course, these methods have limits of applicability due to the fact that we have modelled the slab as infinitely long, yet there do not exist any infinitely long waveguides in the solar atmosphere. However, if the length, L, of the cross section of an observed solar waveguide is much greater than its width, $x_0$, say $L/x_0=5-10$, then this model of an infinitely long slab may be a valid approximation. Furthermore, if the wavelength of the observed wave, $\lambda$, is such that $L \gg \lambda \gg x_0$, then the thin slab approximation holds (Sections~\ref{sec: AR thin slab} and~\ref{sec: min pert shift thin}), therefore an analytical diagnosis of the Alfv\'{e}n speed within the waveguide can be made using Table~\ref{table: amp ratio} or~\ref{table: min pert shift}.
 
 This paper introduces two novel SMS methods that, for the first time, explore the asymmetry of solar magnetic waveguides to diagnose background parameters. While the simplicity of the current model of an infinitely long slab in a non-magnetic environment introduces several problems with applicability of the methods, the focus is on the novel concept of waveguide asymmetry. Future advancements of these methods involving more complex equilibrium conditions will be valuable in the coming age of high-resolution solar observations. We propose to determine whether asymmetric magneto-acoustic surface waves can be excited within the characteristic lifetime of an asymmetric waveguide in the solar atmosphere. This task can be investigated analytically (for linear waves with simple initial conditions) and numerically (for non-linear waves with more sophisticated initial conditions). Further, a more realistic system, in particular, an asymmetric magnetic fields in the external plasmas, or an equilibrium shear flow, would allow for better application to the solar waveguides discussed above, at the expense of analytic tractability.
+
+
+
+To my knowledge, this is the first time that using a combination of SMS techniques to simultaneously diagnose multiple parameters has been proposed. First time use of asymmetry to diagnose background params.
+
 
 \color{black}
 
