@@ -1074,21 +1074,17 @@ A common pitfall when solving inverse problems is identifying the \textit{wrong}
 
 Solar magneto-seismology techniques can lead to problems of a multivalued inverse. In theory, there can be multiple values of the background parameters that will lead to a given observational signature of MHD waves. Therefore, given only the observational signature, is not always possible to find an unambiguous solution to the inverse problem. Sometimes we cannot be sure that our estimation of the background parameters is the correct one, leading to significant systematic error. This problem is more likely to raise its head when attempting to estimate multiple background parameters, such as described in Section~\ref{sec: multiple params}. This is due to there being more dimensions over which the original function can be non-injective. Non-injectivity of the original function is sufficient to guarantee that its inverse function is multivalued. It is even possible for there to be infinitely many solutions to the seismological inverse problems that are all equally likely.
 
-One way around the problem of the multivalued inverse is to use prior information about the MHD waveguide to inform our choice of the correct solution. This is the domain of Bayesian statistics \citep{arr_etal11,arr_etal18}. Bayesian statistics can provide a mathematically precise formulation of multivalued inverse problems in probabilistic terms. It can be used to determine which seismological solution is \textit{more likely} to be correct. For example, let's say we are solving an inverse problem to estimate the magnetic field strength in a quiescent prominence. If we lived in a world where we knew nothing at all about the conditions in a prominence, we would have no way to preference one solution to the inverse problem over another. However, we do not live in that world. Based on several decades worth of of solar observations from tens of solar observatories, we have prior understanding of the range of parameter values we'd expect to observe. We would be more surprised to find a value of 0.01~Gauss or 1000~Gauss than we would for, say, 10~Gauss. Bayesian statistic formalises this probabilistic reasoning. The posterior distribution gives the \textit{degree of belief} of the parameter of interest.
+One way around the problem of the multivalued inverse is to use prior information about the MHD waveguide to inform our choice of the correct solution. This is the domain of Bayesian statistics \citep{arr_etal11,arr_etal18}. Bayesian statistics can provide a mathematically precise formulation of multivalued inverse problems in probabilistic terms. It can be used to determine which seismological solution is \textit{more likely} to be correct. For example, let's say we are solving an inverse problem to estimate the magnetic field strength in a quiescent prominence. If we lived in a world where we knew nothing at all about the conditions in a prominence, we would have no way to preference one solution to the inverse problem over another. However, we do not live in that world. Based on several decades worth of of solar observations from tens of solar observatories, we have prior understanding of the range of parameter values we'd expect to observe. We would be more surprised to find a value of 0.01~Gauss or 1000~Gauss than we would be for a value of, say, 10~Gauss. Bayesian statistic formalises this probabilistic reasoning. The posterior distribution gives the \textit{degree of belief} of the parameter of interest.
 
-As well as helping to determine which parameter values are more likely to be correct, Bayesian statistics can be useful for model comparison \citep{arr_etal18}. The idea is that estimates of an unknown background parameter are made using multiple models based on data input into each respective seismological method. This provides well defined degrees of belief in each of the models as representing reality best. This is a promising way to reduce the systematic error in seismological inversions.
+As well as helping to determine which parameter values are more likely to be correct, Bayesian statistics can be useful for model comparison \citep{arr_etal18}. This is a method of quantitatively assessing which of several models is favoured by the data. It provides a well defined degree of belief in each of the models. This is a promising way to reduce the systematic error in seismological inversions. We note both Bayesian inversion and Bayesian model comparison as promising topics for future study in Chapter~\ref{chap: future work}.
 
 
 %------------------------------------------------------------------------------
 \section{Discussion of the application of these techniques}
-\label{sec: }
+\label{sec: SMS discussion}
 %------------------------------------------------------------------------------
 
-
-\color{red}
-There are a number of ways that the amplitude ratio or minimum perturbation shift can be used for spatial seismology. For a given observed wave event in a slab-like solar atmospheric structure, the most simple procedure is as follows. Take measurements for the wave parameters (period and wavelength), and the background parameters (width of structure, plasma density in each region). Determine the sound speeds by assuming equilibrium pressure balance across the slab boundaries. Take a measurement of either the amplitude ratio or minimum perturbation shift. Then invert the corresponding expression for the spatial wave distribution parameter, Equation~\eqref{cross-slab ratio saus}, \eqref{cross-slab ratio kink}, \eqref{shift min saus}, or~\eqref{shift min kink}, to estimate the Alfv\'{e}n speed.
-
-
+The Amplitude Ratio Method and Minimum Perturbation Shift Method present interesting and novel approaches to solar magneto-seismology. Their application is appropriate only to solar atmospheric waveguides that approximate the slab waveguide model. The simplicity of the model used to derive these techniques means that we are restricted in their application. In this section, we outline several solar atmospheric structures that could lend themselves to analysis by the seismological methods introduced in this thesis, namely, chromospheric fibrils, magnetic bright points, quiescent prominences, and light walls.
 
 
 
@@ -1096,38 +1092,126 @@ Large magnetic bright points (MBPs), with characteristic length $L > 500$ km, al
 
 Quiescent prominences, which are large long-lived magnetic formations of cool dense plasma elevated into the hot and rarefied coronal atmosphere, can be approximated by magnetic slabs and have been regularly observed to guide MHD waves \citep{arr_etal12}. The basic slab model of prominences, as illustrated by \textit{e.g.} \cite{joa_etal92a,joa_etal92b}, is of a symmetric slab, however, a small asymmetry could easily be caused by adjacent inhomogeneities. Even a small asymmetry in density ($|1 - \rho_1/\rho_2| < 0.1$) can cause a significant (factor of 2 or more) asymmetry in the eigenmode (Figure~\ref{fig: AR MPS}), except for in thin slabs. This makes prominences a good candidate for applying the SMS techniques developed here. One issue that one has to bear in mind for the employment of these techniques is that the approximation of simple asymmetric magnetic slab may be insufficient to capture some important aspects of prominence oscillations, in particular, prominences are likely to have a sheared magnetic field and may have significant flows, which are neglected in the asymmetric slab model \citep{van_etal89,zir_etal94,bal05,oli09,arr_etal12}.
 
-Light bridge surges also present a possible application for the SMS techniques developed here. Rooted in sunspot light bridges, these clusters of recurrent chromospheric surges observed as bright structures in \textit{e.g.} IRIS 1330~\AA~line, as observed by \citealt{yan_etal16} are formed by either magnetic reconnection just above the light bridge \citep{tor_etal15,rob_etal16} or by leakage of p-modes from beneath the underlying photosphere \citep{yan_etal15,zha_etal17}. They have been demonstrated to guide MHD waves driven by nearby disturbances \citep{yan_etal16,yan_etal17}. While the asymmetric magnetic slab could be a valid approximation for the actual geometry of light walls, the strong magnetic field in the low solar atmosphere above a sunspot umbra (the plasma each side of the light bridge) may put into question the full validity of the non-magnetic external plasma in the current model. However, what matters is the relative strength of the magnetic force compared to the pressure gradient force, that is, the value of plasma-beta. The value of beta above magnetic pores and sunspots is uncertain, but has been shown to be rather high in some cases \citep{bou17}, and has therefore been used in models of the low atmosphere \citep{mum_etal15}. With improved observations, it may turn out that the plasma surrounding light walls has a low-beta, in which case, we suggest that a future generalisation of the methods described here which involves an asymmetric magnetic plasma outside the slab will be a more appropriate method for the first magneto-seismology diagnosis of sunspot light walls.
+Light bridge surges also present a possible application. Rooted in sunspot light bridges, these clusters of recurrent chromospheric surges observed as bright structures in \textit{e.g.} IRIS 1330~\AA~line, as observed by \citealt{yan_etal16} are formed by either magnetic reconnection just above the light bridge \citep{tor_etal15,rob_etal16} or by leakage of p-modes from beneath the underlying photosphere \citep{yan_etal15,zha_etal17}. They have been demonstrated to guide MHD waves driven by nearby disturbances \citep{yan_etal16,yan_etal17}. While the asymmetric magnetic slab could be a valid approximation for the actual geometry of light walls, the strong magnetic field in the low solar atmosphere above a sunspot umbra (the plasma each side of the light bridge) may put into question the full validity of the non-magnetic external plasma in the current model. However, what matters is the relative strength of the magnetic force compared to the pressure gradient force, that is, the value of plasma-beta. The value of beta above magnetic pores and sunspots is uncertain, but has been shown to be rather high in some cases \citep{bou17}, and has therefore been used in models of the low atmosphere \citep{mum_etal15}. With improved observations, it may turn out that the plasma surrounding light walls has a low-beta, in which case, we suggest that a future generalisation of the methods described here which involves an asymmetric magnetic plasma outside the slab will be a more appropriate method for the first magneto-seismology diagnosis of sunspot light walls.
 
-Of course, these methods have limits of applicability due to the fact that we have modelled the slab as infinitely long, yet there do not exist any infinitely long waveguides in the solar atmosphere. However, if the length, L, of the cross section of an observed solar waveguide is much greater than its width, $x_0$, say $L/x_0=5-10$, then this model of an infinitely long slab may be a valid approximation. Furthermore, if the wavelength of the observed wave, $\lambda$, is such that $L \gg \lambda \gg x_0$, then the thin slab approximation holds (Sections~\ref{sec: AR thin slab} and~\ref{sec: min pert shift thin}), therefore an analytical diagnosis of the Alfv\'{e}n speed within the waveguide can be made using Table~\ref{table: amp ratio} or~\ref{table: min pert shift}.
+Of course, these methods have limits of applicability due to the fact that we have modelled the slab as infinitely long, yet there do not exist any infinitely long waveguides in the solar atmosphere. However, if the length, $L$, of the cross section of an observed solar waveguide is much greater than its width, $x_0$, say $L/x_0 = 5-10$, then this model of an infinitely long slab may be a valid approximation. Furthermore, if the wavelength of the observed wave, $\lambda$, is such that $L \gg \lambda \gg x_0$, then the thin slab approximation holds (Sections~\ref{sec: AR thin slab} and~\ref{sec: MPS thin}), therefore an analytical diagnosis of the Alfv\'{e}n speed within the waveguide can be made using Table~\ref{table: amp ratio} or~\ref{table: min pert shift}.
 
-This paper introduces two novel SMS methods that, for the first time, explore the asymmetry of solar magnetic waveguides to diagnose background parameters. While the simplicity of the current model of an infinitely long slab in a non-magnetic environment introduces several problems with applicability of the methods, the focus is on the novel concept of waveguide asymmetry. Future advancements of these methods involving more complex equilibrium conditions will be valuable in the coming age of high-resolution solar observations. We propose to determine whether asymmetric magneto-acoustic surface waves can be excited within the characteristic lifetime of an asymmetric waveguide in the solar atmosphere. This task can be investigated analytically (for linear waves with simple initial conditions) and numerically (for non-linear waves with more sophisticated initial conditions). Further, a more realistic system, in particular, an asymmetric magnetic fields in the external plasmas, or an equilibrium shear flow, would allow for better application to the solar waveguides discussed above, at the expense of analytic tractability.
 
-\color{black}
+\subsubsection{Possible alternative causes of asymmetry}
+
+As a word of warning before we demonstrate a first use of these new SMS techniques, the observed asymmetry of solar MHD waves may not always be a consequence of underlying asymmetry in the background plasma. There are three mechanisms other than asymmetry in the equilibrium plasma that can plausibly explain observed asymmetry of MHD waves. They are
+\begin{enumerate}
+	\item Asymmetric initial conditions,
+	\item Non-collective oscillations,
+	\item Multiple overlying oscillating waveguides.
+\end{enumerate}
+\textcolor{red}{Continue writing about each one here}
+
 
 %------------------------------------------------------------------------------
 \section{Diagnosing the Alfv\'{e}n speed of chromospheric fibrils}
 \label{sec: fibrils}
 %------------------------------------------------------------------------------
 
+The Alfv\'{e}n speed in the chromospheric quiet Sun is highly inhomogeneous, due to the many magnetic structures that make up the magnetic canopy, and undergoes a steep gradient from $15~\text{km~s}^{-1}$ in photospheric flux tubes to $1000~\text{km~s}^{-1}$ in the corona \citep{van_etal11}. The Alfv\'{e}n speed in specific chromospheric structures is very hard to determine using current techniques. At best, we can use extrapolations from the photospheric magnetic field, but since the chromosperic magnetic field is non-potential \citep{woo_etal99,wie_etal14}, the errors are significant.
+In this section, we apply the Amplitude Ratio Method to make an estimate of the Alfv\'{e}n speed in several chromospheric fibrils.
+
+
+\subsection{Description of the data} \label{sec: data}
+
+The data were taken from observations close to the disk centre with a narrow-band 0.25 \AA~H$\alpha$ core (6562.8~\AA) filter on the 29th September 2010 using the Rapid Oscillations in the Solar Atmosphere (ROSA) imager on the Dunn Solar Telescope \citep{jes_etal10a}. The data show a dynamic sea of dark dense fibrils that map, at least partially, the inter-network magnetic field overlying the bright and less dense plasma that permeates the quiet Sun \citep{lee_etal12}. The implementation of the Amplitude Ratio Method involves resolving sub-fibril structure, for which the ROSA instrument’s high spatial (150~km) and temporal resolution (7.68~s) were just barely sufficient, with 10-20~pixels (width $\sim$50~km) across each fibril.
+
+More information about the observations is detailed by \citealp{mor12}, who originally used the same data for the analysis of ubiquitous MHD waves in the chromosphere. They interpreted the observed fibril oscillations as concurrent sausage and kink modes of circular cross-sectional magnetic flux-tubes. In the present analysis, we propose an alternative interpretation that the oscillations are MHD oscillations in asymmetric waveguides. The strong phase relationship between and the similar phase speeds measured for the oscillations in each of the transverse axial displacement, the cross-sectional width, and the integrated intensity across the fibrils (see \citealp{mor12}), is some evidence for the present interpretation. However, we wish to make it clear that this interpretation is taken mainly to \textit{demonstrate} a new SMS technique which depends on the existence of waveguide asymmetry. The evidence for or against either interpretation (concurrent modes in symmetric waveguides or individual modes in asymmetric waveguides) is too weak to be conclusive.
+
+
 \subsection{Methodology}
 
+In the absence of MHD wave theory in more realistic asymmetric geometries, we model each fibril as an isolated magnetic slab whose boundaries are parallel discontinuities between the uniform internal plasma and the asymmetric external plasma (Figure~\ref{fig:eq non-mag slab}). Only sufficiently isolated fibrils that maintain their structure for at least a full period were analysed. A primary slit is placed perpendicularly across each fibril and time-distance data produced from an average of the intensities across the primary slit and two parallel neighbouring slits, placed at a distance of 1~pixel either side (Figure~\ref{fig:fibril5_slit}). This technique of averaging over several slits is used to increase the signal-to-noise ratio.
 
-\subsection{Results}
-
-
-\subsection{Discussion}
-
-\subsubsection{Possible alternative causes of observed asymmetry}
-Possibilities: 
-\begin{itemize}
-	\item Asymmetric ICs
-	\item Non-collective oscillations
-	\item Observational artefact
-	\item Overlying oscillating waveguides due to optically thin atmosphere.
-\end{itemize}
-Include discussion about how to differentiate between these.
+\begin{figure}
+	\centering
+	\subfloat[]{\includegraphics[width=11cm]{\figdir fibril5_slit.png}
+		\label{fig:fibril5_slit}} \\
+	\subfloat[]{\includegraphics[width=11cm]{\figdir fibril5_dt.png}
+		\label{fig:fibril5_dt}}
+	\caption{(a) A typical example of a ROSA H$\alpha$ fibril taken at $t=399.36$~s from the start of the observational window. The middle slit is placed perpendicular to the fibril. The mean of the intensities along the middle slit and two parallel slits at a pixel each side at each time step is plotted in Panel~(b). The white dots correspond to the boundaries of the fibril, calculated as the position of half-maximum of the fitted Gaussian. Axis values are in units from the bottom left of the observational domain.}
+\end{figure}
 
 
+\subsubsection{Boundary tracking} \label{sec:boundary tracking}
+
+To find the fibril boundaries so that the boundary oscillation amplitudes can be determined, we fit a Gaussian function to each time frame of the time-distance data. The boundaries are taken to be the positions along the slit at which the fitted Gaussian reaches half-maximum. Due to the limited number of data-points across each fibril, the high signal-to-noise ratio, and to improve the fitting stability, for time frames where the Gaussian fitting failed, the fitting domain was reduced to 10~pixels either side of the boundaries on the previous time step.
+
+Fibrils for which the stabilized Gaussian fitting failed on a significant proportion of time steps were omitted from the analysis. The boundaries were cross-checked and the small number of isolated anomalous points were smoothed over using a linear interpolation between the previous and next time frames. The width of each fibril is taken as the mean distance between the boundaries throughout the time window for which the stabilized Gaussian fitting was successful.
+
+
+\subsubsection{Frequency and amplitude measurement} \label{sec:freq amp}
+For each fibril, both sets of boundary data were detrended with a cubic polynomial fit by least-squares regression. The detrended boundaries are then fit with a sinusoidal curve (Figure~\ref{fig:fibril5_detrend}). The frequency of each wave is given by the average of the frequencies of both boundary sinusoids. The amplitude ratio is the signed ratio of the amplitudes of the boundary sinusoids.
+
+\begin{figure}
+\centering
+\includegraphics[width=10cm]{\figdir fibril5_trend.png}
+\caption{The boundary data (black), with cubic polynomial trend (red) overlayed. The error bars refer to the uncertainty in the boundary position due to spatial resolution limits. \textcolor{red}{MAYBE REMOVE?}}
+\label{fig:fibril5_trend}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\subfloat[]{\includegraphics[width=11cm]{\figdir fibril5_detrend_t.png}
+		\label{fig:fibril5_detrend_t}} \\
+	\subfloat[]{\includegraphics[width=11cm]{\figdir fibril5_detrend_b.png}
+		\label{fig:fibril5_detrend_b}}
+	\caption{(a) Top and (b) bottom boundary positions along the averaged slits given in Figure~\ref{fig:fibril5_slit} (black line), detrended with a cubic polynomial. The error bounds on each point are the pixel size and therefore correspond to the error in the observations rather than the error in the trend fitting so represent a lower bound on the total error. The boundaries are fitted with a sinusoid (red line). \textcolor{red}{Consider making high res}}
+	\label{fig:fibril5_detrend}
+\end{figure}
+
+
+\subsubsection{Phase speed measurement} \label{sec:phase speed}
+
+For each fibril, we plotted the cross-sectional width variation through time at five parallel slits, each five pixels apart and perpendicular the fibril. The widths at each time-step were calculated as the position of half-maximum of the fitted Gaussian function along each slit. The intensity along each of the five slits used for the phase speed measurement, as described in Section~\ref{sec:boundary tracking}, is the mean of the intensities across three parallel slits spaced a pixel apart. The width variation was smoothed with a 3-point box-car function and the temporal lag in the smoothed width variation was fitted with a straight line (see Figure~\ref{fig:fibril5_width}). The gradient of this line is the estimated phase speed.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=10cm]{\figdir fibril5_widths2_line.png}
+	\caption{Five parallel slits, spaced by five pixels, are placed perpendicular to each fibril. The widths, calculated from the fitted Gaussian along each slit, are plotted and displaced in the y-direction by five pixels = 250 km, the distance between each slit. The peaks and trough of the width oscillations are fitted by a straight line, the gradient of which is approximately the phase speed.}
+	\label{fig:fibril5_width}
+\end{figure}
+
+The measured phase speeds assume that the fibril waveguides are parallel to the plane of sky (PoS). However, in reality, the waveguides are inclined at some angle $\theta$ to the PoS. Therefore, the true phase speed will be a factor of $\sec(\theta)$ greater than the measured phase speed. Unfortunately, using the given data it is impossible to infer the angle $\theta$. The best we can do is use the fact that the fibrils tend to track the magnetic field of the chromospheric magnetic canopy, which is dominated by a horizontal magnetic field component, to motivate the assumption that $\theta$ is small. Under this assumption, we can take $\sec(\theta) \approx 1$, to leading order. From this it follows that the true phase speed is approximately equal to the measured phase speed in the observational plane.
+
+Additionally, it might appear that we have assumed that the oscillations are polarized in the PoS because the amplitudes are measured in the observational place. However, the amplitudes only enter the inversion calculation as a ratio, eliminating any projection effects.
+
+
+\subsection{Inversion procedure}\label{sec:inversion}
+
+Using the technique from Section~\ref{sec: inversion}, we employed a numerical inversion procedure to estimate the Alfv\'{e}n speed within the fibrils. First, for each fibril oscillation, the mode of oscillation (quasi-sausage or quasi-kink) was identified by assessment of the phase-shift between the oscillations on each boundary. After prescribing all the parameters apart from the internal Alfv\'{e}n speed, $v_\mathrm{A1}$, in Equation~\eqref{amplitude ratio saus} or~\eqref{amplitude ratio kink} (depending on the mode identified), the secant method was used to estimate the Alfv\'{e}n speed inside each fibril.
+
+For each inversion, we specified an internal sound speed of $c_0 = 10$~km s$^{-1}$ and density ratios of $\rho_1/\rho_0 = 0.1$ and $\rho_2/\rho_0 = 0.2$, and vice versa depending on which side had the largest amplitude. In the absence of any density-sensitive proxies from the data, they were chosen to match the order of magnitude difference between the densities external and internal to the fibrils as expected from previous fibril observations \citep{lee_etal12,mor12}.
+
+To reduce the chance of finding the wrong root when the inverse problem is multi-valued, a hundred initial values for $v_\mathrm{A}$ equally spaced between $1$ and $200$~km~s$^{-1}$ were tried and only fibrils which have a consistent inversion were included in the analysis. This range of initial values was chosen because it covers the expected range of Alfv\'{e}n speed values.
+
+
+\subsection{Results}\label{sec:sms results}
+We made a successful inversion of five chromospheric fibrils and recorded the parameters in Table~\ref{table: fibril inversion}. Two of the fibrils were identified as oscillating in the quasi-kink mode and three in the quasi-sausage mode. Fibril~1 exhibited a change in direction of propagation before breaking up. The other fibril oscillations propagated in the same direction for the duration of the time for which Gaussian fitting was successful. The inverted Alfv\'{e}n speeds agree with expected values for chromospheric fibrils \citep{mor12}. However, as mentioned at the start of Section~\ref{sec: observations intro}, the \textit{expected} values for chromospheric Alfv\'{e}n speed are uncertain.
+
+\begin{sidewaystable}
+	\centering
+	\caption{A table of measured parameters, identified mode, and estimated local Alfv\'{e}n speed of five chromospheric fibrils.}
+	\begin{tabular}{ccccccccc}
+		\toprule
+		Fibril & Width & Frequency & Phase speed & Amplitude ratio & Asymmetric eigenmode & Estimated Alfv\'{e}n Speed \\
+		& km & s$^{-1}$ & km~s$^{-1}$ & & & km~s$^{-1}$ \\
+		\midrule
+		1 & 463 & 0.0285 & 63 (and -63) & 1.29 & Quasi-kink & 30.5 \\
+		2 & 997 & 0.0328 & 63 & -0.407 & Quasi-sausage & 91.7 \\
+		3 & 1120 & 0.0800 & 63 & -3.42 & Quasi-sausage & 75.5 \\
+		4 & 530 & 0.0198 & 31 & -3.13 & Quasi-sausage & 49.4 \\
+		5 & 551 & 0.0511 & 129 & 2.04 & Quasi-kink & 63.1 \\
+		\bottomrule
+	\end{tabular} \label{table: fibril inversion}
+\end{sidewaystable}
+
+We reiterate the advice from \citealp{lee_etal15}, that chromospheric seismology inversions should be taken with caution due to the partial mapping between the fibril intensity oscillations and the underlying magnetic field dynamics. The present results serve as a proof-of-concept of the novel solar magneto-seismology technique and we expect the errors to be significant.
 
 
 \bibliographystyle{plainnat}
