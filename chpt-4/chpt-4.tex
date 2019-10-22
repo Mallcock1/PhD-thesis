@@ -184,7 +184,7 @@
 \label{sec: SMS intro}
 %------------------------------------------------------------------------------
 
-\color{red}{(STRAIGHT FROM THE INTRO OF ALL + ERD 2018 - PLZ CHANGE)The emerging field of solar magneto-seismology (SMS) has become a crucial tool in developing our understanding of structures in the solar atmosphere. By comparing observational measurements of magnetohydrodynamic (MHD) waves to the wave solutions of inhomogeneous plasma modelling of the medium in which the waves propagate, we can make approximations of traditionally difficult-to-measure plasma parameters such as the magnetic field strength and heat transport coefficient \citep{and_etal09,arr12,dem_etal12}. This in turn equips us with more realistic parameters for numerical simulations and give us a better understanding of conditions that lead to, for example, wave energy dissipation, instability, magnetic reconnection, and heating.
+\color{red}(STRAIGHT FROM THE INTRO OF ALL + ERD 2018 - PLZ CHANGE)The emerging field of solar magneto-seismology (SMS) has become a crucial tool in developing our understanding of structures in the solar atmosphere. By comparing observational measurements of magnetohydrodynamic (MHD) waves to the wave solutions of inhomogeneous plasma modelling of the medium in which the waves propagate, we can make approximations of traditionally difficult-to-measure plasma parameters such as the magnetic field strength and heat transport coefficient \citep{and_etal09,arr12,dem_etal12}. This in turn equips us with more realistic parameters for numerical simulations and give us a better understanding of conditions that lead to, for example, wave energy dissipation, instability, magnetic reconnection, and heating.
 
 SMS techniques can be categorised as either temporal or spatial seismology. By temporal seismology we refer to methods that estimate a plasma parameter by using the observed frequency, or equivalently the period, of waves. By spatial seismology we refer to methods that estimate a plasma parameter by comparing the observed spatial and/or temporal wave power distribution with the eigenfunctions from a theoretical model.
 
@@ -196,8 +196,8 @@ In the present work, we derive two novel analytical tools for spatial seismology
 
 This work provides an application of the linear wave analysis of asymmetric magnetic slabs completed by \cite{all_etal17}. A magnetic slab, with non-magnetic, but asymmetric density and temperatures outside the slab has eigenmodes which can be described as either quasi-sausage or quasi-kink. For quasi-sausage (quasi-kink) modes, the oscillations on each slab interface are in anti-phase (phase). They differ in character from traditional (symmetric) sausage and kink modes by their asymmetry about the center of the slab due to the amplitude of oscillation on each interface being unequal caused by the asymmetric external environment. This results in quasi-kink modes not necessarily retaining their cross-sectional area and quasi-sausage modes not necessarily having reflection symmetric about the centre line of the slab. The spatial distribution of these waves across the slab, and therefore the extent to which they are modified from the traditional sausage and kink modes, is dependent on the asymmetric background plasma parameters. Consequently, we can use the spatial distribution of these waves to diagnose the waveguide. This is the focus of the present paper: to derive expressions for proxy parameters that encapsulate this asymmetric spatial distribution and discuss the application to SMS.
 
-Section~\ref{sec: AR} introduces the amplitude ratio diagnostic parameter, Section~\ref{sec: MPS} introduces the minimum perturbation shift diagnostic parameter, and Section~\ref{sec: discussion} discusses the application of these parameters to SMS.}
-\color{black}
+Section~\ref{sec: AR} introduces the amplitude ratio diagnostic parameter, Section~\ref{sec: MPS} introduces the minimum perturbation shift diagnostic parameter, and Section~\ref{sec: discussion} discusses the application of these parameters to SMS.
+
 
 
 \subsection{What is solar magneto-seismology?}
@@ -389,8 +389,8 @@ Arregui and Asensio Ramos, 2011, developed a Bayesian scheme to reduce uncertain
 
 \subsection{Solar magneto-seismology using asymmetric waves}
 
-\textcolor{red}{Lots of progress with temporal SMS, not much with spatial SMS. Prev sections show that if you change the background parameters, the asymmetry changes. Therefore, we can measure the asymmetry and invert the background parameters. How can we quantify this asymmetry? Amplitude ratio and minimum perturbation shift.}
-
+Lots of progress with temporal SMS, not much with spatial SMS. Prev sections show that if you change the background parameters, the asymmetry changes. Therefore, we can measure the asymmetry and invert the background parameters. How can we quantify this asymmetry? Amplitude ratio and minimum perturbation shift.
+\color{black}
 
 %------------------------------------------------------------------------------
 \section{Amplitude Ratio}
@@ -1101,11 +1101,17 @@ Of course, these methods have limits of applicability due to the fact that we ha
 
 As a word of warning before we demonstrate a first use of these new SMS techniques, the observed asymmetry of solar MHD waves may not always be a consequence of underlying asymmetry in the background plasma. There are three mechanisms other than asymmetry in the equilibrium plasma that can plausibly explain observed asymmetry of MHD waves. They are
 \begin{enumerate}
-	\item Asymmetric initial conditions,
-	\item Non-collective oscillations,
+	\item Local oscillations,
+	\item Coherent oscillations of a larger waveguide,
 	\item Multiple overlying oscillating waveguides.
 \end{enumerate}
-\textcolor{red}{Continue writing about each one here}
+In the following paragraphs, we explain the mechanism and discuss their plausibility as alternative hypotheses.
+
+The first alternative possibility is that when we observe asymmetry in MHD waves, we are actually observing a symmetric MHD structure that is oscillating locally rather than as a whole. The eigenmodes described in Section~\ref{sec: } are oscillations of the waveguide as a whole. This type of oscillation is known as a \textit{coherent} or \textit{global} oscillation. If the waveguide's characteristic length-scale (which is equal to the slab width for a magnetic slab) is much greater than the wave's characteristic length-scale, then a portion of the structure can oscillate without perturbing the rest of the structure. For example, each interface of a symmetric slab can oscillate independently with a wave whose wavelength is much shorter than the slab width\footnote{this was shown analytically in Section~\ref{sec: wide slab}.}. Two parallel interfaces oscillating independently with different amplitudes could be erroneously interpreted as a coherent asymmetric oscillation of the whole waveguide. It is unclear how likely this hypothesis is to be true over the hypothesis of asymmetric equilibrium parameters.
+
+Secondly, the structure that appears to be oscillating asymmetrically could be oscillation as part of a larger structure. For example, a symmetric magnetic slab or axisymmetric flux tube could oscillate coherently with several adjacent structures to form a larger scale asymmetric waveguide (as studied by \cite{shu_etal18} for a slab as part of a larger system of several parallel interfaces and by \cite{van_etal08} for a flux tube oscillating with an adjacent flux tube). It is conceivable that if part of the larger waveguide is obfuscated from view, that the symmetric visible part (say, a structure approximating a symmetric slab or axisymmetric flux tube) is oscillating asymmetrically. This seems highly unlikely to explain many asymmetric waves observation due to the improbability of the equilibrium set-up.
+
+A third alternative possibility to explain the observed asymmetry is that we are observing several overlying structures. When observing in a optically thin spectral line, each pixel is made up of the integral of light emitted by plasma along the line-of-sight. For example, an observation of the chromosphere made with the commonly used H$\alpha$ emission line is made up of a light emitted from the multiple overlying structures between the telescope and the optically thick photosphere. It is impossible to isolate how much each structure contributes to the emission\footnote{With multiple telescopes observing the same point in three-dimensional space but from different angles, we can get much closer to isolating the light emission from a single structure. This is the project of the Stereo mission \citep{stereo}.}. For this reason, observed asymmetry of an MHD wave could be due to several overlying structures moving in a way that appears like a single asymmetric oscillation. That is, it could be an observational artefact due to the optically thin plasma rather than due to asymmetry in the equilibrium structure. This strikes us as an implausible mechanism. This is because the combination of emission from overlying structures would be far more likely to combine into an incoherent oscillation in the optically thin line. For example, in the chromospheric H$\alpha$ data analysed in Section~\ref{sec: data}, most of the observational domain is a sea of incoherently oscillating fibrils. We identify this as being due to overlying structures obscuring coherently oscillating waveguide. We also see many  structures oscillating coherently for several periods, all of which demonstrate some degree of asymmetry. Were this asymmetry due to overlying structures, we would expect them to not oscillate coherently for as long, and to be much smaller in number. Therefore, we reject this possibility.
 
 
 %------------------------------------------------------------------------------
@@ -1197,7 +1203,7 @@ We made a successful inversion of five chromospheric fibrils and recorded the pa
 \begin{sidewaystable}
 	\centering
 	\caption{A table of measured parameters, identified mode, and estimated local Alfv\'{e}n speed of five chromospheric fibrils.}
-	\begin{tabular}{ccccccccc}
+	\begin{tabular}{ccccccc}
 		\toprule
 		Fibril & Width & Frequency & Phase speed & Amplitude ratio & Asymmetric eigenmode & Estimated Alfv\'{e}n Speed \\
 		& km & s$^{-1}$ & km~s$^{-1}$ & & & km~s$^{-1}$ \\
