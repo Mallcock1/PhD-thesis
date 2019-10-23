@@ -1,0 +1,194 @@
+\documentclass[12pt]{../style-files/ociamthesis}
+ 
+\usepackage{amssymb}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subfig}
+\usepackage{xcolor}
+\usepackage[section]{placeins}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{stmaryrd}
+\usepackage{siunitx}
+\usepackage{rotating}
+\usepackage[utf8]{inputenc}
+\usepackage[round]{natbib}
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+\usetikzlibrary{arrows,shapes, positioning}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{rotating}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ left=40mm,
+ right=30mm,
+ top=30mm,
+ bottom=30mm
+ }
+
+\definecolor{theblue}{HTML}{0000CD}
+
+% disable this package for printed version
+\usepackage[colorlinks=true, linktocpage=true, allcolors=theblue]{hyperref}
+
+\titleformat{\chapter}[display]
+  {\bfseries\Large}
+  {\filright\MakeUppercase{\chaptertitlename} \Large\thechapter}
+  {1ex}
+  {}
+  [\vspace{1ex} \hrule \vspace{1pt} \hrule]
+
+\newcommand{\adv}{    {\it Adv. Space Res.}} 
+\newcommand{\annG}{   {\it Ann. Geophys.}} 
+\newcommand{\aap}{    {\it Astron. Astrophys.}}
+\newcommand{\aaps}{   {\it Astron. Astrophys. Suppl.}}
+\newcommand{\aapr}{   {\it Astron. Astrophys. Rev.}}
+\newcommand{\ag}{     {\it Ann. Geophys.}}
+\newcommand{\aj}{     {\it Astron. J.}} 
+\newcommand{\apj}{    {\it Astrophys. J.}}
+\newcommand{\apjl}{   {\it Astrophys. J. Lett.}}
+\newcommand{\apss}{   {\it Astrophys. Space Sci.}} 
+\newcommand{\cjaa}{   {\it Chin. J. Astron. Astrophys.}} 
+\newcommand{\gafd}{   {\it Geophys. Astrophys. Fluid Dyn.}}
+\newcommand{\grl}{    {\it Geophys. Res. Lett.}}
+\newcommand{\ijga}{   {\it Int. J. Geomagn. Aeron.}}
+\newcommand{\jastp}{  {\it J. Atmos. Solar-Terr. Phys.}} 
+\newcommand{\jgr}{    {\it J. Geophys. Res.}}
+\newcommand{\mnras}{  {\it Mon. Not. Roy. Astron. Soc.}}
+\newcommand{\na}{     {\it New Astronomy}}
+\newcommand{\nat}{    {\it Nature}}
+\newcommand{\pasp}{   {\it Pub. Astron. Soc. Pac.}}
+\newcommand{\pasj}{   {\it Pub. Astron. Soc. Japan}}
+\newcommand{\pre}{    {\it Phys. Rev. E}}
+\newcommand{\solphys}{{\it Solar Phys.}}
+\newcommand{\sovast}{ {\it Soviet  Astron.}} 
+\newcommand{\ssr}{    {\it Space Sci. Rev.}}
+\newcommand{\caa}{    {\it Chinese Astron. Astrohpys.}} 
+\newcommand{\apjs}{   {\it Astrophys. J. Suppl.}}
+\newcommand{\lrsp}{{\it Living Rev. Solar Phys.}}
+
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bB}{\mathbf{B}}
+
+\begin{document}
+
+\baselineskip=18pt
+
+%------------------------------------------------------------------------------
+\chapter{Magnetometry of the solar atmosphere}
+\label{app: magnetometry}
+%------------------------------------------------------------------------------
+
+%------------------------------------------------------------------------------
+\section{Chapter introduction}
+\label{sec: SMS intro}
+%------------------------------------------------------------------------------
+
+
+
+\textcolor{red}{All of below text needs editing (maybe shortening or putting in an appendix, too?)}
+\subsection{Solar atmospheric magnetometry}
+The magnetic field plays an integral role in the structure and dynamics of the solar atmosphere. Measuring the strength and direction of the magnetic field vector is therefore important for realistic numerical simulations and a better understanding of active magnetic structures on the Sun. (Maybe we could write more here about why it's important to understand magnetic field in the solar atmosphere)
+
+The first magnetic field measurement techniques involved observing the effect that the field has on the electromagnetic radiation emitted from the plasma, so called \textit{spectral techniques}.
+
+Later, indirect techniques, where we use a different observational proxy to diagnose the magnetic field information, were developed, including magnetic extrapolation and magneto-seismology. With increasing spatial and temporal resolution of solar observations, it is expected that these techniques will become more widely and accurately used.
+
+A description of these techniques is given below.
+
+\subsubsection{Spectral techniques}
+\subsubsection{Zeeman effect}
+The Zeeman effect is due to magnetic fields distorting the electron orbitals of atoms so that the wavelength of light emitted by electrons relaxing to lower energy levels is modified. This has the effect of splitting the emission lines of plasma in the presence of a magnetic field.
+
+In solar observations, this effect was first observed in 1908 when George Ellery Hale noticed it in the H$\alpha$ spectrum from the 3000 G sunspot magnetic fields. Since then, the Zeeman effect has been the foremost employed solar magnetometry  technique. Since the Doppler broadening scales proportionally to the observed wavelength, $\lambda$, while the Zeeman splitting scales proportionally to $\lambda^2$, the different Zeeman components happen to be completely separated for sufficiently large values of $\lambda$. Infrared is often used to establish observations of Zeeman splitting for this reason.
+
+It has been said that, with the Zeeman effect, “a ruler is sufficient to measure the solar magnetic field” \citep{lan03}. In some sense, this is true. The magnitude of the wavelength splitting of the emission lines is directly related to the strength of the magnetic field in the line-of-sight. To diagnose the direction of the magnetic field, polarimetry and radiative transfer are necessary in any wavelength observation.
+
+Quantum effects must be considered to fully explain the nuances of the effect, in particular, the anomalous Zeeman effect which requires an appreciation of electron spin.
+
+\subsubsection{Hanle effect}
+The Hanle rotation effect is not dependent on the length of the path through the magnetic field (which makes it distinct from the Faraday effect). 
+
+Quantum effects must be considered to fully explain the nuances of the effect.
+
+\subsubsection{Indirect techniques}
+\subsubsection{Faraday rotation}
+When light passes through a magnetic field in a dispersive medium, the polarisation of the light is rotated proportionally to the strength of the magnetic field and the length of the path in the medium within the magnetic field. This is known as Faraday rotation. By observing light from a distant star of known polarisation as it passes through the rarefied solar corona and measuring the corresponding polarisation rotation, we can make an indirect measurement of the coronal magnetic field.
+
+By observing the radiation from a background star with known radiation spectrum as it passes behind the outer corona, a measurement of the rotation of the polarisation of the light, and therefore a measurement of the line-of-sight magnetic field can be made.
+
+
+\subsubsection{Photospheric extrapolation}
+Currently, our measurements of the vector field in the $10^6$ K corona of the quiet Sun comes almost entirely from extrapolation of photospheric magnetic field measurements. The photospheric magnetic field (whose magnitude and direction can be measured with low uncertainty using observations of Zeeman splitting of spectral lines) is used as a lower boundary condition used to solve a set of differential equations for the magnetic field.
+
+For quasi-stationary solar structures, such that the magnetostatic approximations is valid, balance between the Lorentz force, pressure gradient force, and gravity in the solar atmosphere can be written as
+\begin{equation}
+\mathbf{j} \times \mathbf{B} - \nabla p - \rho \mathbf{g} = 0.
+\end{equation}
+In the solar corona, the plasma is of low beta ($\beta \ll 1$), and for regions of vertical extent smaller than $H/\beta$, where $H$ is the pressure scale-height, the force balance simplifies to 
+\begin{equation}
+\mathbf{j} \times \mathbf{B} = 0,
+\end{equation}
+\textit{i.e.} the magnetic field is \textit{force-free}.
+
+The simplest way to achieve a force-free magnetic field is to take $\mathbf{j} = 0$, describing a current-free (potential) field. For this simple type of field, there exists a magnetic scalar potential, $\phi = \phi(\mathbf{x})$, such that $\mathbf{B} = \nabla\phi$. Then, from the solenoidal condition, the scalar potential satisfies
+\begin{equation}
+\nabla^2 \phi = 0.
+\end{equation}
+This equation is solved using a Green's function method or an eigenfunction expansion method with the observed photospheric boundary condition to extrapolate the photospheric magnetic field into the corona.
+
+A more sophisticated way to ensure a force-free magnetic field is to take the magnetic field parallel to the electric current, that is
+\begin{equation}
+\nabla \times \mathbf{B} = \alpha \mathbf{B},
+\label{alpha1}
+\end{equation}
+where $\alpha$ is the proportionality between the magnetic field and the current. Taking the divergence of this equation gives us
+\begin{equation}
+\mathbf{B} \cdot \nabla\alpha = 0,
+\label{alpha2}
+\end{equation}
+since $\nabla \cdot \mathbf{B} = 0$. From this, it follows that $\alpha$ is constant along each field line. When $\alpha$ is constant, the extrapolation is known as \textit{linear force-free}; if not, it is known as \textit{nonlinear force-free}.
+
+The force-free equations (Equations~\eqref{alpha1} and~\eqref{alpha2}) must be solved numerically in all but the simplest of cases. Even when taking a simple upper-boundary condition that the magnetic field is negligible far from the solar surface, the problem is mathematically ill-posed (why?), in that a small change in the imposed photospheric boundary condition results in a large change in the extrapolated field \citep{low_etal90}. This is problematic due to the necessary uncertainty in the photospheric magnetic field measurements.
+
+
+\subsubsection{Magneto-seismology}
+
+
+
+\subsubsection{Future techniques}
+\subsubsection{In-situ measurements}
+NASA Parker Probe.
+
+\subsection{Application and difficulties}
+In the photosphere and chromosphere, the strength of both the line-of-sight and plane-of-sky magnetic field components (equivalently, the direction and magnitude of the magnetic field vector) can be made with low uncertainty using the Zeeman splitting of the spectral lines observed.
+
+It is always difficult, and often impossible, to ascertain any magnetic field information in the corona. This is due to the fact that, although it dominates other forces involved, the magnetic field is of low absolute strength, and the plasma is extremely sparse. (WHY?)
+
+
+\subsection{OTHER DETAILS TO ADD ABOVE}
+From Aschwanden's book: "Above active regions, the magnetic field can sometimes be inferred from the change in sign and amplitude of the circular polarization when the microwave radiation passes through a quasi-transverse (QT) region (e.g., Ryabov et al. 1999). In weak-field regions far away from sunspots, the coronal field can also be probed by measuring the Faraday rotation (Alissandrakis  and Chiuderi-Drago 1995). Alternative methods to measure the coronal magnetic field have also been demonstrated by using the Fe XIII line in the infrared (Lin et al. 2000) or the Hanle effect (Stenflo 1994)."
+
+
+\subsection{General techniques}
+\subsubsection{Bayesian inversion}
+Arregui and Asensio Ramos, 2011, developed a Bayesian scheme to reduce uncertainty in magnetic field measurements by giving accurate likelihood values on each solution from the multi-valued inversion procedure.
+
+
+\subsection{Solar magneto-seismology using asymmetric waves}
+
+Lots of progress with temporal SMS, not much with spatial SMS. Prev sections show that if you change the background parameters, the asymmetry changes. Therefore, we can measure the asymmetry and invert the background parameters. How can we quantify this asymmetry? Amplitude ratio and minimum perturbation shift.
+\color{black}
+
+
+
+\bibliographystyle{plainnat}
+\bibliography{../main/references}  
+
+\end{document}
