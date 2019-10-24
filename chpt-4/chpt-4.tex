@@ -23,6 +23,7 @@
 \usepackage{multirow}
 \usepackage{rotating}
 \usepackage{tabularx}
+\usepackage{makecell}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % the following is to alter tikz settings to improve springs figure.
@@ -186,11 +187,18 @@
 %------------------------------------------------------------------------------
 
 
-\subsection{What is solar magneto-seismology?}
+In this chapter, we derive two novel techniques for spatial seismology that use an asymmetric slab waveguide to approximate background parameters. This has applications to solar atmospheric structures that are locally slab-like which have been observed to guide MHD oscillations, such as elongated magnetic bright points \citep{yua_etal14}, prominences \citep{arr_etal12}, and light bridge surges \citep{roy73,shi_etal09} (which have also been named light walls by, \textit{e.g.} \citealp{yan_etal15,yan_etal17,zha_etal17}).
+
+We showed in Chapter~\ref{chap: EVP} that a magnetic slab, with non-magnetic, but asymmetric density and temperatures outside the slab has eigenmodes which can be described as either quasi-sausage or quasi-kink. For quasi-sausage (quasi-kink) modes, the oscillations on each slab interface are in anti-phase (phase). They differ in character from traditional (symmetric) sausage and kink modes by their asymmetry about the centre of the slab due to the amplitude of oscillation on each interface being unequal caused by the asymmetric external environment. This results in quasi-kink modes not necessarily retaining their cross-sectional area and quasi-sausage modes not necessarily having reflection symmetric about the centre line of the slab. The spatial distribution of these waves across the slab, and therefore the extent to which they are modified from the traditional sausage and kink modes, is dependent on the asymmetric background plasma parameters. Consequently, we can use the spatial distribution of these waves to diagnose the waveguide. This is the focus of the present chapter: to derive expressions for proxy parameters that encapsulate this asymmetric spatial distribution and discuss the application to SMS.
+
+Sections~\ref{sec: what is SMS} and~\ref{sec: SMS history} give a definition and brief history of SMS. Sections~\ref{sec: AR} and~\ref{sec: MPS} introduce two new SMS techniques: the Amplitude Ratio Method and the Minimum Perturbation Shift Method. Section~\ref{sec: numerical inversion} discusses in more depth the numerical inversion procedure required to apply these two techniques without having to resort to additional approximations. Section~\ref{sec: SMS discussion} discusses where these techniques can be appropriately applied and Section~\ref{sec: fibrils} records the first use of the Amplitude Ratio Method on observations.
+
+
+\subsection{What is solar magneto-seismology?} \label{sec: what is SMS}
 
 Perpetual bubbling, erupting, and turbulent buffeting of plasma drive ubiquitous magneto-acoustic waves throughout the solar atmosphere. The topology and strength of the magnetic field determines the type and properties of waves present in a given structure. Therefore, by observing these waves and solving an inverse problem, it is possible to make a diagnosis of unknown plasma parameters - a class of techniques known as \textit{solar magneto-seismology} (SMS) \citep{and_etal09,arr12,dem_etal12}. This in turn equips us with more realistic parameters for numerical simulations and give us a better understanding of conditions that lead to, for example, wave energy dissipation, instability, magnetic reconnection, and heating.
 
-SMS techniques can be categorised as either \textit{temporal} or \textit{spatial}. Temporal seismology refers to techniques that estimate a plasma parameter by using the observed frequency, or equivalently the period, of waves. Spatial seismology refers to techniques that estimate a plasma parameter by comparing the observed spatial wave power distribution with the eigenfunctions from a theoretical model. Mathematically, the distinction is that temporal seismology techniques use temporal wave parameters (\textit{i.e.} eigenfrequency) only whereas spatial seismology techniques use spatial or a combination of temporal and spatial wave parameters (\textit{i.e.} eigenfunction). The flowchart in Figure~\ref{fig: SMS} illustrates the causal chain from identifying wave and equilibrium parameters in observations, combining these with eigenmode analysis from models of the physical system, and using SMS techniques to diagnose previously unknown equilibrium paramers.
+SMS techniques can be categorised as either \textit{temporal} or \textit{spatial}. Temporal seismology refers to techniques that estimate a plasma parameter by using the observed frequency, or equivalently the period, of waves. Spatial seismology refers to techniques that estimate a plasma parameter by comparing the observed spatial wave power distribution with the eigenfunctions from a theoretical model. Mathematically, the distinction is that temporal seismology techniques use temporal wave parameters (\textit{i.e.} eigenfrequency) only whereas spatial seismology techniques use spatial or a combination of temporal and spatial wave parameters (\textit{i.e.} eigenfunction). The flowchart in Figure~\ref{fig: SMS} illustrates the causal chain from identifying wave and equilibrium parameters in observations, combining these with eigenmode analysis from models of the physical system, and using SMS techniques to diagnose previously unknown equilibrium parameters.
 
 \newcommand{\tb}{\textcolor{black}}
 \tikzstyle{format} = [draw, rounded corners=.055cm, fill=cyan!20]
@@ -264,10 +272,14 @@ Spatial seismology techniques have more recently started demonstrating their eff
 In this thesis, we particularly focus on diagnosis of the magnetic field. This is because out of all the solar atmospheric features, the magnetic field is often the most elusive and amongst the most dominant in governing solar atmospheric phenomena. It is insightful to consider SMS techniques are part of a larger umbrella of magnetometry techniques, so that the most appropriate technique can be chosen for a given purpose, and to avoid any implication that the new techniques presented in this thesis are useful in every scenario. This broader class of techniques is outlined in Appendix~\ref{app: magnetometry}.
 
 
-\subsection{A brief history of solar magneto-seismology}
+\subsection{A brief history of solar magneto-seismology} \label{sec: SMS history}
 
-To motivate this chapter's focus on developing new temporal seismology techniques, we list a selection of the major advancements in SMS since its development.
+To motivate this chapter's focus on developing new temporal seismology techniques, we list a selection of the major advancements in SMS since its development in Table~\ref{table: SMS history}. There are nine major developments in temporal seismology compared to two major developments in spatial seismology. The dominance of the development of temporal seismology techniques over temporal seismology techniques is striking\footnote{Of course, selection bias could have a role to play here. That is, I could well have been exposed to more }. Whilst temporal seismology is growing into a mature field, spatial seismology is in it's infancy.
 
+% Define custom callouts to shorten the Author column.
+\defcitealias{nak_etal01}{Nakariakov et al.}
+\defcitealias{arr_etal11}{Arregui et al.}
+\defcitealias{erd_etal08}{Erdelyi et al.}
 \begin{table}
 	\centering
 	\begin{tabularx}{\linewidth}{l l X c}
@@ -275,55 +287,27 @@ To motivate this chapter's focus on developing new temporal seismology technique
 		Date & Author & Description & Type \\
 		\midrule
 		1970 & \citeauthor{ros70} & Pulsations in synchrotron radiation caused by MHD waves. & T \\
-		1970 & \citeauthor{uch70} & Moreton wavefronts. & S \\
-		1984 & \citeauthor{rob_etal84} & Introduced theory of coronal seismology. & T \\
+		1970 & \citeauthor{uch70} & Moreton wavefront morphology used to diagnose coronal magnetic structure. & S \\
+		1984 & \citeauthor{rob_etal84} & Introduced the theory of coronal seismology. & T \\
 		1995 & \citeauthor{tan95} & Prominence seismology. & T \\
-	  	2001 & \citeauthor{nak_etal01} & Period of standing kink mode used to diagnose magnetic field strength. & T \\
-    	2002 & \citeauthor{goo_etal02} & Damping time scales (assuming exponential damping) used to estimate density variation across loop. & T \\
- 		2005 & \citeauthor{and_etal05} & Density stratification deduced from period ratio of first two standing kink harmonics. & T \\
- 		2007 & \citeauthor{ver_etal07} & Anti-node shift due to density stratification along the loop. & S \\
- 		2008 & \citeauthor{erd_etal08} & Sesimology of slow standing modes in coronal loops. & T \\
- 		2013 & \citeauthor{pas_etal13} & Gaussian and exponential damping of kink modes to estimate loop density. & T \\
- 		& \citeauthor{} & & \\
- 		& \citeauthor{} & & \\
- 		& \citeauthor{} & & \\
- 		& \citeauthor{} & & \\
- 		& \citeauthor{} & & \\
+		1999 & \makecell[tl]{\citeauthor{asc_etal99} \\ \citeauthor{nak_etal99}}  & First observations of coronal loop oscillations using TRACE. & N \\
+		2001 & \citetalias{nak_etal01} & Period of standing kink mode used to diagnose magnetic field strength in coronal loops. & T \\
+		2002 & \citeauthor{goo_etal02} & Damping time scales (assuming exponential damping profile) used to estimate density variation across a coronal loop. & T \\
+		2005 & \citeauthor{and_etal05} & Density stratification deduced from the period ratio of the first two standing kink harmonics. & T \\
+		2007 & \citeauthor{ver_etal07} & Anti-node shift used to diagnose density stratification along the loop. & S \\
+		2008 & \citetalias{erd_etal08} & Seismology of slow standing modes in coronal loops. & T \\
+		2011 & \citetalias{arr_etal11} & Probabilistic coronal seismology inversion using Bayesian statistics. & N \\
+		2013 & \citeauthor{pas_etal13} & A combination of Gaussian and exponential damping of kink modes used to estimate loop density. & T \\
+		2017 & \citeauthor{lon_etal17} & Dynamic coronal seismology, \textit{i.e.} diagnosing the magnetic field strength changing in time and across a large portion of the solar atmosphere. Using the methodology developed by \cite{mor_etal15}. & T \\
 		\bottomrule
 	\end{tabularx}
-	\caption{History of solar magneto-seismology development.}
+	\caption{History of solar magneto-seismology development. The \textit{type} column refers to whether the development is in temporal (T) or spatial (S) seismology, or neither (N).}
 	\label{table: SMS history}
 \end{table}
 
-\begin{itemize}
-	\item Rosenberg, 1970: Pulsations in synchrotron radiation caused by MHD waves,
-	\item Zeitsev and Stepanov, 1975: Pulsations of type IV solar radio emission due to flux tube oscillations,
-	\item Roberts et al., 1984: coronal seismology discussion,
-	\item Tandberg Hanssen et al., 1995: Prominence seismology,
-	\item Nakariakov and Ofman, 2001: Period of standing kink mode used to diagnose magnetic field strength,
-	\item Goossens et al., 2002: Damping time scales (assuming exponential damping) used to estimate density variation across loop (?).
-	\item Andries et al., 2005: Density stratification deduced from period ratio of first two standing kink harmonics,
-	\item Erdelyi and Taroyan, 2008: Slow standing modes in loops,
-	\item Pascoe et al., 2013: Gaussian and exponential damping of kink modes to estimate loop density,
-	\item Magyar et al., 2017: Global dynamic coronal seismology - i.e. diagnosing the magnetic field strength changing in time and across a large portion of the corona. (Should also cite morton et al 2015 for method, and long et al 2017 for first dynamic seismology image.)
-\end{itemize}
-Some of the major advancements in spatial magneto-seismology:
-\begin{itemize}
-	\item Uchida, 1970: Moreton wavefronts,
-	\item Verth et al., 2007: Anti-node shift due to density stratification along the loop (e.g. higher density at food points).
-\end{itemize}
+Why has spatial seismology lagged behind? There are several plausible answers to this questions. Both ground-based and space-bourne solar telescopes suffer from limitations in spatial resolution. The most significant increases in spatial resolution come from increasing telescope's aperture size. Space-bourne telescopes are limited in this regard because larger aperture size means a larger spacecraft is required to deliver the telescope into orbit. This comes at significant extra cost. Ground-based telescopes suffer from limitations on their spatial resolution from seeing effects, although this has been partially overcome in the era of adaptive optics. These limitations have allowed faster improvements in temporal resolution compared to spatial resolution, therefore the measurement errors in temporal parameters tend to be lower than those in spatial parameters. This means that temporal seismology inversions tend to have lower errors that propagate through from input errors than spatial seismology inversions.
 
-
-
-
-
-In this chapter, we derive two novel techniques for spatial seismology that use an asymmetric slab waveguide to approximate background parameters. This has applications to solar atmospheric structures that are locally slab-like which have been observed to guide MHD oscillations, such as elongated magnetic bright points \citep{yua_etal14}, prominences \citep{arr_etal12}, and light bridge surges \citep{roy73,shi_etal09} (which have also been named light walls by, \textit{e.g.} \citealt{yan_etal15,yan_etal17,zha_etal17}).
-
-We showed in Chapter~\ref{chap: EVP} that a magnetic slab, with non-magnetic, but asymmetric density and temperatures outside the slab has eigenmodes which can be described as either quasi-sausage or quasi-kink. For quasi-sausage (quasi-kink) modes, the oscillations on each slab interface are in anti-phase (phase). They differ in character from traditional (symmetric) sausage and kink modes by their asymmetry about the centre of the slab due to the amplitude of oscillation on each interface being unequal caused by the asymmetric external environment. This results in quasi-kink modes not necessarily retaining their cross-sectional area and quasi-sausage modes not necessarily having reflection symmetric about the centre line of the slab. The spatial distribution of these waves across the slab, and therefore the extent to which they are modified from the traditional sausage and kink modes, is dependent on the asymmetric background plasma parameters. Consequently, we can use the spatial distribution of these waves to diagnose the waveguide. This is the focus of the present paper: to derive expressions for proxy parameters that encapsulate this asymmetric spatial distribution and discuss the application to SMS.
-
-\textcolor{red}{
-Section~\ref{sec: AR} introduces the amplitude ratio diagnostic parameter, Section~\ref{sec: MPS} introduces the minimum perturbation shift diagnostic parameter, and Section~\ref{sec: discussion} discusses the application of these parameters to SMS.
-}
+A second plausible explanation is that the development of spatial seismology techniques tends to require more sophisticated MHD wave modelling than temporal seismology techniques. In general, spatial seismology techniques exploit some observational consequence of a deviation of a waveguide from its most simple counterpart to estimate an unknown parameter. For example, the anti-node shift method uses the shift in position (observational consequence of density non-uniformity) of the anti-nodes of standing modes of coronal loops, due to enhanced density in the loop foot-points (deviation from simple model of a uniform flux tube) to estimate the foot-point density (unknown parameter). An interpretation the techniques we will develop in Sections~\ref{sec: AR} and~\ref{sec: MPS} using this framing is that these techniques use the amplitude ratio or minimum perturbation shift (observational consequences of waveguide asymmetry) which exist due to the asymmetry of the waveguide (deviation from the simple symmetric slab model) which are proxies for the strength of the magnetic field (unknown parameter).
 
 
 %------------------------------------------------------------------------------
@@ -333,7 +317,7 @@ Section~\ref{sec: AR} introduces the amplitude ratio diagnostic parameter, Secti
 
 The aim of this section is to derive an expression for the ratio of the oscillation amplitude on each interface of an asymmetric magnetic slab in terms of the wave parameters and plasma parameters of the system, then demonstrate how this parameter can be utilised to diagnose background parameters. We focus on estimating the Alfv\'{e}n speed since it is the the most difficult of all our background parameters to measure using traditional methods. We do this by first deriving expressions for the eigenfunctions\footnote{That is, the distribution of the oscillation amplitude across the waveguide.} of quasi-sausage and quasi-kink modes, using them to derive expressions for the Amplitude Ratio, and then by making suitable approximations, we can solve the inverse problem for the Alfv\'{e}n speed. Numerical inversion procedures for the Amplitude Ratio Method are discussed in Section~\ref{sec: numerical inversion} 
 
-\subsection{Deriving an expression for the Amplitude Ratio} \label{sec: amp ratio}
+\subsection{Deriving an expression for the Amplitude Ratio} \label{sec: AR derivation}
 
 Consider an asymmetric magnetic slab in a non-magnetic environment, as studied in Section~\ref{sec: EVP non-mag} and by \cite{all_etal17}. In this section, we denote the Alfv\'{e}n speed inside the slab as $v_\textrm{A}$ rather than $v_{A0}$ for brevity because it is the only Alfv\'{e}n speed in the system since we have let the external plasma be non-magnetic.
 
@@ -532,16 +516,16 @@ Using the second form of $C$ in Equation~\eqref{constB B} yields
 We now define the \emph{amplitude ratio}, $R_\textrm{A} := \hat{\xi}_x(x_0) / \hat{\xi}_x(-x_0)$, as the ratio of the amplitude of oscillation of the left interface ($x = x_0$) to that of the right interface ($x = -x_0$) (see Figure~\ref{fig: RA}). Given that ${\hat{\xi}_x(x) = i\hat{v}_x(x) / \omega}$, we also have $R_\textrm{A} = \hat{v}_x(x_0) / \hat{v}_x(-x_0)$. Firstly, using Equations~\eqref{v-x_01 C} and~\eqref{vx_02 C}, the amplitude ratio for quasi-sausage modes is
 \begin{align}
 R_A &= -\frac{\Lambda_0 + \Lambda_1\frac{1}{\tau_0}}{\Lambda_0 + \Lambda_2\frac{1}{\tau_0}} \notag \\
-&= -\frac{\rho_1m_2}{\rho_2m_1}\left[\frac{(k^2v_\textrm{A}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1} - \omega^2m_0\coth{m_0x_0}}{(k^2v_\textrm{A}^2 - \omega^2)m_2\frac{\rho_0}{\rho_2} - \omega^2m_0\coth{m_0x_0}}\right]. \label{cross-slab ratio saus}
+&= -\frac{\rho_1m_2}{\rho_2m_1}\left[\frac{(k^2v_\textrm{A}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1} - \omega^2m_0\coth{m_0x_0}}{(k^2v_\textrm{A}^2 - \omega^2)m_2\frac{\rho_0}{\rho_2} - \omega^2m_0\coth{m_0x_0}}\right]. \label{AR saus}
 \end{align}
 Using Equations~\eqref{v-x_01 B} and~\eqref{vx_02 B}, the corresponding expression for quasi-kink modes can be obtained, namely
 \begin{align}
 R_\textrm{A} &= \frac{\Lambda_0 + \Lambda_1\tau_0}{\Lambda_0 + \Lambda_2\tau_0} \notag \\
-&= \frac{\rho_1m_2}{\rho_2m_1}\left[\frac{(k^2v_\textrm{A}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1} - \omega^2m_0\tanh{m_0x_0}}{(k^2v_\textrm{A}^2 - \omega^2)m_2\frac{\rho_0}{\rho_2} - \omega^2m_0\tanh{m_0x_0}}\right]. \label{cross-slab ratio kink}
+&= \frac{\rho_1m_2}{\rho_2m_1}\left[\frac{(k^2v_\textrm{A}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1} - \omega^2m_0\tanh{m_0x_0}}{(k^2v_\textrm{A}^2 - \omega^2)m_2\frac{\rho_0}{\rho_2} - \omega^2m_0\tanh{m_0x_0}}\right]. \label{AR kink}
 \end{align}
-As expected, Equations~\eqref{cross-slab ratio saus} and~\eqref{cross-slab ratio kink} reduce to $R_\textrm{A} = -1$ and $R_\textrm{A} = 1$ for sausage and kink modes, respectively, when the slab is symmetric.
+As expected, Equations~\eqref{AR saus} and~\eqref{AR kink} reduce to $R_\textrm{A} = -1$ and $R_\textrm{A} = 1$ for sausage and kink modes, respectively, when the slab is symmetric.
 
-To obtain an approximation for the Alfv\'{e}n speed analytically, an approximation such as these must be applied. The following subsections give the analytical inversion for the Alfv\'{e}n speed, $v_\textrm{A}$, of equations~\eqref{cross-slab ratio saus} and~\eqref{cross-slab ratio kink} under the thin slab, wide slab, incompressible plasma, and low-beta approximations. A numerical inversion procedure that requires no further approximation is discussed in Section~\ref{sec: numerical inversion}. Note that we restrict the parameter inversions to surface modes only, thereby omitting body modes, because the eigenfrequencies and eigenfunctions of body modes are not significantly effected by asymmetry in the external plasma (see Section~\ref{sec: EVP non-mag}) so they are not useful for parameter inversion.
+To obtain an approximation for the Alfv\'{e}n speed analytically, an approximation such as these must be applied. The following subsections give the analytical inversion for the Alfv\'{e}n speed, $v_\textrm{A}$, of equations~\eqref{AR saus} and~\eqref{AR kink} under the thin slab, wide slab, incompressible plasma, and low-beta approximations. A numerical inversion procedure that requires no further approximation is discussed in Section~\ref{sec: numerical inversion}. Note that we restrict the parameter inversions to surface modes only, thereby omitting body modes, because the eigenfrequencies and eigenfunctions of body modes are not significantly effected by asymmetry in the external plasma (see Section~\ref{sec: EVP non-mag}) so they are not useful for parameter inversion.
 
 
 \subsection{Thin slab approximation} \label{sec: AR thin slab}
@@ -690,10 +674,12 @@ We will return to a discussion of the inversion of the amplitude ratio in Sectio
 
 %------------------------------------------------------------------------------
 \section{Minimum Perturbation Shift Method}
-\label{sec: MPSM}
+\label{sec: MPS}
 %------------------------------------------------------------------------------
 
 A second spatial magneto-seismology technique uses the shift in the position of minimum wave power from the centre of the slab due to the asymmetry in the external plasma regions as a diagnostic parameter for estimating the slab Alfv\'{e}n speed.
+
+\subsection{Deriving an expression for the minimum perturbation shift} \label{sec: MPS derivation}
 
 For a symmetric sausage or kink mode, the position of minimum wave power is the central axis of the slab, at $x = 0$. We define $\Delta_\textrm{min}$ to be the displacement (from the central axis of the waveguide) of the position of minimum wave power inside an asymmetric magnetic slab (Figure~\ref{fig: min pert shift}). For quasi-sausage modes, $\Delta_\textrm{min}$ is the solution to $\widehat{v}_x(x) = 0$ under the constraint $|x| < x_0$, and for quasi-kink modes, $\Delta_\textrm{min}$ is the solution to $\textrm{d}\widehat{v}_x (x) / \textrm{d}x = 0$ under the same constraint $|x| < x_0$. The constraint restricts the solutions to being within the slab. 
 
@@ -900,7 +886,7 @@ v_\textrm{A}^2 = \frac{\omega^2}{k^2}\left[1 + \frac{k\rho_1}{m_1\rho_0}\left(\b
 
 %------------------------------------------------------------------------------
 \section{Numerical inversion procedure}
-\label{sec: inversion}
+\label{sec: numerical inversion}
 %------------------------------------------------------------------------------
 
 We have introduced the amplitude ratio and the minimum perturbation shift which quantify the spatial asymmetry in magnetic slab eigenmodes. These expressions can be applied to determine the Alfv\'{e}n speed, for a given set of observed equilibrium parameters, providing us a novel method to diagnose information about the background plasma, thus advancing the field of spatial magneto-seismology.
@@ -919,7 +905,7 @@ The diagnosis procedure for one background parameter - the Alfv\'{e}n speed, for
 	\item Measure wave parameters: angular frequency and wavelength.
 	\item Measure background parameters: waveguide width, density, and temperature (and hence sound speed).
 	\item Measure a diagnostic parameter: amplitude ratio or minimum perturbation shift.
-	\item Use a root-finding technique to solve the diagnostic equation (Equation~\eqref{cross-slab ratio saus}, \eqref{cross-slab ratio kink}, \eqref{shift min saus}, or~\eqref{shift min kink}, depending on the mode identified and the diagnostic parameter used) for the Alfv\'{e}n speed.
+	\item Use a root-finding technique to solve the diagnostic equation (Equation~\eqref{AR saus}, \eqref{AR kink}, \eqref{shift min saus}, or~\eqref{shift min kink}, depending on the mode identified and the diagnostic parameter used) for the Alfv\'{e}n speed.
 \end{enumerate}
 In practice, Step~3 us often extremely difficult. In addition to the Alfv\'{e}n speed, the density across the waveguide is very difficult to measure \citep{war_etal09}. One way around this is to estimate multiple parameters simultaneously, as discussed in Section~\ref{sec: multiple params}.
 
@@ -951,7 +937,7 @@ D(p_\mathrm{w}, p_\mathrm{bg}) &= (\Lambda_0c_0 + \Lambda_2s_0)(\Lambda_0s_0 + \
 f_{\mathrm{AR}}(R_\mathrm{A}, p_\mathrm{w}, p_\mathrm{bg}) &= R_A + \frac{\rho_1m_2}{\rho_2m_1}\left[\frac{(k^2v_\textrm{A}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1} - \omega^2m_0\coth{m_0x_0}}{(k^2v_\textrm{A}^2 - \omega^2)m_2\frac{\rho_0}{\rho_2} - \omega^2m_0\coth{m_0x_0}}\right], \label{AR func} \\
 f_{\mathrm{MPS}}(\Delta_\mathrm{min}, p_\mathrm{w}, p_\mathrm{bg}) &= \Delta_\textrm{min} - \frac{1}{m_0}\tanh^{-1}\left[-\frac{(k^2{v_\textrm{A}}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1} - \omega^2{m_0}\tanh{m_0x_0}}{(k^2{v_\textrm{A}}^2 - \omega^2)m_1\frac{\rho_0}{\rho_1}\tanh{m_0x_0} - \omega^2{m_0}}\right]. \label{MPS func} \\
 \end{align}
-The zeros of each of these functions correspond to solutions of Equations~\eqref{disp rel}, \eqref{cross-slab ratio saus}, and~\eqref{shift min saus}. The single parameter estimation involves using a single-variable root-finding scheme (such as the secant method) to find the zeros of either $f_\mathrm{AR}$ or $f_\mathrm{MPS}$, depending on whether the diagnostic parameter is the amplitude ratio or the minimum perturbation shift (see Section~\ref{sec: single param}). Alternatively, notice that setting Equations~\eqref{disp func}-\eqref{MPS func} to zero forms a system of three coupled equations. Therefore, given measurements of one or two diagnostic parameters, $R_\mathrm{A}$ or $\Delta_\mathrm{min}$, all but up to three background parameters, $p_\mathrm{bg}$, we can use a multivariate root-finding algorithm to solve up to three of these equations. Effectively, the extra diagnostic parameter and the dispersion relation each reduce the number of degrees of freedom. Thus, we can estimate up to three parameters.
+The zeros of each of these functions correspond to solutions of Equations~\eqref{disp rel}, \eqref{AR saus}, and~\eqref{shift min saus}. The single parameter estimation involves using a single-variable root-finding scheme (such as the secant method) to find the zeros of either $f_\mathrm{AR}$ or $f_\mathrm{MPS}$, depending on whether the diagnostic parameter is the amplitude ratio or the minimum perturbation shift (see Section~\ref{sec: single param}). Alternatively, notice that setting Equations~\eqref{disp func}-\eqref{MPS func} to zero forms a system of three coupled equations. Therefore, given measurements of one or two diagnostic parameters, $R_\mathrm{A}$ or $\Delta_\mathrm{min}$, all but up to three background parameters, $p_\mathrm{bg}$, we can use a multivariate root-finding algorithm to solve up to three of these equations. Effectively, the extra diagnostic parameter and the dispersion relation each reduce the number of degrees of freedom. Thus, we can estimate up to three parameters.
 
 As an example, the procedure to estimate the Alfv\'{e}n speed and both the density ratios is as follows:
 \begin{enumerate}
@@ -963,7 +949,7 @@ As an example, the procedure to estimate the Alfv\'{e}n speed and both the densi
 	\item Use a multi-variate root-finding algorithm to find the values of the Alfv\'{e}n speed and the two density ratios for which the functions~\eqref{disp func}-\eqref{MPS func} are zero.
 \end{enumerate}
 
-As an example, Figure~\ref{fig: vA approx} shows the inversion curves for a particular parameter regime typical of a slow surface mode. It is plotted by prescribing (as if they were observed quantities) all plasma parameters except the Alfv\'{e}n speed, $v_\textrm{A}$, and one of the density ratios, $\rho_1/\rho_0$, then simultaneously solving the dispersion relation, Equation~\eqref{disp rel}, with the equations for the amplitude ratio, Equation~\eqref{cross-slab ratio saus} or~\eqref{cross-slab ratio kink}, or the minimum perturbation shift, Equation~\eqref{shift min saus} or~\eqref{shift min kink}. The solution curves were calculated numerically using Powell's Method, which is an efficient algorithm for calculating the minimum of a multivariate function when the partial derivatives are not available analytically \citep{pow64}.
+As an example, Figure~\ref{fig: vA approx} shows the inversion curves for a particular parameter regime typical of a slow surface mode. It is plotted by prescribing (as if they were observed quantities) all plasma parameters except the Alfv\'{e}n speed, $v_\textrm{A}$, and one of the density ratios, $\rho_1/\rho_0$, then simultaneously solving the dispersion relation, Equation~\eqref{disp rel}, with the equations for the amplitude ratio, Equation~\eqref{AR saus} or~\eqref{AR kink}, or the minimum perturbation shift, Equation~\eqref{shift min saus} or~\eqref{shift min kink}. The solution curves were calculated numerically using Powell's Method, which is an efficient algorithm for calculating the minimum of a multivariate function when the partial derivatives are not available analytically \citep{pow64}.
 
 \begin{figure}
 	\centering
@@ -982,7 +968,7 @@ The ability to diagnose multiple parameters simultaneously could in some cases g
 
 Every measurement comes with error, and when assessing the efficacy of a new measurement technique, an analysis of the errors must be undertaken. There are two kinds of error in a diagnosis made using the AR and MPS methods: \textit{propagated errors} that are due to errors in them measurement of the input parameters, and \textit{systematic errors} that are due to the asymmetric waveguide model approximating the real structure less than perfectly.
 
-To analyse the propagated error, we determine which input parameters are most uncertain and hence are likely to contribute the most uncertainty to the diagnosed parameters. When density is used as an input parameter, it is often the case that the error in its measurement dominates the errors in all other input parameters. Errors in spatial parameters, such as the waveguide width, and temporal parameters, such as the angular frequency, are generally much smaller. The propagation of the error in the density is reduced by a factor of two by the square root that is introduced when inverting $v_A$ from $k^2v_A^2/\omega^2$ (in a similar way to \citealt{nak_etal01}). That is, a relative error of 10\% in the density leads to a relative error of approximately 5\% in the Alfv\'{e}n speed estimation. Furthermore, with high precision methods using density-sensitive emission lines \citep{you_etal09}, the propagation of density measurement errors can be reduced.
+To analyse the propagated error, we determine which input parameters are most uncertain and hence are likely to contribute the most uncertainty to the diagnosed parameters. When density is used as an input parameter, it is often the case that the error in its measurement dominates the errors in all other input parameters. Errors in spatial parameters, such as the waveguide width, and temporal parameters, such as the angular frequency, are generally much smaller. The propagation of the error in the density is reduced by a factor of two by the square root that is introduced when inverting $v_A$ from $k^2v_A^2/\omega^2$ (in a similar way to \citealp{nak_etal01}). That is, a relative error of 10\% in the density leads to a relative error of approximately 5\% in the Alfv\'{e}n speed estimation. Furthermore, with high precision methods using density-sensitive emission lines \citep{you_etal09}, the propagation of density measurement errors can be reduced.
 
 As we have seen in Section~\ref{sec: multiple params}, the density need not be an input parameter if both the amplitude ratio and the minimum perturbation shift are observable. In this case, I expect that the input parameter with the highest uncertainty would be the minimum perturbation shift. This is because .... Nevertheless, in the same way as the error in density, the relative error in the measurement of the minimum perturbation shift reduces by a factor of two when propagated through to the relative uncertainty in the estimated parameters. \textcolor{red}{CHECK THIS! HOW DOES THIS WORK WHEN WE ESTIMATE MULTIPLE PARAMS?}
 
@@ -1026,7 +1012,7 @@ Large magnetic bright points (MBPs), with characteristic length $L > 500$ km, al
 
 Quiescent prominences, which are large long-lived magnetic formations of cool dense plasma elevated into the hot and rarefied coronal atmosphere, can be approximated by magnetic slabs and have been regularly observed to guide MHD waves \citep{arr_etal12}. The basic slab model of prominences, as illustrated by \textit{e.g.} \cite{joa_etal92a,joa_etal92b}, is of a symmetric slab, however, a small asymmetry could easily be caused by adjacent inhomogeneities. Even a small asymmetry in density ($|1 - \rho_1/\rho_2| < 0.1$) can cause a significant (factor of 2 or more) asymmetry in the eigenmode (Figure~\ref{fig: AR MPS}), except for in thin slabs. This makes prominences a good candidate for applying the SMS techniques developed here. One issue that one has to bear in mind for the employment of these techniques is that the approximation of simple asymmetric magnetic slab may be insufficient to capture some important aspects of prominence oscillations, in particular, prominences are likely to have a sheared magnetic field and may have significant flows, which are neglected in the asymmetric slab model \citep{van_etal89,zir_etal94,bal05,oli09,arr_etal12}.
 
-Light bridge surges also present a possible application. Rooted in sunspot light bridges, these clusters of recurrent chromospheric surges observed as bright structures in \textit{e.g.} IRIS 1330~\AA~line, as observed by \citealt{yan_etal16} are formed by either magnetic reconnection just above the light bridge \citep{tor_etal15,rob_etal16} or by leakage of p-modes from beneath the underlying photosphere \citep{yan_etal15,zha_etal17}. They have been demonstrated to guide MHD waves driven by nearby disturbances \citep{yan_etal16,yan_etal17}. While the asymmetric magnetic slab could be a valid approximation for the actual geometry of light walls, the strong magnetic field in the low solar atmosphere above a sunspot umbra (the plasma each side of the light bridge) may put into question the full validity of the non-magnetic external plasma in the current model. However, what matters is the relative strength of the magnetic force compared to the pressure gradient force, that is, the value of plasma-beta. The value of beta above magnetic pores and sunspots is uncertain, but has been shown to be rather high in some cases \citep{bou17}, and has therefore been used in models of the low atmosphere \citep{mum_etal15}. With improved observations, it may turn out that the plasma surrounding light walls has a low-beta, in which case, we suggest that a future generalisation of the methods described here which involves an asymmetric magnetic plasma outside the slab will be a more appropriate method for the first magneto-seismology diagnosis of sunspot light walls.
+Light bridge surges also present a possible application. Rooted in sunspot light bridges, these clusters of recurrent chromospheric surges observed as bright structures in \textit{e.g.} IRIS 1330~\AA~line, as observed by \cite{yan_etal16} are formed by either magnetic reconnection just above the light bridge \citep{tor_etal15,rob_etal16} or by leakage of p-modes from beneath the underlying photosphere \citep{yan_etal15,zha_etal17}. They have been demonstrated to guide MHD waves driven by nearby disturbances \citep{yan_etal16,yan_etal17}. While the asymmetric magnetic slab could be a valid approximation for the actual geometry of light walls, the strong magnetic field in the low solar atmosphere above a sunspot umbra (the plasma each side of the light bridge) may put into question the full validity of the non-magnetic external plasma in the current model. However, what matters is the relative strength of the magnetic force compared to the pressure gradient force, that is, the value of plasma-beta. The value of beta above magnetic pores and sunspots is uncertain, but has been shown to be rather high in some cases \citep{bou17}, and has therefore been used in models of the low atmosphere \citep{mum_etal15}. With improved observations, it may turn out that the plasma surrounding light walls has a low-beta, in which case, we suggest that a future generalisation of the methods described here which involves an asymmetric magnetic plasma outside the slab will be a more appropriate method for the first magneto-seismology diagnosis of sunspot light walls.
 
 Of course, these methods have limits of applicability due to the fact that we have modelled the slab as infinitely long, yet there do not exist any infinitely long waveguides in the solar atmosphere. However, if the length, $L$, of the cross section of an observed solar waveguide is much greater than its width, $x_0$, say $L/x_0 = 5-10$, then this model of an infinitely long slab may be a valid approximation. Furthermore, if the wavelength of the observed wave, $\lambda$, is such that $L \gg \lambda \gg x_0$, then the thin slab approximation holds (Sections~\ref{sec: AR thin slab} and~\ref{sec: MPS thin}), therefore an analytical diagnosis of the Alfv\'{e}n speed within the waveguide can be made using Table~\ref{table: amp ratio} or~\ref{table: min pert shift}.
 
@@ -1041,7 +1027,7 @@ As a word of warning before we demonstrate a first use of these new SMS techniqu
 \end{enumerate}
 In the following paragraphs, we explain the mechanism and discuss their plausibility as alternative hypotheses.
 
-The first alternative possibility is that when we observe asymmetry in MHD waves, we are actually observing a symmetric MHD structure that is oscillating locally rather than as a whole. The eigenmodes described in Section~\ref{sec: } are oscillations of the waveguide as a whole. This type of oscillation is known as a \textit{coherent} or \textit{global} oscillation. If the waveguide's characteristic length-scale (which is equal to the slab width for a magnetic slab) is much greater than the wave's characteristic length-scale, then a portion of the structure can oscillate without perturbing the rest of the structure. For example, each interface of a symmetric slab can oscillate independently with a wave whose wavelength is much shorter than the slab width\footnote{this was shown analytically in Section~\ref{sec: wide slab}.}. Two parallel interfaces oscillating independently with different amplitudes could be erroneously interpreted as a coherent asymmetric oscillation of the whole waveguide. It is unclear how likely this hypothesis is to be true over the hypothesis of asymmetric equilibrium parameters.
+The first alternative possibility is that when we observe asymmetry in MHD waves, we are actually observing a symmetric MHD structure that is oscillating locally rather than as a whole. The eigenmodes described in Section~\ref{sec: EVP} are oscillations of the waveguide as a whole. This type of oscillation is known as a \textit{coherent} or \textit{global} oscillation. If the waveguide's characteristic length-scale (which is equal to the slab width for a magnetic slab) is much greater than the wave's characteristic length-scale, then a portion of the structure can oscillate without perturbing the rest of the structure. For example, each interface of a symmetric slab can oscillate independently with a wave whose wavelength is much shorter than the slab width\footnote{this was shown analytically in Section~\ref{sec: wide slab}.}. Two parallel interfaces oscillating independently with different amplitudes could be erroneously interpreted as a coherent asymmetric oscillation of the whole waveguide. It is unclear how likely this hypothesis is to be true over the hypothesis of asymmetric equilibrium parameters.
 
 Secondly, the structure that appears to be oscillating asymmetrically could be oscillation as part of a larger structure. For example, a symmetric magnetic slab or axisymmetric flux tube could oscillate coherently with several adjacent structures to form a larger scale asymmetric waveguide (as studied by \cite{shu_etal18} for a slab as part of a larger system of several parallel interfaces and by \cite{van_etal08} for a flux tube oscillating with an adjacent flux tube). It is conceivable that if part of the larger waveguide is obfuscated from view, that the symmetric visible part (say, a structure approximating a symmetric slab or axisymmetric flux tube) is oscillating asymmetrically. This seems highly unlikely to explain many asymmetric waves observation due to the improbability of the equilibrium set-up.
 
@@ -1061,12 +1047,12 @@ In this section, we apply the Amplitude Ratio Method to make an estimate of the 
 
 The data were taken from observations close to the disk centre with a narrow-band 0.25 \AA~H$\alpha$ core (6562.8~\AA) filter on the 29th September 2010 using the Rapid Oscillations in the Solar Atmosphere (ROSA) imager on the Dunn Solar Telescope \citep{jes_etal10a}. The data show a dynamic sea of dark dense fibrils that map, at least partially, the inter-network magnetic field overlying the bright and less dense plasma that permeates the quiet Sun \citep{lee_etal12}. The implementation of the Amplitude Ratio Method involves resolving sub-fibril structure, for which the ROSA instrument’s high spatial (150~km) and temporal resolution (7.68~s) were just barely sufficient, with 10-20~pixels (width $\sim$50~km) across each fibril.
 
-More information about the observations is detailed by \citealp{mor12}, who originally used the same data for the analysis of ubiquitous MHD waves in the chromosphere. They interpreted the observed fibril oscillations as concurrent sausage and kink modes of circular cross-sectional magnetic flux-tubes. In the present analysis, we propose an alternative interpretation that the oscillations are MHD oscillations in asymmetric waveguides. The strong phase relationship between and the similar phase speeds measured for the oscillations in each of the transverse axial displacement, the cross-sectional width, and the integrated intensity across the fibrils (see \citealp{mor12}), is some evidence for the present interpretation. However, we wish to make it clear that this interpretation is taken mainly to \textit{demonstrate} a new SMS technique which depends on the existence of waveguide asymmetry. The evidence for or against either interpretation (concurrent modes in symmetric waveguides or individual modes in asymmetric waveguides) is too weak to be conclusive.
+More information about the observations is detailed by \cite{mor_etal12}, who originally used the same data for the analysis of ubiquitous MHD waves in the chromosphere. They interpreted the observed fibril oscillations as concurrent sausage and kink modes of circular cross-sectional magnetic flux-tubes. In the present analysis, we propose an alternative interpretation that the oscillations are MHD oscillations in asymmetric waveguides. The strong phase relationship between and the similar phase speeds measured for the oscillations in each of the transverse axial displacement, the cross-sectional width, and the integrated intensity across the fibrils (see \citealp{mor_etal12}), is some evidence for the present interpretation. However, we wish to make it clear that this interpretation is taken mainly to \textit{demonstrate} a new SMS technique which depends on the existence of waveguide asymmetry. The evidence for or against either interpretation (concurrent modes in symmetric waveguides or individual modes in asymmetric waveguides) is too weak to be conclusive.
 
 
 \subsection{Methodology}
 
-In the absence of MHD wave theory in more realistic asymmetric geometries, we model each fibril as an isolated magnetic slab whose boundaries are parallel discontinuities between the uniform internal plasma and the asymmetric external plasma (Figure~\ref{fig:eq non-mag slab}). Only sufficiently isolated fibrils that maintain their structure for at least a full period were analysed. A primary slit is placed perpendicularly across each fibril and time-distance data produced from an average of the intensities across the primary slit and two parallel neighbouring slits, placed at a distance of 1~pixel either side (Figure~\ref{fig:fibril5_slit}). This technique of averaging over several slits is used to increase the signal-to-noise ratio.
+In the absence of MHD wave theory in more realistic asymmetric geometries, we model each fibril as an isolated magnetic slab whose boundaries are parallel discontinuities between the uniform internal plasma and the asymmetric external plasma (Figure~\ref{fig: eq non-mag slab}). Only sufficiently isolated fibrils that maintain their structure for at least a full period were analysed. A primary slit is placed perpendicularly across each fibril and time-distance data produced from an average of the intensities across the primary slit and two parallel neighbouring slits, placed at a distance of 1~pixel either side (Figure~\ref{fig:fibril5_slit}). This technique of averaging over several slits is used to increase the signal-to-noise ratio.
 
 \begin{figure}
 	\centering
@@ -1124,15 +1110,15 @@ Additionally, it might appear that we have assumed that the oscillations are pol
 
 \subsection{Inversion procedure}\label{sec:inversion}
 
-Using the technique from Section~\ref{sec: inversion}, we employed a numerical inversion procedure to estimate the Alfv\'{e}n speed within the fibrils. First, for each fibril oscillation, the mode of oscillation (quasi-sausage or quasi-kink) was identified by assessment of the phase-shift between the oscillations on each boundary. After prescribing all the parameters apart from the internal Alfv\'{e}n speed, $v_\mathrm{A1}$, in Equation~\eqref{amplitude ratio saus} or~\eqref{amplitude ratio kink} (depending on the mode identified), the secant method was used to estimate the Alfv\'{e}n speed inside each fibril.
+Using the technique from Section~\ref{sec: numerical inversion}, we employed a numerical inversion procedure to estimate the Alfv\'{e}n speed within the fibrils. First, for each fibril oscillation, the mode of oscillation (quasi-sausage or quasi-kink) was identified by assessment of the phase-shift between the oscillations on each boundary. After prescribing all the parameters apart from the internal Alfv\'{e}n speed, $v_\mathrm{A1}$, in Equation~\eqref{AR saus} or~\eqref{AR saus} (depending on the mode identified), the secant method was used to estimate the Alfv\'{e}n speed inside each fibril.
 
-For each inversion, we specified an internal sound speed of $c_0 = 10$~km s$^{-1}$ and density ratios of $\rho_1/\rho_0 = 0.1$ and $\rho_2/\rho_0 = 0.2$, and vice versa depending on which side had the largest amplitude. In the absence of any density-sensitive proxies from the data, they were chosen to match the order of magnitude difference between the densities external and internal to the fibrils as expected from previous fibril observations \citep{lee_etal12,mor12}.
+For each inversion, we specified an internal sound speed of $c_0 = 10$~km s$^{-1}$ and density ratios of $\rho_1/\rho_0 = 0.1$ and $\rho_2/\rho_0 = 0.2$, and vice versa depending on which side had the largest amplitude. In the absence of any density-sensitive proxies from the data, they were chosen to match the order of magnitude difference between the densities external and internal to the fibrils as expected from previous fibril observations \citep{lee_etal12,mor_etal12}.
 
 To reduce the chance of finding the wrong root when the inverse problem is multi-valued, a hundred initial values for $v_\mathrm{A}$ equally spaced between $1$ and $200$~km~s$^{-1}$ were tried and only fibrils which have a consistent inversion were included in the analysis. This range of initial values was chosen because it covers the expected range of Alfv\'{e}n speed values.
 
 
 \subsection{Results}\label{sec:sms results}
-We made a successful inversion of five chromospheric fibrils and recorded the parameters in Table~\ref{table: fibril inversion}. Two of the fibrils were identified as oscillating in the quasi-kink mode and three in the quasi-sausage mode. Fibril~1 exhibited a change in direction of propagation before breaking up. The other fibril oscillations propagated in the same direction for the duration of the time for which Gaussian fitting was successful. The inverted Alfv\'{e}n speeds agree with expected values for chromospheric fibrils \citep{mor12}. However, as mentioned at the start of Section~\ref{sec: observations intro}, the \textit{expected} values for chromospheric Alfv\'{e}n speed are uncertain.
+We made a successful inversion of five chromospheric fibrils and recorded the parameters in Table~\ref{table: fibril inversion}. Two of the fibrils were identified as oscillating in the quasi-kink mode and three in the quasi-sausage mode. Fibril~1 exhibited a change in direction of propagation before breaking up. The other fibril oscillations propagated in the same direction for the duration of the time for which Gaussian fitting was successful. The inverted Alfv\'{e}n speeds agree with expected values for chromospheric fibrils \citep{mor_etal12}. However, even the \textit{expected} values for chromospheric Alfv\'{e}n speed are highly uncertain.
 
 \begin{sidewaystable}
 	\centering
@@ -1151,10 +1137,16 @@ We made a successful inversion of five chromospheric fibrils and recorded the pa
 	\end{tabular} \label{table: fibril inversion}
 \end{sidewaystable}
 
-We reiterate the advice from \citealp{lee_etal15}, that chromospheric seismology inversions should be taken with caution due to the partial mapping between the fibril intensity oscillations and the underlying magnetic field dynamics. The present results serve as a proof-of-concept of the novel solar magneto-seismology technique and we expect the errors to be significant.
+We reiterate the advice from \cite{lee_etal15}, that chromospheric seismology inversions should be taken with caution due to the partial mapping between the fibril intensity oscillations and the underlying magnetic field dynamics. The present results serve as a proof-of-concept of the novel solar magneto-seismology technique and we expect the errors to be significant.
 
+\color{red}
+%------------------------------------------------------------------------------
+\section{Chapter conclusions}
+\label{sec: chpt 4 conc}
+%------------------------------------------------------------------------------
+\color{black}
 
-\bibliographystyle{plainnat}
-\bibliography{../main/references}  
+\bibliographystyle{agsm}
+\bibliography{../main/references}
 
 \end{document}
