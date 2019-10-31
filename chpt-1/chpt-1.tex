@@ -66,6 +66,7 @@
 \newcommand{\ssr}{    {\it Space Sci. Rev.}}
 \newcommand{\caa}{    {\it Chinese Astron. Astrohpys.}} 
 \newcommand{\apjs}{   {\it Astrophys. J. Suppl.}}
+\newcommand{\lrsp}{{\it Living Rev. Solar Phys.}}
 
 \begin{document}
 
@@ -87,46 +88,55 @@
 
 \epigraph{All models are wrong, but some are useful.}{\textit{George Box, 1976}}
 
-All models are wrong. And we don't even want them to be right. They are wrong by design. Mathematical models are simplifications of real phenomena and are constructed to contain precisely the essential components.
+All models are wrong. What's more, we don't even want them to be right. They are wrong by design. Mathematical models simplify real phenomena and are constructed to contain precisely the essential components. That way, mathematical results about the model can be gained which can provide insights into the inner workings of the physical system that is being modelled.
 
-Mathematical modelling sits at the core of applied mathematics. First, we take structures in the real world, with all their noise and spike bits. Next, we strip off the noise, smooth the edges, and simplify the geometry until we are left with a model with only the essential features. Using the arsenal of mathematical tools at our disposal, we can derive results about the model. Finally, these results are mapped back onto the original object. It's a mathematical expedition to analyse a physical system.
+This thesis is about mathematical modelling of phenomena in the atmosphere of the Sun. In solar physics, mathematical modelling is one of the three major cornerstones that contribute to scientific progress, the other two being observations and numerical simulations. The process of mathematical modelling in solar physics is as follows. First, we observe solar phenomena, with all their noise and rough edges. Next, we conceptually strip off the noise, smooth the edges, and simplify the geometry until we are left with a model with only the essential features of the original system. Using the arsenal of mathematical tools at our disposal, we can derive results about the model. Finally, these results are mapped back onto the original phenomenon, giving us insights about the real world. It's a mathematical expedition to analyse a physical system.
 
-But not all mathematical expeditions are worthwhile\footnote{This is the key distinction between pure and applied mathematics. Pure mathematics is defined by taking mathematical expeditions for their own sake.}. A mathematical model, $M$, of a physical system, $X$, is worthwhile if it satisfies two conditions:
+But not all mathematical expeditions are \textit{worthwhile}\footnote{This is the key distinction between pure and applied mathematics. Pure mathematics is defined by taking mathematical expeditions for their own sake.}. Informally, we might say that a mathematical model, $M$, of a physical system, $X$, is worthwhile if it satisfies two conditions:
 \begin{enumerate}
-	\item Studying $M$ provides additional explanatory power of $X$ beyond what is possible to gain from analysing $X$ itself,
+	\item Studying $M$ provides additional explanatory power of $X$ beyond what is possible to gain from analysing $X$ directly,
 	\item $M$ approximates $X$ well. \label{approx}
 \end{enumerate}
 A model that provides additional explanatory power but does not approximate the real system well will provide useless explanations. A model that approximates the real system well but provides no explanatory power is merely art. Neither of which are worthwhile when the aim is to \textit{explain} the world.
 
-In addition to these criteria, we need to establish a preference between models that score equally on these criteria. The natural choice is that of parsimony. Occam's Razor states that among models with equal explanatory power, the simplest one is the most desirable.
+The most significant obstacle impeding explanatory power is mathematical tractability. Mathematical theory is too blunt a weapon to attack complex models. So we are faced with a trade-off between simplicity and mathematical tractability. A model too simple will produce results that fail to map to reality. A model too complex will lose any hope of mathematical tractability. A fine balance is sought.
 
-For mathematical modelling in particular, the most significant obstacle impeding explanatory power is mathematical tractability. Mathematical theory is too blunt a weapon to attack complex models. So we are faced with a trade-off between simplicity and mathematical tractability. A model too simple will produce results that fail to map to reality. A model too complex will lose any hope of mathematical tractability. A fine balance is sought.
+Unfortunately, it seems like this balance is getting harder and harder to find. With rapidly advancing instrumentation, solar observations are resolving features at unprecedented length and time-scales. This has shown us just how complex the solar atmosphere is, and, therefore, how complex our models need to be in order to capture the essential physics. The advancement of solar telescope instrumentation is vastly outpacing the development of new mathematical techniques that can pull more complex models into the land of tractability. So it is harder than ever to satisfy both criteria for worthwhile mathematical modelling. Here are two reasons why all hope is not lost quite yet:
+\begin{enumerate}
+	\item Alongside rapid advancements in solar instrumentation are rapid advancements in numerical simulations.
+	\item Advancements in mathematical modelling may come in discontinuous jumps.
+\end{enumerate}
+Let's unpack these happenings. Numerical simulations of solar phenomena allow us to analyse more complex models. But this comes at a cost. while it is easier to reproduce physical phenomena using numerical simulations than mathematical models, it is very difficult to diagnose \textit{why} it happens. This is compounded by the possibility of multiple numerical set-ups reproducing the physical phenomenon, so that it can be unclear which one maps best to reality. We are witnessing an explosion in computational capability as Moore's law\footnote{Moore's law is the observation that the number of transistors in an integrated circuit follows an exponential increase, doubling approximately every two years.} is, against all predictions, still holding true. Therefore, we can expect numerical simulations to maintain a key role in solar physics. In this thesis, where they exists, we have included reference to relevant numerical simulations.
+
+It is easy to think that mathematical theory progresses in a linear fashion, where each new mathematician produces an $\epsilon$ of progress, standing on the shoulders of those before. But does progress really look like this? Philosopher of science Thomas Kuhn argues that as science progresses, explanations tend to become more complex before a paradigm shift offers radical simplification. Such a paradigm shift could vastly expand the set of mathematical models that are tractable. Are we due a paradigm shift in mathematical modelling theory?
+
+We don't expect this thesis to provide such a thing. Instead, we apply advanced, but known techniques to new mathematical models, with the aim of introducing novel techniques that can be used by observational solar physicists to better understand our star. All the models in this thesis are wrong. I'll try to convince you that some of them are useful.
+
 
 \color{red}
-This is a trade-off that gets more difficult to navigate as the pace of applying known mathematical techniques to simple models vastly outpaces the development of new mathematical techniques that can pull more complex models into the land of tractability.
+Maybe include:
 
+In addition, we need to establish a preference between models that score equally on these criteria. The natural choice is to introduce a principle of parsimony. Occam's Razor states that among models with equal explanatory power, the simplest one is the most desirable.
 
 A project of this scope could do what category theory is doing to pure mathematics. 
-
-
-
-All the models in this thesis are wrong. I'll try to convince you that some of them are useful.
 \color{black}
+
 
 %------------------------------------------------------------------------------
 \section{The Sun}
 \label{sec: sun}
 %------------------------------------------------------------------------------
 
+\color{red}
 The Sun is hot. So hot, in fact, that many of the constituent particles cannot form neutral atoms, but exist as a soup of negatively charged electrons and positively charged nuclei. Matter in this state is known as plasma. Because many of the charges are dissociated in a plasma, it can conduct electricity and therefore induce a magnetic field. This magnetic field can interact with the fluid to produce a nonlinear coupling between the magnetic field and the plasma motion. This coupling is described by
 magnetohydrodynamic (MHD) theory.
 
 The atmosphere of the Sun is multi-layered. Starting in the lowest layer, known as the photosphere, and moving up through the chromosphere and transition region we	reach the upper atmosphere, known as the corona. The solar atmosphere, particularly the corona, is dominated by a complex and dynamic magnetic field that makes it highly inhomogeneous. This gives rise to many high-energy events such as jets, eruptions, and flares. These dynamic solar events, amongst other things, drive MHD waves in the solar atmosphere which can be guided by the inhomogeneous magnetic field. MHD waves are similar to waves in terrestrial fluids, such as sound waves in air, but as well as a pressure gradient restoring force, MHD waves owe their existence to a restoring force due to perturbations of the magnetic field. MHD waves whose restoring force is a combination of the pressure gradient and this magnetic force, but not other forces such as gravity and Coriolis, are known as magneto-acoustic waves.
 
-MHD waves in the Sun can be used to approximate plasma parameters, such as the magnetic field strength, that are difficult to measure using traditional methods (Nakariakov and Verwichte, 2005; De Moortel and Nakariakov, 2012). This is accomplished by comparing observations of MHD waves in the solar atmosphere to theoretical results from studying MHD wave propagation in waveguides that approximate those in the solar atmosphere, formed by a complex and inhomogeneous magnetic field. This technique, known as \textit{solar magneto-seismology}, has been an emerging field over recent decades, and is now a key tool for solar physics. The significance of making good approximations of plasma parameters in the solar atmosphere is so that we can use realistic parameters in numerical simulations and to gain an understanding of what conditions lead to instability and thus leading to solar flares and coronal mass ejections, which pose a significant threat to modern society on Earth (Cabinet Office, 2015).
+MHD waves in the Sun can be used to approximate plasma parameters, such as the magnetic field strength, that are difficult to measure using traditional methods \citep{nak_etal05,dem_etal12}. This is accomplished by comparing observations of MHD waves in the solar atmosphere to theoretical results from studying MHD wave propagation in waveguides that approximate those in the solar atmosphere, formed by a complex and inhomogeneous magnetic field. This technique, known as \textit{solar magneto-seismology}, has been an emerging field over recent decades, and is now a key tool for solar physics. The significance of making good approximations of plasma parameters in the solar atmosphere is so that we can use realistic parameters in numerical simulations and to gain an understanding of what conditions lead to instability and thus leading to solar flares and coronal mass ejections, which pose a significant threat to modern society on Earth \citep{cab15}.
 
-Continually improving spatial-resolution of solar telescopes has brought about a new era of solar physics. For the first time, we has access to small scale structures. Of particular interest to this Thesis are observations of MHD waves. In recent years, we can observe that these waves are no one-dimensional oscillations like those along a guitar string, but instead they have structure in three-dimensions. The precise form of this structure is dictated by the parameters of the inhomogeneous plasma. A characteristic of this structuring is asymmetry - . This asymmetry of MHD waveguides is the key tenet of this Thesis.
-
+Continually improving spatial-resolution of solar telescopes has brought about a new era of solar physics. Of particular interest to this thesis are observations of MHD waves. In recent years, we can observe that these waves are not one-dimensional oscillations like those along a guitar string, but instead they have complex structure in three-dimensions. The precise form of this structure is dictated by the parameters of the inhomogeneous plasma. A characteristic of this structuring is asymmetry - the difference in plasma parameters on each side of a structure. This asymmetry of MHD waveguides is the focus of this thesis.
+\color{black}
 
 %------------------------------------------------------------------------------
 \section{Magnetohydrodynamics}
@@ -139,7 +149,7 @@ Continually improving spatial-resolution of solar telescopes has brought about a
 
 To build up a mathematical description of the Sun's plasma dynamics, let's motivate some assumptions.
 
-The Sun's plasma, just like all matter in the Universe, is made up of particles\footnote{atoms or subatomic particles, depending on the temperature of its location in the Sun}, but the phenomena such as MHD waves that we are concerned with in this Thesis operate on a \textit{macroscopic} level. By this we mean on length-scales much larger than the \textit{mean free path}\footnote{Approximately 1 cm - 1 km in the Sun. \textcolor{red}{REFERENCE}}. This means that the \textit{Knudsen number}, the dimensionless parameter defined by the ratio of the mean free path to a characteristic length scale, in the Sun is much less than unity. This motivates the \textbf{continuum assumption}, where the fluid is considered to \textit{fill up} the space in which is is contained, so that small-scale inhomogeneities caused by particle dynamics are negligible. This gives us a coherent notion of fluid velocity, $\mathbf{v}(\mathbf{x}, t) = (v_1(\mathbf{x}, t), v_2(\mathbf{x}, t), v_3(\mathbf{x}, t))$, density, $\rho(\mathbf{x}, t)$, and pressure, $p(\mathbf{x}, t)$, as functions of continuous position, $\mathbf{x}$, and time, $t$.
+The Sun's plasma, just like all matter in the Universe, is made up of particles\footnote{atoms or subatomic particles, depending on the temperature of its location in the Sun}, but the phenomena such as MHD waves that we are concerned with in this thesis operate on a \textit{macroscopic} level. By this we mean on length-scales much larger than the \textit{mean free path}\footnote{Approximately 1 cm - 1 km in the Sun. \textcolor{red}{REFERENCE}}. This means that the \textit{Knudsen number}, the dimensionless parameter defined by the ratio of the mean free path to a characteristic length scale, in the Sun is much less than unity. This motivates the \textbf{continuum assumption}, where the fluid is considered to \textit{fill up} the space in which is is contained, so that small-scale inhomogeneities caused by particle dynamics are negligible. This gives us a coherent notion of fluid velocity, $\mathbf{v}(\mathbf{x}, t) = (v_1(\mathbf{x}, t), v_2(\mathbf{x}, t), v_3(\mathbf{x}, t))$, density, $\rho(\mathbf{x}, t)$, and pressure, $p(\mathbf{x}, t)$, as functions of continuous position, $\mathbf{x}$, and time, $t$.
 
 The universe gifts us fundamental laws that are obeyed by all classical mechanics systems upon which we can build our framework. Firstly, the \textbf{conservation of mass} tells us that the change in density in a fixed volume is due only to mass entering or leaving the volume. The rate of change of density in a fixed volume $V$ is
 \begin{equation}
@@ -167,7 +177,7 @@ using the divergence theorem. Equations~\eqref{mom der 1} and~\eqref{mom der 2} 
 \begin{equation}
 \rho\frac{D\bv}{Dt} = \nabla\cdot \sigma + \mathbf{b}. \label{mom der 3}
 \end{equation}
-Motivated by the large role they play in the dynamics of small to medium scale solar phenomena, in this Thesis we focus on the effects of magnetic forces and neglect commonly used other forces such as gravity and viscosity. Denoting the magnetic field and permeability by $\mathbf{B}$ and $\mu$, respectively, the magnetic force felt by a (non-relativistic) fluid element is $(\nabla\times\mathbf{B})\times\mathbf{B}/\mu$. By neglecting viscosity, we can write the stress tensor as $\sigma = -pI$, where $I$ is the $3\times3$ identity matrix. This reduces Equation\eqref{mom der 3} to the \textbf{momentum equation}, namely
+Motivated by the large role they play in the dynamics of small to medium scale solar phenomena, in this thesis we focus on the effects of magnetic forces and neglect commonly used other forces such as gravity and viscosity. Denoting the magnetic field and permeability by $\mathbf{B}$ and $\mu$, respectively, the magnetic force felt by a (non-relativistic) fluid element is $(\nabla\times\mathbf{B})\times\mathbf{B}/\mu$. By neglecting viscosity, we can write the stress tensor as $\sigma = -pI$, where $I$ is the $3\times3$ identity matrix. This reduces Equation\eqref{mom der 3} to the \textbf{momentum equation}, namely
 \begin{equation}
 \rho\frac{D\bv}{Dt} = -\nabla p + \frac{1}{\mu}(\nabla\times\mathbf{B})\times\mathbf{B}. \label{mom eqn}
 \end{equation}
@@ -186,7 +196,7 @@ Equations~\eqref{cont eqn}, \eqref{energy eqn}, and the three components of \eqr
 \begin{equation}
 	\mathbf{j} = \frac{1}{\eta}(\mathbf{E} + \bv\times\bB),
 \end{equation}
-where $\mathbf{E}$ is the electric field. In this Thesis, we are concerned with plasmas where resistive effects, including magnetic reconnection and diffusion, are unimportant. Therefore, we can neglect the left hand side of this equation to give
+where $\mathbf{E}$ is the electric field. In this thesis, we are concerned with plasmas where resistive effects, including magnetic reconnection and diffusion, are unimportant. Therefore, we can neglect the left hand side of this equation to give
 \begin{equation}
 \mathbf{E} + \bv\times\bB = 0. \label{ohms law}
 \end{equation}
@@ -355,7 +365,7 @@ B_i & \text{if } |x| < x_0, \\
 B_e & \text{if } |x| > x_0.
 \end{cases}
 \end{equation}
-Here, the word \textit{symmetric} refers to the reflectional symmetry of the waveguide over the $x = 0$ plane. we refer to eigenmodes of symmetric waveguides as \textit{symmetric modes}. Any waveguide or eigenmode that is not symmetric is refered to as \textit{asymmetric}\footnote{Some publications have used the terms \textit{symmetric mode} and \textit{antisymmetric mode} to refer to the sausage and kink eigenmodes of a symmetric slab or tube. This is motivated by the symmetry/antisymmetry of the eigenfunctions over the axis of the waveguide. In this Thesis, we use the terms \textit{sausage mode} and \textit{kink mode} instead of \textit{symmetric mode} and \textit{antisymmetric mode} to avoid confusion.}.
+Here, the word \textit{symmetric} refers to the reflectional symmetry of the waveguide over the $x = 0$ plane. we refer to eigenmodes of symmetric waveguides as \textit{symmetric modes}. Any waveguide or eigenmode that is not symmetric is refered to as \textit{asymmetric}\footnote{Some publications have used the terms \textit{symmetric mode} and \textit{antisymmetric mode} to refer to the sausage and kink eigenmodes of a symmetric slab or tube. This is motivated by the symmetry/antisymmetry of the eigenfunctions over the axis of the waveguide. In this thesis, we use the terms \textit{sausage mode} and \textit{kink mode} instead of \textit{symmetric mode} and \textit{antisymmetric mode} to avoid confusion.}.
 
 Following the same derivation as in Section~\ref{sec: MHD waves interface}, we can derive the dispersion relation for transverse eigenmodes of a symmetric slab, namely
 \begin{equation}
@@ -417,18 +427,17 @@ There also exist torsional Alfv\'{e}n modes which oscillate individual magnetic 
 \end{figure}
 
 
-
 %------------------------------------------------------------------------------
 \section{Thesis outline}
 \label{sec:outline}
 %------------------------------------------------------------------------------
 
-The remainder of this Thesis is structured as follows:
+The remainder of this thesis is structured as follows:
 \begin{itemize}
 	\item Chapter 2: We establish and solve the eigenvalue problem of MHD waves propagating along a magnetic slab waveguide where the external plasma is asymmetric. This is the simplest MHD waveguide that demonstrates asymmetric characteristics. The dispersion relation is derived and is solved analytically under certain approximations, and numerically. The eigenmodes can be exist as a generalisation of the traditional sausage and kink modes. Two implications for solar observations are discussed. First, we establish the existence of \textit{quasi-symmetric} eigenmodes. These are modes that appear symmetric even thought they propagate along asymmetric waveguides. Secondly, we warn the reader about the difficulty of distinguishing an asymmetric eigenmode from a superposition of symmetric eigenmodes in solar atmospheric structures.
 	\item Chapter 3: We establish and solve the initial value problem (IVP) of MHD waves propagating along a magnetic slab waveguide. First, we solve the IVP under the assumption that the plasma is incompressible. Along the way, we correct a major error in a related paper that solves an initial value problem of surface MHD waves on a tangential interface. Secondly, we solve the more difficult IVP under the zero-beta assumption. Finally, we solve the fully compressible, finite-beta IVP.
 	\item Chapter 4: We derive two new inversion techniques that use the symmetry of asymmetric MHD waves to diagnose parameters of the background plasma that are otherwise impossible to measure. We coin these techniques the \textit{Amplitude Ratio Method} and the \textit{Minimum Perturbation Shift Method}. This is the first time that a solar magneto-seismology technique has employed the asymmetry of MHD waves. By diagnosing the Alfv\'{e}n speed in five chromospheric fibrils, we perform a first use of the Amplitude Ratio Method on solar observations. Our results corroborate with previous analyses of chromospheric fibrils that use different methods.
-	\item Chapter 5: Discussion of the conclusions of this Thesis, along with how much credence I think the reader ought to put in each.
+	\item Chapter 5: Discussion of the conclusions of this thesis, along with how much credence I think the reader ought to put in each.
 	\item Chapter 6: Discussion of possible further work.
 \end{itemize}
 
