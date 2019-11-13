@@ -198,7 +198,7 @@ Sections~\ref{sec: what is SMS} and~\ref{sec: SMS history} give a definition and
 
 Perpetual bubbling, erupting, and turbulent buffeting of plasma drive ubiquitous magneto-acoustic waves throughout the solar atmosphere. The topology and strength of the magnetic field determines the type and properties of waves present in a given structure. Therefore, by observing these waves and solving an inverse problem, it is possible to make a diagnosis of unknown plasma parameters - a class of techniques known as \textit{solar magneto-seismology} (SMS) \citep{and_etal09,arr12,dem_etal12}. This in turn equips us with more realistic parameters for numerical simulations and give us a better understanding of conditions that lead to, for example, wave energy dissipation, instability, magnetic reconnection, and heating.
 
-SMS techniques can be categorised as either \textit{temporal} or \textit{spatial}. Temporal seismology refers to techniques that estimate a plasma parameter by using the observed frequency, or equivalently the period, of waves. Spatial seismology refers to techniques that estimate a plasma parameter by comparing the observed spatial wave power distribution with the eigenfunctions from a theoretical model. Mathematically, the distinction is that temporal seismology techniques use temporal wave parameters (\textit{i.e.} eigenfrequency) only whereas spatial seismology techniques use spatial or a combination of temporal and spatial wave parameters (\textit{i.e.} eigenfunction).
+SMS techniques can be categorised as either \textit{temporal} or \textit{spatial}. Temporal seismology refers to techniques that estimate a plasma parameter by using the observed frequency, or equivalently the period, of waves. Spatial seismology refers to techniques that estimate a plasma parameter by comparing the observed spatial wave power distribution with the eigenfunctions from a theoretical model. Mathematically, the distinction is that temporal seismology techniques use temporal wave parameters (eigenfrequency) only whereas spatial seismology techniques use spatial or a combination of temporal and spatial wave parameters (eigenfunction).
 
 The flowchart in Figure~\ref{fig: SMS} illustrates the causal chain from identifying wave and equilibrium parameters in observations, combining these with eigenmode analysis from models of the physical system, and using SMS techniques to diagnose previously unknown equilibrium parameters.
 
@@ -276,7 +276,7 @@ In this thesis, we particularly focus on diagnosis of the magnetic field. This i
 
 \subsection{A brief history of solar magneto-seismology} \label{sec: SMS history}
 
-To motivate this chapter's focus on developing new temporal seismology techniques, we list a selection of the major advancements in SMS since its development in Table~\ref{table: SMS history}. There are nine major developments in temporal seismology compared to two major developments in spatial seismology. The dominance of the development of temporal seismology techniques over temporal seismology techniques is striking\footnote{Of course, selection bias could have a role to play here. That is, I could well have been exposed to more }. Whilst temporal seismology is growing into a mature field, spatial seismology is in it's infancy.
+To motivate this chapter's focus on developing new temporal seismology techniques, we list a selection of the major advancements in SMS since its development in Table~\ref{table: SMS history}. There are nine major developments in temporal seismology compared to two major developments in spatial seismology. The dominance of the development of temporal seismology techniques over temporal seismology techniques is striking\footnote{Of course, selection bias could have a role to play here.}. Whilst temporal seismology is growing into a mature field, spatial seismology is in its infancy.
 
 % Define custom callouts to shorten the Author column.
 \defcitealias{nak_etal01}{Nakariakov et al.}
@@ -303,7 +303,7 @@ To motivate this chapter's focus on developing new temporal seismology technique
 		2017 & \citeauthor{lon_etal17} & Dynamic coronal seismology, \textit{i.e.} diagnosing the magnetic field strength changing in time and across a large portion of the solar atmosphere. Using the methodology developed by \cite{mor_etal15}. & T \\
 		\bottomrule
 	\end{tabularx}
-	\caption{History of solar magneto-seismology development. The \textit{type} column refers to whether the development is in temporal (T) or spatial (S) seismology, or neither (N).}
+	\caption{History of solar magneto-seismology development. The \textit{type} column refers to whether the development is in temporal seismology (T), spatial seismology (S), or neither (N).}
 	\label{table: SMS history}
 \end{table}
 
@@ -317,7 +317,7 @@ A second plausible explanation is that the development of spatial seismology tec
 \label{sec: AR}
 %------------------------------------------------------------------------------
 
-The aim of this section is to derive an expression for the ratio of the oscillation amplitude on each interface of an asymmetric magnetic slab in terms of the wave parameters and plasma parameters of the system, then demonstrate how this parameter can be utilised to diagnose background parameters. We focus on estimating the Alfv\'{e}n speed since it is the the most difficult of all our background parameters to measure using traditional methods. We do this by first deriving expressions for the eigenfunctions\footnote{That is, the distribution of the oscillation amplitude across the waveguide.} of quasi-sausage and quasi-kink modes, using them to derive expressions for the Amplitude Ratio, and then by making suitable approximations, we can solve the inverse problem for the Alfv\'{e}n speed. Numerical inversion procedures for the Amplitude Ratio Method are discussed in Section~\ref{sec: numerical inversion} 
+The aim of this section is to derive an expression for the ratio of the oscillation amplitude on each interface of an asymmetric magnetic slab in terms of the wave parameters and plasma parameters of the system, then demonstrate how this parameter can be utilised to diagnose background parameters. We focus on estimating the Alfv\'{e}n speed since it is the the most difficult of all our background parameters to measure using traditional methods. We do this by first deriving expressions for the eigenfunctions\footnote{That is, the distribution of the oscillation amplitude across the waveguide.} of quasi-sausage and quasi-kink modes, using them to derive expressions for the Amplitude Ratio, and then by making suitable approximations, we can solve the inverse problem for the Alfv\'{e}n speed. Numerical inversion procedures for the Amplitude Ratio Method are discussed in Section~\ref{sec: numerical inversion}.
 
 \subsection{Deriving an expression for the Amplitude Ratio} \label{sec: AR derivation}
 
@@ -421,7 +421,7 @@ Using the second form of $C$ in Equation~\eqref{constB B} yields
 
 \begin{figure}
 	\makebox[\textwidth][c]{
-		\subfloat[]{\scalebox{0.9}{
+		\subfloat[]{
 				\begin{tikzpicture}
 				\draw [->] (1,0) -- (6,0);
 				
@@ -464,10 +464,10 @@ Using the second form of $C$ in Equation~\eqref{constB B} yields
 				\draw [-] (2,-0.5) -- (2,2);
 				\draw [-] (5,-0.5) -- (5,2);
 				\end{tikzpicture} 
-			}\label{fig: RA saus}}
+			\label{fig: RA saus}}
 		
 		
-		\subfloat[]{\scalebox{0.9}{
+		\subfloat[]{
 				\begin{tikzpicture}
 				\draw [->] (1,0) -- (6,0);
 				
@@ -510,7 +510,7 @@ Using the second form of $C$ in Equation~\eqref{constB B} yields
 				\draw [-] (2,-0.5) -- (2,2);
 				\draw [-] (5,-0.5) -- (5,2);
 				\end{tikzpicture} 
-			}\label{fig: RA kink}}}
+			\label{fig: RA kink}}}
 	\caption{Illustration of the difference in amplitude of oscillation on each boundary of the slab for~\protect\subref{fig: RA saus}~quasi-sausage and~\protect\subref{fig: RA kink}~quasi-kink modes.}
 	\label{fig: RA}
 \end{figure}
@@ -687,7 +687,7 @@ For a symmetric sausage or kink mode, the position of minimum wave power is the 
 
 \begin{figure}
 	\makebox[\textwidth][c]{
-		\subfloat[]{\scalebox{0.9}{
+		\subfloat[]{
 				\begin{tikzpicture}
 				\path [fill=lightgray, opacity=0.5] (2,-1.5) -- (2,1.5) -- (5,1.5) -- (5,-1.5) -- (2,-1.5);
 				
@@ -732,10 +732,10 @@ For a symmetric sausage or kink mode, the position of minimum wave power is the 
 				\draw [-] (3, 0.2) to [out=90, in=-90] (3.25, 0.4) to [out=-90, in=90] (3.5, 0.2);
 				\node [above] at (3.1, 0.4) {$\Delta_\mathrm{min}$};
 				\end{tikzpicture}
-			}\label{fig: min pert shift saus}}
+			\label{fig: min pert shift saus}}
 		
 		
-		\subfloat[]{\scalebox{0.9}{
+		\subfloat[]{
 				\begin{tikzpicture}
 				\path [fill=lightgray, opacity=0.5] (2,-1.5) -- (2,1.5) -- (5,1.5) -- (5,-1.5) -- (2,-1.5);
 				
@@ -780,7 +780,7 @@ For a symmetric sausage or kink mode, the position of minimum wave power is the 
 				\draw [-] (3.5, 0.3) to [out=90, in=-90] (3.75, 0.5) to [out=-90, in=90] (4, 0.3);
 				\node [above] at (4, 0.5) {$\Delta_\mathrm{min}$};
 				\end{tikzpicture}
-			}\label{fig: min pert shift kink}}}
+			\label{fig: min pert shift kink}}}
 	
 	\caption{Illustration of the minimum perturbation shift, $\Delta_\textrm{min}$, within the slab (shaded) for~\protect\subref{fig: min pert shift saus}~quasi-sausage and~\protect\subref{fig: min pert shift kink}~quasi-kink modes.}
 	\label{fig: min pert shift}
@@ -809,7 +809,7 @@ The concept of minimum perturbation shift is exclusive to surface modes. The eig
 Akin to the amplitude ratio method for solar magneto-seismology prescribed in Section~\ref{sec: AR}, we can invert Equation~\eqref{shift min saus} or~\eqref{shift min kink} for the the Alfv\'{e}n speed, $v_\textrm{A}$, and hence get an estimate the magnetic field strength of inhomogeneous solar magnetic structures. This can be done either numerically, using an iterative root finding method, or analytically, under an appropriate approximation. In each of the following subsections, we discuss the analytical inversion procedure under the thin slab (Section~\ref{sec: mps thin}), wide slab (Section~\ref{sec: mps wide}), incompressible (Section~\ref{sec: mps incomp}), and low-beta (Section~\ref{sec: mps low-beta}) approximations.
 
 
-\subsection{Thin slab approximation} \label{sec: mps thin}
+\subsection{Thin slab approximation} \label{sec: MPS thin}
 Under the thin slab approximation, that is $kx_0 \ll 1$, we have $m_0x_0 \ll 1$ for surface modes (Section~\ref{sec: thin slab}). By definition, $|\Delta_\textrm{min}| < x_0$, therefore, $m_0|\Delta_\textrm{min}| \ll 1$, so that $\tanh{m_0\Delta_\textrm{min}} \approx m_0\Delta_\textrm{min}$. Firstly, for quasi-sausage modes in a thin slab, Equation~\eqref{shift min saus} can be solved for $v_\textrm{A}$ to give
 \begin{equation}
 v_\textrm{A}^2 = \frac{\omega^2}{k^2} \left[\frac{\rho_1}{\rho_0m_1}(x_0 + \Delta_\textrm{min}) + \frac{1}{1 + (\omega / kc_0)^2} + k^2x_0\Delta_\textrm{min}\right].
@@ -915,14 +915,14 @@ Figure~\ref{fig: AR MPS} illustrates the dependency of the amplitude ratio and m
 
 \begin{figure}
 	\centering
-	\subfloat[Quasi-kink]{\includegraphics[scale=0.38]{\figdir slow-kink-surf_amp-ratio.pdf}
+	\subfloat[Quasi-kink]{\includegraphics[width=0.5\textwidth]{\figdir slow-kink-surf_amp-ratio.pdf}
 		\label{fig: AR slow kink surf}}
-	\subfloat[Quasi-sausage]{\includegraphics[scale=0.38]{\figdir slow-saus-surf_amp-ratio.pdf}
+	\subfloat[Quasi-sausage]{\includegraphics[width=0.5\textwidth]{\figdir slow-saus-surf_amp-ratio.pdf}
 		\label{fig: AR slow saus surf}}
 	\\
-	\subfloat[Quasi-kink]{\includegraphics[scale=0.38]{\figdir slow-kink-surf_min-pert-shift.pdf}
+	\subfloat[Quasi-kink]{\includegraphics[width=0.5\textwidth]{\figdir slow-kink-surf_min-pert-shift.pdf}
 		\label{fig: MPS slow kink surf}}
-	\subfloat[Quasi-sausage]{\includegraphics[scale=0.38]{\figdir slow-saus-surf_min-pert-shift.pdf}
+	\subfloat[Quasi-sausage]{\includegraphics[width=0.5\textwidth]{\figdir slow-saus-surf_min-pert-shift.pdf}
 		\label{fig: MPS slow saus surf}}
 	\caption{(\protect\subref*{fig: AR slow kink surf}, \protect\subref*{fig: AR slow saus surf}) The amplitude ratio, $R_\textrm{A}$, and (\protect\subref*{fig: MPS slow kink surf}, \protect\subref*{fig: MPS slow saus surf}) the minimum perturbation shift, $\Delta_\textrm{min}$, as a function of the slab width, non-dimensionalised to $kx_0$, and the density ratio, $\rho_1/\rho_0$, for slow (\protect\subref*{fig: AR slow kink surf}, \protect\subref*{fig: MPS slow kink surf}) quasi-kink and (\protect\subref*{fig: AR slow saus surf}, \protect\subref*{fig: MPS slow saus surf}) quasi-sausage surface modes. The other density ratio is set to $\rho_2/\rho_0 = 2$, the characteristic speed ordering inside the slab is $v_\textrm{A}=1.3c_0$, and the sound speed outside the slab is determined to ensure equilibrium pressure balance.}
 	\label{fig: AR MPS}
@@ -955,9 +955,9 @@ As an example, Figure~\ref{fig: vA approx} shows the inversion curves for a part
 
 \begin{figure}
 	\centering
-	\subfloat[Amplitude ratio inversion]{\includegraphics[scale=0.42]{\figdir RA_vA_approx_2var.pdf}
-		\label{fig: RA vA approx}}
-	\subfloat[Minimum perturbation shift inversion]{\includegraphics[scale=0.42]{\figdir DM_vA_approx_2var.pdf}
+	\subfloat[Amplitude ratio inversion]{\includegraphics[scale=0.5]{\figdir RA_vA_approx_2var.pdf}
+		\label{fig: RA vA approx}} \\
+	\subfloat[Minimum perturbation shift inversion]{\includegraphics[scale=0.5]{\figdir DM_vA_approx_2var.pdf}
 		\label{fig: DM vA approx}}
 	\caption{Using prescribed values for~\protect\subref{fig: RA vA approx}~the amplitude ratio, $R_\textrm{A}$, or~\protect\subref{fig: DM vA approx}~the minimum perturbation shift, $\Delta_\textrm{min}$, a numerical inversion is used to approximate the background equilibrium parameters, in this case the Alfv\'{e}n speed, $v_\textrm{A}$, and one of the density ratios, $\rho_1 / \rho_0$, for slow magneto-acoustic modes. Dashed (solid) lines correspond to the inversion curves for slow quasi-kink (quasi-sausage) surface modes. The dotted lines indicate the inversion for symmetric kink and sausage modes. The light-shaded area indicates the values of the Alfv\'{e}n speed which correspond to body modes, rather than surface modes, so are not important for SMS application. The dark shaded region in Figure~\protect\subref{fig: DM vA approx} illustrates the region outside the slab, outside the bounds of the minimum perturbation shift.}
 	\label{fig: vA approx}
@@ -1054,14 +1054,14 @@ More information about the observations is detailed by \cite{mor_etal12}, who or
 
 \subsection{Methodology}
 
-In the absence of MHD wave theory in more realistic asymmetric geometries, we model each fibril as an isolated magnetic slab whose boundaries are parallel discontinuities between the uniform internal plasma and the asymmetric external plasma (Figure~\ref{fig: eq non-mag slab}). Only sufficiently isolated fibrils that maintain their structure for at least a full period were analysed. A primary slit is placed perpendicularly across each fibril and time-distance data produced from an average of the intensities across the primary slit and two parallel neighbouring slits, placed at a distance of 1~pixel either side (Figure~\ref{fig:fibril5_slit}). This technique of averaging over several slits is used to increase the signal-to-noise ratio.
+In the absence of MHD wave theory in more realistic asymmetric geometries, we model each fibril as an isolated magnetic slab whose boundaries are parallel discontinuities between the uniform internal plasma and the asymmetric external plasma (Figure~\ref{fig: eq non-mag slab}). Only sufficiently isolated fibrils that maintain their structure for at least a full period were analysed. A primary slit is placed perpendicularly across each fibril and time-distance data produced from an average of the intensities across the primary slit and two parallel neighbouring slits, placed at a distance of 1~pixel either side (Figure~\ref{fig: fibril5_slit}). This technique of averaging over several slits is used to increase the signal-to-noise ratio.
 
 \begin{figure}
 	\centering
 	\subfloat[]{\includegraphics[width=11cm]{\figdir fibril5_slit.png}
-		\label{fig:fibril5_slit}} \\
+		\label{fig: fibril5_slit}} \\
 	\subfloat[]{\includegraphics[width=11cm]{\figdir fibril5_dt.png}
-		\label{fig:fibril5_dt}}
+		\label{fig: fibril5_dt}}
 	\caption{(a) A typical example of a ROSA H$\alpha$ fibril taken at $t=399.36$~s from the start of the observational window. The middle slit is placed perpendicular to the fibril. The mean of the intensities along the middle slit and two parallel slits at a pixel each side at each time step is plotted in Panel~(b). The white dots correspond to the boundaries of the fibril, calculated as the position of half-maximum of the fitted Gaussian. Axis values are in units from the bottom left of the observational domain.}
 \end{figure}
 
@@ -1074,35 +1074,35 @@ Fibrils for which the stabilized Gaussian fitting failed on a significant propor
 
 
 \subsubsection{Frequency and amplitude measurement} \label{sec:freq amp}
-For each fibril, both sets of boundary data were detrended with a cubic polynomial fit by least-squares regression. The detrended boundaries are then fit with a sinusoidal curve (Figure~\ref{fig:fibril5_detrend}). The frequency of each wave is given by the average of the frequencies of both boundary sinusoids. The amplitude ratio is the signed ratio of the amplitudes of the boundary sinusoids.
+For each fibril, both sets of boundary data were detrended with a cubic polynomial fit by least-squares regression. The detrended boundaries are then fit with a sinusoidal curve (Figure~\ref{fig: fibril5_detrend}). The frequency of each wave is given by the average of the frequencies of both boundary sinusoids. The amplitude ratio is the signed ratio of the amplitudes of the boundary sinusoids.
 
 \begin{figure}
 \centering
 \includegraphics[width=10cm]{\figdir fibril5_trend.png}
-\caption{The boundary data (black), with cubic polynomial trend (red) overlayed. The error bars refer to the uncertainty in the boundary position due to spatial resolution limits. \textcolor{red}{MAYBE REMOVE?}}
-\label{fig:fibril5_trend}
+\caption{The boundary data (black), with cubic polynomial trend (red) overlaid. The error bars refer to the uncertainty in the boundary position due to spatial resolution limits. \textcolor{red}{MAYBE REMOVE?}}
+\label{fig: fibril5_trend}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\subfloat[]{\includegraphics[width=11cm]{\figdir fibril5_detrend_t.png}
-		\label{fig:fibril5_detrend_t}} \\
+		\label{fig: fibril5_detrend_t}} \\
 	\subfloat[]{\includegraphics[width=11cm]{\figdir fibril5_detrend_b.png}
-		\label{fig:fibril5_detrend_b}}
-	\caption{(a) Top and (b) bottom boundary positions along the averaged slits given in Figure~\ref{fig:fibril5_slit} (black line), detrended with a cubic polynomial. The error bounds on each point are the pixel size and therefore correspond to the error in the observations rather than the error in the trend fitting so represent a lower bound on the total error. The boundaries are fitted with a sinusoid (red line). \textcolor{red}{Consider making high res}}
-	\label{fig:fibril5_detrend}
+		\label{fig: fibril5_detrend_b}}
+	\caption{(a) Top and (b) bottom boundary positions along the averaged slits given in Figure~\ref{fig: fibril5_slit} (black line), detrended with a cubic polynomial. The error bounds on each point are the pixel size and therefore correspond to the error in the observations rather than the error in the trend fitting so represent a lower bound on the total error. The boundaries are fitted with a sinusoid (red line). \textcolor{red}{Consider making high res}}
+	\label{fig: fibril5_detrend}
 \end{figure}
 
 
 \subsubsection{Phase speed measurement} \label{sec:phase speed}
 
-For each fibril, we plotted the cross-sectional width variation through time at five parallel slits, each five pixels apart and perpendicular the fibril. The widths at each time-step were calculated as the position of half-maximum of the fitted Gaussian function along each slit. The intensity along each of the five slits used for the phase speed measurement, as described in Section~\ref{sec:boundary tracking}, is the mean of the intensities across three parallel slits spaced a pixel apart. The width variation was smoothed with a 3-point box-car function and the temporal lag in the smoothed width variation was fitted with a straight line (see Figure~\ref{fig:fibril5_width}). The gradient of this line is the estimated phase speed.
+For each fibril, we plotted the cross-sectional width variation through time at five parallel slits, each five pixels apart and perpendicular the fibril. The widths at each time-step were calculated as the position of half-maximum of the fitted Gaussian function along each slit. The intensity along each of the five slits used for the phase speed measurement, as described in Section~\ref{sec:boundary tracking}, is the mean of the intensities across three parallel slits spaced a pixel apart. The width variation was smoothed with a 3-point box-car function and the temporal lag in the smoothed width variation was fitted with a straight line (see Figure~\ref{fig: fibril5_width}). The gradient of this line is the estimated phase speed.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=10cm]{\figdir fibril5_widths2_line.png}
 	\caption{Five parallel slits, spaced by five pixels, are placed perpendicular to each fibril. The widths, calculated from the fitted Gaussian along each slit, are plotted and displaced in the y-direction by five pixels = 250 km, the distance between each slit. The peaks and trough of the width oscillations are fitted by a straight line, the gradient of which is approximately the phase speed.}
-	\label{fig:fibril5_width}
+	\label{fig: fibril5_width}
 \end{figure}
 
 The measured phase speeds assume that the fibril waveguides are parallel to the plane of sky (PoS). However, in reality, the waveguides are inclined at some angle $\theta$ to the PoS. Therefore, the true phase speed will be a factor of $\sec(\theta)$ greater than the measured phase speed. Unfortunately, using the given data it is impossible to infer the angle $\theta$. The best we can do is use the fact that the fibrils tend to track the magnetic field of the chromospheric magnetic canopy, which is dominated by a horizontal magnetic field component, to motivate the assumption that $\theta$ is small. Under this assumption, we can take $\sec(\theta) \approx 1$, to leading order. From this it follows that the true phase speed is approximately equal to the measured phase speed in the observational plane.

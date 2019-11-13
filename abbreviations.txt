@@ -4,3 +4,4 @@ EVP - eigenvalue problem
 IVP - initial value problem
 ODE - ordinary differential equation
 PDE - partial differential equation
+SL - Sturm-Liouville

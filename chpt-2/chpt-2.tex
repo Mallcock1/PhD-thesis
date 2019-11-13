@@ -197,7 +197,7 @@ Modelling the cylindrical nature of coronal loops, focus moved towards cylindric
 
 Other EVP investigations of MHD waves have studied the effect of curvature, including a curved magnetic slab \citep{ver_etal06a,ver_etal06b} and a semi-toroidal loop \cite{van_etal04}. The semi-toroidal loop is a mathematical model that approximates coronal loops well. It was shown that curvature has no first order effect on the frequency and damping time of quasi-mode kink oscillations. This result has justifiable made the solar physics community more comfortable applying the more simple theory of MHD waves in straight waveguide models to curved solar structures. the effects of curvature on coronal loop kink oscillations is reviewed by \cite{van_etal09}.
 
-Loop systems above active regions are often observed to oscillate collectively and even single coronal loops have been hypothesised to have a multi-stranded fine structure \citep{asc_etal00}, so mathematical models of adjacent flux tubes have been studied. \cite{lun_etal08} showed numerically that a system of two adjacent flux tubes of equal parameters oscillates in four trapped eigenmodes: two where the tubes oscillate in phase and two in anti-phase. \cite{van_etal08c} generalised this to a system of two distinct flux tubes. This is discussed in more detail as an example of an asymmetric MHD waveguide in Section~\ref{sec: other waveguides}.
+Loop systems above active regions are often observed to oscillate collectively and even single coronal loops have been hypothesised to have a multi-stranded fine structure \citep{asc_etal00}, so mathematical models of adjacent flux tubes have been studied. \cite{lun_etal08} showed numerically that a system of two adjacent flux tubes of equal parameters oscillates in four trapped eigenmodes: two where the tubes oscillate in phase and two in anti-phase. \cite{van_etal08} generalised this to a system of two distinct flux tubes. This is discussed in more detail as an example of an asymmetric MHD waveguide in Section~\ref{sec: other waveguides}.
 
 What this chapter does to build upon previous studies is to focus on the nuances of asymmetric MHD eigenmode by building up from the simplest asymmetric MHD waveguide. In particular, we determine precisely how asymmetry of MHD waveguides is manifested in MHD waves, the effects of varying the asymmetry, and how this affects observational wave signatures in the solar atmosphere.
 
@@ -293,7 +293,7 @@ To ensure that the model is in equilibrium, the total pressure in each external 
 \end{equation}
 where $\mu_0$ is the permeability of free space. We can rewrite Equation~\eqref{pressure balance} as
 \begin{equation}
-\rho_i\left(c_i^2 + \frac{\gamma}{2}v_{Ai}^2\right) = \rho_j\left(c_j^2 + \frac{\gamma}{2}v_{Aj}^2\right), \quad \text{for} \quad i, j = 0, 1, 2, \label{sound speeds}
+\rho_i\left(c_i^2 + \frac{\gamma}{2}v_{Ai}^2\right) = \rho_j\left(c_j^2 + \frac{\gamma}{2}v_{Aj}^2\right), \quad \text{for} \quad i, j = 0, 1, 2, \label{sound and density}
 \end{equation}
 where we define the sound and Alfv\'{e}n speeds in each region by $c_j = \sqrt{\gamma p_j/\rho_j}$ and $v_{Aj} = B_j/\sqrt{\mu\rho_j}$, respectively, for $j = 0, 1, 2$. The adiabatic index\footnote{The adiabatic index is assumed uniform across the whole domain under the single-fluid approximation.} is $\gamma$.
 
@@ -446,7 +446,7 @@ where internal and external parameters are denoted by subscripts $i$ and $e$.
 \subsection{Asymmetric eigenmodes}
 There is a rich spectrum of MHD eigenmodes on an asymmetric magnetic slab. The key distinctions of these modes from the eigenmodes of a symmetric slab are discussed in this subsection. To aid the reader's understanding, we have created over a hundred three-dimensional animations of symmetric and asymmetric eigenmodes in a magnetic slab \cite{all_etal18c}. The videos visualise the oscillations in the slab boundaries, magnetic field, density, and velocity field. \textcolor{red}{Consider including figure screenshots of the videos and describing/explaining them.}
 
-The dispersion relation for a symmetric slab, Equation~\eqref{DRsym}, consists of two decoupled equations that correspond to the two types of eigenmodes supported by the slab: the \textit{sausage} and \textit{kink} MHD waves. In an asymmetric slab, the sausage and kink modes are modified by the external density difference, causing an asymmetry of the oscillation amplitude on each side of the slab (for visualisation see Figures~\ref{fig:saus} and~\ref{fig:kink}). We call these asymmetric \textit{quasi-sausage} and \textit{quasi-kink} eigenmodes. In a symmetric slab, sausage modes are characterised by an undisplaced slab axis in the centre of the slab. In an asymmetric slab, this undisplaced position is shifted towards the side of greatest external density for quasi-kink modes and towards the side of lowest external density for quasi-sausage modes. For symmetric kink modes, the width of the perturbed slab remains constant along the slab, but this characteristic is lost in an asymmetric slab. This highlights the mixed nature of these modes.
+The dispersion relation for a symmetric slab, Equation~\eqref{DRsym}, consists of two decoupled equations that correspond to the two types of eigenmodes supported by the slab: the \textit{sausage} and \textit{kink} MHD waves. In an asymmetric slab, the sausage and kink modes are modified by the external density difference, causing an asymmetry of the oscillation amplitude on each side of the slab (for visualisation see Figures~\ref{fig: saus} and~\ref{fig: kink}). We call these asymmetric \textit{quasi-sausage} and \textit{quasi-kink} eigenmodes. In a symmetric slab, sausage modes are characterised by an undisplaced slab axis in the centre of the slab. In an asymmetric slab, this undisplaced position is shifted towards the side of greatest external density for quasi-kink modes and towards the side of lowest external density for quasi-sausage modes. For symmetric kink modes, the width of the perturbed slab remains constant along the slab, but this characteristic is lost in an asymmetric slab. This highlights the mixed nature of these modes.
 
 Additionally, this shows that it is the phase of the boundary oscillations that is a more fundamental distinguishing characteristic of sausage and kink modes. For this reason, when we refer to \textit{quasi-sausage} and \textit{quasi-kink} modes of an asymmetric slab, we refer strictly to modes with boundary oscillations in \textit{anti-phase} and \textit{in-phase}, respectively.
 
@@ -493,7 +493,7 @@ The differences between symmetric and asymmetric eigenmodes are summarised in Ta
 				\draw [-] (2,-0.5) -- (2,2);
 				\draw [-] (5,-0.5) -- (5,2);
 				\end{tikzpicture}
-				\label{fig:saus}}}
+				\label{fig: saus}}}
 		%
 		%
 		%
@@ -535,7 +535,7 @@ The differences between symmetric and asymmetric eigenmodes are summarised in Ta
 				\draw [-] (2,-0.5) -- (2,2);
 				\draw [-] (5,-0.5) -- (5,2);
 				\end{tikzpicture}
-				\label{fig:kink}}}}
+				\label{fig: kink}}}}
 	\caption{Quasi-kink and quasi-sausage modes with external density ordering $\rho_1>\rho_2$. The red arrows illustrate the perturbed magnetic field, the thick solid black lines illustrate the perturbed slab boundaries, and the dashed lines illustrate the future position of the slab boundaries after half a period.}
 \end{figure}
 
@@ -548,9 +548,9 @@ Body waves correspond to trigonometric solutions of Equation~\eqref{vsoln} withi
 c_\textrm{T}<\frac{\omega}{k}<\text{min}\{c_0, v_\textrm{A}\} \quad \text{or} \quad \text{max}\{c_0, v_\textrm{A}\}<\frac{\omega}{k}. \label{bconditions}
 \end{equation}
 
-For a surface mode (Figures~\ref{fig:surf quasi-kink} and~\ref{fig:surf quasi-saus}), the wave power distribution across the slab has a single minimum. The displacement of this minimum from the centre of the slab is a consequence of the asymmetry in the external plasma. The intensity of the maximum amplitudes on the left and right boundaries of the slab is different, reflecting the asymmetry in the external plasma.
+For a surface mode (Figures~\ref{fig: surf quasi-kink} and~\ref{fig: surf quasi-saus}), the wave power distribution across the slab has a single minimum. The displacement of this minimum from the centre of the slab is a consequence of the asymmetry in the external plasma. The intensity of the maximum amplitudes on the left and right boundaries of the slab is different, reflecting the asymmetry in the external plasma.
 
-Body modes are also affected by the asymmetric external environment (Figures~\ref{fig:body quasi-kink} and~\ref{fig:body quasi-saus}). Local maxima and minima in wave power are shifted towards the external plasma of higher density for a quasi-kink body mode and towards the external plasma of lower density for a quasi-sausage mode. However, this is a much weaker effect than for surface modes because the eigenfrequencies of body waves do not depend strongly on the parameters of the external plasma, and therefore they do not depend strongly on the asymmetry of the waveguide, as shown in Sections~\ref{sec: analytical solutions} and~\ref{sec: numerical solutions}. The same can be said for the eigenfunctions of body modes. These results corroborate the intuition that because the majority of the wave power is confined to within the slab, rather than its boundaries, the body modes don't \textit{feel} the external plasma as much as surface waves do.
+Body modes are also affected by the asymmetric external environment (Figures~\ref{fig: body quasi-kink} and~\ref{fig: body quasi-saus}). Local maxima and minima in wave power are shifted towards the external plasma of higher density for a quasi-kink body mode and towards the external plasma of lower density for a quasi-sausage mode. However, this is a much weaker effect than for surface modes because the eigenfrequencies of body waves do not depend strongly on the parameters of the external plasma, and therefore they do not depend strongly on the asymmetry of the waveguide, as shown in Sections~\ref{sec: analytical solutions} and~\ref{sec: numerical solutions}. The same can be said for the eigenfunctions of body modes. These results corroborate the intuition that because the majority of the wave power is confined to within the slab, rather than its boundaries, the body modes don't \textit{feel} the external plasma as much as surface waves do.
 
 \begin{table}
 	\centering
@@ -611,7 +611,7 @@ Body modes are also affected by the asymmetric external environment (Figures~\re
 				\node [left] at (0,2) {$\widehat{v}_x$};
 				\node [below] at (7,0) {$x$};
 				\end{tikzpicture}
-				\label{fig:surf quasi-kink}}}
+				\label{fig: surf quasi-kink}}}
 		%
 		%
 		%
@@ -653,7 +653,7 @@ Body modes are also affected by the asymmetric external environment (Figures~\re
 				\node [left] at (0,2) {$\widehat{v}_x$};
 				\node [below] at (7,0) {$x$};
 				\end{tikzpicture}
-				\label{fig:surf quasi-saus}}}}
+				\label{fig: surf quasi-saus}}}}
 	%
 	%
 	\\
@@ -703,7 +703,7 @@ Body modes are also affected by the asymmetric external environment (Figures~\re
 				\node [left] at (0,2) {$\widehat{v}_x$};
 				\node [below] at (7,0) {$x$};
 				\end{tikzpicture}
-				\label{fig:body quasi-kink}}}
+				\label{fig: body quasi-kink}}}
 		%
 		%
 		%
@@ -752,7 +752,7 @@ Body modes are also affected by the asymmetric external environment (Figures~\re
 				\node [left] at (0,2) {$\widehat{v}_x$};
 				\node [below] at (7,0) {$x$};
 				\end{tikzpicture}
-				\label{fig:body quasi-saus}}}}
+				\label{fig: body quasi-saus}}}}
 	\caption{The transverse velocity perturbation amplitude, $\widehat{v}_x$ as a function of the transverse spatial coordinate, $x$, for quasi-sausage and quasi-kink modes in an isolated magnetic slab with external density ordering $\rho_1 > \rho_2$. The vertical black lines illustrate the boundaries (at $\pm x_0$) of the slab (shaded region).}
 \end{figure}
 
@@ -822,18 +822,18 @@ where
 \end{equation}
 These solutions hold for all $kx_0 > 0$ and describe surface modes with sub-Alfv\'enic phase speed. The solution found by the plus (minus) on the numerator is the sausage (kink) eigenfrequency.
 
-Figures~\ref{fig:incomp22}-\ref{fig:incomp10001} demonstrate that in a thin ($kx_0 \ll 1$) incompressible slab, the phase speeds of these modes approach zero or the Alfv\'{e}n speed. In a symmetric wide incompressible slab, the phase speeds converge to the same speed (Figure~\ref{fig:incomp22}), whereas in an asymmetric slab, the phase speeds converge to different speeds (Figures~\ref{fig:incomp102}-\ref{fig:incomp10001}) that depend upon the values of the external densities. This observation is mirrored by both fast and slow surface modes in the more general solutions of a compressible slab solved numerically to give Figure~\ref{fig:slow modes density}.
+Figures~\ref{fig: incomp22}-\ref{fig: incomp10001} demonstrate that in a thin ($kx_0 \ll 1$) incompressible slab, the phase speeds of these modes approach zero or the Alfv\'{e}n speed. In a symmetric wide incompressible slab, the phase speeds converge to the same speed (Figure~\ref{fig: incomp22}), whereas in an asymmetric slab, the phase speeds converge to different speeds (Figures~\ref{fig: incomp102}-\ref{fig: incomp10001}) that depend upon the values of the external densities. This observation is mirrored by both fast and slow surface modes in the more general solutions of a compressible slab solved numerically to give Figure~\ref{fig: slow modes density}.
 
 \begin{figure}
 	\centering
 	\subfloat[$\rho_1/\rho_0=2$, $\rho_2/\rho_0=2$]{\includegraphics[width=0.5\textwidth]{\figdir Incomp_2_2.pdf}
-		\label{fig:incomp22}}
+		\label{fig: incomp22}}
 	\subfloat[$\rho_1/\rho_0=10$, $\rho_2/\rho_0=2$]{\includegraphics[width=0.5\textwidth]{\figdir Incomp_10_2.pdf}
-		\label{fig:incomp102}} \\
+		\label{fig: incomp102}} \\
 	\subfloat[$\rho_1/\rho_0=10$, $\rho_2/\rho_0=0.1$]{\includegraphics[width=0.5\textwidth]{\figdir Incomp_10_01.pdf}
-		\label{fig:incomp1001}}
+		\label{fig: incomp1001}}
 	\subfloat[$\rho_1/\rho_0=100$, $\rho_2/\rho_0=0.1$]{\includegraphics[width=0.5\textwidth]{\figdir Incomp_100_01.pdf}
-		\label{fig:incomp10001}}
+		\label{fig: incomp10001}}
 	\caption{The behaviour of the modes in an incompressible slab. The fast surface modes and all the body modes degenerate leaving two sub-Alfv\'{e}nic surface modes. (a) A symmetric slab, (b)-(d) asymmetric slabs.}
 \end{figure}
 
@@ -850,7 +850,7 @@ Under this speed ordering, $m_0^2\approx{}k^2-\omega^2/v_\textrm{A}^2$. After a 
 \end{equation}
 where $c_\textrm{e}$ is the external sound speed, along with a spurious solution.
 
-Unfortunately, for the more general case of an asymmetric slab of low-beta plasma, the dispersion relation does not reduce to an analytically solvable equation. However, we find numerically that there are two fast surface modes. The quasi-sausage surface mode is not present for small $kx_0$, but becomes a solution at an intermediate value of $kx_0$ with phase speed $\omega^2/k^2=\min{(c_1^2,c_2^2)}$. The quasi-kink surface mode is present for all values of $kx_0$. Qualitatively, the solutions for a low-beta plasma are analogous to the fast quasi-sausage and quasi-kink mode solutions, discussed later in Sections~\ref{sec:thin} and~\ref{sec:wide}.
+Unfortunately, for the more general case of an asymmetric slab of low-beta plasma, the dispersion relation does not reduce to an analytically solvable equation. However, we find numerically that there are two fast surface modes. The quasi-sausage surface mode is not present for small $kx_0$, but becomes a solution at an intermediate value of $kx_0$ with phase speed $\omega^2/k^2=\min{(c_1^2,c_2^2)}$. The quasi-kink surface mode is present for all values of $kx_0$. Qualitatively, the solutions for a low-beta plasma are analogous to the fast quasi-sausage and quasi-kink mode solutions, discussed later in Sections~\ref{sec: thin} and~\ref{sec: wide}.
 
 In the following section, thin and wide slab approximations are made to the approximate dispersion relation, Equation~\eqref{DR approx}, rather than the exact dispersion relation, Equation~\eqref{DR}. Here, the aim is to retrieve the variety of wave modes with future applications in mind.
 
@@ -892,7 +892,7 @@ There are also quasi-kink body solutions that, in the thin slab limit, behave li
 \begin{equation}
 \omega^2 = k^2c_\textrm{T0}^2\left[1 + \frac{c_\textrm{T0}^4(kx_0)^2}{c_0^2v_\textrm{A0}^2\pi^2(j - \frac{1}{2})^2}\right], \quad \text{for} \quad j = 1, 2, \ldots. \label{thin slab kink body}
 \end{equation}
-Equations~\eqref{thin slab saus body} and \eqref{thin slab kink body} show us that to quadratic order in $kx_0$ the quasi-sausage and quasi-kink body modes do not depend on the external environment parameters. The effects of external density and temperature are felt in the higher order terms, which explains why Equations~\eqref{thin slab saus body} and~\eqref{thin slab saus body} are identical to the corresponding solutions in a thin symmetric slab derived by \citealt{rob81b}. This also explains theoretically why body modes only weakly depend on the asymmetry of the external plasma, as discussed in the context of magnetic field diagnostics in Section~\ref{sec: SMS}.
+Equations~\eqref{thin slab saus body} and \eqref{thin slab kink body} show us that to quadratic order in $kx_0$ the quasi-sausage and quasi-kink body modes do not depend on the external environment parameters. The effects of external density and temperature are felt in the higher order terms, which explains why Equations~\eqref{thin slab saus body} and~\eqref{thin slab saus body} are identical to the corresponding solutions in a thin symmetric slab derived by \citealt{rob81b}. This also explains theoretically why body modes only weakly depend on the asymmetry of the external plasma, as discussed in the context of magnetic field diagnostics in Chapter~\ref{chap: SMS}.
 
 
 \subsubsection{Limiting case - wide slab} \label{sec: wide slab}
@@ -1030,7 +1030,7 @@ When the slab is symmetric, the cut-off for both the fast sausage surface mode a
 	\subfloat[$kx_0 = 0.01$]{\includegraphics[scale=0.45]{\figdir FullDR_SS_SK_Kfixed001_v2.pdf}
 		\label{fig: slow modes density 0.01}}
 	\subfloat[$kx_0 = 0.1$]{\includegraphics[scale=0.45]{\figdir FullDR_SS_SK_Kfixed01_v2.pdf}
-		\label{fig:slow modes density 0.1}} \\
+		\label{fig: slow modes density 0.1}} \\
 	\subfloat[$kx_0 = 1$]{\includegraphics[scale=0.45]{\figdir FullDR_SS_SK_Kfixed1_v2.pdf}
 		\label{fig: slow modes density 1}}
 	\subfloat[$kx_0 = 3$]{\includegraphics[scale=0.45]{\figdir FullDR_SS_SK_Kfixed3_v2.pdf}
@@ -1059,7 +1059,7 @@ For a wide slab width, $kx_0 \gg 1$, Figure~\ref{fig: slow modes density 3} illu
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{\figdir xi_of_x_slow_body.png}
-	\caption{The variation (or lack thereof) of the first three slow sausage and kink body eigenfunctions as the asymmetry in the background plasma is varied. The first, third, and fifth rows are kink modes and the second, fourth, and sixth rows are sausage modes. The density ratio $\rho_1/\rho_0$ is varied while the other density ratio is held fixed at $\rho_2/\rho_0 = 2.0$. The middle column of panels for which $\rho_1/\rho_0 = 2.0$ corresponds to a symmetric slab.}
+	\caption{The variation (or lack thereof) of the first three slow sausage and kink body eigenfunctions as the asymmetry in the background plasma is varied. The first, third, and fifth rows are kink modes and the second, fourth, and sixth rows are sausage modes. The density ratio $\rho_1/\rho_0$ is varied while the other density ratio is held fixed at $\rho_2/\rho_0 = 2.0$. Therefore, the middle column of panels for which $\rho_1/\rho_0 = 2.0$ corresponds to a symmetric slab.}
 	\label{fig: body eigenmodes}
 \end{figure}
 
@@ -1296,9 +1296,9 @@ Accurate mode identification is a key aspect of SMS. Different modes can differ 
 
 \subsubsection{Quasi-symmetric eigenmodes}
 
-It is possible for asymmetric MHD waves to have similar observational qualities to symmetric MHD waves. This can occur when the restoring force of perturbations (that is, the sum of the pressure gradient and Lorentz forces) is equal at both interfaces. This can occur in an asymmetric slab when the asymmetry in the pressure gradient force is precisely balanced to the asymmetry in the Lorentz force. We define these as \textit{quasi-symmetric} modes.
+It is possible for asymmetric MHD waves to have similar observational qualities to symmetric MHD waves. This can occur when the restoring force of perturbations (that is, the sum of the pressure gradient and Lorentz forces) is equal at both interfaces. This can occur in an asymmetric slab when the asymmetry in the pressure gradient force is precisely balanced by the asymmetry in the Lorentz force. We describe an eigenmode with this property as an \textit{quasi-symmetric} mode.
 
-More precisely, we define quasi-symmetric modes to be eigenmodes which have equal transverse displacement amplitude on each boundary of the slab. This is equivalent to setting $\hat{v}_x (-x_0) = - \hat{v}_x (x_0)$ for quasi-sausage modes and $\hat{v}_x (-x_0) = \hat{v}_x (x_0)$ for quasi-kink modes.
+Equivalently, we define quasi-symmetric modes to be eigenmodes which have equal transverse displacement amplitude on each boundary of the slab. This is equivalent to setting $\hat{v}_x (-x_0) = - \hat{v}_x (x_0)$ for quasi-sausage modes and $\hat{v}_x (-x_0) = \hat{v}_x (x_0)$ for quasi-kink modes.
 
 The aim here is to prove that the necessary and sufficient condition for the existence of quasi-symmetric eigenmodes of an asymmetric magnetic slab is
 \begin{equation}
@@ -1321,7 +1321,7 @@ A = \frac{-Cs_0}{c_1 - s_1}, \quad
 D = \frac{Cs_0}{c_2 - s_2}, \quad
 C \text{ is arbitrary}.
 \end{equation}
-The solution within the slab, $|x| \leq x_0$, is an odd function of $x$, therefore $\hat{v}_x(x_0) = -\hat{v}_x(-x_0)$. Therefore Equation~\eqref{quasi-sym condition} is a sufficient condition for the existence of quasi-symmetric modes. For quasi-kink modes, a similar proof is followed, where we find that $\hat{v}_x(x)$ is an even function within the slab.
+We have denoted $c_j = \cosh{m_jx_0}$ and $s_j = \sinh{m_jx_0}$, for $j = 1, 2$, for brevity. The solution within the slab, $|x| \leq x_0$, is an odd function of $x$, therefore $\hat{v}_x(x_0) = -\hat{v}_x(-x_0)$. Therefore Equation~\eqref{quasi-sym condition} is a sufficient condition for the existence of quasi-symmetric modes. For quasi-kink modes, a similar proof is followed, where we find that $\hat{v}_x(x)$ is an even function within the slab.
 
 To show that Equation~\eqref{quasi-sym condition} is necessary for there to exist quasi-symmetric modes, consider an asymmetric magnetic slab which supports quasi-symmetric modes. The transverse velocity perturbation solution is given by
 \begin{equation}
@@ -1350,24 +1350,17 @@ for quasi-kink modes. Given the supposition that the slab supports quasi-symmetr
 \begin{align}
 \hat{v}_x(-x_0) &= -\hat{v}_x(x_0), \\
 \implies \left(\frac{\Lambda_0c_0 + \Lambda_1s_0}{\Lambda_0s_0 + \Lambda_1c_0}\right) c_0 - s_0 &= -\left(\frac{\Lambda_0c_0 + \Lambda_1s_0}{\Lambda_0s_0 + \Lambda_1c_0}\right)c_0 - s_0, \\
-\implies \Lambda_0c_0 + \Lambda_1s_0 &= 0.
+\implies \Lambda_0c_0 + \Lambda_1s_0 &= 0. \label{quasi-sym proof 1}
 \end{align}
 Similarly, taking the second expression for $B$, we deduce that 
 \begin{equation}
-\Lambda_0c_0 + \Lambda_2s_0 = 0.
+\Lambda_0c_0 + \Lambda_2s_0 = 0. \label{quasi-sym proof 2}
 \end{equation}
-It follows that $\Lambda_1 = \Lambda_2$, which is equivalent to Equation~\eqref{quasi-sym condition}, which concludes the proof that it is a necessary condition for the existence of quasi-symmetric quasi-sausage modes. For quasi-kink modes, a similar proof can be followed to show that $\hat{v}_x(x_0) = \hat{v}_x(-x_0)$ implies Equation~\eqref{quasi-sym condition}.
+By subtracting Equation~\eqref{quasi-sym proof 2} from Equation~\eqref{quasi-sym proof 1}, it follows that $\Lambda_1 = \Lambda_2$, which is equivalent to Equation~\eqref{quasi-sym condition}. This concludes the proof that Equation~\eqref{quasi-sym condition} is a necessary condition for the existence of quasi-symmetric quasi-sausage modes. For quasi-kink modes, a similar proof can be followed to show that $\hat{v}_x(x_0) = \hat{v}_x(-x_0)$ implies Equation~\eqref{quasi-sym condition}. This completes the proof that Equation~\eqref{quasi-sym condition} is a necessary and sufficient condition for the existence of quasi-symmetric modes\footnote{If we further specify that the penetration depth of perturbations in the external plasma be equal on each side of the slab, so that the eigenfunction is symmetric, then it must be the case that the external parameters are equal and we have a symmetric slab.}.
 
+The main corollary to this result is that one can not conclude from an observation of a MHD wave that appears symmetric (\textit{i.e.} that the boundary oscillations are of equal amplitudes) that the underlying waveguide is symmetric. This fallacy could lead to incorrect mode identification and therefore erroneous diagnosis of the background plasma.
 
-
-
-
-
-If we further specify that the penetration depth of perturbations in the external plasma be equal on each side of the slab, so that the eigenfunction is fully symmetric, then this implies that the external parameters are equal and we have a symmetric slab.
-
-The main corollary to this result is that one can not conclude from an observation of a symmetric-looking MHD wave that the underlying waveguide is symmetric. This fallacy could lead to incorrect mode identification or diagnosis of the background plasma.
-
-The question is then this: \textit{is it possible to differentiate between a symmetric and a quasi-symmetric eigenmode?} The answer to this is unclear. Theoretically, the answer is \textit{yes}. Although quasi-symmetric modes have symmetric amplitudes at the boundaries, they have asymmetric penetration depths into the external plasmas \textcolor{red}{(consider making a figure to show this in python)}. In theory, one could track the attenuation of the oscillation amplitude of plasma further away from the slab on each side. If the attenuation is asymmetric, the mode is quasi-symmetric. In practice, however, this will prove difficult. Although we currently have the required spatial resolution for measuring the spatial attenuation of MHD waves in many solar waveguides, the waveguides are unlikely to be isolated enough to allow for good measurements of this.
+Is it possible to differentiate between a symmetric and a quasi-symmetric eigenmode? The answer to this is unclear and context-specific. Theoretically, the answer is \textit{yes}. Quasi-symmetric modes have symmetric amplitudes at the boundaries but they have asymmetric penetration depths into the external plasmas (see Figure~\ref{fig: quasi-sym}. In theory, one could track the attenuation of the oscillation amplitude of plasma away from the slab on each side. If the attenuation is asymmetric, the mode is likely to be quasi-symmetric and the underlying waveguide asymmetric. In practice, however, this will prove difficult. Although we currently have the required spatial resolution for measuring the spatial attenuation of MHD waves in isolated waveguides, Solar structures are unlikely to be sufficiently isolated to allow for good measurements of spatial attenuation.
 
 
 \begin{figure}
@@ -1384,7 +1377,7 @@ The question is then this: \textit{is it possible to differentiate between a sym
 				\draw [-] (5,-2) -- (5,2);
 				
 				
-				\draw [thick] (0,0.2) to [out=10, in=245] (2, 1.5) to [out=295, in=180] (4,0.1) to [out=0, in=260] (5,1.5) to [out=280, in=178] (6.2,0.04) to [out=358, in=180] (7,0.02);
+				\draw [thick] (0,0.2) to [out=10, in=245] (2, 1.5) to [out=280, in=180] (3.5,0.1) to [out=0, in=260] (5,1.5) to [out=280, in=178] (6.2,0.04) to [out=358, in=180] (7,0.02);
 				
 				\draw [->] (0,0) -- (0,2);
 				\draw [->] (0,0) -- (7,0);
@@ -1414,7 +1407,7 @@ The question is then this: \textit{is it possible to differentiate between a sym
 				\draw [-] (2,-2) -- (2,2);
 				\draw [-] (5,-2) -- (5,2);
 				
-				\draw [thick] (0,0.025) to [out=0, in=-178] (1.2, 0.05) to [out=2, in=260] (2,1.5) to [out=280, in=165] (3,0) to [out=-15, in=115] (5,-1.5) to [out=65, in=-170] (7,-0.2);
+				\draw [thick] (0,0.025) to [out=0, in=-178] (1.2, 0.05) to [out=2, in=260] (2,1.5) to [out=280, in=165] (3.5,0) to [out=-15, in=100] (5,-1.5) to [out=65, in=-170] (7,-0.2);
 				\draw [->] (0,0) -- (0,2);
 				\draw [->] (0,0) -- (7,0);
 				
@@ -1433,22 +1426,23 @@ The question is then this: \textit{is it possible to differentiate between a sym
 		}
 	}
 	\caption{The eigenfunctions of a quasi-symmetric modes. The (absolute) oscillation amplitude is equal on each boundary so such a mode could be misidentified as a symmetric mode. An example of a difference between a quasi-symmetric mode and its symmetric counterpart is that quasi-symmetric modes have asymmetric penetration depth.}
+	\label{fig: quasi-sym}
 \end{figure}
 
 
 \subsubsection{Asymmetric mode or superposition of symmetric modes?}
 
-A second implication that asymmetric eigenmodes have on mode identification in solar observations is that a waveguide oscillating in an asymmetric mode could be indistinguishable from a superposition of symmetric eigenmodes.
+A second implication that asymmetric eigenmodes have for mode identification in solar observations is that a waveguide oscillating in an asymmetric mode could be indistinguishable from a superposition of symmetric eigenmodes.
 
-Consider how one has traditionally identified sausage and kink eigenmodes of a symmetric waveguide. To identify sausage modes, it has been presumed sufficient to identify oscillation in the cross-sectional width. To identify kink modes, previous studies have presumed it to be sufficient to identify perturbation of the waveguide axis (for example, \citealp{mor_etal12}). The mixed characteristics of sausage and kink modes in asymmetric waveguides (see Table~\ref{tab: eigenmode differences}) tell us that these two characteristics are \textit{necessary} but not \textit{sufficient} for identification of the respective modes.
+Consider how one has traditionally identified sausage and kink eigenmodes of a symmetric waveguide. To identify sausage modes, it has been presumed sufficient to identify oscillation in the cross-sectional width. To identify kink modes, previous studies have presumed it to be sufficient to identify perturbation of the waveguide axis (for example, \citealp{mor_etal12}). The mixed characteristics of sausage and kink modes in asymmetric waveguides (see Table~\ref{tab: eigenmode differences}) tell us that these two characteristics are necessary but not sufficient for identification of the respective modes.
 
-To appreciate the potential misidentification, consider a hypothetical observation of a waveguide in the solar atmosphere from which oscillations can be identified in both the cross-sectional width and the axis (for example, Figure~\ref{}, which uses the same dataset analysed by \cite{mor_etal12}). If the oscillation is linear, the naive approach is to assume that the waveguide is symmetric, so that the only explanation for the cross-sectional oscillation is a symmetric sausage mode and the only explanation for the axial oscillation is a symmetric kink mode. One might then conclude that the observation is of a superposition of a sausage mode and a kink mode. However, 
+To appreciate the potential misidentification, consider a hypothetical observation of a waveguide in the solar atmosphere from which oscillations can be identified in both the cross-sectional width and the axis (for example, Figure~\ref{fig: fibril5_dt}). If the oscillation is linear, the naive approach is to assume that the waveguide is symmetric, so that the only explanation for the cross-sectional oscillation is a symmetric sausage mode and the only explanation for the axial oscillation is a symmetric kink mode. One might then conclude that the observation is of a superposition of a sausage mode and a kink mode. However, as can be seen in Table~\ref{tab: eigenmode differences}, if the waveguide is instead asymmetric (and the asymmetry need only be small, such that it might not be directly observable) then both the oscillation in cross-sectional width and the axial oscillation could be due to asymmetric eigenmodes. Therefore, the correct identification could be a quasi-sausage mode, quasi-kink mode, or superposition of both types. More information is required in order to confidently identify a mode.
 
 One possible resolution to this problem is to measure the background parameters on each side of the waveguide to determine the degree of asymmetry before identifying the modes. If the waveguide is determined to be symmetric, symmetric modes can be identified. If not, the more general asymmetric modes can be identified.
 
 One problem with this approach is that determining the key background parameters, the density and magnetic field strength, is often very difficult and estimates will have an associated uncertainty large enough that it would often not be possible to rule out the possibility of asymmetry. Another problem with this approach is that even relatively small degrees of waveguide asymmetry can cause significant asymmetry in the eigenmodes. For example, the second panel of Figure~\ref{fig: xi} shows a case where the ratio of the external densities is only $\rho_2 / \rho_1 = 2/1.5 = 1.33$ (\textit{i.e.} a relative difference of 33\%), yet the asymmetry in the eigenfunctions, measured, for example, by the ratio of the oscillation amplitudes at each interface, is approximately $|\hat{\xi}_x(x_0) / \hat{\xi}_x(-x_0)| \approx 4$ for quasi-kink modes and 0.25 for quasi-sausage modes, \textit{i.e.} a relative difference of approximately 400\%, easily sufficient to show up in observations. This is a increase in the relative difference of a factor of 12 and was determined using a typical parameter regime.
 
-A second resolution is to independently measure the propagation speeds of the cross-sectional width oscillation and axial oscillation. Distinct eigenmodes propagate at distinct phase-speeds\footnote{This is a corollary of the uniqueness of eigenvalues in Sturm-Liouville systems \citep{boy_etal12}.}. If, in fact, the observation is of a superposition of symmetric sausage and kink eigenmodes, then each eigenmode will propagate at a distinct phase speed. Specifically, the cross-sectional oscillation will propagate at a different speed to the axial oscillation, and the oscillations will become out of phase. Whereas, if the oscillations in cross-sectional width and axis are both due to a single asymmetric eigenmode, then they will both share the same propagation speed and remain in phase. If different propagation speeds between these oscillation can be identified, then it will more likely be a superposition of symmetric modes than asymmetric modes.
+A second resolution is to independently measure the propagation speeds of the cross-sectional width oscillation and axial oscillation. Distinct eigenmodes propagate at distinct phase-speeds\footnote{This is a corollary of the uniqueness of eigenvalues in Sturm-Liouville systems (see, for example, \citealp{boy_etal12}).}. If, in fact, the observation is of a superposition of symmetric sausage and kink eigenmodes, then each eigenmode will propagate at a distinct phase speed. Specifically, the cross-sectional oscillation will propagate at a different speed to the axial oscillation, and the oscillations will become out of phase. Whereas, if the oscillations in cross-sectional width and axis are both due to a single asymmetric eigenmode, then they will both share the same propagation speed and remain in phase. If different propagation speeds between these oscillation can be identified, then it will more likely be a superposition of symmetric modes than asymmetric modes.
 
 One problem with this approach is that often only a small number of periods are observed before either the wave is damped or the waveguide disappears from observational view or breaks up. A notable exception to this are decayless kink oscillations \citep{nis_etal13}. When only a small number of periods are observed, there are often either too few periods to observe the cross-sectional width oscillations to become out of phase with axial oscillations, or errors in the phase-speed measurements too large to determine a difference. A second problem is that for some equilibrium parameters, the phase speeds of the symmetric sausage and kink eigenmodes are very similar. For example, this is true for body modes in most parameter regimes and for surface modes in a wide slab (Figure~\ref{} \textcolor{red}{Include a figure of symmetric slab dispersion diagrams - maybe in chpt 1 instead and refer to it here.}).
 
@@ -1477,9 +1471,9 @@ This multi-layered flowing plasma model has application in the flank of CME ejec
 
 
 \subsection{Adjacent waveguides}
-As mentioned in the introduction to this chapter, \cite{lun_etal08} showed numerically that a system of two adjacent flux tubes of equal parameters oscillates in four trapped eigenmodes: two where the tubes oscillate in phase and two in anti-phase. As expected, the tubes oscillate independently when the distance between them significantly exceeds the wavelength. The tubes in this model are equal in spatial scale and plasma parameters, so this constitutes a symmetric model. \cite{van_etal08c} generalised this model to a system of unequal 
+As mentioned in the introduction to this chapter, \cite{lun_etal08} showed numerically that a system of two adjacent flux tubes of equal parameters oscillates in four trapped eigenmodes: two where the tubes oscillate in phase and two in anti-phase. As expected, the tubes oscillate independently when the distance between them significantly exceeds the wavelength. The tubes in this model are equal in spatial scale and plasma parameters, so this constitutes a symmetric model. \cite{van_etal08} generalised this model to a system of unequal 
 
-It is possible that our present limits on spatial resolution obscure the multi-stranded fine structure of coronal loops. There is no reason for these strands to be equal. Therefore, we might expect stands of different parameters to form a coronal loop that oscillates collectively as an asymmetric waveguide. If this is the case, the asymmetric adjacent flux tube model of \cite{van_etal08c} will be particularly useful.
+It is possible that our present limits on spatial resolution obscure the multi-stranded fine structure of coronal loops. There is no reason for these strands to be equal. Therefore, we might expect stands of different parameters to form a coronal loop that oscillates collectively as an asymmetric waveguide. If this is the case, the asymmetric adjacent flux tube model of \cite{van_etal08} will be particularly useful.
 
 
 %------------------------------------------------------------------------------
@@ -1487,13 +1481,13 @@ It is possible that our present limits on spatial resolution obscure the multi-s
 \label{sec: chpt 2 conc}
 %------------------------------------------------------------------------------
 
-In this chapter, we have investigated a simple asymmetric slab model of layered solar atmospheric waveguides using an EVP approach. We derive the dispersion relation (Equation~\eqref{DR}) for linear oscillations of this waveguide. In contrast to that of a symmetric slab (Equation~\eqref{DR sym}), the dispersion relation for an asymmetric slab does not decouple into separate equations for kink and sausage modes. Instead, all the eigenmodes are described by the single transcendental equation. Despite this, the eigenmodes can still be categorised into distinct \textit{quasi-kink} and \textit{quasi-sausage} modes depending on whether the boundary oscillations are in phase or in anti-phase, respectively.
+In this chapter, we have investigated a simple asymmetric slab model of layered solar atmospheric waveguides using an EVP approach. We derive the dispersion relation, Equation~\eqref{DR}, for linear oscillations of this waveguide. In contrast to that of a symmetric slab, Equation~\eqref{DR sym}, the dispersion relation for an asymmetric slab does not decouple into separate equations for kink and sausage modes. Instead, all the eigenmodes are described by the single transcendental equation. Despite this, the eigenmodes can still be categorised into distinct \textit{quasi-kink} and \textit{quasi-sausage} modes depending on whether the boundary oscillations are in phase or in anti-phase, respectively.
 
 There are some key difference between quasi-kink and quasi-sausage modes and their symmetric counterparts (summarised in Table~\ref{tab: eigenmode differences}). In particular, \textit{quasi-kink modes} do not preserve the cross-sectional width and are, in general compressible. This is in stark contrast to the often observed symmetric kink modes, which are practically incompressible, to the point where they are often indistinguishable from Alfv\'{e}n mode, leading to them adopting the name Alfv\'{e}nic. Both quasi-sausage and quasi-kink modes perturb the axis of the waveguide. This is in contrast to the symmetric modes, of which only kink modes perturb the waveguide axis. The mixed nature of the eigenmodes leads to the presence of avoided crossing phenomena between quasi-sausage and quasi-kink modes in the dispersion diagrams of asymmetric waveguides.
 
 These differences between the symmetric and asymmetric eigenmodes could lead to misidentification of observed MHD oscillations in the solar atmosphere. If one were to observe an MHD wave with axial displacement, it could be a kink mode of a symmetric waveguide, or a quasi-kink or quasi-sausage mode of an asymmetric waveguide. Further analysis, such as the measurement of different phase-speeds for the axial perturbation and the intensity perturbation, is required to make a confident mode identification. For this reason, we should use several observational proxies so that ambiguity can be reduced.
 
-Another mechanism for wave misidentification is due to the possible existence of quasi-symmetric eigenmodes. These are modes that appear symmetric \textit{i.e} the oscillation amplitudes on each interface are equal. This special type of asymmetric eigenmode can exist if and only if a condition on the background parameters is met (see Equation~\eqref{quasi-sym condition}). Misidentification can occur if one were to observe a wave with symmetric boundary oscillations and deduce from this that the underlying waveguide must be symmetric. From this information alone, the waveguide could be symmetric or asymmetric and the wave could be a symmetric mode or a quasi-symmetric mode. Further analysis, for example measurement of the penetration depth of the wave into the surrounding plasma, would be need to make confident mode identification. In practice, the penetration depth of MHD waves is difficult to measure due to the presence of neighbouring inhomogeneities that obscure the wave's evanescence.
+Another mechanism for wave misidentification is due to the possible existence of quasi-symmetric eigenmodes. These are modes that appear symmetric \textit{i.e.} the oscillation amplitudes on each interface are equal. This special type of asymmetric eigenmode can exist if and only if a condition, Equation~\eqref{quasi-sym condition}, on the background parameters is satisfied. Misidentification can occur if one were to observe a wave with symmetric boundary oscillations and deduce from this that the underlying waveguide must be symmetric. From this information alone, the waveguide could be symmetric or asymmetric and the wave could be a symmetric mode or a quasi-symmetric mode. Further analysis, for example measurement of the penetration depth of the wave into the surrounding plasma, would be need to make confident mode identification. In practice, the penetration depth of MHD waves is difficult to measure due to the presence of neighbouring inhomogeneities that obscure the wave's evanescence.
 
 The dispersion relation for asymmetric eigenmodes is analytically solvable under further approximations to the plasma. We derive analytically solutions in the limits of incompressible plasma, zero-beta plasma, thin slab, and wide slab. One of the key results from this is that while asymmetric surface modes are strongly dependent on the external plasma parameters, asymmetric body modes are independent of the external plasma parameters to leading order in the slab width. In particular, surface modes are strongly dependent on the waveguide asymmetry, whereas body modes are not. This has the implication that the magneto-seismology techniques developed in Chapter~\ref{chap: SMS} are only useful for surface modes.
 
@@ -1501,8 +1495,8 @@ Asymmetric eigenfunctions have unequal oscillation amplitudes on each interface 
 
 
 \appendix
-\section{Coupled oscillator asymmetric eigenmodes} \label{app: coupled oscillator modes}
-In this appendix, we prove that the breathing mode has highest amplitude on the mass connected to the external spring with lowest spring constant and the sloshing mode has highest amplitude on the mass connected to the external spring with highest spring constant.
+\section{Asymmetric eigenmodes of an asymmetric spring-mass oscillator} \label{app: coupled oscillator modes}
+In this appendix, we prove that the breathing mode has its highest amplitude on the mass connected to the external spring with lowest spring constant and the sloshing mode has highest amplitude on the mass connected to the external spring with highest spring constant.
 
 Without loss of generality, let $\omega_2 > \omega_1$, so that the spring on the right has higher spring constant than the spring on the left. First, consider the case when $W < 1$. For the breathing mode, which has eigenfrequency $\omega_+$,
 \begin{align}
