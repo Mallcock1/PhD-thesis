@@ -247,14 +247,14 @@ By imposing continuity of transverse velocity perturbation, we can determine the
 which differs to that given by \cite{rae_etal81} by the red operators.
 
 The solution in time is found by taking the inverse Laplace transform of Equations~\eqref{sol -} and~\eqref{sol +}. This is not possible for arbitrary initial conditions. To demonstrate where the corrected version deviated from the errors made in \cite{rae_etal81}, we derive the solution for several specific initial conditions.
-\color{red}
+
 
 \subsubsection{Solution for specific initial conditions}
 
-The errors in the solution given above lead to errors in the specific solutions to the initial value problem with specified initial conditions. The corrected solutions for specific initial conditions used by \cite{rae_etal81} are given below:
+The errors in the solution given above lead to errors in the specific solutions to the initial value problem. The corrected solutions for specific initial conditions used by \cite{rae_etal81} are given below:
 
 \begin{enumerate}
-	\item \textit{Vorticity constant everywhere at $t = 0$}. When the initial vorticity is given by $\Omega(x,0) = \Omega_0$, Equation~\eqref{ivp interface sol correct} gives
+	\item \label{IC1} \textit{Vorticity constant everywhere at $t = 0$}. When the initial vorticity is constant with respect to $x$, \textit{i.e. } $\Omega(x,0) = \Omega_0$, Equation~\eqref{ivp interface sol correct} gives
 	\begin{equation}
 	\tilde{v}_x = \frac{\rho_0\omega\Omega_0}{k}
 	\begin{cases}
@@ -262,7 +262,7 @@ The errors in the solution given above lead to errors in the specific solutions 
 	(1 + \frac{\epsilon_+ - \epsilon_-}{\epsilon_- + \epsilon_+}e^{-kx})/\epsilon_+, & \text{for } x>0.
 	\end{cases}
 	\end{equation}
-	\item \textit{Step function vorticity at t=0}. When the initial vorticity is given by $\Omega(x,0) = \Omega_0H(-x)$, Equation~\eqref{ivp interface sol correct} gives
+	\item \label{IC2} \textit{Step function vorticity at $t = 0$}. When the initial vorticity is given by $\Omega(x,0) = \Omega_0H(-x)$, Equation~\eqref{ivp interface sol correct} gives
 	\begin{equation}
 	\tilde{v}_x = \frac{\rho_0\omega\Omega_0}{k}
 	\begin{cases}
@@ -270,7 +270,7 @@ The errors in the solution given above lead to errors in the specific solutions 
 	\frac{1}{\epsilon_- + \epsilon_+}e^{-kx}, & \text{for } x>0.
 	\end{cases}
 	\end{equation}
-	\item \textit{Impulsive vorticity at t=0}. When the initial vorticity is given by {$\Omega(x,0) = \Omega_0\delta(k(x-x_0))$}, when $x_0>0$, Equation~\eqref{ivp interface sol correct} gives
+	\item  \label{IC3} \textit{Impulsive vorticity at $t = 0$}. When the initial vorticity\footnote{Note that \cite{rae_etal81} incorrectly use the impulsive initial condition $\Omega(x,0) = \Omega_0\delta(x-x_0)$. This can be shown to be erroneous by considering that the dimensions of the left-hand side, $\Omega(x,0)$, are $[\mathrm{Time}^{-1}]$ and therefore not equal to the dimensions of the right-hand side, $\Omega_0\delta(x-x_0)$, namely $[\mathrm{Distance}^{-1}\mathrm{Time}^{-1}]$. They also omit, without explanation, the density, $\rho_0$, from their solutions.} is given by {$\Omega(x,0) = \Omega_0\delta(k(x-x_0))$}, for $x_0>0$, Equation~\eqref{ivp interface sol correct} gives
 	\begin{equation}
 	\tilde{v}_x = \frac{\rho_0\omega\Omega_0}{k}
 	\begin{cases}
@@ -280,65 +280,54 @@ The errors in the solution given above lead to errors in the specific solutions 
 	\end{cases}
 	\end{equation}
 \end{enumerate}
-Note that \cite{rae_etal81} incorrectly use the impulsive initial condition $\Omega(x,0) = \Omega_0\delta(x-x_0)$. This can be seen by considering that the dimensions of the left-hand side, $\Omega(x,0)$, are $[\mathrm{Time}^{-1}]$ and therefore not equal to the dimensions of the right-hand side, $\Omega_0\delta(x-x_0)$, namely $[\mathrm{Distance}^{-1}\mathrm{Time}^{-1}]$. They also omit, without explanation, the density, $\rho_0$, from their solutions.
-
+%
 \begin{figure}
 	\includegraphics[width=\textwidth]{\figdir v_x.png}
-	\caption{Original \cite{rae_etal81} (blue) and corrected (green) solutions for the velocity perturbation, $\tilde{v}_x$, for initial condition 1 (left), 2 (middle), and 3 (right).}
+	\caption{Original \cite{rae_etal81} (blue) and corrected (green) solutions for the velocity perturbation, $\tilde{v}_x$, for initial condition~\ref{IC1} (left),~\ref{IC2} (middle), and~\ref{IC3} (right). The blue and green curved are the same in the right panel.}
 	\label{fig: vx}
 \end{figure}
-
 Figure~\ref{fig: vx} illustrates the solutions for the transverse velocity perturbation, $\tilde{v}_x$, for the three specific initial conditions given above, showing both the original and corrected initial transverse velocities.
 
-The full solution for the transverse velocity, $v_x(x, z, t) = v_x(x,t)e^{-ikz}$ is found by taking the inverse Laplace transform of $\tilde{v}_x$, such that
+The full solution for the transverse velocity, $v_x(x, z, t) = \hat{v}_x(x,t)e^{ikz}$ is found by taking the inverse Laplace transform of $\tilde{v}_x$, such that
 \begin{equation}
-v_x(x,t) = \frac{1}{2\pi} \lim_{T \to \infty} \int_{-T+ i\gamma}^{T + i\gamma} \tilde{v}_x(x)e^{-i\omega t} d\omega,
+\hat{v}_x(x,t) = \frac{1}{2\pi} \lim_{T \to \infty} \int_{-T+ i\gamma}^{T + i\gamma} \tilde{v}_x(x)e^{-i\omega t} d\omega,
 \end{equation}
 where $\gamma$ is real and such that all the singularities of the integrand lie below the contour of integration in the complex plane. Using Cauchy's Residue Theorem, it follows that
 \begin{equation}
-v_x(x, t) = i\sum \mathrm{Res}(\tilde{v}_xe^{-i\omega t}),
+\hat{v}_x(x, t) = i\sum \mathrm{Res}(\tilde{v}_xe^{-i\omega t}),
 \end{equation}
 where the summation is over all the singularities of the argument. 
 
-Considering initial condition 1, with uniform vorticity, the singularities of this function occur at $\epsilon_- = 0$, $\epsilon_+ = 0$, and $\epsilon_- + \epsilon_+ = 0$. This corresponds to simple poles at $\omega = \pm kv_{A-}$, $\omega = \pm kv_{A+}$, $\omega = \pm kv_s$, respectively, where
+Considering initial condition~\ref{IC1}, with uniform vorticity, the singularities of this function occur at $\epsilon_- = 0$, $\epsilon_+ = 0$, and $\epsilon_- + \epsilon_+ = 0$. This corresponds to simple poles at $\omega = \pm kv_{A-}$, $\omega = \pm kv_{A+}$, and $\omega = \pm kv_s$, respectively, where
 \begin{equation}
-v_s = \sqrt{\frac{\rho_-v_{A-}^2 + \rho_+v_{A+}^2}{\rho_- + \rho_+}} = \sqrt{\frac{v_{A-}^2 + +v_{A+}^2}{2}},
+v_s = \sqrt{\frac{v_{A-}^2 + v_{A+}^2}{2}}.
 \end{equation}
-since we have assumed uniform density across the interface.
-
 The residues of the singularities are as follows:
-\begin{equation}
-\mathrm{Res}(\tilde{v}_x e^{-i\omega t}; \pm kv_{A+}) = -\frac{\Omega_0}{2k} e^{\mp ikv_{A+}t}
+\begin{align}
+\mathrm{Res}\{\tilde{v}_x e^{-i\omega t}; \pm kv_{A+}\} &= -\frac{\Omega_0}{2k} e^{\mp ikv_{A+}t}
 \begin{cases}
-0, & \text{ if } x<0, \\
-1 - e^{-kx}, & \text{ if } x>0.
-\end{cases}
-\end{equation}
-
-\begin{equation}
-\mathrm{Res}(\tilde{v}_x e^{-i\omega t}; \pm kv_{A-}) = -\frac{\Omega_0}{2k} e^{\mp ikv_{A-}t}
+0, & \text{for  } x<0, \\
+1 - e^{-kx}, & \text{for  } x>0.
+\end{cases} \\
+\mathrm{Res}\{\tilde{v}_x e^{-i\omega t}; \pm kv_{A-}\} &= -\frac{\Omega_0}{2k} e^{\mp ikv_{A-}t}
 \begin{cases}
-1 - e^{kx}, & \text{ if } x<0, \\
-0, & \text{ if } x>0.
-\end{cases}
-\end{equation}
-
-\begin{equation}
-\mathrm{Res}(\tilde{v}_x e^{-i\omega t}; \pm kv_{s}) = -\frac{\Omega_0}{2k} e^{\mp ikv_st} 
+1 - e^{kx}, & \text{for  } x<0, \\
+0, & \text{for  } x>0.
+\end{cases} \\
+\mathrm{Res}\{\tilde{v}_x e^{-i\omega t}; \pm kv_{s}\} &= -\frac{\Omega_0}{2k} e^{\mp ikv_st} 
 \begin{cases}
-e^{kx}, & \text{ if } x<0, \\
-e^{-kx}, & \text{ if } x>0.
+e^{kx}, & \text{for  } x<0, \\
+e^{-kx}, & \text{for  } x>0.
 \end{cases}
-\end{equation}
-
+\end{align}
 By summing these, we find that
 \begin{equation}
-v_x(x, t) = -\frac{i\Omega_0}{k} \begin{cases}
-\cos(kv_{A-}t)(1-e^{kx}) + \cos(kv_st)e^{kx}, & \text{ if } x<0, \\
-\cos(kv_{A+}t)(1-e^{-kx}) + \cos(kv_st)e^{-kx}, & \text{ if } x>0. \\
+\hat{v}_x(x, t) = -\frac{i\Omega_0}{k} \begin{cases}
+\cos(kv_{A-}t)(1-e^{kx}) + \cos(kv_st)e^{kx}, & \text{for  } x<0, \\
+\cos(kv_{A+}t)(1-e^{-kx}) + \cos(kv_st)e^{-kx}, & \text{for  } x>0. \\
 \end{cases}
 \end{equation}
-This solution differs from that given by \cite{rae_etal81} because it involves a contribution from surface waves, not just body waves, as concluded in \cite{rae_etal81}.
+The full solution for $v_x$ is recovered by multiplying the above expression by $e^{ikz}$. This solution differs from that given by \cite{rae_etal81} most notably with a contribution from surface waves (first term), not just body waves (second term).
 
 
 \color{red}
