@@ -241,8 +241,8 @@ Equation~\eqref{sol -} is the corrected version of Equation~(16) in \cite{rae_et
 
 By imposing continuity of transverse velocity perturbation, we can determine the constants $A_-$ and $A_+$ to be
 \begin{align}
-\tilde{A}_- & = \frac{1}{k(\epsilon_- + \epsilon_+)}\left[\textcolor{red}{-} \: \int_{-\infty}^0 f(s)e^{ks} ds - \frac{1}{2}\left(1 - \frac{\epsilon_-}{\epsilon_+}\right)\int_0^\infty f(s)e^{-ks} ds\right], \\
-\tilde{A}_+ & = \frac{1}{k(\epsilon_- + \epsilon_+)}\left[-\int_0^\infty f(s)e^{-ks} ds \: \textcolor{red}{-} \: \frac{1}{2}\left(1 - \frac{\epsilon_+}{\epsilon_-}\right)\int_{-\infty}^0 f(s)e^{ks} ds\right],
+\tilde{A}_+ & = \frac{1}{k(\epsilon_- + \epsilon_+)}\left[\textcolor{red}{-} \: \int_{-\infty}^0 f(s)e^{ks} ds - \frac{1}{2}\left(1 - \frac{\epsilon_-}{\epsilon_+}\right)\int_0^\infty f(s)e^{-ks} ds\right], \\
+\tilde{A}_- & = \frac{1}{k(\epsilon_- + \epsilon_+)}\left[-\int_0^\infty f(s)e^{-ks} ds \: \textcolor{red}{-} \: \frac{1}{2}\left(1 - \frac{\epsilon_+}{\epsilon_-}\right)\int_{-\infty}^0 f(s)e^{ks} ds\right],
 \end{align}
 which differs to that given by \cite{rae_etal81} by the red operators.
 
@@ -302,32 +302,115 @@ Considering initial condition~\ref{IC1}, with uniform vorticity, the singulariti
 \begin{equation}
 v_s = \sqrt{\frac{v_{A-}^2 + v_{A+}^2}{2}}.
 \end{equation}
-The residues of the singularities are as follows:
+The residues associated to each singularity are
 \begin{align}
 \mathrm{Res}\{\tilde{v}_x e^{-i\omega t}; \pm kv_{A+}\} &= -\frac{\Omega_0}{2k} e^{\mp ikv_{A+}t}
 \begin{cases}
-0, & \text{for  } x<0, \\
-1 - e^{-kx}, & \text{for  } x>0.
+0, & \text{for  } x < 0, \\
+1 - e^{-kx}, & \text{for  } x > 0, 
 \end{cases} \\
 \mathrm{Res}\{\tilde{v}_x e^{-i\omega t}; \pm kv_{A-}\} &= -\frac{\Omega_0}{2k} e^{\mp ikv_{A-}t}
 \begin{cases}
-1 - e^{kx}, & \text{for  } x<0, \\
-0, & \text{for  } x>0.
+1 - e^{kx}, & \text{for  } x < 0, \\
+0, & \text{for  } x > 0,
 \end{cases} \\
 \mathrm{Res}\{\tilde{v}_x e^{-i\omega t}; \pm kv_{s}\} &= -\frac{\Omega_0}{2k} e^{\mp ikv_st} 
 \begin{cases}
-e^{kx}, & \text{for  } x<0, \\
-e^{-kx}, & \text{for  } x>0.
+e^{kx}, & \text{for  } x < 0, \\
+e^{-kx}, & \text{for  } x > 0.
 \end{cases}
 \end{align}
-By summing these, we find that
+By summing these residues, we find that
 \begin{equation}
 \hat{v}_x(x, t) = -\frac{i\Omega_0}{k} \begin{cases}
 \cos(kv_{A-}t)(1-e^{kx}) + \cos(kv_st)e^{kx}, & \text{for  } x<0, \\
 \cos(kv_{A+}t)(1-e^{-kx}) + \cos(kv_st)e^{-kx}, & \text{for  } x>0. \\
 \end{cases}
 \end{equation}
-The full solution for $v_x$ is recovered by multiplying the above expression by $e^{ikz}$. This solution differs from that given by \cite{rae_etal81} most notably with a contribution from surface waves (first term), not just body waves (second term).
+This solution differs from that given by \cite{rae_etal81} most notably with a contribution from surface waves (second term), not just body waves (first term).
+
+The full solution for $v_x$, when the initial disturbance is of the form of a single wave, is recovered by multiplying the above expression by $e^{ikz}$. In reality, an initial disturbance will be of finite extent. This is the subject of the following subsection.
+
+
+\subsubsection{Solution for an initial disturbance of finite extent}
+
+The response to a disturbance of finite extent is obtained by a superposition over the wavenumber $k$, that is
+\begin{equation}
+v_x(x, z, t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} \hat{v}_x(x, t) e^{ikz} ~dz.
+\end{equation}
+This is the inverse Fourier transform.
+
+Let's consider an initial impulse that has uniform vorticity with respect to $x$ and is uniform over a finite range $[-z_0, z_0]$, outside of which it is zero. Precisely, the initial velocity is
+\begin{equation}
+v_x(x, z, 0) = \frac{v_0}{2z_0}[H(z + z_0) - H(z - z_0)],
+\end{equation}
+where $H$ is the Heaviside step function and $v_0$ is constant. The division by $2z_0$ ensures invariance of the integral of the initial velocity as the domain of initial disturbance is varied. In particular, it means that in the limit as $z_0 \to 0$, the initial velocity is a Dirac Delta pulse. Therefore, the initial vorticity is
+\begin{equation}
+\Omega(x, z, 0) \mathbf{\hat{y}} = \nabla \times \bv = \frac{v_0}{2z_0}[\delta(z + z_0) - \delta(z - z_0)] \mathbf{\hat{y}},
+\end{equation}
+which, in $k$-space, is
+\begin{equation}
+\hat{\Omega}(x, 0) = \int_{-\infty}^{\infty} \Omega(x, z, 0) e^{-ikz} ~dz = i\frac{v_0}{z_0}\sin(kz_0).
+\end{equation}
+The temporal evolution of this initial velocity pulse over a finite $z$-domain is, for the region $\pm x > 0$,
+\begin{align}
+v_x(x, z, t) &= -\frac{v_0}{2\pi z_0} \int_{\infty}^{\infty} \frac{1}{k}\sin(kz_0) [(\cos(kv_{A\pm}t) - \cos(kv_st))e^{-|k||x|} - \cos(kv_{A\pm}t)] e^{ikz} ~dk \\
+& = -\frac{v_0}{\pi z_0} \int_{0}^{\infty} \frac{1}{k}\sin(kz_0) \cos{kz} [(\cos(kv_{A\pm}t) - \cos(kv_st))e^{-k|x|} - \cos(kv_{A\pm}t)] ~dk,
+\end{align}
+where we have used the fact that an odd function integrated over the real line in zero and an even function integrated over the real line is twice its integral over the positive real line. We also used the product-to-sum identity $2\cos{\theta}\sin{\phi} = \sin(\theta + \phi) - \sin(\theta - \phi)$. Further, by use of the similar identity $2\sin{\theta}\cos{\phi} = \sin(\theta + \phi) + \sin(\theta - \phi)$, we are reduce to a series of integrals like
+\begin{equation}
+I_1 = \int_{0}^{\infty} \frac{1}{k}\sin(k(z + z_0 + v_{A\pm}))e^{-k|x|} ~dk,
+\end{equation}
+and
+\begin{equation}
+I_2 = \int_{0}^{\infty} \frac{1}{k}\sin(k(z + z_0 + v_{A\pm})) ~dk.
+\end{equation}
+The first of these is a known integral, whose general form can be evaluated like
+\begin{equation}
+\int_{0}^{\infty} \frac{1}{x}\sin(ax) e^{-bx} ~dx = \tan^{-1}\left(\frac{a}{b}\right),
+\end{equation}
+for $b > 0$. The second of these is a limiting case of a sine integral, $\mathrm{Si}(x)$, which can be evaluated in its general form as
+\begin{align}
+\int_{0}^{\infty} \frac{1}{t}\sin(at) ~dt &= \lim_{x \to \infty}\int_{0}^{ax} \frac{1}{t}\sin{t} ~dt \\
+&= \lim_{x \to \infty} \mathrm{Si}(ax)  \\
+&=
+\begin{cases}
+\pi/2, &\text{if  } a > 0, \\
+0, &\text{if  } a = 0, \\
+-\pi/2, &\text{if  } a < 0,
+\end{cases} \\
+&= \frac{\pi}{2}[2H(a) - 1].
+\end{align}
+Using the above results leads us to the solution
+\begin{align}
+v_x(x, z, t) = \frac{v_0}{4\pi z_0} \bigg[ &\tan^{-1}\left( \frac{z + z_0 + v_{A\pm}t}{|x|} \right) + \tan^{-1}\left( \frac{z + z_0 - v_{A\pm}t}{|x|} \right)  \notag \\
+&- \tan^{-1}\left( \frac{z - z_0 + v_{A\pm}t}{|x|} \right) - \tan^{-1}\left( \frac{z - z_0 - v_{A\pm}t}{|x|} \right) \notag \\
+&- \tan^{-1}\left( \frac{z + z_0 + v_st}{|x|} \right) - \tan^{-1}\left( \frac{z + z_0 - v_st}{|x|} \right) \notag \\
+&+ \tan^{-1}\left( \frac{z - z_0 + v_st}{|x|} \right) + \tan^{-1}\left( \frac{z - z_0 - v_st}{|x|} \right) \notag \\
+&-\pi \left\{ H(z + z_0 + v_{A\pm}t) + H(z + z_0 - v_{A\pm}t) \right.  \notag \\
+&\left. - H(z - z_0 + v_{A\pm}t) - H(z - z_0 - v_{A\pm}t) \right\} \bigg], \label{sol top hat}
+\end{align}
+The solution given by Equation~\eqref{sol top hat} corresponds to surface waves and body waves with corresponding wakes that propagate at characteristic speeds $v_s$ and $v_{A\pm}$, where the $\pm$ refers to the side of the interface. By taking $t = 0$ in Equation~\eqref{sol top hat}, we can recover the initial velocity profile. In the limit as $z_0 \to \infty$, we find that the temporal evolution of the initial velocity pulse $v_x(x, z, t) = v_0 \delta(z)$ is
+\begin{align}
+v_x(x, z, t) = \frac{v_0}{2\pi} \bigg[ &\frac{|x|}{x^2 + (z + v_{A\pm}t)^2} + \frac{|x|}{x^2 + (z - v_{A\pm}t)^2} \notag \\
+&-\frac{|x|}{x^2 + (z + v_st)^2} - \frac{|x|}{x^2 + (z - v_st)^2} \notag \\
+& -\pi\{\delta(z + v_{A\pm}t) - \delta(z - v_{A\pm}t)\} \bigg].
+\end{align}
+In deriving the above limit we have used the results that
+\begin{equation}
+\lim_{z_0 \to 0} \left[\frac{1}{2z_0}\{H(z + z_0) - H(z - z_0)\}\right] = \delta(z),
+\end{equation}
+and, using L'Hopital's rule,
+\begin{align}
+&\lim_{z_0 \to 0} \left[\frac{1}{2z_0}\left\{\tan^{-1}\left( \frac{z + z_0 + v_{A\pm}t}{|x|} \right) - \tan^{-1}\left( \frac{z - z_0 + v_{A\pm}t}{|x|} \right)\right\}\right] \\
+&= \frac{1}{2} \lim_{z_0 \to 0} \frac{d}{dz_0} \left[\tan^{-1}\left( \frac{z + z_0 + v_{A\pm}t}{|x|} \right) - \tan^{-1}\left( \frac{z - z_0 + v_{A\pm}t}{|x|} \right)\right] \\
+&= \frac{1}{2} \lim_{z_0 \to 0} \left[ \frac{|x|}{x^2 + (z + z_0 + v_{A\pm}t)^2} + \frac{|x|}{x^2 + (z - z_0 + v_{A\pm}t)^2} \right] \\
+&= \frac{|x|}{x^2 + (z + v_{A\pm}t)^2}.
+\end{align}
+
+
+
+
 
 
 \color{red}
