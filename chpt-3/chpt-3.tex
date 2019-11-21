@@ -259,7 +259,7 @@ The errors in the solution given above lead to errors in the specific solutions 
 \begin{enumerate}
 	\item \label{IC1} \textit{Vorticity constant everywhere at $t = 0$}. When the initial vorticity is constant with respect to $x$, \textit{i.e.} $\Omega(x,0) = \Omega_0$, Equation~\eqref{ivp interface sol correct} gives
 	\begin{equation}
-	\tilde{v}_x = \frac{\rho_0\omega\Omega_0}{k}
+	\tilde{v}_x = -\frac{\rho_0\omega\Omega_0}{k}
 	\begin{cases}
 	(1 + \frac{\epsilon_- - \epsilon_+}{\epsilon_- + \epsilon_+}e^{kx})/\epsilon_-, & \text{for } x<0, \\
 	(1 + \frac{\epsilon_+ - \epsilon_-}{\epsilon_- + \epsilon_+}e^{-kx})/\epsilon_+, & \text{for } x>0.
@@ -267,7 +267,7 @@ The errors in the solution given above lead to errors in the specific solutions 
 	\end{equation}
 	\item \label{IC2} \textit{Step function vorticity at $t = 0$}. When the initial vorticity is given by $\Omega(x,0) = \Omega_0H(-x)$, Equation~\eqref{ivp interface sol correct} gives
 	\begin{equation}
-	\tilde{v}_x = \frac{\rho_0\omega\Omega_0}{k}
+	\tilde{v}_x = -\frac{\rho_0\omega\Omega_0}{k}
 	\begin{cases}
 	(1 - \frac{\epsilon_+}{\epsilon_- + \epsilon_+}e^{kx})/\epsilon_-, & \text{for } x<0, \\
 	\frac{1}{\epsilon_- + \epsilon_+}e^{-kx}, & \text{for } x>0.
@@ -275,7 +275,7 @@ The errors in the solution given above lead to errors in the specific solutions 
 	\end{equation}
 	\item  \label{IC3} \textit{Impulsive vorticity at $t = 0$}. When the initial vorticity\footnote{Note that \cite{rae_etal81} incorrectly use the impulsive initial condition $\Omega(x,0) = \Omega_0\delta(x-x_0)$. This can be shown to be erroneous by considering that the dimensions of the left-hand side, $\Omega(x,0)$, are $[\mathrm{Time}^{-1}]$ and therefore not equal to the dimensions of the right-hand side, $\Omega_0\delta(x-x_0)$, namely $[\mathrm{Distance}^{-1}\mathrm{Time}^{-1}]$. They also omit, without explanation, the density, $\rho_0$, from their solutions.} is given by {$\Omega(x,0) = \Omega_0\delta(k(x-x_0))$}, for $x_0>0$, Equation~\eqref{ivp interface sol correct} gives
 	\begin{equation}
-	\tilde{v}_x = \frac{\rho_0\omega\Omega_0}{k}
+	\tilde{v}_x = -\frac{\rho_0\omega\Omega_0}{k}
 	\begin{cases}
 	\frac{1}{\epsilon_- + \epsilon_+}e^{-k(x_0 - x)}, & \text{for } x < 0, \\
 	\frac{\epsilon_+ - \epsilon_-}{2\epsilon_+(\epsilon_- + \epsilon_+)}e^{-k(x + x_0)} + \frac{e^{-k(x_0 - x)}}{2\epsilon_+}, & \text{for } 0<x<x_0, \\
@@ -297,9 +297,9 @@ The full solution for the transverse velocity, $v_x(x, z, t) = \hat{v}_x(x,t)e^{
 \end{equation}
 where $\gamma$ is real and such that all the singularities of the integrand lie below the contour of integration in the complex plane. Using Cauchy's Residue Theorem, it follows that
 \begin{equation}
-\hat{v}_x(x, t) = i\sum \mathrm{Res}(\tilde{v}_xe^{-i\omega t}),
+\hat{v}_x(x, t) = -i\sum \mathrm{Res}(\tilde{v}_xe^{-i\omega t}),
 \end{equation}
-where the summation is over all the singularities of the argument. 
+where the summation is over all the singularities of the argument.
 
 Considering initial condition~\ref{IC1}, with uniform vorticity, the singularities of this function occur at $\epsilon_- = 0$, $\epsilon_+ = 0$, and $\epsilon_- + \epsilon_+ = 0$. This corresponds to simple poles at $\omega = \pm kv_{A-}$, $\omega = \pm kv_{A+}$, and $\omega = \pm kv_s$, respectively, where
 \begin{equation}
@@ -307,17 +307,17 @@ v_s = \sqrt{\frac{v_{A-}^2 + v_{A+}^2}{2}}.
 \end{equation}
 The residues associated to each singularity are
 \begin{align}
-\mathrm{Res}\{\tilde{v}_x e^{-i\omega t}; \pm kv_{A+}\} &= -\frac{\Omega_0}{2k} e^{\mp ikv_{A+}t}
+\mathrm{Res}\{\tilde{v}_x e^{-i\omega t}; \pm kv_{A+}\} &= \frac{\Omega_0}{2k} e^{\mp ikv_{A+}t}
 \begin{cases}
 0, & \text{for  } x < 0, \\
 1 - e^{-kx}, & \text{for  } x > 0, 
 \end{cases} \\
-\mathrm{Res}\{\tilde{v}_x e^{-i\omega t}; \pm kv_{A-}\} &= -\frac{\Omega_0}{2k} e^{\mp ikv_{A-}t}
+\mathrm{Res}\{\tilde{v}_x e^{-i\omega t}; \pm kv_{A-}\} &= \frac{\Omega_0}{2k} e^{\mp ikv_{A-}t}
 \begin{cases}
 1 - e^{kx}, & \text{for  } x < 0, \\
 0, & \text{for  } x > 0,
 \end{cases} \\
-\mathrm{Res}\{\tilde{v}_x e^{-i\omega t}; \pm kv_{s}\} &= -\frac{\Omega_0}{2k} e^{\mp ikv_st} 
+\mathrm{Res}\{\tilde{v}_x e^{-i\omega t}; \pm kv_{s}\} &= \frac{\Omega_0}{2k} e^{\mp ikv_st} 
 \begin{cases}
 e^{kx}, & \text{for  } x < 0, \\
 e^{-kx}, & \text{for  } x > 0.
@@ -329,6 +329,7 @@ By summing these residues, we find that
 \cos(kv_{A-}t)(1-e^{kx}) + \cos(kv_st)e^{kx}, & \text{for  } x<0, \\
 \cos(kv_{A+}t)(1-e^{-kx}) + \cos(kv_st)e^{-kx}, & \text{for  } x>0. \\
 \end{cases}
+\label{sol int}
 \end{equation}
 This solution differs from that given by \cite{rae_etal81} most notably with a contribution from surface waves (second term), not just body waves (first term).
 
@@ -417,9 +418,9 @@ Equation~\eqref{sol dirac delta}, where we can see the contribution from the sur
 
 
 
-\textcolor{red}{
+\color{red}
 \subsection{Continuous interface}
-}
+\color{black}
 
 
 
@@ -692,79 +693,71 @@ With the location of the singularities of the integrand in hand, we can evaluate
 	\caption{Bromwich contour for the complex integration of $\tilde{A}_{1,2}$.}
 	\label{fig: brom cont incomp}
 \end{figure}
-\color{red}
-Considering first the integral along $C_1$, we see that the integrand in question behaves like $T_1(\omega)/kD(\omega) = \mathcal{O}(|\omega|^{-2})$, as $|\omega| \to \infty$. Therefore, the integral around the semi-circle vanishes, \textit{i.e.}
+Considering first the integral along $C_1$, the integrand in question behaves like $T_1(\omega)/kD(\omega) = \mathcal{O}(|\omega|^{-2})$, as $|\omega| \to \infty$. Therefore, the integral around the semi-circle vanishes, \textit{i.e.}
 \begin{equation}
 \lim_{L \to \infty} \int_{C_1} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega = 0.
 \end{equation}
-So we have successfully chosen a sequence of contours which limit to the same limit as that of Equation~\eqref{sol incomp}. Thankfully the integral around each of these new contours is much easier to calculate than the original, as will be exploited in the following paragraph.
 
-Next, considering the integral along contour $C$, since it is integrated in the clockwise direction it is therefore equal to $-2\pi i$ multiplied by the sum of the residues of the singularities at $\omega = \pm \omega_{0\pm}$. The residues are evaluated using L'Hopital's Rule (the necessary requirements ensuring the validity of this rule are verified in Appendix~\ref{app: l'hopital}). To within a free choice of initial condition, $f(x,\omega)$, the residue at $\omega = \omega_{0+}$ is
+Next, the integral along contour $C$ is integrated in the clockwise direction it is therefore equal to $-2\pi i$ multiplied by the sum of the residues of the singularities at $\omega = \pm \omega_{0\pm}$. The residues are evaluated using L'Hopital's Rule (the requirements ensuring the validity of this rule are verified in Appendix~\ref{app: l'hopital}). For arbitrary choice of initial condition, $f(x,\omega)$, the residue at $\omega = \omega_{0+}$ is
 \begin{align}
-\mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = \omega_{0+} \right] &= 
-\lim_{\omega \to \omega_{0+}} \frac{(\omega - \omega_{0+})T_1(\omega)}{kD(\omega)} e^{-i\omega t} \\ 
-&= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} [T_1(\omega) + (\omega - \omega_{0+})T'_1(\omega) - it(\omega - \omega_{0+})T_1(\omega)]e^{-i\omega t} \\
-&= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} T_1\left[\omega \Psi_0 + i\frac{\partial \Psi_0}{\partial t}\right](\omega) e^{-i\omega t} \\
-&= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} \left\{ \omega T_1[\Psi_0](\omega) + iT_1\left[\frac{\partial \Psi_0}{\partial t}\right](\omega) \right\} e^{-i\omega t} \\
+\mathrm{Res}&\left\{\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}; \omega = \omega_{0+} \right\} = 
+\lim_{\omega \to \omega_{0+}} \frac{(\omega - \omega_{0+})T_1(\omega)}{kD(\omega)} e^{-i\omega t} \notag \\ 
+&= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} [T_1(\omega) + (\omega - \omega_{0+})T'_1(\omega) - it(\omega - \omega_{0+})T_1(\omega)]e^{-i\omega t} \notag \\
+&= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} T_1\left[\omega \Psi_0 + i\frac{\partial \Psi_0}{\partial t}\right](\omega) e^{-i\omega t} \notag \\
+&= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} \left\{ \omega T_1[\Psi_0](\omega) + iT_1\left[\frac{\partial \Psi_0}{\partial t}\right](\omega) \right\} e^{-i\omega t} \notag \\
 &= \left\{ \omega_{0+} \chi_{1+}[\Psi_0] + i\chi_{1+}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{-i\omega_{0+} t},
 \end{align}
 where $\chi_{1+}[g] = T_1[g](\omega_{0+}) / kD'(\omega_{0+})$ is a functional mapping an arbitrary function $g$ to the real numbers. Similarly, the residues at $\omega = -\omega_{0+}$ and $\omega = \pm\omega_{0-}$ are
 \begin{align}
-\mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = -\omega_{0+} \right] &= \left\{ \omega_{0+} \chi_{1+}[\Psi_0] - i\chi_{1+}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{i\omega_{0+} t}, \\
-\mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = \omega_{0-} \right] &= \left\{ \omega_{0-} \chi_{1-}[\Psi_0] + i\chi_{1-}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{-i\omega_{0-} t}, \\
-\mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = -\omega_{0-} \right] &= \left\{ \omega_{0-} \chi_{1-}[\Psi_0] - i\chi_{1-}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{i\omega_{0-} t}, \\
+\mathrm{Res}\left\{\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}; \omega = -\omega_{0+} \right\} &= \left\{ \omega_{0+} \chi_{1+}[\Psi_0] - i\chi_{1+}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{i\omega_{0+} t}, \\
+\mathrm{Res}\left\{\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}; \omega = \pm \omega_{0-} \right\} &= \left\{ \omega_{0-} \chi_{1-}[\Psi_0] \pm i\chi_{1-}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{\mp i\omega_{0-} t},
 \end{align}
-respectively, where we define $\chi_{1-}[g] = T_1[g](\omega_{0-}) / kD'(\omega_{0-})$. In the above derivation, we have used the fact that $D'$ is an odd function of $\omega$, and $D$ and $T_1[g]$ are even functions of $\omega$ for any function $g$ that does not depend on $\omega$.
+respectively, where we define $\chi_{1-}[g] = T_1[g](\omega_{0-}) / kD'(\omega_{0-})$. To derive these residues, we have used the fact that $D'$ is an odd function of $\omega$, and $D$ and $T_1[g]$ are even functions of $\omega$, for any function $g$ that is constant with respect to $\omega$.
 
-Compiling the above results, we find that solution of the first ILT of Equation~\eqref{sol incomp}, or equivalently the boundary velocity, is
+Compiling the above results, the solution of the first inverse Laplace Transform of Equation~\eqref{sol incomp} is
 \begin{align}
 \mathcal{L}^{-1}\left\{ \tilde{A}_1 \right\} &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{C_0} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega \\
-&= \frac{1}{2\pi} \lim_{L \to \infty} \int_{C} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega \\
-&= -i \sum \mathrm{Res}\left[\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}, \omega = \pm \omega_{0\pm} \right] \\
-&= -i \left[\omega_{0+}\chi_{1+}[\Psi_0] (e^{-i\omega_{0+} t} + e^{i\omega_{0+} t}) + i\chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] (e^{-i\omega_{0+} t} - e^{i\omega_{0+} t}) \right. \\
-& \qquad\quad \left. + \omega_{0-}\chi_{1-}[\Psi_0] (e^{-i\omega_{0-} t} + e^{i\omega_{0-} t}) + i\chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] (e^{-i\omega_{0-} t} - e^{i\omega_{0-} t})\right] \\
-&= -2 \left[ i\omega_{0+}\chi_{1+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) \right. \\
-& \qquad\quad \left. + i\omega_{0-}\chi_{1-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right].
+&= \frac{1}{2\pi} \lim_{L \to \infty} \int_{C} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega \notag \\
+&= -i \sum \mathrm{Res}\left\{\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}; \omega = \pm \omega_{0\pm} \right\} \notag \\
+&= -i \left\{\omega_{0+}\chi_{1+}[\Psi_0] (e^{-i\omega_{0+} t} + e^{i\omega_{0+} t}) + i\chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] (e^{-i\omega_{0+} t} - e^{i\omega_{0+} t}) \right. \notag \\
+& \qquad\quad \left. + \omega_{0-}\chi_{1-}[\Psi_0] (e^{-i\omega_{0-} t} + e^{i\omega_{0-} t}) + i\chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] (e^{-i\omega_{0-} t} - e^{i\omega_{0-} t})\right\} \notag \\
+&= -2 \left\{ i\omega_{0+}\chi_{1+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) \right. \notag \\
+& \qquad\quad \left. + i\omega_{0-}\chi_{1-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\}.
 \end{align}
 
 
-The second ILT in Equation~\eqref{sol incomp}, $\mathcal{L}^{-1}\{ \omega / \e_1 \}$, is calculated as follows.
-\begin{equation}
-\mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} = \frac{1}{2\pi}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{\omega e^{-i\omega t}}{\e_1} d\omega,
-= \frac{1}{2\pi\rho_1}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{\omega e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} d\omega,
-\end{equation}
-whose integrand has 2 simple poles at $\omega = \pm k v_{A1}$. By noting that the integrand approaches zero as $\omega \to \infty$, we can construct a Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the simple poles are
+The second inverse Laplace transform in Equation~\eqref{sol incomp} is calculated as follows.
 \begin{align}
-\mathrm{Res}\left[\frac{\omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}, \omega = kv_{A1} \right] &= 
-\lim_{\omega \to kv_{A1}} \frac{(\omega - kv_{A1}) \omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \\ 
-&= -\frac{e^{-ikv_{A1} t}}{2}, \\
-\mathrm{Res}\left[\frac{\omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}, \omega = -kv_{A1} \right] &= 
-\lim_{\omega \to -kv_{A1}} \frac{(\omega + kv_{A1}) \omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \\ 
-&= -\frac{e^{ikv_{A1} t}}{2}.
+\mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} &= \frac{1}{2\pi}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{\omega e^{-i\omega t}}{\e_1} ~d\omega \notag \\
+&= \frac{1}{2\pi\rho_1}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{\omega e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} ~d\omega,
 \end{align}
-Therefore, the second ILT in Equation~\eqref{sol incomp} is
+whose integrand has simple poles at $\omega = \pm k v_{A1}$. From Jordan's Lemma it follows that the integrand vanishes as $\omega \to \infty$, we can construct a Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the simple poles are
+\begin{align}
+\mathrm{Res}\left\{\frac{\omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}; \omega = \pm kv_{A1} \right\} &= 
+\lim_{\omega \to \pm kv_{A1}} \frac{(\omega \mp kv_{A1}) \omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \\ 
+&= -\frac{1}{2}e^{\mp ikv_{A1} t}.
+\end{align}
+Therefore, the second inverse Laplace transform in Equation~\eqref{sol incomp} is
 \begin{equation}
-\mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} = -\frac{i}{\rho_1} \sum \mathrm{Res} \left[ \frac{\omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}, \omega = \pm kv_{A1} \right] = \frac{i}{\rho_1}\cos{kv_{A1}t}.
+\mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} = -\frac{i}{\rho_1} \sum \mathrm{Res} \left\{ \frac{\omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}; \omega = \pm kv_{A1} \right\} = \frac{i}{\rho_1}\cos{kv_{A1}t}.
 \end{equation}
 
-Similarly, the third and final ILT in Equation~\eqref{sol incomp}, $\mathcal{L}^{-1}\{ 1 / \e_1 \}$, is calculated as follows.
-\begin{equation}
-\mathcal{L}^{-1}\left\{ \frac{1}{\e_1} \right\} = \frac{1}{2\pi}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} d\omega,
-= \frac{1}{2\pi\rho_1}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} d\omega,
-\end{equation}
-whose integrand has 2 simple poles at $\omega = \pm k v_{A1}$. By noting that the integrand approaches zero as $\omega \to \infty$, we can construct a Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the simple poles are
+The third and final inverse Laplace transform in Equation~\eqref{sol incomp} is calculated as follows.
 \begin{align}
-\mathrm{Res}\left[\frac{e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}, \omega = kv_{A1} \right] &= 
-\lim_{\omega \to kv_{A1}} \frac{(\omega - kv_{A1}) e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \\ 
-&= -\frac{e^{-ikv_{A1} t}}{2kv_{A1}}, \\
-\mathrm{Res}\left[\frac{\omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}, \omega = -kv_{A1} \right] &= 
-\lim_{\omega \to -kv_{A1}} \frac{(\omega + kv_{A1}) e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \\ 
-&= \frac{e^{ikv_{A1} t}}{2kv_{A1}}.
+\mathcal{L}^{-1}\left\{ \frac{1}{\e_1} \right\} &= \frac{1}{2\pi}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} ~d\omega, \notag \\
+&= \frac{1}{2\pi\rho_1}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} ~d\omega,
 \end{align}
-Therefore, the final ILT in Equation~\eqref{sol incomp} is
-\begin{equation}
-\mathcal{L}^{-1}\left\{ \frac{1}{\e_1} \right\} = -\frac{i}{\rho_1} \sum \mathrm{Res} \left[ \frac{e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}, \omega = \pm kv_{A1} \right] = \frac{\sin{kv_{A1}t}}{\rho_1kv_{A1}}.
-\end{equation}
+whose integrand has simple poles at $\omega = \pm k v_{A1}$. By noting that the integrand approaches zero as $\omega \to \infty$, we can construct a Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the simple poles are
+\begin{align}
+\mathrm{Res}\left\{\frac{e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}; \omega = \pm kv_{A1} \right\} &= 
+\lim_{\omega \to \pm kv_{A1}} \frac{(\omega - kv_{A1}) e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \notag \\ 
+&= \mp \frac{1}{2kv_{A1}} e^{\mp ikv_{A1} t}.
+\end{align}
+Therefore, the final inverse Laplace transform in Equation~\eqref{sol incomp} is
+\begin{align}
+\mathcal{L}^{-1}\left\{ \frac{1}{\e_1} \right\} &= -\frac{i}{\rho_1} \sum \mathrm{Res} \left\{ \frac{e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}; \omega = \pm kv_{A1} \right\} \notag \\
+&= \frac{1}{\rho_1kv_{A1}} \sin{kv_{A1}t}.
+\end{align}
 
 \begin{figure}
 	\centering
@@ -797,45 +790,46 @@ Therefore, the final ILT in Equation~\eqref{sol incomp} is
 	\caption{Bromwich contour for the complex integration of the integrand of $J_1$.}
 	\label{fig: brom cont incomp 2}
 \end{figure}
-Combining the above expressions we find that the transverse velocity solution for $x<-x_0$ is
+Combining the above expressions for the inverse Laplace transforms, we find that the transverse velocity solution for $x<-x_0$ is
 \begin{align}
-v_x = &-2 e^{k(x+x_0)} \left\{ i\omega_{0+}\chi_{1+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) + i\omega_{0-}\chi_{1-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \\
-&+ \frac{i}{\rho_1} \int_{-\infty}^{-x_0} G_1(x;s) \left[ \Psi(s, 0) \cos{kv_{A1}t} + \frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A1}t}}{kv_{A_1}} \right]ds.
+v_x(x, t) = &-2 e^{k(x+x_0)} \left\{ i\omega_{0+}\chi_{1+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) \right. \\
+&\left. + i\omega_{0-}\chi_{1-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \\
+&+ \frac{i}{\rho_1} \int_{-\infty}^{-x_0} G_1(x;s) \left[ \Psi(s, 0) \cos{kv_{A1}t} + \frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A1}t}}{kv_{A_1}} \right]~ds.
 \end{align}
 Similarly, the transverse velocity for the region $x>x_0$ is
 \begin{align}
-v_x &= \mathcal{L}^{-1} \left\{ \tilde{A}_2e^{k(x_0-x)} + \frac{1}{\e_2} \int_{x_0}^{\infty} G_2(x;s)f(s, \omega)ds \right\}, \\
-&= e^{k(x_0-x)} \mathcal{L}^{-1}\left\{ \tilde{A}_2 \right\} + \int_{x_0}^{\infty} G_2(x;s)\mathcal{L}^{-1}\left\{ \frac{f(s, \omega)}{\e_2} \right\} ds, \\
-&= -2 e^{k(x_0 - x)} \left\{ i\omega_{0+}\chi_{2+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{2+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) + i\omega_{0-}\chi_{2-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{2-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \\
-& \quad + \frac{i}{\rho_2} \int_{x_0}^{\infty} G_2(x;s) \left[ \Psi(s, 0) \cos{kv_{A2}t} + \frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A2}t}}{kv_{A_2}} \right]ds.
+v_x(x, t) = &-2 e^{k(x_0 - x)} \left\{ i\omega_{0+}\chi_{2+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{2+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) \right. \notag \\
+&\left. + i\omega_{0-}\chi_{2-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{2-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \notag \\
+& + \frac{i}{\rho_2} \int_{x_0}^{\infty} G_2(x;s) \left[ \Psi(s, 0) \cos{kv_{A2}t} + \frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A2}t}}{kv_{A_2}} \right]~ds.
 \end{align}
 Finally, for the region $|x|<x_0$, it is
 \begin{align}
-v_x =& \mathcal{L}^{-1} \left\{ \frac{1}{\sinh{2kx_0}} \left[ \tilde{A}_1\sinh(k(x_0 - x)) + \tilde{A}_2\sinh(k(x_0 + x)) \right] + \frac{1}{\epsilon_0}\int_{-x_0}^{x_0} G_0(x;s) f(s, \omega) ds \right\}, \\
-=& \frac{1}{\sinh{2kx_0}} \left[\mathcal{L}^{-1}\{\tilde{A}_1\} \sinh(k(x_0 - x)) + \mathcal{L}^{-1}\{\tilde{A}_2\} \sinh(k(x_0 + x)) \right] + \int_{-x_0}^{x_0} G_0(x;s) \mathcal{L}^{-1}\left\{\frac{f(s, \omega)}{\e_0} \right\} ds, \\
-=& -\frac{2}{\sinh{2kx_0}} \left[ \left\{ i\omega_{0+}\chi_{1+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) + i\omega_{0-}\chi_{1-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \sinh(k(x_0 - x)) \right. \\ 
-&+ \left. \left\{ i\omega_{0+}\chi_{2+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{2+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) + i\omega_{0-}\chi_{2-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{2-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \sinh(k(x_0 + x)) \right] \notag \\
-& + \frac{i}{\rho_0} \int_{-x_0}^{x_0} G_0(x;s) \left[ \Psi(s, 0) \cos{kv_{A0}t} + \frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A0}t}}{kv_{A0}} \right]ds.
+v_x(x, t) =& -\frac{2}{\sinh{2kx_0}} \left[ \left\{ i\omega_{0+}\chi_{1+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) \right. \right. \notag \\
+& \left. + i\omega_{0-}\chi_{1-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \sinh(k(x_0 - x)) \notag \\ 
+& + \left\{ i\omega_{0+}\chi_{2+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{2+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) \right. \notag \\
+& \left. \left. + i\omega_{0-}\chi_{2-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{2-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \sinh(k(x_0 + x)) \right] \notag \\
+& + \frac{i}{\rho_0} \int_{-x_0}^{x_0} G_0(x;s) \left[ \Psi(s, 0) \cos{kv_{A0}t} + \frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A0}t}}{kv_{A0}} \right]~ds.
 \end{align}
 
-
-\subsection{Specific initial conditions}
 
 \subsubsection{Uniform initial vorticity}
 
 Let $\Omega(x, 0) = \Omega_0$ be constant. Therefore, $\Psi_0 = k\rho_0\Omega_0$ and $\partial \Psi_0 / \partial t = 0$. To evaluate the solution, we evaluate each Green's function integral separately:
 \begin{align}
-\int_{-\infty}^{-x_0} G_1(x;s) \Psi_0 ds &= \Omega_0 \rho_1 \left[ \sinh(k(x+x_0)) \int_{-\infty}^{x} e^{k(s + x_0)} ds + e^{k(x+x_0)} \int_{x}^{-x_0} \sinh(k(s+x_0)) ds \right], \\
+\int_{-\infty}^{-x_0} G_1(x;s) \Psi_0 ~ds &= \Omega_0 \rho_1 \left[ \sinh(k(x+x_0)) \int_{-\infty}^{x} e^{k(s + x_0)} ~ds \right . \notag \\
+&\qquad \qquad \left.+ e^{k(x+x_0)} \int_{x}^{-x_0} \sinh(k(s+x_0)) ~ds \right] \notag \\
 &= \frac{\Omega_0 \rho_1}{k} \left[ e^{k(x+x_0)} - 1 \right].
 \end{align}
 
 \begin{align}
-\int_{-x_0}^{x_0} G_0(x;s) \Psi_0 ds &= \frac{\Omega_0 \rho_0}{\sinh{2kx_0}} \left[ \sinh(k(x-x_0)) \int_{-x_0}^{x} \sinh(k(s+x_0)) ds + \sinh(k(x+x_0)) \int_{x}^{x_0} \sinh(k(s-x_0)) ds \right], \\
+\int_{-x_0}^{x_0} G_0(x;s) \Psi_0 ~ds &= \frac{\Omega_0 \rho_0}{\sinh{2kx_0}} \left[ \sinh(k(x-x_0)) \int_{-x_0}^{x} \sinh(k(s+x_0)) ~ds \right. \notag \\
+&\qquad \qquad \qquad \left. + \sinh(k(x+x_0)) \int_{x}^{x_0} \sinh(k(s-x_0)) ~ds \right], \notag \\
 &= \frac{\Omega_0 \rho_0}{k} \left( \frac{\cosh{kx}}{\cosh{kx_0}} - 1 \right).
 \end{align}
 
 \begin{align}
-\int_{x_0}^{\infty} G_2(x;s) \Psi_0 ds &= - \Omega_0 \rho_2 \left[ e^{-k(x-x_0)} \int_{x_0}^{x} \sinh(k(s-x_0)) ds + \sinh(k(x-x_0)) \int_{x}^{\infty} e^{-k(s-x_0)} ds \right], \\
+\int_{x_0}^{\infty} G_2(x;s) \Psi_0 ~ds &= - \Omega_0 \rho_2 \left[ e^{-k(x-x_0)} \int_{x_0}^{x} \sinh(k(s-x_0)) ~ds \right. \notag \\
+&\qquad \qquad \quad \left. + \sinh(k(x-x_0)) \int_{x}^{\infty} e^{-k(s-x_0)} ~ds \right], \notag \\
 &= \frac{\Omega_0 \rho_2}{k} \left[ e^{-k(x-x_0)} - 1 \right].
 \end{align}
 
@@ -853,110 +847,36 @@ I_1 &= \Omega_0\omega\rho_1k \int_{-\infty}^{-x_0} e^{k(s + x_0)} ds, \\
 I_2 &= \Omega_0\omega\rho_2k \int_{x_0}^{\infty} e^{k(x_0 - s)} ds, \\
 &= \Omega_0 \omega \rho_2.
 \end{align}
-Using the above, the transverse velocity through time for an initially constant vorticity is
+Using the above integrals, the transverse velocity through time for an initially constant vorticity is
 \begin{equation}
 v_x = -\frac{i}{k}\begin{cases}
 2 e^{k(x+x_0)} A^*_1 + \Omega_0 \{1 - e^{k(x+x_0)}\} \cos{kv_{A1}t} \quad &\text{ for } x<-x_0, \\
-\frac{2}{\sinh{2kx_0}} \left[ A^*_1 \sinh(k(x_0 - x)) + A^*_2 \sinh(k(x_0 + x)) \right] + \Omega_0 \left( 1 - \frac{\cosh{kx}}{\cosh{kx_0}} \right)\cos{kv_{A0}t} \quad &\text{ for } x<|x_0|, \\
+\frac{2}{\sinh{2kx_0}} \left[ A^*_1 \sinh(k(x_0 - x)) + A^*_2 \sinh(k(x_0 + x)) \right] & \\
++ \Omega_0 \left( 1 - \frac{\cosh{kx}}{\cosh{kx_0}} \right)\cos{kv_{A0}t} \quad &\text{ for } x < |x_0|, \\
 2 e^{k(x_0-x)} A^*_2 + \Omega_0 \{1 - e^{k(x_0-x)}\} \cos{kv_{A2}t} \quad &\text{ for } x>x_0, \\
 \end{cases}
+\label{sol slab}
 \end{equation}
 where
 \begin{equation}
 A^*_{1,2} = \omega_{0+} \frac{T_{1,2}[\psi_0](\omega_{0+})}{D'(\omega_{0+})} \cos(\omega_{0+} t) + \omega_{0-}\frac{T_{1,2}[\psi_0](\omega_{0-})}{D'(\omega_{0-})} \cos(\omega_{0-} t),
 \end{equation}
 and
-\begin{equation}
-T_{1,2}[\Psi_0](\omega) = -\Omega_0\{ (\rho_0 \tanh{kx_0} + \rho_{1,2}) (\e_0 \cosh{2kx_0} + \e_{2,1}\sinh{2kx_0}) + \e_0(\rho_0 \tanh{kx_0} + \rho_{2,1}) \}.
-\end{equation}
+\begin{align}
+T_{1,2}[\Psi_0](\omega) = &-\Omega_0\{ (\rho_0 \tanh(kx_0) + \rho_{1,2}) (\e_0 \cosh(2kx_0) + \e_{2,1}\sinh(2kx_0)) \notag \\
+&+ \e_0(\rho_0 \tanh(kx_0) + \rho_{2,1}) \}.
+\end{align}
 
+When $\rho_1 = \rho_2 = \rho_0$ and $x_0 = 0$, the solution given by Equation~\eqref{sol slab} reduces with that of a tangential interface, Equation~\eqref{sol int}.
 
-\subsubsection{Corroboration with interface}
-When $\rho_1 = \rho_2 = \rho_0$,
-\begin{equation}
-T_{1,2}[\Psi_0](\omega) = -2\Omega_0\rho_0 e^{kx_0} (\e_0 \cosh{kx_0} + \e_{2,1}\sinh{kx_0}).
-\end{equation}
+\textcolor{red}{include figures of the solution}
 
-When $\rho_1 = \rho_2 = \rho_0$ and $x_0 = 0$, we expect that the solution will reduce to (the corrected version of) Equation~(25) in \cite{rae_etal81}. Let's check that this is the case.
+The time-dependant evolution of a perturbation of an incompressible asymmetric magnetic slab are thus 
 
-When the above conditions hold, the dispersion function reduces to $D(\omega) = \e_0(\e_1 + \e_2)$ and its zeroes reduce to $\omega_{0+} = kv_{A0}$ and $\omega_{0-} = kv_{AS} = k \sqrt{(v_{A1}^2 + v_{A2}^2) / 2}$. Therefore, the functionals reduce to
-\begin{equation}
-T_{1,2}[\Psi_0](\omega) = -2\Omega_0\rho_0 \e_0,
-\quad 
-\chi_{1,2}[\Psi_0](\omega_{0+}) = 0,
-\quad
-\chi_{1,2}[\Psi_0](\omega_{0-}) = \frac{\Omega_0}{2k^2v_{AS}}.
-\end{equation}
-Therefore, the transverse velocity solution reduces to
-\begin{equation}
-v_x = -\frac{i\Omega_0}{k} 
-\begin{cases}
-(1 - e^{kx})\cos{kv_{A1}t} + e^{kx}\cos{kv_{AS}t} \quad &\text{ for } x < 0, \\
-(1 - e^{-kx})\cos{kv_{A2}t} + e^{-kx}\cos{kv_{AS}t} \quad &\text{ for } x > 0,
-\end{cases}
-\end{equation}
-which corroborates with (the corrected version of) the result from \cite{rae_etal81}.
 
+\subsection{Compressible}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\color{red}
 
 \section{Basic equations}
 From \cite{and_etal07},
@@ -1550,6 +1470,32 @@ Therefore, the eigenfrequencies reduce to
 \end{equation}
 which corroborates with Equation~(12) in \cite{rob81b}.
 
+
+\subsubsection{Corroboration with interface}
+When $\rho_1 = \rho_2 = \rho_0$,
+\begin{equation}
+T_{1,2}[\Psi_0](\omega) = -2\Omega_0\rho_0 e^{kx_0} (\e_0 \cosh{kx_0} + \e_{2,1}\sinh{kx_0}).
+\end{equation}
+
+When $\rho_1 = \rho_2 = \rho_0$ and $x_0 = 0$, we expect that the solution will reduce to (the corrected version of) Equation~(25) in \cite{rae_etal81}. Let's check that this is the case.
+
+When the above conditions hold, the dispersion function reduces to $D(\omega) = \e_0(\e_1 + \e_2)$ and its zeroes reduce to $\omega_{0+} = kv_{A0}$ and $\omega_{0-} = kv_{AS} = k \sqrt{(v_{A1}^2 + v_{A2}^2) / 2}$. Therefore, the functionals reduce to
+\begin{equation}
+T_{1,2}[\Psi_0](\omega) = -2\Omega_0\rho_0 \e_0,
+\quad 
+\chi_{1,2}[\Psi_0](\omega_{0+}) = 0,
+\quad
+\chi_{1,2}[\Psi_0](\omega_{0-}) = \frac{\Omega_0}{2k^2v_{AS}}.
+\end{equation}
+Therefore, the transverse velocity solution reduces to
+\begin{equation}
+v_x = -\frac{i\Omega_0}{k} 
+\begin{cases}
+(1 - e^{kx})\cos{kv_{A1}t} + e^{kx}\cos{kv_{AS}t} \quad &\text{ for } x < 0, \\
+(1 - e^{-kx})\cos{kv_{A2}t} + e^{-kx}\cos{kv_{AS}t} \quad &\text{ for } x > 0,
+\end{cases}
+\end{equation}
+which corroborates with (the corrected version of) the result from \cite{rae_etal81}.
 
 \section{Validation of L'Hopital's rule} \label{app: l'hopital}
 L'Hopital's Rule is a powerful tool for evaluating limits of quotients of functions, provided that these functions satisfy certain necessary criteria. L'Hopital's Rule (for function of complex variables) states that, for functions $f$ and $g$ which are analytic at a point $z_0$, if $f(x_0) = g(z_0) = 0$, $g'(z_0) \neq 0$ then
