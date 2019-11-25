@@ -1,4 +1,4 @@
-\documentclass[12pt]{../style-files/ociamthesis}
+\documentclass[12pt, draft]{../style-files/ociamthesis}
  
 \usepackage{amssymb}
 \usepackage{titlesec}
@@ -151,7 +151,7 @@ where $\tilde{v}'_x = \partial\tilde{v}_x/\partial x$. By defining $\epsilon = \
 & = \rho_0\left[\left(\dot{\hat{v}}_{x0}'' - k^2\dot{\hat{v}}_{x0}\right) - i\omega\left(\hat{v}_{x0}'' - k^2\hat{v}_{x0}\right)\right] + \frac{d\rho_0}{dx}\left(\dot{\hat{v}}_{x0}' - i\omega\hat{v}_{x0}'\right)
 \label{gov reduced}
 \end{align}
-Two equations that will help reduce this equation come from the assumption of incompressibility and the definition of vorticity:
+Two equations that will help reduce this equation are derived from the assumption of incompressibility and the definition of vorticity:
 \begin{itemize}
 	\item $\nabla\cdot\mathbf{v} = 0$, from which it follows that $\hat{v}_x' = -ik \hat{v}_z$.
 	\item The vorticity, defined by $\Omega(\mathbf{x},t)\mathbf{\hat{y}} = \hat{\Omega}(x,t)e^{ikz}\mathbf{\hat{y}} = \nabla \times \mathbf{v}(\mathbf{x},t)$, is given by	\begin{equation}
@@ -163,9 +163,9 @@ Using the above two equations, Equation~\eqref{gov reduced} simplifies to
 \frac{d}{dx} \left[\epsilon \frac{d \tilde{v}_x}{d x}\right] - k^2\epsilon \tilde{v}_x = f(x), \label{gov}
 \end{equation}
 where
-\begin{equation}f(x) = ik\left\{\rho_0\left[\dot{\hat{\Omega}}_0 - i\omega\hat{\Omega}_0\right] + \frac{d\rho_0}{dx}\left(\dot{\hat{v}}_{z0} - i\omega\hat{v}_{\textcolor{red}{z}0}\right)\right\}.
+\begin{equation}f(x) = ik\left\{\rho_0\left[\dot{\hat{\Omega}}_0 - i\omega\hat{\Omega}_0\right] \textcolor{red}{-} \frac{d\rho_0}{dx}\left(\dot{\hat{v}}_{z0} - i\omega\hat{v}_{\textcolor{red}{z}0}\right)\right\}.
 \end{equation}
-This function is the corrected version of Equations~(11)-(13) of \cite{rae_etal81}. A typographical error was made in the above equation, where they wrote subscript $x$ in place of our subscript $\textcolor{red}{z}$. The factor of -1 discrepency between this function and that of \cite{rae_etal81} is due to taking different Fourier forms.
+This function is the corrected version of Equations~(11)-(13) of \cite{rae_etal81}. The red opperator is the corrected version, although, since \cite{rae_etal81} assumed that $\partial \rho_0 / \partial x = 0$, so this error was inconsequential. Additionally, a typographical error was made in the above equation, where they wrote subscript $x$ in place of our subscript $\textcolor{red}{z}$. Note that there is a factor of -1 discrepency between this function and that of \cite{rae_etal81} due to taking different Fourier forms.
 
 For future utility, we define $\Psi_0 = \Psi(x, 0)$ by function $\Psi(x, t) = k[\rho_0\hat{\Omega}(x, t) - \rho_0'\hat{v}_z(x, t)]$ so that $f(x, \omega) = \omega \Psi_0 + i\frac{\partial \Psi_0}{\partial t}$.
 
@@ -879,55 +879,35 @@ The time-dependant evolution of a perturbation of an incompressible asymmetric m
 
 \subsection{Compressible}
 
-In this section, we use the total pressure perturbation as our main variable. The velocity 
-
-
-
+\textcolor{red}{Subsection intro - just a sentence or short para about what we might expect to come up in the compressible case.}
 
 \color{red}
-CONSIDER CHANGING TO VELOCITY VARIABLES. SHOULD BE POSSIBLE IN THEORY.
 
-From \cite{and_etal07},
+To tackle the more general compressible model, we must start with the more general version of Equation \eqref{gov reduced}, namely,
 \begin{equation}
-\frac{1}{\rho(\omega^2 - \omega_A^2)} \left( \frac{\partial^2}{\partial x^2} - m^2 \right) \hat{p}_T = f(\omega, x),
+\tilde{v}_x - m^2 \tilde{v}_x = g(x, \omega),
 \end{equation}
 where
-\begin{align}
-f(\omega, x) &= \frac{\partial}{\partial x} \frac{\dot{\xi}_{x0} - i\omega\xi_{x0}}{\rho(\omega^2 - \omega_A^2)} + ik_y \frac{\dot{\xi}_{y0} - i\omega\xi_{y0}}{\rho(\omega^2 - \omega_A^2)} + ik_z \frac{c_0^2}{c_0^2 + v_A^2} \frac{\dot{\xi}_{z0} - i\omega\xi_{z0}}{\rho(\omega^2 - \omega_T^2)}, \\
-m^2 &= m(\omega)^2 = \frac{(\omega_1^2 - \omega^2)(\omega_2^2 - \omega^2)}{(c_0^2 + v_A^2)(\omega_T^2 - \omega^2)}, \\
-\omega_1^2 &= \frac{1}{2}(k_y^2 + k_z^2)(c_0^2 + v_A^2) \left( 1 - \sqrt{1 - \frac{4\omega_T^2}{(k_y^2 + k_z^2)(c_0^2 + v_A^2)}} \right), \\
-\omega_2^2 &= \frac{1}{2}(k_y^2 + k_z^2)(c_0^2 + v_A^2) \left( 1 + \sqrt{1 - \frac{4\omega_T^2}{(k_y^2 + k_z^2)(c_0^2 + v_A^2)}} \right).
-\end{align}
-
-Take $k_y \ll k_z$ and $\xi_{y0} = \dot{\xi}_{y0} = 0$, then
 \begin{equation}
-\left( \frac{\partial^2}{\partial x^2} - m^2 \right) \hat{p}_T = f(\omega, x),
+g(x, \omega) = \frac{1}{(c_0^2 + v_A^2)(\omega_T^2 - \omega^2)}\left[ (\omega_0^2 - \omega^2)\left(\dot{\hat{v}}_{x0} - i\omega \hat{v}_{x0}\right) + ikc_0^2\left( \dot{\hat{v}}_{z0}' - i\omega \hat{v}_{z0}'\right) \right].
 \end{equation}
-where
-\begin{align}
-f(\omega, x) &= \frac{\partial}{\partial x} (\dot{\xi}_{x0} - i\omega\xi_{x0}) + ik_z \frac{c_0^2}{c_0^2 + v_A^2} \frac{(\omega^2 - \omega_A^2)}{(\omega^2 - \omega_T^2)} (\dot{\xi}_{z0} - i\omega\xi_{z0}), \\
-m^2 &= \frac{(\omega_0^2 - \omega^2)(\omega_A^2 - \omega^2)}{(c_0^2 + v_A^2)(\omega_T^2 - \omega^2)},
-\end{align}
-where we have defined the initial values by
-\begin{equation}
-\xi_x(x, 0) = \xi_{x0}, \quad \frac{\partial{}\xi_x}{\partial{t}}(x, 0) = \dot{\xi}_{x0}, \quad \xi_z(x, 0) = \xi_{z0}, \quad \frac{\partial{}\xi_z}{\partial{t}}(x, 0) = \dot{\xi}_{z0}.
-\end{equation}
+This equation corroborates with the general initial value problem considered by \cite{and_etal07}, although some algebra is required to transform between velocity and total pressure coordinates.
 
 Considering a magnetic slab in a non-magnetic environment, we have
 \begin{align}
 m_0^2 &= - \frac{(\omega^2 - \omega_0^2)(\omega^2 - \omega_A^2)}{(c_0^2 + v_A^2)(\omega^2 - \omega_T^2)}, \quad m_{1,2}^2 = \frac{\omega_{1,2}^2 - \omega^2}{c_{1,2}^2}, \\
-f_{1,2}(\omega,x) &= \frac{\partial}{\partial x} (\dot{\xi}_{x0} - i\omega\xi_{x0}) + ik(\dot{\xi}_{z0} - i\omega\xi_{z0}).
+g_{1,2}(x, \omega) &= \frac{\partial}{\partial x} (\dot{\xi}_{x0} - i\omega\xi_{x0}) + ik(\dot{\xi}_{z0} - i\omega\xi_{z0}).
 \end{align}
 
 
 \section{Solution in Laplace space}
 
 \subsection{Solution within the slab}
-For the solution inside the slab, $|x| < x_0$, $\hat{p}_T(x)$ satisfies
+For the solution inside the slab, $|x| < x_0$, $\hat{v}_x(x)$ satisfies
 \begin{equation}
-\left( \frac{\partial^2}{\partial x^2} - m_0^2 \right) \hat{p}_T = f_0(\omega, x),
+\left( \frac{\partial^2}{\partial x^2} - m_0^2 \right) \tilde{v}_x = g_0(\omega, x),
 \end{equation}
-under the boundary conditions $\hat{p}_T(-x_0) = \hat{A}_1$ and $\hat{p}_T(-x_0) = \hat{A}_2$. To solve this we construct the Green's function, $G_0(x;s)$ that satisfies
+under the boundary conditions $\tilde{v}_x(-x_0) = \hat{A}_1$ and $\tilde{v}_x(-x_0) = \hat{A}_2$. To solve this we construct the Green's function, $G_0(x;s)$ that satisfies
 \begin{equation}
 \frac{d^2G_0}{dx^2} - m_0^2 G_0 = \delta(x-s), \quad G_0(-x_0;s) = G_0(x_0;s) = 0,
 \end{equation}
@@ -944,22 +924,23 @@ G_0(x;s) = \frac{-1}{m_0\sinh(2m_0 x_0)}
 \end{cases}
 \end{equation}
 Then the solution of Equation~\eqref{P eq inside} is
-\begin{equation}
-\hat{p}_T(x) = \frac{1}{m_0\sinh{2m_0 x_0}} \left[ \hat{A}_1\sinh(m_0(x_0 - x)) + \hat{A}_2\sinh(m_0(x_0 + x)) \right] + \int_{-x_0}^{x_0} G_0(x;s) f_0(\omega, s) ds.
-\label{P sol 0}
-\end{equation}
+\begin{align}
+\tilde{v}_x(x) = &\frac{1}{m_0\sinh{2m_0 x_0}} \left[ \hat{A}_1\sinh(m_0(x_0 - x)) + \hat{A}_2\sinh(m_0(x_0 + x)) \right] \notag \\
+&+ \int_{-x_0}^{x_0} G_0(x;s) g_0(\omega, s) ~ds.
+\label{V sol 0}
+\end{align}
 This is the sum of the Green's function term and a two terms that are independent solutions to the homogeneous version of Equation~\eqref{P eq inside} that ensure that the inhomogeneous boundary conditions are satisfied.
 
 
 \subsection{Solution outside the slab}
-For the solution outside and to the left of the slab, $x < -x_0$, $\hat{p}_T(x)$ satisfies
+For the solution outside and to the left of the slab, $x < -x_0$, $\tilde{v}_x(x)$ satisfies
 \begin{equation}
-\left(\frac{d^2}{dx^2} - m_1^2 \right) \hat{p}_T = f_1(\omega, x),
+\left(\frac{d^2}{dx^2} - m_1^2 \right) \tilde{v}_x = g_1(\omega, x),
 \end{equation}
-and the boundary conditions $\hat{p}_T(-\infty) = 0$, $\hat{p}_T(-x_0) = \hat{A}_1$. By following a Green's function method, the solution of this Sturm-Liouville system is
+and the boundary conditions $\tilde{v}_x(-\infty) = 0$, $\tilde{v}_x(-x_0) = \hat{A}_1$. By following a Green's function method, the solution of this Sturm-Liouville system is
 \begin{equation}
-\hat{p}_T(x) = \hat{A}_1e^{m_1(x_0+x)} + \int_{-\infty}^{-x_0} G_1(x; s) f_1(\omega, s) ds,
-\label{P sol 1}
+\tilde{v}_x(x) = \hat{A}_1e^{m_1(x_0+x)} + \int_{-\infty}^{-x_0} G_1(x; s) g_1(\omega, s) ds,
+\label{V sol 1}
 \end{equation}
 where $m_1 > 0$ and the Green's function, $G_1$, is defined by
 \begin{equation}
@@ -970,9 +951,9 @@ e^{m_1(x_0 + s)}\sinh(m_1(x_0 + x)), & \text{if } s < x < -x_0.
 \end{cases}
 \end{equation}
 
-Similarly, for the solution outside and to the right of the slab, $x > x_0$, $\hat{p}_T(x)$ satisfies
+Similarly, the solution outside and to the right of the slab, $x > x_0$, is
 \begin{equation}
-\hat{p}_T(x) = \hat{A}_2e^{m_2(x_0-x)} + \int_{x_0}^{\infty} G_2(x; s) f_2(\omega, s) ds,
+\tilde{v}_x(x) = \hat{A}_2e^{m_2(x_0-x)} + \int_{x_0}^{\infty} G_2(x; s) g_2(\omega, s) ~ds,
 \label{P sol 2}
 \end{equation}
 where $m_2 > 0$ and the Green's function, $G_2$, is defined by
@@ -984,28 +965,29 @@ e^{m_2(x_0 - x)}\sinh(m_2(x_0 - s)), & \text{if } s < x.
 \end{cases}
 \end{equation}
 
-Putting all of this together, the (Laplace transform of) total pressure is
+Putting all of this together, the Laplace transform of the transverse velocity is
 \begin{equation}
-\hat{p}_T(x) = 
+\tilde{v}_x(x) = 
 \begin{cases}
-\hat{A}_1e^{m_1(x_0 + x)} + \int_{-\infty}^{-x_0} G_1(x; s) f_1(\omega, s) ds, & \text{if } -\infty < x < -x_0, \\
+\hat{A}_1e^{m_1(x_0 + x)} + \int_{-\infty}^{-x_0} G_1(x; s) g_1(\omega, s) ~ds, & \text{if } -\infty < x < -x_0, \\
 
-\frac{1}{\sinh{2m_0x_0}} \left[ \hat{A}_1\sinh(m_0(x_0 - x)) + \hat{A}_2\sinh(m_0(x_0 + x)) \right] + \int_{-x_0}^{x_0} G_0(x; s) f_0(\omega, s) ds, & \text{if } -x_0 < x < x_0, \\
+\frac{1}{\sinh{2m_0x_0}} \left[ \hat{A}_1\sinh(m_0(x_0 - x)) + \hat{A}_2\sinh(m_0(x_0 + x)) \right]  \\
++ \int_{-x_0}^{x_0} G_0(x; s) g_0(\omega, s) ~ds, & \text{if } -x_0 < x < x_0, \\
 
-\hat{A}_2e^{m_2(x_0 - x)} + \int_{x_0}^{\infty} G_2(x; s) f_2(\omega, s) ds, & \text{if } x_0 < x < \infty.
+\hat{A}_2e^{m_2(x_0 - x)} + \int_{x_0}^{\infty} G_2(x; s) g_2(\omega, s) ~ds, & \text{if } x_0 < x < \infty.
 \end{cases}
-\label{P sol}
+\label{V sol}
 \end{equation}
 
 
 \subsection{Matching solutions}
-For physically relevant solutions, we require that the transverse displacement (equivalently, the perturbation in transverse velocity) and the total pressure be continuous across the interfaces at $x = \pm x_0$.
+For physically relevant solutions, we require that the transverse velocity) and the total pressure be continuous across the interfaces at $x = \pm x_0$.
 
-Continuity in total pressure perturbation, $\hat{p}_T$, is satisfied automatically by considering the solutions inside and outside the slab given by Equations~\eqref{P sol 0}, \eqref{P sol 1}, and~\eqref{P sol 2}, respectively, and our definition of $\hat{A}_1 = \hat{p}_T(-x_0)$ and $\hat{A}_2 = \hat{p}_T(x_0)$.
+Continuity in transverse velocity, $\tilde{v}_x$, is satisfied automatically by considering the solutions inside and outside the slab given by Equations~\eqref{V sol 0},~\eqref{V sol 1}, and~\eqref{V sol 2}, respectively, and our definition of $\hat{A}_1 = \tilde{v}_x(-x_0)$ and $\hat{A}_2 = \tilde{v}_x(x_0)$.
 
-Continuity in transverse displacement, $\xi_x$, can be dealt with as follows. If we make the simplification to the prescribed initial conditions such that $\dot{\xi}_{x0} - i\omega\xi_{x0} = 0$, then this boundary condition is equivalent to
+Continuity in total pressure, $\xi_x$, can be dealt with as follows. If we make the simplification to the prescribed initial conditions such that $\dot{\xi}_{x0} - i\omega\xi_{x0} = 0$, then this boundary condition is equivalent to
 \begin{equation}
-\left[ \left[ \frac{1}{\rho(\omega^2 - \omega_A^2)} \frac{\partial \hat{p}_T}{\partial x} \right] \right]_{x=\pm x_0} = 0.
+\left[ \left[ \frac{1}{\rho(\omega^2 - \omega_A^2)} \frac{\partial \tilde{v}_x}{\partial x} \right] \right]_{x=\pm x_0} = 0.
 \end{equation}
 (Equation~(8) in \cite{and_etal07}).
 
@@ -1040,10 +1022,10 @@ f_2(\omega, x), &\text{if } x_0 < x.
 \section{Solution in time}
 To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), such that
 \begin{equation}
-p_T(x,t) = \mathcal{L}^{-1}\{\hat{p}_T(x)\} = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \hat{p}_T(x) e^{-i\omega t} d\omega,
+p_T(x,t) = \mathcal{L}^{-1}\{\tilde{v}_x(x)\} = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{v}_x(x) e^{-i\omega t} d\omega,
 \label{laplace transform}
 \end{equation}
-where $\gamma$ is a real number such that all the singularities of the integrand are below the contour of integration to ensure that all singularities contribute to the integral. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane and is dependent on the singularities (with respect to $\omega$) of $\hat{p}_T$, whose residues determine the value of the contour integral.
+where $\gamma$ is a real number such that all the singularities of the integrand are below the contour of integration to ensure that all singularities contribute to the integral. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane and is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral.
 
 Focusing firstly on the region $x < -x_0$, the solution is
 \begin{align}
