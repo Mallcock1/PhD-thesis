@@ -1,4 +1,4 @@
-\documentclass[12pt]{../style-files/ociamthesis}
+\documentclass[12pt,draft]{../style-files/ociamthesis}
 
 \usepackage{amssymb}
 \usepackage{titlesec}
@@ -327,7 +327,7 @@ MHD wave propagation along a tangential interface was first studied by \cite{rob
 \end{equation}
 The interface between the two regions is at $x = 0$ without loss of generality. This is known as a tangential interface because the magnetic field is tangential to the interface\footnote{This is true both initially due to Equation~\eqref{interface mag} and for all time due to ideal magnetic flux conservation (see Section~\ref{sec: mag flux conservation}).}.
 
-To derive the dispersion relation, first we Fourier decompose the linearised ideal MHD equations, Equations\eqref{cont eqn lin}-\eqref{ind eqn lin} by assuming that parameters behave like $f(x) = \hat{f}e^{i(kz - \omega t)}$, where $k$ and $\omega$ are the wavenumber and angular frequency of $z$-ward propagating waves. They are then combined to give an ordinary differential equation for the transverse velocity perturbation, $\hat{v}_x(x)$, for each of the two plasma regions, denoted by subscript $-$ and $+$, namely
+To derive the dispersion relation, first we Fourier decompose the linearised ideal MHD equations, Equations\eqref{cont eqn lin}-\eqref{ind eqn lin} by assuming that parameters behave like $f(x) = \hat{f}e^{i(kz - \omega t)}$, where $k$ and $\omega$ are the wavenumber and angular frequency of $z$-ward propagating waves. They are then combined to show that the transverse velocity perturbation, $\hat{v}_x$, satisfies a Helmholtz differential equation for each of the two plasma regions, denoted by subscript $-$ and $+$, namely
 \begin{equation}
 \hat{v}_x'' - m_\pm^2\hat{v}_x = 0, \quad \text{where} \quad
 m_\pm^2 = \frac{(\omega_{A\pm}^2 - \omega^2)(\omega_\pm^2 - \omega^2)}{(c_\pm^2 + v_{A\pm}^2)(\omega_{T\pm}^2 - \omega^2)}, \label{ODE for v}
