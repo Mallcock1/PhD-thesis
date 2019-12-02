@@ -917,9 +917,8 @@ g_{1,2}(x, \omega) &= \frac{1}{c_0^2\omega^2} \left[ (\omega_0^2 - \omega^2)\lef
 \end{align}
 
 
-\section{Solution in Laplace space}
+\subsubsection{Solution in Laplace space}
 
-\subsection{Solution within the slab}
 For the solution inside the slab, $|x| < x_0$, $\hat{v}_x(x)$ satisfies
 \begin{equation}
 \left( \frac{\partial^2}{\partial x^2} - m_0^2 \right) \tilde{v}_x = g_0(\omega, x),
@@ -948,8 +947,6 @@ Then the solution of Equation~\eqref{P eq inside} is
 \end{align}
 This is the sum of the Green's function term and a two terms that are independent solutions to the homogeneous version of Equation~\eqref{P eq inside} that ensure that the inhomogeneous boundary conditions are satisfied.
 
-
-\subsection{Solution outside the slab}
 For the solution outside and to the left of the slab, $x < -x_0$, $\tilde{v}_x(x)$ satisfies
 \begin{equation}
 \left(\frac{d^2}{dx^2} - m_1^2 \right) \tilde{v}_x = g_1(\omega, x),
@@ -989,7 +986,7 @@ Putting all of this together, the Laplace transform of the transverse velocity i
 \tilde{A}_1e^{m_1(x_0 + x)} + \int_{-\infty}^{-x_0} G_1(x; s) g_1(\omega, s) ~ds, & \text{if } -\infty < x < -x_0, \\
 
 \frac{1}{\sinh{2m_0x_0}} \left[ \tilde{A}_1\sinh(m_0(x_0 - x)) + \tilde{A}_2\sinh(m_0(x_0 + x)) \right]  \\
-+ \int_{-x_0}^{x_0} G_0(x; s) g_0(\omega, s) ~ds, & \text{if } -x_0 < x < x_0, \\
++ \int_{-x_0}^{x_0} G_0(x; s) g_0(\omega, s) ~ds, & \text{if } |x| < x_0, \\
 
 \tilde{A}_2e^{m_2(x_0 - x)} + \int_{x_0}^{\infty} G_2(x; s) g_2(\omega, s) ~ds, & \text{if } x_0 < x < \infty.
 \end{cases}
@@ -997,67 +994,69 @@ Putting all of this together, the Laplace transform of the transverse velocity i
 \end{equation}
 
 
-\subsection{Matching solutions}
+\subsubsection{Matching solutions}
+
 For physically relevant solutions, we require that the transverse velocity) and the total pressure be continuous across the interfaces at $x = \pm x_0$.
 
 Continuity in transverse velocity, $\tilde{v}_x$, is satisfied automatically by considering the solutions inside and outside the slab given by Equations~\eqref{V sol 0},~\eqref{V sol 1}, and~\eqref{V sol 2}, respectively, and our definition of $\tilde{A}_1 = \tilde{v}_x(-x_0)$ and $\tilde{A}_2 = \tilde{v}_x(x_0)$.
 
-Continuity in total pressure, $p_T$, can be dealt with as follows. If we make the simplification to the prescribed initial conditions such that
+Continuity in total pressure can be dealt with as follows. The perturbation in total pressure is related to the velocity gradient by\footnote{Found by combining that induction equation with the momentum equation, see, for example, the bottom row of Equation~(2) by \cite{and_etal07}.}
 \begin{equation}
-\hat{p}_{T0} - \frac{\rho k}{\omega_0^2 - \omega^2} (\omega \hat{v}_{z0} + i\hat{v}_{z0}) = 0,
+\frac{\partial p_T}{\partial t} = -\rho\left[ \left(c_0^2 + v_A^2\right) \frac{\partial v_x}{\partial x} + c_0^2\frac{\partial v_z}{\partial z} \right].
 \end{equation}
-then this boundary condition is equivalent to
+Looking for solutions proportional to $\exp{ikz}$ and taking Laplace transforms in time leads to
+\begin{equation}
+\tilde{p}_T = -\frac{i\rho}{\omega} \frac{(c_0^2 + v_A^2)(\omega_T^2 - \omega^2)}{(\omega_0^2 - \omega^2)} \tilde{v}_x' + \frac{i}{\omega} \hat{p}_{T0} + \frac{\rho \omega^2}{k\omega(\omega_0^2 - \omega^2)} \left(\dot{\hat{v}}_{z0} - i\omega\hat{v}_{z0}\right).
+\end{equation}
+Therefore, if we make the simplification\footnote{This simplification is not as strict as it might first seem. For example, any pressure perturbation-free transverse kick, such as you might expect from a nearby flare, would do.} to the prescribed initial conditions such that
+\begin{equation}
+\hat{p}_{T0} - \frac{\rho \omega_0^2}{k(\omega_0^2 - \omega^2)} \left(i\hat{v}_{z0} + \omega\dot{\hat{v}}_{z0}\right) = 0,
+\end{equation}
+then the continuity in total pressure boundary condition is equivalent to
 \begin{equation}
 \left[ \left[ \frac{\Lambda}{m} \frac{\partial \tilde{v}_x}{\partial x} \right] \right]_{x=\pm x_0} = 0.
 \end{equation}
-\textcolor{red}{(derived using Equation~(8) in \cite{and_etal07})}.
+\textcolor{red}{check we havent redefined lambda.}
 
-\color{red}
 Substituting the solutions given by Equations~\eqref{P sol 0}, \eqref{P sol 1}, and~\eqref{P sol 2} into these boundary conditions gives
 \begin{equation}
 \tilde{A}_1(\omega) = \frac{T_1(\omega)}{D(\omega)}, \quad \tilde{A}_2(\omega) = \frac{T_2(\omega)}{D(\omega)},
 \end{equation}
 where
 \begin{align}
-T_1(\omega) = T_1[f](\omega) & = -(\Lambda_2\cosh{2m_0 x_0} + \Lambda_0\sinh{2m_0 x_0})(\Lambda_1 I_0^- + \Lambda_0 I_1) - \Lambda_1(\Lambda_0 I_2 + \Lambda_2 I_0^+), \\
-T_2(\omega) = T_2[f](\omega) & = -\Lambda_2(\Lambda_1 I_0^- + \Lambda_0 I_1) - (\Lambda_1\cosh{2m_0 x_0} + \Lambda_0\sinh{2m_0 x_0})(\Lambda_0 I_2 + \Lambda_2 I_0^+), \\
-D(\omega) & = \Lambda_0(\Lambda_1 + \Lambda_2)\cosh(2m_0x_0) + (\Lambda_0^2 + \Lambda_1\Lambda_2)\sinh(2m_0x_0),
+T_1(\omega) = T_1[f](\omega) = & -(\Lambda_0\cosh{2m_0 x_0} + \Lambda_2\sinh{2m_0 x_0})(\Lambda_0 I_0^- + \Lambda_1 I_1) \notag \\
+& - \Lambda_0(\Lambda_0 I_0^+ + \Lambda_2 I_2), \\
+T_2(\omega) = T_2[f](\omega) = & - (\Lambda_0\cosh{2m_0 x_0} + \Lambda_1\sinh{2m_0 x_0})(\Lambda_0 I_0^+ + \Lambda_2 I_2) \notag \\
+& -\Lambda_0(\Lambda_0 I_0^- + \Lambda_1 I_1), \\
+D(\omega) = & \Lambda_0(\Lambda_1 + \Lambda_2)\cosh(2m_0x_0) + (\Lambda_0^2 + \Lambda_1\Lambda_2)\sinh(2m_0x_0),
 \label{D}
 \end{align}
 where $\Lambda_j = \rho_j (\omega^2 - \omega_{Aj}^2) /  m_j$, for $j = 0, 1, 2$, and
 \begin{align}
-I_0^\pm &= I_0^\pm[f] = \frac{1}{m_0} \int_{-x_0}^{x_0} \frac{\sinh(m_0(x_0 \pm s))}{\sinh(2m_0x_0)} f(\omega, s) ds, \\
-I_1 &= I_1[f] = \frac{1}{m_1} \int_{-\infty}^{-x_0} e^{m_1(s + x_0)} f(\omega, s) ds,
-\quad
-I_2 = I_2[f] = \frac{1}{m_2} \int_{x_0}^\infty e^{m_2(x_0 - s)} f(\omega, s) ds,
+I_0^\pm &= I_0^\pm[f] = \frac{1}{m_0} \int_{-x_0}^{x_0} \frac{\sinh(m_0(x_0 \pm s))}{\sinh(2m_0x_0)} f(\omega, s) ~ds, \\
+I_1 &= I_1[f] = \frac{1}{m_1} \int_{-\infty}^{-x_0} e^{m_1(s + x_0)} f(\omega, s) ~ds, \\
+I_2 &= I_2[f] = \frac{1}{m_2} \int_{x_0}^\infty e^{m_2(x_0 - s)} f(\omega, s) ~ds.
 \end{align}
-where
-\begin{equation}
-f(\omega, x) = \begin{cases}
-f_1(\omega, x), &\text{if } x < -x_0, \\
-f_0(\omega, x), &\text{if } -x_0 < x < x_0, \\
-f_2(\omega, x), &\text{if } x_0 < x.
-\end{cases}
-\end{equation}
 
 
-\section{Solution in time}
+\subsubsection{Solution in time}
+
 To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), such that
 \begin{equation}
-p_T(x,t) = \mathcal{L}^{-1}\{\tilde{v}_x(x)\} = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{v}_x(x) e^{-i\omega t} d\omega,
+\hat{v}_x(x,t) = \mathcal{L}^{-1}\{\tilde{v}_x(x)\} = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{v}_x(x) e^{-i\omega t} d\omega,
 \label{laplace transform}
 \end{equation}
-where $\gamma$ is a real number such that all the singularities of the integrand are below the contour of integration to ensure that all singularities contribute to the integral. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane and is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral.
-
-Focusing firstly on the region $x < -x_0$, the solution is
+where $\gamma$ is a real number such that all the singularities of the integrand are below the contour of integration to ensure that all singularities contribute to the integral. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane and is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral. Focusing firstly on the region $x < -x_0$, the solution is
 \begin{align}
-p_T(x, t) &= \mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{m_1(x + x_0)} + \int_{-\infty}^{-x_0} G_1(x; s)f_1(\omega, s)ds \right\}, \\
+\hat{v}_x(x, t) &= \mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{m_1(x + x_0)} + \int_{-\infty}^{-x_0} G_1(x; s)f_1(\omega, s)ds \right\}, \\
 &= \mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{m_1(x + x_0)} \right\} + \mathcal{L}^{-1} \left\{ \int_{-\infty}^{-x_0} G_1(x; s)f_1(\omega, s)ds \right\}.
 \end{align}
+The inverse Laplace transform in this solution are evaluated in the following subsection. 
 
+\color{red}
+\subsubsection{Asymptotic solution for large time}
 
-\subsection{Asymptotic solution for large time}
-To study the asymptotic behaviours of the total pressure perturbation, we start with the asymptotic behaviours of $A_1(t) = p_T(-x_0, t)$ and $A_2(t) = p_T(x_0, t)$. These variables can be determined, using the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), to be
+To study the asymptotic behaviours of the total pressure perturbation, we start with the asymptotic behaviours of $A_1(t) = v_x(-x_0, t)$ and $A_2(t) = v_x(x_0, t)$. These variables can be determined, using the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), to be
 \begin{equation}
 A_1(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega, \quad A_2(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_2(\omega)}{D(\omega)} e^{-i\omega t} d\omega,
 \label{A inv laplace}
