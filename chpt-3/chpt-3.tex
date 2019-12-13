@@ -482,6 +482,7 @@ Equation~\eqref{sol dirac delta}, where we can see the contribution from the sur
 \label{sec: IVP slab}
 %------------------------------------------------------------------------------
 
+\textcolor{red}{Calculate leaky mode frequencies using EVP approach?}
 
 \subsection{Incompressible}
 
@@ -1014,7 +1015,11 @@ Therefore, if we make the simplification\footnote{This simplification is not as 
 \end{equation}
 then the continuity in total pressure boundary condition is equivalent to
 \begin{equation}
-\left[ \left[ \frac{\Lambda}{m} \frac{\partial \tilde{v}_x}{\partial x} \right] \right]_{x=\pm x_0} = 0.
+\left[ \left[ \frac{\Lambda}{m} \frac{\partial \tilde{v}_x}{\partial x} \right] \right]_{x=\pm x_0} = 0,
+\end{equation}
+where double brackets indicate a jump in the quantity,
+\begin{equation}
+[[f]]_{x=x_0} = \lim_{\epsilon \to 0} [f(x_0 + \epsilon) - f(x_0 - \epsilon)].
 \end{equation}
 \textcolor{red}{check we havent redefined lambda.}
 
@@ -1053,6 +1058,8 @@ where $\gamma$ is a real number such that all the singularities of the integrand
 \end{align}
 The inverse Laplace transform in this solution are evaluated in the following subsection. 
 
+\textcolor{red}{ From R and R 06: Recall that the Laplace transform of a solution of any initial value problem is only valid when the imaginary part $\Im(\omega)$ of the complex frequency $\omega$ is larger than the maximum growth rate of perturbations. For a well-posed problem the perturbation growth rate is always bounded. In the particular case of a straight, untwisted, magnetic tube of interest here there is no reason to expect the existence of growing perturbations, since there are no instabilities, so that the maximum growth rate is zero; consequently, the Laplace transform is valid for $\Im(\omega) > 0$. After obtaining the Laplace transformed solution, we construct its analytic continuation into the lower part of the ω-plane, $\Im(\omega) < 0$, allowing us to calculate the asymptotic behaviour of the solution for large times, $t \to \infty$.}
+
 \color{red}
 \subsubsection{Asymptotic solution for large time}
 
@@ -1082,6 +1089,8 @@ By the algebra of branch points, the set of branch points of a sum of functions 
 \textcolor{red}{TO DO: Redo the above to show that we have algebraic branch points at all of the $\omega_{A,0,T}$ corresponding to the Alfven, slow and fast continua, corresponding to leaky modes. So we have 18 branch points. How should be choose the branch cuts? We need to ensure we are confined to a single Riemann sheet i.e. single valued. See e.g. Fig 6 in Sedlacek 1970.}
 
 \textit{The above analysis determines that the singularities of each function $T_1(\omega)$, $T_2(\omega)$, and $D(\omega)$ are precisely the algebraic branch points at $\omega = \pm kv_{A1}$ and $\omega = \pm kv_{A2}$.}
+
+The apparent singularity at the tube frequency in the inhomogeneous part of the governing equation, Equation~\eqref{}, is neutralised by multiplication by the Green's function \citep{and_etal07}. \textcolor{red}{SHOW THIS EXPLICITLY?}
 
 \subsection{Asymptotic solution - non-magnetic external plasma}
 If the external plasma is non-magnetic, \textit{i.e.} $v_{A1} = v_{A2} = 0$, then the integral has (algebraic) branch points at $\omega = \pm \omega_{A0}$, $\pm \omega_{00,1,2}$, and $\pm \omega_{T0}$, where, without loss of generality, we let $\omega_1 < \omega_2$. The contour, $C = C_1 + C_2 + C_3 + C_4 + C_5$ for the inverse Laplace transform can be modified as shown in Figure~\ref{fig: brom contour}. To ensure that the contour remains on a single Riemann surface, it is modified around the branch cuts so as to encircle the poles. The closed contour $C$ is a sum of the following sub-contours:
