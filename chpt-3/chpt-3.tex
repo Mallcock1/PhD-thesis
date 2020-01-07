@@ -120,7 +120,24 @@ The utility of the IVP approach in the present chapter is to determine a time-sc
 \color{red}
 \subsection{Leaky waves}
 
-In general, MHD waves guided by an isolated plasma inhomogeneity are made up of \textit{trapped} and {leaky} wave components. Trapped waves are evanescent away from the waveguide and were the subject of the analysis in Chapter~\ref{chap: EVP}. Leaky waves are waves are attenuated in time
+In general, small amplitude MHD waves guided by an isolated plasma inhomogeneity are made up of \textit{trapped} and \textit{leaky} wave components. Trapped waves maintain a constant (when averaged over a period) amplitude through time and are spatially evanescent away from the waveguide. Trapped waves were the subject of the analysis in Chapter~\ref{chap: EVP}. One can then ask whether there can exist any modes with attenuated amplitude through time. Attenuating waves are losing energy in the propagation direction. Without any damping mechanism\footnote{The discontinuous Alfv\'{e}n speed profile avoids resonant absorption and phase mixing, and neglecting viscosity avoids viscous damping.}, there is no way for this energy to be converted into heat. Therefore, this energy must be transported orthogonal to the propagation direction.
+
+To see this mathematically, consider the \textit{Poynting flux}, which represents the directional energy flux of a magnetic field. The Poynting flux is defined as $\mathbf{S} = (\mathbf{E} \times \bB)/\mu_0$. In ideal MHD, Ohm's law tells us that the electric field is given by $\mathbf{E} = -(\bv \times \bB)$. Therefore, using a standard vector calculus identity, the Poynting flux can be written as $\mathbf{S} = (B_0^2\bv - \bB(\bv \cdot \bB)) / \mu_0$. The time-averaged Poynting flux over a wave period, $T$, is a more instructive quantity since it neglects the smaller changes in energy flux that cancel over longer time-frames. The time-averaged magnetic field (made up of an equilibrium quantity, $\bB_0$, and a smaller, time-dependent perturbation quantity, $\mathbf{b}$) is
+\begin{align}
+	<\bB> &= \frac{1}{T} \int_{t_0}^{t_0 + T} \bB ~dt \\
+	&= \frac{1}{T} \int_{t_0}^{t_0 + T} \bB_0 + \mathbf{\hat{b}}e^{i(kz - \omega t)} ~dt \\
+	&= \bB_0 + \frac{\mathbf{b}}{T} \int_{t_0}^{t_0 + T} e^{i(kz - \omega t)} ~dt \\
+	&= \bB_0.
+\end{align}
+Therefore, the time-averaged Poynting flux due to an MHD wave in our model is given by
+\begin{align}
+	<\mathbf{S}> &= \frac{1}{\mu_0}(B_0^2\bv - \bB_0(\bv \cdot \bB_0)) \\
+	&= \frac{B_0^2}{\mu_0}(\bv - v_z\mathbf{\hat{z}}) \\
+	&= \frac{B_0^2}{\mu_0}v_x \mathbf{\hat{x}},
+\end{align}
+where we have used the fact that the equilibrium magnetic field is in the $z$-direction. In particular, the time-averaged Poynting flux of 
+
+Leaky waves are waves are attenuated in time
 
 \textcolor{red}{INCLUDE MATHS OF POYNTING FLUX FOR LEAKY WAVES. STARTING WITH ATTENUATED MODE THROUGH TIME, CALCULATE POYNTING FLUX AND SHOW THAT ENERGY MUST LEAVE TRANSVERSELY.}
 
@@ -1058,7 +1075,7 @@ where $\gamma$ is a real number such that all the singularities of the integrand
 \end{align}
 The inverse Laplace transform in this solution are evaluated in the following subsection. 
 
-\textcolor{red}{ From R and R 06: Recall that the Laplace transform of a solution of any initial value problem is only valid when the imaginary part $\Im(\omega)$ of the complex frequency $\omega$ is larger than the maximum growth rate of perturbations. For a well-posed problem the perturbation growth rate is always bounded. In the particular case of a straight, untwisted, magnetic tube of interest here there is no reason to expect the existence of growing perturbations, since there are no instabilities, so that the maximum growth rate is zero; consequently, the Laplace transform is valid for $\Im(\omega) > 0$. After obtaining the Laplace transformed solution, we construct its analytic continuation into the lower part of the ω-plane, $\Im(\omega) < 0$, allowing us to calculate the asymptotic behaviour of the solution for large times, $t \to \infty$.}
+\textcolor{red}{ From R and R 06: Recall that the Laplace transform of a solution of any initial value problem is only valid when the imaginary part $\Im(\omega)$ of the complex frequency $\omega$ is larger than the maximum growth rate of perturbations. For a well-posed problem the perturbation growth rate is always bounded. In the particular case of a straight, untwisted, magnetic tube of interest here there is no reason to expect the existence of growing perturbations, since there are no instabilities, so that the maximum growth rate is zero; consequently, the Laplace transform is valid for $\Im(\omega) > 0$. After obtaining the Laplace transformed solution, we construct its analytic continuation into the lower part of the $\omega$-plane, $\Im(\omega) < 0$, allowing us to calculate the asymptotic behaviour of the solution for large times, $t \to \infty$.}
 
 \color{red}
 \subsubsection{Asymptotic solution for large time}
