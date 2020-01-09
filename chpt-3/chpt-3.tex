@@ -120,32 +120,26 @@ The utility of the IVP approach in the present chapter is to determine a time-sc
 \color{red}
 \subsection{Leaky waves}
 
-In general, small amplitude MHD waves guided by an isolated plasma inhomogeneity are made up of \textit{trapped} and \textit{leaky} wave components. Trapped waves maintain a constant (when averaged over a period) amplitude through time and are spatially evanescent away from the waveguide. Trapped waves were the subject of the analysis in Chapter~\ref{chap: EVP}. One can then ask whether there can exist any modes with attenuated amplitude through time. Attenuating waves are losing energy in the propagation direction. Without any damping mechanism\footnote{The discontinuous Alfv\'{e}n speed profile avoids resonant absorption and phase mixing, and neglecting viscosity avoids viscous damping.}, there is no way for this energy to be converted into heat. Therefore, this energy must be transported orthogonal to the propagation direction.
+Small amplitude MHD waves guided by an isolated plasma inhomogeneity are made up of \textit{trapped} and \textit{leaky} wave components. Trapped waves maintain a constant (when averaged over a period) amplitude through time and are spatially evanescent away from the waveguide. Trapped waves were the subject of the analysis in Chapter~\ref{chap: EVP}. One can then ask whether there can exist any modes with attenuated amplitude through time. Attenuating amplitude means the waves would be losing energy in the direction of propagation. Without any damping mechanism\footnote{The discontinuous Alfv\'{e}n speed profile used in our model avoids resonant absorption and phase mixing and neglecting viscosity avoids viscous damping.}, there is no way for this energy to be converted into heat. The energy is not \textit{lost}, rather, it is \textit{moved}. Energy must be transported orthogonal to the propagation direction.
 
-To see this mathematically, consider the \textit{Poynting flux}, which represents the directional energy flux of a magnetic field. The Poynting flux is defined as $\mathbf{S} = (\mathbf{E} \times \bB)/\mu_0$. In ideal MHD, Ohm's law tells us that the electric field is given by $\mathbf{E} = -(\bv \times \bB)$. Therefore, using a standard vector calculus identity, the Poynting flux can be written as $\mathbf{S} = (B_0^2\bv - \bB(\bv \cdot \bB)) / \mu_0$. The time-averaged Poynting flux over a wave period, $T$, is a more instructive quantity since it neglects the smaller changes in energy flux that cancel over longer time-frames. The time-averaged magnetic field (made up of an equilibrium quantity, $\bB_0$, and a smaller, time-dependent perturbation quantity, $\mathbf{b}$) is
+To see this mathematically, consider the \textit{Poynting flux}, which represents the directional energy flux of a magnetic field. The Poynting flux is defined as $\mathbf{S} = (\mathbf{E} \times \bB)/\mu_0$ (see, for example, \citealp{pri14}). In ideal MHD, Ohm's law tells us that the electric field is approximately $\mathbf{E} = -(\bv \times \bB)$. Therefore, using a standard vector calculus identity, the Poynting flux can be written as $\mathbf{S} = [B^2\bv - (\bv \cdot \bB)\bB] / \mu_0$. Under the assumption that that wave is temporally attenuating, the angular frequency must have a (negative) imaginary part, $\omega = \omega_R + i\omega_I$. The time-averaged Poynting flux over a wave period, $T = 2\pi/\omega_R$, is a more instructive quantity because it neglects the small changes in energy flux that do not contribute to the energy flux over time-scales longer than a wave period. The velocity perturbation time-averaged from an initial time $t_0$ is
 \begin{align}
-	<\bB> &= \frac{1}{T} \int_{t_0}^{t_0 + T} \bB ~dt \\
-	&= \frac{1}{T} \int_{t_0}^{t_0 + T} \bB_0 + \mathbf{\hat{b}}e^{i(kz - \omega t)} ~dt \\
-	&= \bB_0 + \frac{\mathbf{b}}{T} \int_{t_0}^{t_0 + T} e^{i(kz - \omega t)} ~dt \\
-	&= \bB_0.
+	\langle \bv \rangle &= \frac{1}{T} \int_{t_0}^{t_0 + T} \bv ~dt \\
+	&= \frac{1}{T} \int_{t_0}^{t_0 + T} \mathbf{\hat{v}} e^{i(kz - \omega t)} ~dt \\
+	&= \frac{i}{\omega T} \mathbf{\hat{v}} e^{i(kz - \omega t_0)} (e^{\omega_I T} - 1).
 \end{align}
-Therefore, the time-averaged Poynting flux due to an MHD wave in our model is given by
+To linear order, the time-averaged Poynting flux due to an MHD wave in our model is
 \begin{align}
-	<\mathbf{S}> &= \frac{1}{\mu_0}(B_0^2\bv - \bB_0(\bv \cdot \bB_0)) \\
-	&= \frac{B_0^2}{\mu_0}(\bv - v_z\mathbf{\hat{z}}) \\
-	&= \frac{B_0^2}{\mu_0}v_x \mathbf{\hat{x}},
+\langle \mathbf{S} \rangle &= \frac{1}{\mu_0}[B_0^2\langle\bv\rangle - (\langle\bv\rangle \cdot \bB_0)\bB_0] \\
+&= \frac{iB_0^2}{\omega T \mu_0} \hat{v}_x e^{i(kz - \omega t_0)} (e^{\omega_I T} - 1) \mathbf{\hat{x}}.
 \end{align}
-where we have used the fact that the equilibrium magnetic field is in the $z$-direction. In particular, the time-averaged Poynting flux of 
+For trapped waves, the frequency is purely real, \textit{i.e.} $\omega_I = 0$, hence $\langle \bv \rangle = \mathbf{0}$, giving a vanishing time-averaged Poynting flux (to linear order). For non-trapped waves, the time-averaged Poynting flux is in the transverse direction, orthogonal to the direction of propagation. Energy leaks away from the waveguide, balancing the amplitude attenuation. Waves of this type are known as \textit{leaky}.
 
-Leaky waves are waves are attenuated in time
+\textcolor{red}{(Include diagram of eigenfunction. Discuss the existence due to partial refraction at interfaces and their physicality at intermediate time scales and length-scales. Eikonal?)}
 
-\textcolor{red}{INCLUDE MATHS OF POYNTING FLUX FOR LEAKY WAVES. STARTING WITH ATTENUATED MODE THROUGH TIME, CALCULATE POYNTING FLUX AND SHOW THAT ENERGY MUST LEAVE TRANSVERSELY.}
+The physical intuition behind this, borrowing terminology from ray-optics, is that trapped waves correspond to total internal reflection in the waveguide and leaky waves correspond to partial refraction.
 
-Energy flux conservation requires that if a wave is attenuated in the direction parallel to propagation, that it must be exponentially increasing in the direction perpendicular. One can borrow from the theory of ray optics and consider the MHD wave mathematical system in terms of the \textit{wave-phase} or \textit{eikonal}, $S(x)$.
-
-Deviation from total internal reflection at the waveguide boundary allows a proportion of the wave energy to refract through the interface. The modes of oscillation that portray this partial refraction behaviour are known as \textit{refractive leaky modes}
-
-Leaky modes also exist in optical waveguides and minimising them is key to avoiding energy losses in optical communications.
+Leaky modes also exist in optical waveguides and minimising them is key to avoiding energy losses in optical communications \cite{hu_etal09}.
 
 \color{black}
 
