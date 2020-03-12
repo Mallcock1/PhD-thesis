@@ -1,0 +1,231 @@
+\documentclass[12pt]{article}
+
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsthm, amsmath}
+\usepackage{graphicx}
+\usepackage[round]{natbib}
+\usepackage{tikz}
+\usepackage{natbib}
+
+\newcommand{\adv}{    {\it Adv. Space Res.}} 
+\newcommand{\annG}{   {\it Ann. Geophys.}} 
+\newcommand{\aap}{    {\it Astron. Astrophys.}}
+\newcommand{\aaps}{   {\it Astron. Astrophys. Suppl.}}
+\newcommand{\aapr}{   {\it Astron. Astrophys. Rev.}}
+\newcommand{\ag}{     {\it Ann. Geophys.}}
+\newcommand{\aj}{     {\it Astron. J.}} 
+\newcommand{\apj}{    {\it Astrophys. J.}}
+\newcommand{\apjl}{   {\it Astrophys. J. Lett.}}
+\newcommand{\apss}{   {\it Astrophys. Space Sci.}} 
+\newcommand{\cjaa}{   {\it Chin. J. Astron. Astrophys.}} 
+\newcommand{\gafd}{   {\it Geophys. Astrophys. Fluid Dyn.}}
+\newcommand{\grl}{    {\it Geophys. Res. Lett.}}
+\newcommand{\ijga}{   {\it Int. J. Geomagn. Aeron.}}
+\newcommand{\jastp}{  {\it J. Atmos. Solar-Terr. Phys.}} 
+\newcommand{\jgr}{    {\it J. Geophys. Res.}}
+\newcommand{\mnras}{  {\it Mon. Not. Roy. Astron. Soc.}}
+\newcommand{\na}{     {\it New Astronomy}}
+\newcommand{\nat}{    {\it Nature}}
+\newcommand{\pasp}{   {\it Pub. Astron. Soc. Pac.}}
+\newcommand{\pasj}{   {\it Pub. Astron. Soc. Japan}}
+\newcommand{\pre}{    {\it Phys. Rev. E}}
+\newcommand{\solphys}{{\it Solar Phys.}}
+\newcommand{\sovast}{ {\it Soviet  Astron.}} 
+\newcommand{\ssr}{    {\it Space Sci. Rev.}}
+\newcommand{\caa}{    {\it Chinese Astron. Astrohpys.}} 
+\newcommand{\apjs}{   {\it Astrophys. J. Suppl.}}
+\newcommand{\lrsp}{{\it Living Rev. Solar Phys.}}
+\newcommand{\planss}{{\it Planetary and Space Sci.}}
+
+
+
+\newtheorem{theorem}{Theorem}
+
+\title{Alternative derivation of MHD slab dispersion relation using ray optics - EXTRA}
+\author{Matthew Allcock}
+
+\begin{document}
+	\maketitle
+
+	\textcolor{red}{Disambiguate: Direction of propagation, wave-vector, wave-front normal, ellipses of group and phase, group and phase angles, slowness vector.
+		\begin{itemize}
+			\item $\mathbf{k}$ points in the direction of the phase velocity, $\mathbf{v_{ph}} = \omega/k\mathbf{\hat{k}}$, i.e. normal to surfaces of constant phase, known as wavefronts. AKA wave-normal.
+			\item "Direction of propagation" often refers to the direction of a wave's energy flow, i.e. the direction of the group velocity $\mathbf{v_g} = \partial \omega / \partial \mathbf{k} = (\partial \omega / \partial k_x, \partial \omega / \partial k_y, \partial \omega / \partial k_z)$. This it the component of the velocity of energy propagation (Poynting vector?) in the wave-normal direction.
+			\item The direction of energy propagation is given by the Poynting vector $\mathbf{S} = (\mathbf{E} \times \mathbf{B})/\mu_0$.
+			\item There is another speed called the ray velocity, which is defined by $v_r = v_{ph}/\cos{\alpha}$ where $\alpha$ is the angle between $v_{ph}$ and $v_g$.
+			\item A ray is often defined as a (infinitely long) line collinear with the wave-vector $\mathbf{k}$. This is only the case for isotropic media. For anisotropic media, the rays can be non-perpendicular to wavefronts (e.g. \url{http://sepwww.stanford.edu/sep/prof/iei/dspr/paper_html/node22.html}). Instead, we should \textit{define} a ray as the curve between two points that satisfied Fermat's principle of least time. This involved calculus of variations to find for all but homogeneous media.
+			\item The slowness vector is the reciprocal of the phase velocity, i.e. $\mathbf{w} = 1/v_{ph} \mathbf{\hat{k}}$. Commonly used in Earth seismology.
+			\item the different direction of the group and phase speeds motivate definitions of group and phase angles, $\nu$ and $\theta$, that denote the angles between the the group velocity the phase velocity, and the direction tangential to the interface in the plane of incidence, respectively. Then by geometry, $\cos(\theta - \nu) = |v_{ph} / v_g|$ and $\cos{\theta_1}/v_{ph1} = \cos{\theta_2}/v_{ph_2}$, i.e. Snell's law still holds for phase angles (see e.g. Nunez 2018).
+		\end{itemize}
+	}
+	
+	\section{Low beta plasma}
+	
+	Consider an asymmetric slab MHD waveguide. This is an inviscid plasma made up of three regions labelled 1, 0, 2, separated by interfaces at $x = \pm x_0$ with magnetic field in the $z$-direction (see \citep{all_etal17}). In the first instance, assume the plasma beta is small. This degenerates the slow MHD mode and reduces the fast MHD mode to a compressional Alfv\'{e}n mode, which propagates isotropically with phase speed $\omega / k = v_A$, where $v_A$ is the Alfv\'{e}n speed. In particular, rays propagate in straight lines, so that ray optics theory can be implemented in it's standard form. 
+	
+	Consider a small amplitude ray propagating as an MHD fast mode at an angle $\theta_i$ to the interface between plasma 0 and 2. Low beta MHD waves have no velocity component parallel with the magnetic field, so the velocity perturbation associated with this wave can be written $\mathbf{v_i} = (v_{ix}, 0, 0)$. In general, when this ray hits the interface, it will be partially reflected and partially transmitted. Each of these waves can be decomposed into a linear superposition of plane waves, whose transverse components have the form
+	\begin{align}
+	v_{ix} &= \hat{v}_{ix} e^{i(\mathbf{k_i}\cdot \mathbf{x} + \omega t)}, \\
+	v_{rx} &= -\hat{v}_{rx} e^{i(\mathbf{k_r}\cdot \mathbf{x} - \omega t)}, \\
+	v_{tx} &= \hat{v}_{tx} e^{i(\mathbf{k_t}\cdot \mathbf{x} - \omega t)},
+	\end{align}
+	where subscripts $i, r, t$ refer to \textit{incident}, \textit{reflected}, and \textit{transmitted} wave. The factor of $-1 = e^{i\pi}$ in the reflected wave amplitude is due to the $\pi$ change in phase when the incident wave is reflected. Let the angles than the incident, reflected, and transmitted rays make with the interface be $\theta_i$, $\theta_r$, and $\theta_t$, respectively.
+	
+	As is standard procedure for free surfaces between fluids, the normal velocity and total pressure perturbation must both be continuous at the interface. The total pressure perturbation for a low-beta plasma is purely the magnetic pressure, since this dominates the plasma pressure. The linearised magnetic pressure is $p_m = B_0b_{iz}/\mu_0$, where $B_0$ and $b_{iz}$ are the equilibrium and $z$-component of the magnetic field in the slab region and $\mu_0$ is the magnetic permeability. Using the $z$-component of the induction equation,
+	\begin{equation}
+	\hat{b}_{iz} = -i\frac{B_0}{\omega} (\hat{v}'_{ix} + ik_{ix}\hat{v}_x),
+	\end{equation}
+	where $b_{iz} = \hat{b}_{iz} e^{i(\mathbf{k_i}\cdot \mathbf{x} + \omega t)}$. The incident wave is effectively a homogeneous plasma wave, so it's amplitude is uniform, \textit{i.e.} $\hat{v}'_{ix} = 0$, therefore
+	\begin{equation}
+	\hat{b}_{iz} = \frac{B_0}{\omega} k_{ix}\hat{v}_{ix}.
+	\end{equation}
+	Hence, the total pressure associated with the incident wave can be expressed as
+	\begin{equation}
+	p_{Ti} = \frac{\rho_0v_{A0}^2}{\omega}k_{ix}v_{ix}.
+	\end{equation}
+	
+	The law of reflection tells us that $\theta_r = \theta_i$. Continuity of tangential wavevector components tells us that
+	\begin{equation}
+	k_i\cos{\theta_i} = k_r\cos{\theta_r} = k_t\cos{\theta_t}. \label{tang comp}
+	\end{equation}
+	Therefore, $k_r = k_i$. In particular, $k_{rx} = -k_{ix}$ and $k_{rz} = k_{iz}$.
+	
+	Continuity of normal velocity at $x = 0$ gives
+	\begin{equation}
+	\hat{v}_{ix}e^{i(k_{iz}z - \omega t)} - \hat{v}_{rx}e^{i(k_{rz}z - \omega t)} = \hat{v}_{tx}e^{i(k_{tz}z - \omega t)}.
+	\end{equation}
+	Using Equation~\eqref{tang comp}, this reduces to
+	\begin{equation}
+	\hat{v}_{ix} - \hat{v}_{rx} = \hat{v}_{tx}. \label{cont vel}
+	\end{equation}
+	
+	Continuity of total pressure perturbation at $x = 0$ gives
+	\begin{equation}
+	\frac{\rho_0v_{A0}^2}{\omega}(k_{ix}\hat{v}_{ix} - k_{rx}\hat{v}_{rx}) = \frac{\rho_2v_{A2}^2}{\omega}k_{tx}\hat{v}_{tx}.
+	\end{equation}
+	By balance of equilibrium total pressure, $\rho_0v_{A0}^2 = \rho_2v_{A2}^2$, and using the fact that $k_{rx} = -k_{ix}$, we reach
+	\begin{equation}
+	k_{ix}(\hat{v}_{ix} + \hat{v}_{rx}) = k_{tx}\hat{v}_{tx}. \label{cont pressure}
+	\end{equation}
+	
+	Equations~\eqref{cont vel} and~\eqref{cont pressure} can be solved simultaneously to find
+	\begin{align}
+	\hat{v}_{ix} &= \frac{1}{2}\hat{v}_{tx}\left(\frac{k_{tx}}{k_{ix}} + 1\right) \\
+	\hat{v}_{rx} &= \frac{1}{2}\hat{v}_{tx}\left(\frac{k_{tx}}{k_{ix}} - 1\right).
+	\end{align}
+	Therefore, the reflection coefficient  is
+	\begin{equation}
+	r := \frac{\hat{v}_{rx}}{\hat{v}_{ix}} = \frac{k_{tx} - k_{ix}}{k_{tx} + k_{ix}}.
+	\end{equation}
+	
+	From Equation~\eqref{tang comp}, Snell's Law follows, that is
+	\begin{equation}
+	\frac{\cos{\theta_i}}{v_{A0}} = \frac{\cos{\theta_t}}{v_{A2}}.
+	\end{equation}
+	Total internal reflection occurs for $\theta_i < \theta_c$, where $\cos{\theta_c} = k_t / k_i$. In this case,
+	\begin{align}
+	k_{tx}^2 &= k_t^2 \sin^2{\theta_t} \\
+	&= k_t^2(1 - \cos^2{\theta_t}) \\
+	&= k_t^2 - k_i^2\cos^2{\theta_i} \\
+	&< k_t^2 - k_i^2\cos^2{\theta_c} \\
+	&= k_t^2 - k_i^2 \left(\frac{k_t^2}{k_i^2}\right) \\
+	&= 0.
+	\end{align}
+	Therefore, $k_{tx}$ is imaginary. Define $k_2$ by $k_{tx} = -i k_2$, with $k_2 \in \mathcal{R}$, and let $k_0 := k_{ix} = \sqrt{\omega^2/v_{A0}^2 - k_z^2}$, so that we can write
+	\begin{equation}
+	r = -\frac{k_0 + ik_2}{k_0 - ik_2},
+	\end{equation}
+	which has complex argument
+	\begin{equation}
+	\phi_2 = -2 \arctan\left(\frac{k_2}{k_0}\right).
+	\end{equation}
+	This is the phase shift that the incident ray undergoes after total internal reflection on the interface between plasma 0 and 2. Similarly, the phase shift that an incident ray undergoes after total internal reflection on the interface between plasma 0 and 1 is
+	\begin{equation}
+	\phi_1 = -2 \arctan\left(\frac{k_1}{k_0}\right).
+	\end{equation}
+	
+	Using the same position labels as Figure~1.2.3 from \cite{mar74} {Theory of Dielectric Optical Waveguides}. We can determine, using basic geometry, that
+	\begin{equation}
+	s_1 := AB = 2x_0(\cos^2{\theta_i} - \sin^2{\theta_i})/\sin{\theta_i}
+	\end{equation}
+	and
+	\begin{equation}
+	s_2 := CD = 2x_0/\sin{\theta_i}.
+	\end{equation}
+	Consider a ray incident on interface 2 with total internal reflection, then interface with interface 1 with total internal reflection. The condition that the wave must be self-consistent\footnote{This is also known as the \textit{transverse resonance condition} in relation to optical waveguides (\textit{e.g.} R.R.A.Syms and J.R.Cozens Optical Guided Waves and Devices).}, which is equivalent to the doubly reflected wave being in phase with the wave had it not made any reflections, leads to
+	\begin{equation}
+	n_0 s_2 k_i  + \phi_2 + \phi_1 = n_0 s_1 k_i + 2N\pi, \label{self-consistency}
+	\end{equation}
+	where $n_0$ is the refractive index for compressional Alfv\'{e}n modes in the slab and $N$ is an integer. $n_0s_1$ is the optical path length for the path $AB$. By using the internal Alfv\'{e}n speed to normalise the refractive index, we can set $n_0 = 1$. Using basic trigonometry, $1 - (\cos^2{\theta_i} - \sin^2{\theta_i}) = 2\sin^2{\theta_i}$, therefore, Equation~\eqref{self-consistency} becomes
+	\begin{equation}
+	\arctan\left(\frac{k_2}{k_0}\right) + \arctan\left(\frac{k_1}{k_0}\right) = 2x_0k_i \sin{\theta_i} - N\pi.
+	\end{equation}
+	Applying $\tan$ to this equation, using the identity $\tan(\arctan{a} + \arctan{b}) = (a + b) / (1 - ab)$, and noticing that $k_i\sin{\theta_i} = k_0$, yields
+	\begin{equation}
+	\tan(2k_0x_0) = \frac{k_0 (k_1 + k_2)}{k_0^2 - k_1k_2}.
+	\end{equation}
+	By letting $k_0 = -im_0$, we reach
+	\begin{equation}
+	m_0 (k_1 + k_2) + (m_0^2 + k_1k_2)\tanh(2m_0x_0) = 0. \label{DR low beta}
+	\end{equation}
+	
+	By observing that
+	\begin{equation}
+	m_0 = ik_0 = \sqrt{k_z^2 - \frac{\omega^2}{v_{A0}^2}}
+	\end{equation}
+	and
+	\begin{equation}
+	k_{1,2} = \sqrt{k_z^2 - \frac{\omega^2}{v_{A1,2}^2}},
+	\end{equation}
+	it can be seen that Equation~\eqref{DR low beta} is equivalent to the dispersion relation for low-beta MHD modes guided by an asymmetric magnetic slab waveguide.
+	
+	
+	\section{Incompressible plasma}
+	In incompressible plasma, the fast mode propagates instantaneously so no longer transfers energy and the slow mode propagates at a speed which depends on the angle between the propagation direction and the magnetic field, $\theta$, like $c_\text{ph} = v_A\cos{\theta}$. Therefore, this wave propagates anisotropically. Hence, we need to verify that the law of reflection still holds and derive a Snell's law for the interaction of this anisotropic wave with a planar interface.
+	
+	\subsection{Derivation of alternative Snell's law}
+	Referring to the diagram of \url{https://en.wikipedia.org/wiki/Snells_law} (note that their $\theta$ is $\pi/2 -$ out $\theta$), let $T$ be the time required for an incompressible slow MHD ray to travel between points $Q$ and $P$. Then, denoting the propagation speeds in the incident and transmitted regions as $v_1$ and $v_2$,
+	\begin{align}
+	T &= \frac{\sqrt{x^2 + a^2}}{v_1} + \frac{\sqrt{b^2 + (l - x)^2}}{v_2} \\
+	&= \frac{\sqrt{x^2 + a^2}}{v_{A1}\cos{\theta_1}} + \frac{\sqrt{b^2 + (l - x)^2}}{v_{A2}\cos{\theta_2}}
+	&= \frac{\sqrt{x^2 + a^2}}{v_{A1}\cos{\theta_1}} + \frac{\sqrt{b^2 + (l - x)^2}}{v_{A2}\cos{\theta_2}}.
+	\end{align}
+	The incident and transmission angles obey
+	\begin{equation}
+	\cos{\theta_1} = \frac{x}{\sqrt{x^2 + a^2}}, \quad \cos{\theta_2} = \frac{l - x}{\sqrt{b^2 + (l - x)^2}},
+	\end{equation}
+	therefore,
+	\begin{equation}
+	T = \frac{x^2 + a^2}{v_{A1}x} + \frac{b^2 + (l - x)^2}{v_{A2}(l - x)}.
+	\end{equation}
+	Therefore,
+	\begin{align}
+	\frac{dT}{dx} &= \frac{1}{v_{A1}}\left( 1 - \frac{a^2}{x^2} \right) - \frac{1}{v_{A2}}\left( 1 - \frac{b^2}{(l - x)^2} \right) \\
+	&= \frac{1}{v_{A1}}\left( 1 - \tan^2{\theta_1} \right) - \frac{1}{v_{A2}}\left( 1 - \tan^2{\theta_2} \right).
+	\end{align}
+	Setting this equal to 0, so as to minimise $T$, gives us Snell's law for incompressible MHD waves, namely
+	\begin{equation}
+	\frac{1}{v_{A1}}\left( 1 - \tan^2{\theta_1} \right) = \frac{1}{v_{A2}}\left( 1 - \tan^2{\theta_2} \right).
+	\end{equation}
+	
+	The law of total reflection can be derived by considering a reflected ray rather than a transmitted ray. The speed of the reflected ray is the same as the speed of the incident ray, $v_{A1}$. Let the propagation angle of the reflected ray be $\theta_r$, then using a very similar derivation to that of Snell's law,
+	\begin{equation}
+	\frac{1}{v_{A1}}\left( 1 - \tan^2{\theta_1} \right) = \frac{1}{v_{A1}}\left( 1 - \tan^2{\theta_r} \right).
+	\end{equation}
+	Therefore, $1 - \tan^2{\theta_1} = 1 - \tan^2{\theta_r}$, which can only be satisfied if $\theta_r = \theta_1$. Hence, the law of reflection holds.
+	
+	We know that incompressible fast MHD modes 
+	
+	\begin{itemize}
+		\item $\mathbf{k} \cdot \mathbf{v} = 0$.
+		\item No pressure or density perturbation.
+		\item $\mathbf{B_0} \cdot \mathbf{b} = 0$, i.e. magnetic field is perturbed only in direction perpendicular to the equilibrium magnetic field.
+	\end{itemize}
+
+
+
+\bibliographystyle{agsm}
+\bibliography{bibliography}  
+
+\end{document}
