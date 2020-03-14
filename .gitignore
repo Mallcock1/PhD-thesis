@@ -96,8 +96,11 @@ sympy-plots-for-*.tex/
 
 # Figures?!
 
-# pdfs
+# imagess
 *.pdf
+*.eps
+*.svg
+*.png
 
 # backup files
 *.bak

@@ -161,17 +161,17 @@ The physical nature of leaky modes is that they dominate to the time-dependent s
 
 
 %------------------------------------------------------------------------------
-\section{Interface plasma}
+\section{Tangential interface}
 \label{sec: IVP int}
 %------------------------------------------------------------------------------
 
-In seminal research, and one of the earlier uses of the IVP approach to an MHD wave problem, \cite{rae_etal81} modelled surface waves propagating along an isolated tangential interface, parallel to the $z$-axis, separating two distinct plasmas. In this section, we bring to attention several ways in which the derivation and results of that paper are incorrect and redo the analysis. To our knowledge, this is the first time these errors has been spotted.
+In seminal research, and one of the earlier uses of the IVP approach to an MHD wave problem, \cite{rae_etal81} modelled surface waves propagating along an isolated tangential interface, parallel to the $z$-axis, separating two distinct plasmas. In this section, we bring to attention several ways in which the derivation and results of that paper are incorrect and correct the analysis. To our knowledge, this is the first time these errors has been reported.
 
-Consider a stationary, inviscid plasma that is stratified in the $x$-direction only that has unidirectional magnetic field $\bB = (0, 0, B(x))$. First, taking Fourier components in the $z$-direction of the linearised ideal incompressible MHD equations\footnote{To maintain consistency with the remained of this thesis, we look for parameters proportional to $e^{ikz}$ instead of $e^{-ikz}$ as was taken in the original work by \cite{rae_etal81}.}, such that
+Consider a stationary, inviscid plasma that is stratified in the $x$-direction only that has unidirectional magnetic field $\bB = (0, 0, B(x))$. Following \cite{rae_etal81}, we let the plasma be incompressible. First, taking Fourier components in the $z$-direction\footnote{To maintain consistency with the remainder of this thesis, we look for parameters proportional to $e^{ikz}$ instead of $e^{-ikz}$ as was taken by \cite{rae_etal81}.}
 \begin{equation}
 v_x(x,y,z,t) = \hat{v}_x(x,t)e^{ikz},
 \end{equation}
-they can be simplified to a single equation for the transverse velocity perturbation, namely
+the linearised ideal incompressible MHD equations can be simplified to a single equation for the transverse velocity perturbation, namely \citep{pri14}
 \begin{equation}
 \frac{\partial}{\partial x}\left\{\rho_0\left(\frac{\partial^2}{\partial t^2} + k^2v_A^2\right) \frac{\partial\hat{v}_x}{\partial x}\right\} - k^2\rho_0\left(\frac{\partial^2}{\partial t^2} + k^2v_A^2\right)\hat{v}_x = 0.
 \label{gov fourier}
@@ -180,7 +180,7 @@ Next, we take the Laplace transform\footnote{The choice of Laplace transform con
 \begin{equation}
 \tilde{v}_x(x) = \mathcal{L}\{\hat{v}_x(x,t)\} = \int_0^\infty \hat{v}_x(x,t)e^{i\omega t} dt.
 \end{equation}
-We must first see that
+Firstly,
 \begin{align}
 \mathcal{L}\left\{\frac{\partial^2 \hat{v}_x}{\partial t^2}\right\} & = \left[\dot{\hat{v}}_x e^{i\omega t}\right]_0^\infty - i\omega \int_0^\infty \dot{\hat{v}}_x e^{i\omega t} dt \\
 & = -\dot{\hat{v}}_{x0} - i\omega\left[\hat{v}_x e^{i\omega t}\right]_0^\infty -\omega^2 \int_0^\infty \hat{v}_x e^{i\omega t} dt \\
@@ -198,7 +198,7 @@ where $\tilde{v}'_x = \partial\tilde{v}_x/\partial x$. By defining $\epsilon = \
 & = \rho_0\left[\left(\dot{\hat{v}}_{x0}'' - k^2\dot{\hat{v}}_{x0}\right) - i\omega\left(\hat{v}_{x0}'' - k^2\hat{v}_{x0}\right)\right] + \frac{d\rho_0}{dx}\left(\dot{\hat{v}}_{x0}' - i\omega\hat{v}_{x0}'\right)
 \label{gov reduced}
 \end{align}
-Two equations that will help reduce this equation are derived from the assumption of incompressibility and the definition of vorticity:
+Two equations that will help simplify this equation are derived from the assumption of incompressibility and the definition of vorticity:
 \begin{itemize}
 	\item $\nabla\cdot\mathbf{v} = 0$, from which it follows that $\hat{v}_x' = -ik \hat{v}_z$.
 	\item The vorticity, defined by $\Omega(\mathbf{x},t)\mathbf{\hat{y}} = \hat{\Omega}(x,t)e^{ikz}\mathbf{\hat{y}} = \nabla \times \mathbf{v}(\mathbf{x},t)$, is given by	\begin{equation}
@@ -212,7 +212,7 @@ Using the above two equations, Equation~\eqref{gov reduced} simplifies to
 where
 \begin{equation}f(x) = ik\left\{\rho_0\left[\dot{\hat{\Omega}}_0 - i\omega\hat{\Omega}_0\right] \textcolor{red}{-} \frac{d\rho_0}{dx}\left(\dot{\hat{v}}_{z0} - i\omega\hat{v}_{\textcolor{red}{z}0}\right)\right\}.
 \end{equation}
-This function is the corrected version of Equations~(11)-(13) of \cite{rae_etal81}. The red opperator is the corrected version, although, since \cite{rae_etal81} assumed that $\partial \rho_0 / \partial x = 0$, so this error was inconsequential. Additionally, a typographical error was made in the above equation, where they wrote subscript $x$ in place of our subscript $\textcolor{red}{z}$. Note that there is a factor of -1 discrepency between this function and that of \cite{rae_etal81} due to taking different Fourier forms.
+This function is the corrected version of Equations~(11)-(13) of \cite{rae_etal81}. The red opperator is the corrected version. However, because \cite{rae_etal81} assumed that $\partial \rho_0 / \partial x = 0$, this error was inconsequential. Additionally, a typographical error was made in the above equation, where they wrote subscript $x$ in place of our subscript $\textcolor{red}{z}$. Note that there is a factor of -1 discrepency between this function and that of \cite{rae_etal81} due to taking different Fourier forms.
 
 For future utility, we define $\Psi_0 = \Psi(x, 0)$ by function $\Psi(x, t) = k[\rho_0\hat{\Omega}(x, t) - \rho_0'\hat{v}_z(x, t)]$ so that $f(x, \omega) = \omega \Psi_0 + i\frac{\partial \Psi_0}{\partial t}$.
 
@@ -233,7 +233,7 @@ B_+ & \text{for  }x>0,
 \rho_+ & \text{for  }x>0, \\
 \end{cases}
 \end{equation}
-where $B_j$ and $\rho_j$ are uniform for $j = -, +$. In this equilibrium, Equation~\eqref{gov} tells us that transverse velocity perturbation is related to initial perturbations like
+where $B_j$ and $\rho_j$ are uniform for $j = -, +$. In this equilibrium, Equation~\eqref{gov} tells us that transverse velocity perturbation is related to initial perturbations by
 \begin{equation}
 \frac{d^2\tilde{v}_x}{dx^2} - k^2\tilde{v}_x = 
 \begin{cases}
@@ -244,10 +244,10 @@ f(x)/\epsilon_+, & \text{for  } x > 0,
 \end{equation}
 and satisfies the boundary conditions
 \begin{equation}
-\lim_{x \to -\infty}\tilde{v}_x(x) = \lim_{x \to \infty}\tilde{v}_x(x) = 0, \text{ and } \lim_{x \to 0^-}\tilde{v}_x(x) = \lim_{x \to 0^+}\tilde{v}_x(x).
+\lim_{x \to -\infty}\tilde{v}_x(x) = \lim_{x \to \infty}\tilde{v}_x(x) = 0 \text{ and } \lim_{x \to 0^-}\tilde{v}_x(x) = \lim_{x \to 0^+}\tilde{v}_x(x).
 \label{ivp interface BC}
 \end{equation}
-These boundary conditions correspond to plasma far from the interface being unaffected by its oscillation and that the plasma at the interface remains connected. The second of these is referred to as the \textit{kinematic boundary condition} for a free surface in fluid mechanics.
+These boundary conditions correspond to plasma far from the interface being unaffected by its oscillation and that the plasma at the interface remains connected. The second of these is referred to as the \textit{kinematic boundary condition} for a free surface in fluid mechanics \citep{goe_etal04}.
 
 The problem given by Equation~\eqref{ivp interface gov} with boundary conditions~\eqref{ivp interface BC} is a \textit{Sturm-Liouville problem} \citep{boy_etal12}. Sturm-Liouville theory tells us that the Green's function, $G(x; s)$, corresponding to Equation~\eqref{ivp interface gov} must satisfy 
 \begin{equation}
