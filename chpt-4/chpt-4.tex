@@ -212,14 +212,12 @@ Using the above two equations, Equation~\eqref{gov reduced} simplifies to
 where
 \begin{equation}f(x) = ik\left\{\rho_0\left[\dot{\hat{\Omega}}_0 - i\omega\hat{\Omega}_0\right] \textcolor{red}{-} \frac{d\rho_0}{dx}\left(\dot{\hat{v}}_{z0} - i\omega\hat{v}_{\textcolor{red}{z}0}\right)\right\}.
 \end{equation}
-This function is the corrected version of Equations~(11)-(13) of \cite{rae_etal81}. The red opperator is the corrected version. However, because \cite{rae_etal81} assumed that $\partial \rho_0 / \partial x = 0$, this error was inconsequential. Additionally, a typographical error was made in the above equation, where they wrote subscript $x$ in place of our subscript $\textcolor{red}{z}$. Note that there is a factor of -1 discrepency between this function and that of \cite{rae_etal81} due to taking different Fourier forms.
-
-For future utility, we define $\Psi_0 = \Psi(x, 0)$ by function $\Psi(x, t) = k[\rho_0\hat{\Omega}(x, t) - \rho_0'\hat{v}_z(x, t)]$ so that $f(x, \omega) = \omega \Psi_0 + i\frac{\partial \Psi_0}{\partial t}$.
+This function is the corrected version of Equations~(11)-(13) of \cite{rae_etal81}. The red opperator is the corrected version. However, because \cite{rae_etal81} assumed that $\partial \rho_0 / \partial x = 0$, this error was inconsequential. Additionally, a typographical error was made in the above equation, where they wrote subscript $x$ in place of our subscript $\textcolor{red}{z}$. Note that there is a factor of -1 discrepancy between this function and that of \cite{rae_etal81} due to taking different Fourier forms. For future utility, we define $\Psi_0 = \Psi(x, 0)$ by function $\Psi(x, t) = k[\rho_0\hat{\Omega}(x, t) - \rho_0'\hat{v}_z(x, t)]$ so that $f(x, \omega) = \omega \Psi_0 + i\frac{\partial \Psi_0}{\partial t}$.
 
 
 \subsection{Discontinuous interface}
 
-Consider the equilibrium structuring of this plasma with magnetic field and density profiles given by
+Consider an equilibrium structuring of this plasma with magnetic field and density profiles given by
 \begin{equation}
 B(x)=
 \begin{cases}
@@ -247,7 +245,7 @@ and satisfies the boundary conditions
 \lim_{x \to -\infty}\tilde{v}_x(x) = \lim_{x \to \infty}\tilde{v}_x(x) = 0 \text{ and } \lim_{x \to 0^-}\tilde{v}_x(x) = \lim_{x \to 0^+}\tilde{v}_x(x).
 \label{ivp interface BC}
 \end{equation}
-These boundary conditions correspond to plasma far from the interface being unaffected by its oscillation and that the plasma at the interface remains connected. The second of these is referred to as the \textit{kinematic boundary condition} for a free surface in fluid mechanics \citep{goe_etal04}.
+The first of these boundary conditions ensures that plasma far from the interface is unaffected by its oscillation. The second ensure that the plasma at the interface remains connected. The latter these is referred to as the \textit{kinematic boundary condition} for a free surface in fluid mechanics \citep{goe_etal04}.
 
 The problem given by Equation~\eqref{ivp interface gov} with boundary conditions~\eqref{ivp interface BC} is a \textit{Sturm-Liouville problem} \citep{boy_etal12}. Sturm-Liouville theory tells us that the Green's function, $G(x; s)$, corresponding to Equation~\eqref{ivp interface gov} must satisfy 
 \begin{equation}
@@ -265,7 +263,7 @@ The general solution of the equation for $G_-$ for $x < 0$ is
 \begin{equation}
 G_-(x; s) = c_1e^{kx} + c_2e^{-kx},
 \end{equation}
-where $c_1$ and $c_2$ are constants with $c_2 = 0$ for $x < s$ and $c_1 = 0$ for $x > s$. Ensuring $G_-$ and $\partial G_- / \partial x$ have jumps of 0 and 1 at $x = s$, respectively, determines $c_1$ and $c_2$, so that $G_-(x;s)$ is
+where $c_1$ and $c_2$ are constants with $c_2 = 0$ for $x < s$ and $c_1 = 0$ for $x > s$. Ensuring that $G_-$ and $\partial G_- / \partial x$ have respective jumps of 0 and 1 at $x = s$ determines $c_1$ and $c_2$, so that $G_-(x;s)$ is
 \begin{equation}
 \begin{aligned}
 G_-(x; s) & = -\frac{1}{2k} 
@@ -276,7 +274,7 @@ e^{-kx}e^{ks}, & \text{for } s< x < 0,
 & = - \frac{1}{2k}\left[e^{ks}e^{-kx}H(x-s) + e^{-ks}e^{kx}H(s-x)\right],
 \end{aligned}
 \end{equation}
-The Sturm-Liouville problem for each plasma ($x < 0$ and $x > 0$) has an inhomogeneous boundary condition at the interface. Therefore, we must add to the standard Green's function solution a term that is a solution to the homogeneous equation with inhomogeneous boundary conditions. In this manner, we find that the solution for $x < 0$ is
+The Sturm-Liouville problem for each plasma ($x < 0$ and $x > 0$) has an inhomogeneous boundary condition at the interface. Therefore, we must add to the standard Green's function solution a term that is a solution to the homogeneous version of Equation~\eqref{ivp interface gov} with inhomogeneous boundary conditions. In this manner, we find that the solution for $x < 0$ is
 \begin{equation}
 \tilde{v}_x(x) = \tilde{A}_-e^{kx} \textcolor{red}{+} \frac{1}{\epsilon_-}\int_{-\infty}^{0} G(x; s) f(s) ds. \label{sol -}
 \end{equation}
@@ -288,7 +286,7 @@ where
 \begin{equation}
 G(x; s) = - \frac{1}{2k}\left[e^{ks}e^{-kx}H(x-s) + e^{-ks}e^{kx}H(s-x)\right].
 \end{equation}
-Equation~\eqref{sol -} is the corrected version of Equation~(16) in \cite{rae_etal81}. In \cite{rae_etal81}, they have a - instead of a +. We explicitly demonstrate the error in their solution in Appendix~\ref{app: error}.
+Equation~\eqref{sol -} is the corrected version of Equation~(16) in \cite{rae_etal81}. In \cite{rae_etal81}, they have a $-$ instead of a $+$. The erroneous solution is show in Appendix~\ref{app: error} to not satisfy Equation~\eqref{ivp interface gov}.
 
 By imposing continuity of transverse velocity perturbation, we can determine the constants $A_-$ and $A_+$ to be
 \begin{align}
@@ -297,23 +295,22 @@ By imposing continuity of transverse velocity perturbation, we can determine the
 \end{align}
 which differs to that given by \cite{rae_etal81} by the red operators.
 
-The solution in time is found by taking the inverse Laplace transform of Equations~\eqref{sol -} and~\eqref{sol +}. This is not possible for arbitrary initial conditions. To demonstrate where the corrected version deviated from the errors made in \cite{rae_etal81}, we derive the solution for several specific initial conditions.
+The solution in time is found by taking the inverse Laplace transform of Equations~\eqref{sol -} and~\eqref{sol +}. This is not possible for arbitrary initial conditions. In the following subsection, we derive the solution for several specific initial conditions.
 
 
 \subsubsection{Solution for specific initial conditions}
 
-The errors in the solution given above lead to errors in the specific solutions to the initial value problem. The corrected solutions for specific initial conditions used by \cite{rae_etal81} are given below:
+The corrected solutions for specific initial conditions used by \cite{rae_etal81} are given below:
 
 \begin{enumerate}
-	\item \label{IC1} \textit{Vorticity constant everywhere at $t = 0$}. When the initial vorticity is constant with respect to $x$, \textit{i.e.} $\Omega(x,0) = \Omega_0$, Equation~\eqref{ivp interface sol correct} gives
-	\begin{equation}
+	\item \label{IC1} \textit{Vorticity constant everywhere at $t = 0$}. When the initial vorticity is constant with respect to $x$, \textit{i.e.} $\Omega(x,0) = \Omega_0$, Equation~\eqref{ivp interface sol correct} tells us that the velocity perturbation is	\begin{equation}
 	\tilde{v}_x = -\frac{\rho_0\omega\Omega_0}{k}
 	\begin{cases}
 	\left(1 + \frac{\epsilon_- - \epsilon_+}{\epsilon_- + \epsilon_+}e^{kx}\right)/\epsilon_-, & \text{for } x<0, \\
 	\left(1 + \frac{\epsilon_+ - \epsilon_-}{\epsilon_- + \epsilon_+}e^{-kx}\right)/\epsilon_+, & \text{for } x>0.
 	\end{cases}
 	\end{equation}
-	\item \label{IC2} \textit{Step function vorticity at $t = 0$}. When the initial vorticity is given by $\Omega(x,0) = \Omega_0H(-x)$, Equation~\eqref{ivp interface sol correct} gives
+	\item \label{IC2} \textit{Step function vorticity at $t = 0$}. When the initial vorticity is given by $\Omega(x,0) = \Omega_0H(-x)$, Equation~\eqref{ivp interface sol correct} tells us that the velocity perturbation is
 	\begin{equation}
 	\tilde{v}_x = -\frac{\rho_0\omega\Omega_0}{k}
 	\begin{cases}
@@ -321,7 +318,7 @@ The errors in the solution given above lead to errors in the specific solutions 
 	\frac{1}{\epsilon_- + \epsilon_+}e^{-kx}, & \text{for } x>0.
 	\end{cases}
 	\end{equation}
-	\item  \label{IC3} \textit{Impulsive vorticity at $t = 0$}. When the initial vorticity\footnote{Note that \cite{rae_etal81} incorrectly use the impulsive initial condition $\Omega(x,0) = \Omega_0\delta(x-x_0)$. This can be shown to be erroneous by considering that the dimensions of the left-hand side, $\Omega(x,0)$, are $[\mathrm{Time}^{-1}]$ and therefore not equal to the dimensions of the right-hand side, $\Omega_0\delta(x-x_0)$, namely $[\mathrm{Distance}^{-1}\mathrm{Time}^{-1}]$. They also omit, without explanation, the density, $\rho_0$, from their solutions.} is given by {$\Omega(x,0) = \Omega_0\delta(k(x-x_0))$}, for $x_0>0$, Equation~\eqref{ivp interface sol correct} gives
+	\item  \label{IC3} \textit{Impulsive vorticity at $t = 0$}. When the initial vorticity\footnote{Note that \cite{rae_etal81} incorrectly use the impulsive initial condition $\Omega(x,0) = \Omega_0\delta(x-x_0)$. This can be shown to be erroneous by considering that the dimensions of the left-hand side, $\Omega(x,0)$, are $[\mathrm{Time}^{-1}]$ and therefore not equal to the dimensions of the right-hand side, $\Omega_0\delta(x-x_0)$, namely $[\mathrm{Distance}^{-1}\mathrm{Time}^{-1}]$. They also omit, without explanation, the density, $\rho_0$, from their solutions.} is given by {$\Omega(x,0) = \Omega_0\delta(k(x-x_0))$}, for $x_0>0$, Equation~\eqref{ivp interface sol correct} tells us that the velocity perturbation is
 	\begin{equation}
 	\tilde{v}_x = -\frac{\rho_0\omega\Omega_0}{k}
 	\begin{cases}
@@ -343,17 +340,17 @@ The full solution for the transverse velocity, $v_x(x, z, t) = \hat{v}_x(x,t)e^{
 \begin{equation}
 \hat{v}_x(x,t) = \frac{1}{2\pi} \lim_{T \to \infty} \int_{-T+ i\gamma}^{T + i\gamma} \tilde{v}_x(x)e^{-i\omega t} d\omega,
 \end{equation}
-where $\gamma$ is real and such that all the singularities of the integrand lie below the contour of integration in the complex plane. Using Cauchy's Residue Theorem, it follows that
+where $\gamma$ is real and such that all the singularities of the integrand lie below the contour of integration in the complex plane. The singularities in the solutions in Laplace space are all poles. Therefore, using Cauchy's Residue Theorem, it follows that
 \begin{equation}
 \hat{v}_x(x, t) = -i\sum \mathrm{Res}\left\{\tilde{v}_xe^{-i\omega t}\right\},
 \end{equation}
-where the summation is over all the singularities of the argument.
+where the summation is over all the poles of the argument.
 
 Considering initial condition~\ref{IC1}, with uniform vorticity, the singularities of this function occur at $\epsilon_- = 0$, $\epsilon_+ = 0$, and $\epsilon_- + \epsilon_+ = 0$. This corresponds to simple poles at $\omega = \pm kv_{A-}$, $\omega = \pm kv_{A+}$, and $\omega = \pm kv_s$, respectively, where
 \begin{equation}
 v_s = \sqrt{\frac{v_{A-}^2 + v_{A+}^2}{2}}.
 \end{equation}
-The residues associated to each singularity are
+The residues associated with each singularity are
 \begin{align}
 \mathrm{Res}\left\{\tilde{v}_x e^{-i\omega t}; \pm kv_{A+}\right\} &= \frac{\Omega_0}{2k} e^{\mp ikv_{A+}t}
 \begin{cases}
@@ -379,37 +376,36 @@ By summing these residues, we find that
 \end{cases}
 \label{sol int}
 \end{equation}
-This solution differs from that given by \cite{rae_etal81} most notably with a contribution from surface waves (second term), not just body waves (first term).
+This solution differs from that given by \cite{rae_etal81} most notably by a contribution from surface waves (second term), not just body waves (first term). The solution given by \cite{rae_etal81} contained only body modes.
 
-The full solution for $v_x$, when the initial disturbance is of the form of a single wave, is recovered by multiplying the above expression by $e^{ikz}$. In reality, an initial disturbance will be of finite extent. This is the subject of the following subsection.
+The full solution for $v_x$ when the initial disturbance is of the form of a single wave, is recovered by multiplying the above expression by $e^{ikz}$. In reality, an initial disturbance will be of finite extent. Solutions for such a disturbance are the subject of the following subsection.
 
 
 \subsubsection{Solution for an initial disturbance of finite extent}
 
-The response to a disturbance of finite extent is obtained by a superposition over the wavenumber $k$, that is
+The response to a disturbance of finite extent is obtained by a superposition over all the Fourier modes. That is, we must integrate over the wavenumber $k$ using the inverse Fourier transform, namely
 \begin{equation}
-v_x(x, z, t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} \hat{v}_x(x, t) e^{ikz} ~dz.
+v_x(x, z, t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} \hat{v}_x(x, t) e^{ikz} ~dk.
 \end{equation}
-This is the inverse Fourier transform.
 
 Let's consider an initial impulse that has uniform vorticity with respect to $x$ and is uniform over a finite range $[-z_0, z_0]$, outside of which it is zero. Precisely, the initial velocity is
 \begin{equation}
 v_x(x, z, 0) = \frac{v_0}{2z_0}\left[H(z + z_0) - H(z - z_0)\right],
 \end{equation}
-where $H$ is the Heaviside step function and $v_0$ is constant. The division by $2z_0$ ensures invariance of the integral of the initial velocity as the domain of initial disturbance is varied. In particular, it means that in the limit as $z_0 \to 0$, the initial velocity is a Dirac Delta pulse. Therefore, the initial vorticity is
+where $H$ is the Heaviside step function and $v_0$ is constant. The division by $2z_0$ ensures that the integral of the initial velocity is not dependent on the size of the domain of the initial initial disturbance, $2z_0$. In particular, it means that in the limit as $z_0 \to 0$, the initial velocity is a Dirac Delta function of $z$. Therefore, the initial vorticity is
 \begin{equation}
 \Omega(x, z, 0) \mathbf{\hat{y}} = \nabla \times \bv = \frac{v_0}{2z_0}\left[\delta(z + z_0) - \delta(z - z_0)\right] \mathbf{\hat{y}},
 \end{equation}
-which, in $k$-space, is
+which has Fourier transform
 \begin{equation}
 \hat{\Omega}(x, 0) = \int_{-\infty}^{\infty} \Omega(x, z, 0) e^{-ikz} ~dz = i\frac{v_0}{z_0}\sin(kz_0).
 \end{equation}
 The temporal evolution of this initial velocity pulse over a finite $z$-domain is, for the region $\pm x > 0$,
-\begin{align}
-v_x(x, z, t) &= -\frac{v_0}{2\pi z_0} \int_{\infty}^{\infty} \frac{1}{k}\sin(kz_0) \left[\left(\cos(kv_{A\pm}t) - \cos(kv_st)\right)e^{-|k||x|} - \cos(kv_{A\pm}t)\right] e^{ikz} ~dk \\
-& = -\frac{v_0}{\pi z_0} \int_{0}^{\infty} \frac{1}{k} \left[\sin(k(z + z_0)) - \sin(k(z - z_0))\right] \left[(\cos(kv_{A\pm}t) - \cos(kv_st))e^{-k|x|} - \cos(kv_{A\pm}t)\right] ~dk,
-\end{align}
-where we have used the fact that an odd function integrated over the real line in zero and an even function integrated over the real line is twice its integral over the positive real line. We also used the product-to-sum identity $2\cos{\theta}\sin{\phi} = \sin(\theta + \phi) - \sin(\theta - \phi)$. Further, by use of the similar identity $2\sin{\theta}\cos{\phi} = \sin(\theta + \phi) + \sin(\theta - \phi)$, we are reduce to a series of integrals like
+\begin{alignat}{3}
+v_x &= -\frac{v_0}{2\pi z_0} \int_{\infty}^{\infty} && \frac{1}{k}\sin(kz_0) [(\cos(kv_{A\pm}t) - \cos(kv_st))e^{-|k||x|} \notag \\ & &&- \cos(kv_{A\pm}t)] e^{ikz} ~dk \notag \\
+& = -\frac{v_0}{\pi z_0} \int_{0}^{\infty} && \frac{1}{k} [\sin(k(z + z_0)) - \sin(k(z - z_0))] \notag \\ & && \left[(\cos(kv_{A\pm}t) - \cos(kv_st))e^{-k|x|} - \cos(kv_{A\pm}t)\right] ~dk. \label{vx intermediate}
+\end{alignat}
+Here, we have used the fact that an odd function integrated over the real line vanishes and an even function integrated over the real line is twice its integral over the positive real line. We also used the product-to-sum identity $2\cos{\theta}\sin{\phi} = \sin(\theta + \phi) - \sin(\theta - \phi)$. Further, by use of the similar identity $2\sin{\theta}\cos{\phi} = \sin(\theta + \phi) + \sin(\theta - \phi)$, Equation~\eqref{vx intermediate} can be reduced to a series of integrals of the form
 \begin{equation}
 \int_{0}^{\infty} \frac{1}{k}\sin(k(z + z_0 + v_{A\pm}))e^{-k|x|} ~dk,
 \end{equation}
@@ -435,14 +431,34 @@ for $b > 0$. The second of these is a limiting case of the \textit{sine integral
 \end{align}
 Using the above results leads us to the solution
 \begin{align}
-v_x(x, z, t) = \frac{v_0}{4\pi z_0} \bigg[ &-\tan^{-1}\left( \frac{z + z_0 + v_{A\pm}t}{|x|} \right) - \tan^{-1}\left( \frac{z + z_0 - v_{A\pm}t}{|x|} \right)  \notag \\
+v_x = \frac{v_0}{4\pi z_0} \bigg[ &-\tan^{-1}\left( \frac{z + z_0 + v_{A\pm}t}{|x|} \right) - \tan^{-1}\left( \frac{z + z_0 - v_{A\pm}t}{|x|} \right)  \notag \\
 &+ \tan^{-1}\left( \frac{z - z_0 + v_{A\pm}t}{|x|} \right) + \tan^{-1}\left( \frac{z - z_0 - v_{A\pm}t}{|x|} \right) \notag \\
 &+ \tan^{-1}\left( \frac{z + z_0 + v_st}{|x|} \right) + \tan^{-1}\left( \frac{z + z_0 - v_st}{|x|} \right) \notag \\
 &- \tan^{-1}\left( \frac{z - z_0 + v_st}{|x|} \right) - \tan^{-1}\left( \frac{z - z_0 - v_st}{|x|} \right) \notag \\
 &+ \pi \left\{ H(z + z_0 + v_{A\pm}t) + H(z + z_0 - v_{A\pm}t) \right.  \notag \\
-&\left. - H(z - z_0 + v_{A\pm}t) - H(z - z_0 - v_{A\pm}t) \right\} \bigg], \label{sol top hat}
+&\left. - H(z - z_0 + v_{A\pm}t) - H(z - z_0 - v_{A\pm}t) \right\} \bigg]. \label{sol top hat}
 \end{align}
-The solution given by Equation~\eqref{sol top hat} corresponds to surface waves and body waves with corresponding wakes that propagate at characteristic speeds $v_s$ and $v_{A\pm}$, where the $\pm$ refers to the side of the interface. By taking $t = 0$ in Equation~\eqref{sol top hat}, the initial velocity profile is recovered. In the limit as $z_0 \to \infty$, we find that the temporal evolution of the initial velocity pulse $v_x(x, z, 0) = v_0 \delta(z)$ is
+By taking $t = 0$ in Equation~\eqref{sol top hat}, the initial velocity profile is recovered.
+
+The solution given by Equation~\eqref{sol top hat} is plotted in Figure~\ref{fig: vx incomp sol contour}. The initial perturbation is illustrated in the upper left panel, showing a band of constant velocity between $-z_0 < z < z_0$, where $z_0 = 1$. It is clear that the waves in the left half-plane are propagating more slowly than the waves in the right half-plane. This is because the Alfv\'{e}n speed in the left half-plane, $v_{A-}$, is half that of the right, $v_{A+}$.
+
+The solution is made up of a superposition of several wave modes:
+\begin{enumerate}
+	\item The body wave pulses propagating at speed $v_{A\pm}$, depending on the side of the interface. These waves correspond to the four Heaviside functions in Equation~\eqref{sol top hat}. They can be seen in Figure~\ref{fig: vx incomp sol contour} as the propagating bands of positive velocity (blue).
+	\item The wakes at the front and back on the body waves, which correspond to the first four $\tan^{-1}$ functions in Equation~\eqref{sol top hat}. They can be seen in Figure~\ref{fig: vx incomp sol contour} as the regions of weakly positive velocity (blue) in front of the body waves and regions of weakly negative velocity (red) behind the body waves.
+	\item The surface wave pulses propagating at speed $v_{s}$. These waves correspond to the last four $\tan^{-1}$ functions in Equation~\eqref{sol top hat}. They can be seen in Figure~\ref{fig: vx incomp sol contour} as the regions of positive velocity (blue) close to the interface, propagating at an intermediate speed between the two Alfv\'{e}n speeds.
+\end{enumerate}
+Each wave mode propagates in the positive ad negative $z$-direction because the system has reflectional symmetry about the $z = 0$ axis.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{\figdir contour_subplots.png}
+	\caption{Temporal evolution of waves propagating along a tangential interface between incompressible plasmas. Time increases along the rows and down the columns. The interface is at $x = 0$ and the initial perturbation is a constant velocity confined to the band $-z_0 < z < z_0$, where $z_0 = 1$. The Alfv\'{e}n speeds in each half-plane are related by $v_{A+} = 2v_{A-}$.}
+	\label{fig: vx incomp sol contour}
+\end{figure}
+
+
+An interesting limiting case is that of an infinitely thin initial pulse at $z = 0$. We can recover this limit from Equation~\eqref{sol top hat}. In the limit as $z_0 \to 0$, the initial velocity becomes $v_x(x, z, 0) = v_0 \delta(z)$, and its temporal evolution obeys
 \begin{align}
 v_x(x, z, t) = \frac{v_0}{2\pi} \bigg[ &- \frac{|x|}{x^2 + (z + v_{A\pm}t)^2} - \frac{|x|}{x^2 + (z - v_{A\pm}t)^2} \notag \\
 &+ \frac{|x|}{x^2 + (z + v_st)^2} + \frac{|x|}{x^2 + (z - v_st)^2} \notag \\
@@ -454,55 +470,12 @@ In deriving the above limit we have used the results that, by definition of the 
 \end{equation}
 and, by L'Hopital's rule,
 \begin{align}
-&\lim_{z_0 \to 0} \left[\frac{1}{2z_0}\left\{\tan^{-1}\left( \frac{z + z_0 + v_{A\pm}t}{|x|} \right) - \tan^{-1}\left( \frac{z - z_0 + v_{A\pm}t}{|x|} \right)\right\}\right] \\
-&= \frac{1}{2} \lim_{z_0 \to 0} \frac{d}{dz_0} \left[\tan^{-1}\left( \frac{z + z_0 + v_{A\pm}t}{|x|} \right) - \tan^{-1}\left( \frac{z - z_0 + v_{A\pm}t}{|x|} \right)\right] \\
-&= \frac{1}{2} \lim_{z_0 \to 0} \left[ \frac{|x|}{x^2 + (z + z_0 + v_{A\pm}t)^2} + \frac{|x|}{x^2 + (z - z_0 + v_{A\pm}t)^2} \right] \\
+&\lim_{z_0 \to 0} \left[\frac{1}{2z_0}\left\{\tan^{-1}\left( \frac{z + z_0 + v_{A\pm}t}{|x|} \right) - \tan^{-1}\left( \frac{z - z_0 + v_{A\pm}t}{|x|} \right)\right\}\right] \notag \\
+&= \frac{1}{2} \lim_{z_0 \to 0} \frac{d}{dz_0} \left[\tan^{-1}\left( \frac{z + z_0 + v_{A\pm}t}{|x|} \right) - \tan^{-1}\left( \frac{z - z_0 + v_{A\pm}t}{|x|} \right)\right] \notag \\
+&= \frac{1}{2} \lim_{z_0 \to 0} \left[ \frac{|x|}{x^2 + (z + z_0 + v_{A\pm}t)^2} + \frac{|x|}{x^2 + (z - z_0 + v_{A\pm}t)^2} \right] \notag \\
 &= \frac{|x|}{x^2 + (z + v_{A\pm}t)^2}.
 \end{align}
 Equation~\eqref{sol dirac delta}, where we can see the contribution from the surface mode as well as the body mode, is the corrected version of Equation~(34) in \cite{rae_etal81}.
-
-
-
-
-
-
-\color{red}
-\subsection{Continuous interface}
-\color{black}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 %------------------------------------------------------------------------------
