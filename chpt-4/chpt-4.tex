@@ -477,6 +477,7 @@ and, by L'Hopital's rule,
 \end{align}
 Equation~\eqref{sol dirac delta}, where we can see the contribution from the surface mode as well as the body mode, is the corrected version of Equation~(34) in \cite{rae_etal81}.
 
+\textcolor{red}{Possibly complete the continuous interface IVP to see whether the R+R81 errors have consequences there.}
 
 %------------------------------------------------------------------------------
 \section{Asymmetric slab}
@@ -545,7 +546,7 @@ G_0(x;s) = \frac{1}{k\sinh(2k x_0)}
 \end{cases}
 \end{equation}
 
-Because the boundary conditions at the interfaces are inhomogeneous, we must add to the standard Green's function solution a term that is a solution to the homogeneous equation and the inhomogeneous boundary conditions. In this manner, we find that the solution within the slab is
+The boundary conditions at the interfaces are inhomogeneous, therefore we must add to the standard Green's function solution a term that is a solution to the homogeneous equation and the inhomogeneous boundary conditions. In this manner, we find that the solution within the slab is
 \begin{align}
 \tilde{v}_x(x) = &\frac{1}{\sinh{2kx_0}} \left[ \tilde{A}_1\sinh(k(x_0 - x)) + \tilde{A}_2\sinh(k(x_0 + x)) \right] \notag \\
 &+ \frac{1}{\epsilon_0}\int_{-x_0}^{x_0} G_0(x;s) f(s, \omega) ds,
@@ -614,12 +615,13 @@ I_2 &= I_2[f](\omega) = \int_{x_0}^\infty e^{k(x_0 - s)} f(s, \omega) ds.
 
 \subsubsection{Solution in time}
 
-To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform. We will do this for a general initial perturbation. Focusing firstly on the region $x < -x_0$, the solution is
+To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform. Focusing firstly on the region $x < -x_0$, the solution is
 \newcommand{\e}{\epsilon}
 \begin{align}
-v_x &= \mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{k(x+x_0)} + \frac{1}{\e_1} \int_{-\infty}^{-x_0} G_1(x;s)f(s, \omega)ds \right\}, \\
-&= e^{k(x+x_0)} \mathcal{L}^{-1}\left\{ \tilde{A}_1 \right\} + \int_{-\infty}^{-x_0} G_1(x;s) \mathcal{L}^{-1}\left\{ \frac{f(s, \omega)}{\e_1} \right\} ds, \\
-&= e^{k(x+x_0)} \mathcal{L}^{-1}\left\{ \tilde{A}_1 \right\} + \int_{-\infty}^{-x_0} G_1(x;s) \left[ \Psi (s, 0) \mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} + i \frac{\partial \Psi}{\partial t}(s, 0) \mathcal{L}^{-1}\left\{ \frac{1}{\e_1} \right\}\right] ds,
+v_x =& \mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{k(x+x_0)} + \frac{1}{\e_1} \int_{-\infty}^{-x_0} G_1(x;s)f(s, \omega)ds \right\}, \\
+=& e^{k(x+x_0)} \mathcal{L}^{-1}\left\{ \tilde{A}_1 \right\} + \int_{-\infty}^{-x_0} G_1(x;s) \mathcal{L}^{-1}\left\{ \frac{f(s, \omega)}{\e_1} \right\} ds, \\
+=& e^{k(x+x_0)} \mathcal{L}^{-1}\left\{ \tilde{A}_1 \right\} \\
+& + \int_{-\infty}^{-x_0} G_1(x;s) \left[ \Psi (s, 0) \mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} + i \frac{\partial \Psi}{\partial t}(s, 0) \mathcal{L}^{-1}\left\{ \frac{1}{\e_1} \right\}\right] ds.
 \label{sol incomp}
 \end{align}
 We evaluate each of the three inverse Laplace transforms in turn.
@@ -647,7 +649,7 @@ for $j = 0, 1, 2$. When compressibility is neglected, such that the sound speeds
 \begin{equation}
 2\left(\epsilon_0^2 + \epsilon_1 \epsilon_2\right) + \epsilon_0(\epsilon_1 + \epsilon_2)[\tanh(m_0x_0) + \coth(m_0x_0)] = 0.
 \end{equation}
-This equation can easily to shown to be equivalent to $D(\omega) = 0$, where $D(\omega)$ is given by Equation~\eqref{D incomp}. It follows that the zeros of $D(\omega)$ are precisely the eigenvalues of the asymmetric incompressible magnetic slab. This is a specific case of a powerful general result for initial value problems and their corresponding eigenvalue problems which is explored in the MHD setting by \cite{goe_etal04}, Chapter 10.2.
+This equation can easily to shown to be equivalent to $D(\omega) = 0$, where $D(\omega)$ is given by Equation~\eqref{D incomp}. It follows that the zeros of $D(\omega)$ are precisely the eigenvalues of the asymmetric incompressible magnetic slab. This is a specific case of the powerful general result that the solutions of eigenvalue problems contribute to solutions of initial value problems. This is explored in the MHD setting by \cite{goe_etal04}, Chapter~10.2.
 
 The zeros of $D$ are found by writing the equation $D(\omega) = 0$ as
 \begin{equation}
@@ -673,12 +675,9 @@ b &= -\left(2\rho_0^2v_{A0}^2 + \rho_1\rho_2\left(v_{A1}^2 + v_{A2}^2\right)\rig
 & \quad - \rho_0 \left\{ \rho_1\left(v_{A0}^2 + v_{A1}^2\right) + \rho_2\left(v_{A0}^2 + v_{A2}^2\right) \right\}, \label{solution b} \\
 c &= (\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1v_{A1}^2 + \rho_2v_{A2}^2). \label{solution c}
 \end{align}
-The solutions, $\pm\omega_{0\pm}$, must be real \citep{goe_etal04}. Additionally, the solutions corroborate with the corresponding incompressible eigenfrequencies for an interface and a symmetric slab, shown in Appendices~\ref{app: interface} and~\ref{app: symmetric}, respectively.
+The solutions, $\pm\omega_{0\pm}$, must be real \citep{goe_etal04}. They are zeroes of the function $D(\omega)$ of order 1 so are simple poles of the integrand $\hat{A}_1 e^{-i\omega t}$. Additionally, the solutions corroborate with the corresponding incompressible eigenfrequencies for an interface and a symmetric slab, shown in Appendices~\ref{app: interface} and~\ref{app: symmetric}, respectively.
 
-\textcolor{red}{
-The zeroes of the dispersion function, that is, the normal modes, make up the discrete spectrum of modes. In general, the governing MHD wave equation contains a continuous spectrum in addition to the discrete spectrum. The continuous spectrum is established at the zeroes of the function $N(\omega^2) = \rho (c_0^2 + v_A^2)(\omega^2 - k^2v_A^2)(\omega^2 - k^2v_S^2)$ (defined in \cite{goe_etal04}, page 500) and induce branch cuts in the complex $\omega$ plane, which must be integrated around when taking inverse Laplace transforms to ensure that the contour is contained within a single-valued Riemann sheet. Fortunately, the slab...}
-
-With the location of the singularities of the integrand in hand, we can evaluate the first integral in Equation~\eqref{sol incomp} by making use of the \textit{Residue Theorem} of complex analysis. For this theorem to apply, we must integrate around a closed contour instead of the infinite line in Equation~\eqref{sol incomp}. To accomplish this, we can choose a sequence of contours such that the limit of the integrals over these contours is equal to the integral over the infinite line. We use the fact that the function $T_1(\omega)$ is entire to construct a Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses the zeros at $\pm\omega_{0\pm}$ (Figure~\ref{fig: brom cont incomp}). In the limit $L \to \infty$, we recover the desired integral.
+With the location of the singularities of the integrand in hand, we can evaluate the first integral in Equation~\eqref{sol incomp} by making use of the \textit{Residue Theorem} of complex analysis. For this theorem to apply, we must integrate around a closed contour instead of the infinite line in Equation~\eqref{sol incomp}. To accomplish this, we can choose a sequence of contours (known as \textit{Bromwich contours}) such that the limit of the integrals over these contours is equal to the integral over the infinite line. We use the fact that the function $T_1(\omega)$ is entire to construct a Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses the zeros at $\pm\omega_{0\pm}$ (Figure~\ref{fig: brom cont incomp}). In the limit $L \to \infty$, we recover the desired integral.
 
 \begin{figure}
 	\centering
@@ -722,7 +721,7 @@ Considering first the integral along $C_1$, the integrand in question behaves li
 \lim_{L \to \infty} \int_{C_1} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega = 0.
 \end{equation}
 
-Next, the integral along contour $C$ is integrated in the clockwise direction it is therefore equal to $-2\pi i$ multiplied by the sum of the residues of the singularities at $\omega = \pm \omega_{0\pm}$. The residues are evaluated using L'Hopital's Rule (the requirements ensuring the validity of this rule are verified in Appendix~\ref{app: l'hopital}). For arbitrary choice of initial condition, $f(x,\omega)$, the residue at $\omega = \omega_{0+}$ is
+Next, since the integral along contour $C$ is integrated in the clockwise direction, it is equal to $-2\pi i$ multiplied by the sum of the residues of the poles at $\omega = \pm \omega_{0\pm}$. The residues are evaluated using L'Hopital's Rule (the requirements ensuring the validity L'Hopital's Rule in this case are verified in Appendix~\ref{app: l'hopital}). For an arbitrary choice of initial condition, $f(x,\omega)$, the residue at $\omega = \omega_{0+}$ is
 \begin{align}
 \mathrm{Res}&\left\{\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}; \omega = \omega_{0+} \right\} = 
 \lim_{\omega \to \omega_{0+}} \frac{(\omega - \omega_{0+})T_1(\omega)}{kD(\omega)} e^{-i\omega t} \notag \\ 
@@ -731,14 +730,14 @@ Next, the integral along contour $C$ is integrated in the clockwise direction it
 &= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} \left\{ \omega T_1[\Psi_0](\omega) + iT_1\left[\frac{\partial \Psi_0}{\partial t}\right](\omega) \right\} e^{-i\omega t} \notag \\
 &= \left\{ \omega_{0+} \chi_{1+}[\Psi_0] + i\chi_{1+}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{-i\omega_{0+} t},
 \end{align}
-where $\chi_{1+}[g] = T_1[g](\omega_{0+}) / kD'(\omega_{0+})$ is a functional mapping an arbitrary function $g$ to the real numbers. Similarly, the residues at $\omega = -\omega_{0+}$ and $\omega = \pm\omega_{0-}$ are
+where $\chi_{1+}[g] := T_1[g](\omega_{0+}) / kD'(\omega_{0+})$ is a functional mapping an arbitrary function $g$ to the real numbers. Similarly, the residues at $\omega = -\omega_{0+}$ and $\omega = \pm\omega_{0-}$ are
 \begin{align}
 \mathrm{Res}\left\{\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}; \omega = -\omega_{0+} \right\} &= \left\{ \omega_{0+} \chi_{1+}[\Psi_0] - i\chi_{1+}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{i\omega_{0+} t}, \\
 \mathrm{Res}\left\{\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}; \omega = \pm \omega_{0-} \right\} &= \left\{ \omega_{0-} \chi_{1-}[\Psi_0] \pm i\chi_{1-}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{\mp i\omega_{0-} t},
 \end{align}
-respectively, where we define $\chi_{1-}[g] = T_1[g](\omega_{0-}) / kD'(\omega_{0-})$. To derive these residues, we have used the fact that $D'$ is an odd function of $\omega$, and $D$ and $T_1[g]$ are even functions of $\omega$, for any function $g$ that is constant with respect to $\omega$.
+respectively, where we define $\chi_{1-}[g] = T_1[g](\omega_{0-}) / kD'(\omega_{0-})$. To derive these residues, we have used the fact that $D'$ is an odd function of $\omega$, and $D$ and $T_1[g]$ are even functions of $\omega$ when the function $g$ that is constant with respect to $\omega$.
 
-Compiling the above results, the solution of the first inverse Laplace Transform of Equation~\eqref{sol incomp} is
+Compiling the above results, the solution of the first inverse Laplace Transform in Equation~\eqref{sol incomp} is
 \begin{align}
 \mathcal{L}^{-1}\left\{ \tilde{A}_1 \right\} &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{C_0} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega \\
 &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{C} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega \notag \\
@@ -755,7 +754,7 @@ The second inverse Laplace transform in Equation~\eqref{sol incomp} is calculate
 \mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} &= \frac{1}{2\pi}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{\omega e^{-i\omega t}}{\e_1} ~d\omega \notag \\
 &= \frac{1}{2\pi\rho_1}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{\omega e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} ~d\omega,
 \end{align}
-whose integrand has simple poles at $\omega = \pm k v_{A1}$. From Jordan's Lemma it follows that the integrand vanishes as $\omega \to \infty$, we can construct a Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the simple poles are
+whose integrand has simple poles at $\omega = \pm k v_{A1}$. From Jordan's Lemma it follows that the integrand vanishes as $\omega \to \infty$. Therefore, we can construct a Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the poles are
 \begin{align}
 \mathrm{Res}\left\{\frac{\omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}; \omega = \pm kv_{A1} \right\} &= 
 \lim_{\omega \to \pm kv_{A1}} \frac{(\omega \mp kv_{A1}) \omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \\ 
@@ -771,7 +770,7 @@ The third and final inverse Laplace transform in Equation~\eqref{sol incomp} is 
 \mathcal{L}^{-1}\left\{ \frac{1}{\e_1} \right\} &= \frac{1}{2\pi}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} ~d\omega, \notag \\
 &= \frac{1}{2\pi\rho_1}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} ~d\omega,
 \end{align}
-whose integrand has simple poles at $\omega = \pm k v_{A1}$. By noting that the integrand approaches zero as $\omega \to \infty$, we can construct a Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the simple poles are
+whose integrand has simple poles at $\omega = \pm k v_{A1}$. Again, the integrand vanishes as $\omega \to \infty$, so we can integrate around the Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the poles are
 \begin{align}
 \mathrm{Res}\left\{\frac{e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}; \omega = \pm kv_{A1} \right\} &= 
 \lim_{\omega \to \pm kv_{A1}} \frac{(\omega - kv_{A1}) e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \notag \\ 
@@ -814,7 +813,7 @@ Therefore, the final inverse Laplace transform in Equation~\eqref{sol incomp} is
 	\caption{Bromwich contour for the complex integration of the integrand of $J_1$.}
 	\label{fig: brom cont incomp 2}
 \end{figure}
-Combining the above expressions for the inverse Laplace transforms, we find that the transverse velocity solution for $x<-x_0$ is
+Combining the above expressions for the three inverse Laplace transforms, the transverse velocity solution for $x<-x_0$ is
 \begin{align}
 v_x(x, t) = &-2 e^{k(x+x_0)} \left\{ i\omega_{0+}\chi_{1+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) \right. \\
 &\left. + i\omega_{0-}\chi_{1-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \\
@@ -835,38 +834,39 @@ v_x(x, t) =& -\frac{2}{\sinh{2kx_0}} \left[ \left\{ i\omega_{0+}\chi_{1+}[\Psi_0
 & + \frac{i}{\rho_0} \int_{-x_0}^{x_0} G_0(x;s) \left[ \Psi(s, 0) \cos{kv_{A0}t} + \frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A0}t}}{kv_{A0}} \right]~ds.
 \end{align}
 
+These solutions are not particularly illuminating in there general form, so we evaluate the solutions using specific initial conditions in the next subsections.
+
 
 \subsubsection{Uniform initial vorticity}
 
-Let $\Omega(x, 0) = \Omega_0$ be constant. Therefore, $\Psi_0 = k\rho_0\Omega_0$ and $\partial \Psi_0 / \partial t = 0$. To evaluate the solution, we evaluate each Green's function integral separately:
+Let $\Omega(x, 0) = \Omega_0$ be constant. Therefore, $\Psi_0 = k\rho_0\Omega_0$ and $\partial \Psi_0 / \partial t = 0$. To evaluate the solution, we evaluate the Green's function integral for each regions of the waveguide separately. Firstly, for $x < -x_0$, 
 \begin{align}
 \int_{-\infty}^{-x_0} G_1(x;s) \Psi_0 ~ds &= \Omega_0 \rho_1 \left[ \sinh(k(x+x_0)) \int_{-\infty}^{x} e^{k(s + x_0)} ~ds \right . \notag \\
 &\qquad \qquad \left.+ e^{k(x+x_0)} \int_{x}^{-x_0} \sinh(k(s+x_0)) ~ds \right] \notag \\
 &= \frac{\Omega_0 \rho_1}{k} \left[ e^{k(x+x_0)} - 1 \right].
 \end{align}
-
+Secondly, for $|x| < x_0$,
 \begin{align}
 \int_{-x_0}^{x_0} G_0(x;s) \Psi_0 ~ds &= \frac{\Omega_0 \rho_0}{\sinh{2kx_0}} \left[ \sinh(k(x-x_0)) \int_{-x_0}^{x} \sinh(k(s+x_0)) ~ds \right. \notag \\
 &\qquad \qquad \qquad \left. + \sinh(k(x+x_0)) \int_{x}^{x_0} \sinh(k(s-x_0)) ~ds \right], \notag \\
 &= \frac{\Omega_0 \rho_0}{k} \left( \frac{\cosh{kx}}{\cosh{kx_0}} - 1 \right).
 \end{align}
-
+Finally, for $x > x_0$,
 \begin{align}
 \int_{x_0}^{\infty} G_2(x;s) \Psi_0 ~ds &= - \Omega_0 \rho_2 \left[ e^{-k(x-x_0)} \int_{x_0}^{x} \sinh(k(s-x_0)) ~ds \right. \notag \\
 &\qquad \qquad \quad \left. + \sinh(k(x-x_0)) \int_{x}^{\infty} e^{-k(s-x_0)} ~ds \right], \notag \\
 &= \frac{\Omega_0 \rho_2}{k} \left[ e^{-k(x-x_0)} - 1 \right].
 \end{align}
-
+The other integrals that need to be evaluated are
 \begin{align}
 I_0^\pm &= \frac{\Omega_0\omega\rho_0k}{\sinh{2kx_0}} \int_{-x_0}^{x_0} \sinh(k(s \pm x_0)) ds, \\
-&= \pm \frac{\Omega_0 \omega \rho_0}{\sinh{2kx_0}} (\cosh{2kx_0 - 1}).
+&= \pm \frac{\Omega_0 \omega \rho_0}{\sinh{2kx_0}} (\cosh{2kx_0 - 1}),
 \end{align}
-
 \begin{align}
 I_1 &= \Omega_0\omega\rho_1k \int_{-\infty}^{-x_0} e^{k(s + x_0)} ds, \\
-&= \Omega_0 \omega \rho_1.
+&= \Omega_0 \omega \rho_1,
 \end{align}
-
+and
 \begin{align}
 I_2 &= \Omega_0\omega\rho_2k \int_{x_0}^{\infty} e^{k(x_0 - s)} ds, \\
 &= \Omega_0 \omega \rho_2.
@@ -1365,6 +1365,13 @@ The residues for the integrand of $A_2$ are found by replacing subscript 2 with 
 
 
 \textcolor{red}{What about the poles of $G_{0,1,2}$? How can we say that the asymptotics of $p$ are the same as the asymptotics of $A$?}
+
+
+\section{Discussion}
+\textcolor{red}{
+	The zeroes of the dispersion function, that is, the normal modes, make up the discrete spectrum of modes. In general, the governing MHD wave equation contains a continuous spectrum in addition to the discrete spectrum. The continuous spectrum is established at the zeroes of the function $N(\omega^2) = \rho (c_0^2 + v_A^2)(\omega^2 - k^2v_A^2)(\omega^2 - k^2v_S^2)$ (defined in \cite{goe_etal04}, page 500) and induce branch cuts in the complex $\omega$ plane, which must be integrated around when taking inverse Laplace transforms to ensure that the contour is contained within a single-valued Riemann sheet. An incompressible asymmetric slab has no branch points, so only the normal modes contribute to the time-dependant solution.}
+
+\section{Conclusions}
 
 
 \appendix
