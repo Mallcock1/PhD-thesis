@@ -484,7 +484,8 @@ Equation~\eqref{sol dirac delta}, where we can see the contribution from the sur
 \label{sec: IVP slab}
 %------------------------------------------------------------------------------
 
-\textcolor{red}{Calculate leaky mode frequencies using EVP approach?}
+
+Building up the complexity of IVP, we next derive the temporal evolution of plasma in an initially perturbed asymmetric slab waveguide. We begin with an asymmetric slab of incompressible plasma and later introduce compressibility.
 
 \subsection{Incompressible}
 
@@ -893,24 +894,23 @@ T_{1,2}[\Psi_0](\omega) = &-\Omega_0\{ (\rho_0 \tanh(kx_0) + \rho_{1,2}) (\e_0 \
 
 When $\rho_1 = \rho_2 = \rho_0$ and $x_0 = 0$, the solution given by Equation~\eqref{sol slab} reduces with that of a tangential interface, Equation~\eqref{sol int}.
 
-\textcolor{red}{include figures of the solution}
-
 The time-dependant evolution of a perturbation of an incompressible asymmetric magnetic slab are thus purely superposition of normal modes. There is no contribution from the continuous spectrum. There is instantaneous set-up of coherently oscillating collective modes. It is the introduction of compressibility that introduces a continuous spectrum, and therefore a leaky component to the oscillation. This is the subject of the following subsection.
 
 
 \subsection{Compressible}
 
-\textcolor{red}{Subsection intro - just a sentence or short para about what we might expect to come up in the compressible case.}
+In this subsection, we solve the initial value problem of a compressible asymmetric slab. 
 
-To tackle the more general compressible model, we must start with the more general version of Equation \eqref{gov reduced}, namely,
+The more general compressible version of Equation~ \eqref{gov reduced} is
 \begin{equation}
-\tilde{v}_x - m^2 \tilde{v}_x = g(x, \omega),
+\tilde{v}_x'' - m^2 \tilde{v}_x = g(x, \omega),
 \end{equation}
 where
 \begin{equation}
-g(x, \omega) = \frac{1}{(c_0^2 + v_A^2)(\omega_T^2 - \omega^2)}\left[ (\omega_0^2 - \omega^2)\left(\dot{\hat{v}}_{x0} - i\omega \hat{v}_{x0}\right) + ikc_0^2\left( \dot{\hat{v}}_{z0}' - i\omega \hat{v}_{z0}'\right) \right].
+g(x, \omega) = \frac{1}{(c_0^2 + v_A^2)(\omega_T^2 - \omega^2)}\left[ (\omega_0^2 - \omega^2)\left(\dot{\hat{v}}_{x0} - i\omega \hat{v}_{x0}\right) + ikc_0^2\left( \dot{\hat{v}}_{z0}' - i\omega \hat{v}_{z0}'\right) \right]. \label{ODE compressible}
 \end{equation}
-This equation corroborates with the general initial value problem considered by \cite{and_etal07}, although some algebra is required to transform between velocity and total pressure coordinates.
+This equation can be reduced to the corresponding equation for incompressible plasma in the limit of infinite sound speed, \textit{i.e.} $c_0 \to \infty$.
+Equation~\eqref{ODE compressible} corroborates with the general initial value problem considered by \cite{and_etal07}, although some algebra is required to transform between velocity and total pressure coordinates.
 
 Considering a magnetic slab in a non-magnetic environment, we have
 \begin{align}
@@ -927,9 +927,9 @@ For the solution inside the slab, $|x| < x_0$, $\hat{v}_x(x)$ satisfies
 \end{equation}
 under the boundary conditions $\tilde{v}_x(-x_0) = \tilde{A}_1$ and $\tilde{v}_x(-x_0) = \tilde{A}_2$. To solve this we construct the Green's function, $G_0(x;s)$ that satisfies
 \begin{equation}
-\frac{d^2G_0}{dx^2} - m_0^2 G_0 = \delta(x-s), \quad G_0(-x_0;s) = G_0(x_0;s) = 0,
+\frac{d^2G_0}{dx^2} - m_0^2 G_0 = \delta(x-s), \quad G_0(-x_0;s) = G_0(x_0;s) = 0.
 \end{equation}
-where $\delta$ denotes the Dirac delta function. The general solution of this equation is
+The general solution of this equation is
 \begin{equation}
 G_0(x;s) = c_1\sinh(m_0(x - x_0)) + c_2\sinh(m_0(x + x_0)),
 \end{equation}
