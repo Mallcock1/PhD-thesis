@@ -338,9 +338,9 @@ Figure~\ref{fig: vx} illustrates the solutions for the transverse velocity pertu
 
 The full solution for the transverse velocity, $v_x(x, z, t) = \hat{v}_x(x,t)e^{ikz}$ is found by taking the inverse Laplace transform of $\tilde{v}_x$, such that
 \begin{equation}
-\hat{v}_x(x,t) = \frac{1}{2\pi} \lim_{T \to \infty} \int_{-T+ i\gamma}^{T + i\gamma} \tilde{v}_x(x)e^{-i\omega t} d\omega,
+\hat{v}_x(x,t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{-L + i\sigma}^{L + i\sigma} \tilde{v}_x(x)e^{-i\omega t} d\omega,
 \end{equation}
-where $\gamma$ is real and such that all the singularities of the integrand lie below the contour of integration in the complex plane. The singularities in the solutions in Laplace space are all poles. Therefore, using Cauchy's Residue Theorem, it follows that
+where $\sigma$ is real and such that all the singularities of the integrand lie below the contour of integration in the complex plane. The singularities in the solutions in Laplace space are all poles. Therefore, using Cauchy's Residue Theorem, it follows that
 \begin{equation}
 \hat{v}_x(x, t) = -i\sum \mathrm{Res}\left\{\tilde{v}_xe^{-i\omega t}\right\},
 \end{equation}
@@ -480,14 +480,14 @@ Equation~\eqref{sol dirac delta}, where we can see the contribution from the sur
 \textcolor{red}{Possibly complete the continuous interface IVP to see whether the R+R81 errors have consequences there.}
 
 %------------------------------------------------------------------------------
-\section{Asymmetric slab}
+\section{Temporal evolution of a slab waveguide}
 \label{sec: IVP slab}
 %------------------------------------------------------------------------------
 
 
-Building up the complexity of IVP, we next derive the temporal evolution of plasma in an initially perturbed asymmetric slab waveguide. We begin with an asymmetric slab of incompressible plasma and later introduce compressibility.
+Building up the complexity of IVP, we next derive the temporal evolution of plasma in an initially perturbed slab waveguide. We begin with an asymmetric slab of incompressible plasma and later introduce compressibility.
 
-\subsection{Incompressible}
+\subsection{Incompressible asymmetric slab}
 
 Consider equilibrium magnetic field and density profiles given by
 \begin{equation}
@@ -629,7 +629,7 @@ We evaluate each of the three inverse Laplace transforms in turn.
 
 The first inverse Laplace transform,
 \begin{equation}
-\mathcal{L}^{-1} \{\tilde{A}_1\} = \frac{1}{2\pi} \int_{-\infty + i\gamma}^{\infty + i\gamma} \tilde{A}_1 e^{-i\omega t} ~d\omega,
+\mathcal{L}^{-1} \{\tilde{A}_1\} = \frac{1}{2\pi} \lim_{L \to \infty} \int_{-L + i\sigma}^{L + i\sigma} \tilde{A}_1 e^{-i\omega t} ~d\omega,
 \end{equation}
 is calculated as follows. The functions $\epsilon_{0,1,2}$ are quadratic in $\omega$, and are therefore entire. The integrals $I_{1,2}$ and $I_0^\pm$ are, in general, linear functions of $\omega$ so also contribute no singularities. Therefore, $T_1$ and $T_2$ are entire functions. Hence, the singularities of $\tilde{A}_1$ are precisely the zeros of the dispersion function, $D(\omega)$.
 
@@ -678,7 +678,7 @@ c &= (\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0v_{A0
 \end{align}
 The solutions, $\pm\omega_{0\pm}$, must be real \citep{goe_etal04}. They are zeroes of the function $D(\omega)$ of order 1 so are simple poles of the integrand $\hat{A}_1 e^{-i\omega t}$. Additionally, the solutions corroborate with the corresponding incompressible eigenfrequencies for an interface and a symmetric slab, shown in Appendices~\ref{app: interface} and~\ref{app: symmetric}, respectively.
 
-With the location of the singularities of the integrand in hand, we can evaluate the first integral in Equation~\eqref{sol incomp} by making use of the \textit{Residue Theorem} of complex analysis. For this theorem to apply, we must integrate around a closed contour instead of the infinite line in Equation~\eqref{sol incomp}. To accomplish this, we can choose a sequence of contours (known as \textit{Bromwich contours}) such that the limit of the integrals over these contours is equal to the integral over the infinite line. We use the fact that the function $T_1(\omega)$ is entire to construct a Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \gamma)$ to $(L, \gamma)$, and $C_1$ connects $(-L, \gamma)$ and $(L, \gamma)$ via a semi-circle to ensure that $C$ encloses the zeros at $\pm\omega_{0\pm}$ (Figure~\ref{fig: brom cont incomp}). In the limit $L \to \infty$, we recover the desired integral.
+With the location of the singularities of the integrand in hand, we can evaluate the first integral in Equation~\eqref{sol incomp} by making use of the \textit{Residue Theorem} of complex analysis. For this theorem to apply, we must integrate around a closed contour instead of the infinite line in Equation~\eqref{sol incomp}. To accomplish this, we can choose a sequence of contours (known as \textit{Bromwich contours}) such that the limit of the integrals over these contours is equal to the integral over the infinite line. We use the fact that the function $T_1(\omega)$ is entire to construct a Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \sigma)$ to $(L, \sigma)$, and $C_1$ connects $(-L, \sigma)$ and $(L, \sigma)$ via a semi-circle to ensure that $C$ encloses the zeros at $\pm\omega_{0\pm}$ (Figure~\ref{fig: brom cont incomp}). In the limit $L \to \infty$, we recover the desired integral.
 
 \begin{figure}
 	\centering
@@ -692,7 +692,7 @@ With the location of the singularities of the integrand in hand, we can evaluate
 		
 		\draw [postaction={decorate}, thick] (-4,1) -- (4,1);
 		\draw [postaction={decorate}, thick] (4,1) to (4,0) node[above left]{$L$} to [out=-90,in=0] (0,-4) to [out=180,in=-90] (-4,0) node[above left]{$L$} to (-4,1);
-		\node [above left] at (0,1) {$\gamma$};
+		\node [above left] at (0,1) {$\sigma$};
 		
 		\draw[fill] (-4,0) circle [radius=0.025];
 		\draw[fill] (4,0) circle [radius=0.025];
@@ -752,8 +752,8 @@ Compiling the above results, the solution of the first inverse Laplace Transform
 
 The second inverse Laplace transform in Equation~\eqref{sol incomp} is calculated as follows.
 \begin{align}
-\mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} &= \frac{1}{2\pi}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{\omega e^{-i\omega t}}{\e_1} ~d\omega \notag \\
-&= \frac{1}{2\pi\rho_1}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{\omega e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} ~d\omega,
+\mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} &= \frac{1}{2\pi}\lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \frac{\omega e^{-i\omega t}}{\e_1} ~d\omega \notag \\
+&= \frac{1}{2\pi\rho_1}\lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \frac{\omega e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} ~d\omega,
 \end{align}
 whose integrand has simple poles at $\omega = \pm k v_{A1}$. From Jordan's Lemma it follows that the integrand vanishes as $\omega \to \infty$. Therefore, we can construct a Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the poles are
 \begin{align}
@@ -768,8 +768,8 @@ Therefore, the second inverse Laplace transform in Equation~\eqref{sol incomp} i
 
 The third and final inverse Laplace transform in Equation~\eqref{sol incomp} is calculated as follows.
 \begin{align}
-\mathcal{L}^{-1}\left\{ \frac{1}{\e_1} \right\} &= \frac{1}{2\pi}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{\e_1} ~d\omega, \notag \\
-&= \frac{1}{2\pi\rho_1}\lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} ~d\omega,
+\mathcal{L}^{-1}\left\{ \frac{1}{\e_1} \right\} &= \frac{1}{2\pi}\lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \frac{e^{-i\omega t}}{\e_1} ~d\omega, \notag \\
+&= \frac{1}{2\pi\rho_1}\lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \frac{e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} ~d\omega,
 \end{align}
 whose integrand has simple poles at $\omega = \pm k v_{A1}$. Again, the integrand vanishes as $\omega \to \infty$, so we can integrate around the Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the poles are
 \begin{align}
@@ -795,7 +795,7 @@ Therefore, the final inverse Laplace transform in Equation~\eqref{sol incomp} is
 		
 		\draw [postaction={decorate}, thick] (-4,1) -- (4,1);
 		\draw [postaction={decorate}, thick] (4,1) to (4,0) node[above left]{$L$} to [out=-90,in=0] (0,-4) to [out=180,in=-90] (-4,0) node[above left]{$L$} to (-4,1);
-		\node [above left] at (0,1) {$\gamma$};
+		\node [above left] at (0,1) {$\sigma$};
 		
 		\draw[fill] (-4,0) circle [radius=0.025];
 		\draw[fill] (4,0) circle [radius=0.025];
@@ -897,7 +897,7 @@ When $\rho_1 = \rho_2 = \rho_0$ and $x_0 = 0$, the solution given by Equation~\e
 The time-dependant evolution of a perturbation of an incompressible asymmetric magnetic slab are thus purely superposition of normal modes. There is no contribution from the continuous spectrum. There is instantaneous set-up of coherently oscillating collective modes. It is the introduction of compressibility that introduces a continuous spectrum, and therefore a leaky component to the oscillation. This is the subject of the following subsection.
 
 
-\subsection{Compressible}
+\subsection{Compressible slab}
 
 In this subsection, we solve the initial value problem of a compressible asymmetric slab. 
 
@@ -1049,21 +1049,22 @@ I_2 &= I_2[f] = \frac{1}{m_2} \int_{x_0}^\infty e^{m_2(x_0 - s)} f(\omega, s) ~d
 
 To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), such that
 \begin{equation}
-\hat{v}_x(x,t) = \mathcal{L}^{-1}\{\tilde{v}_x(x)\} = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \tilde{v}_x(x) e^{-i\omega t} d\omega,
+\hat{v}_x(x,t) = \mathcal{L}^{-1}\{\tilde{v}_x(x)\} = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \tilde{v}_x(x) e^{-i\omega t} d\omega,
 \label{laplace transform}
 \end{equation}
-where $\gamma$ is a real number such that all the singularities of the integrand are below the contour of integration to ensure that all singularities contribute to the integral. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane and is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral. Focusing firstly on the region $x < -x_0$, the solution is
+where $\sigma$ is a real number such that all the singularities of the integrand are below the contour of integration to ensure that all singularities contribute to the integral. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane and is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral. Focusing firstly on the region $x < -x_0$, the solution is
 \begin{align}
 \hat{v}_x(x, t) &= \mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{m_1(x + x_0)} + \int_{-\infty}^{-x_0} G_1(x; s)f_1(\omega, s)ds \right\}, \\
 &= \mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{m_1(x + x_0)} \right\} + \mathcal{L}^{-1} \left\{ \int_{-\infty}^{-x_0} G_1(x; s)f_1(\omega, s)ds \right\}.
+\label{vx sol inv LPT}
 \end{align}
 
-To study the time-dependent behaviour of the transverse velocity, we start by studying the asymptotic behaviours of $A_1(t) = v_x(-x_0, t)$ and $A_2(t) = v_x(x_0, t)$. These variables are related to the Laplace transformed variables $\tilde{A}_1$ and $\tilde{A}_2$ by the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), namely
+To study the time-dependent behaviour of the transverse velocity, we start by studying the asymptotic behaviour of $A_1(t) = v_x(-x_0, t)$. This is related to the Laplace transformed variable $\tilde{A}_1$ by the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), namely
 \begin{equation}
-A_1(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega, \quad A_2(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\gamma - L}^{i\gamma + L} \frac{T_2(\omega)}{D(\omega)} e^{-i\omega t} d\omega,
+A_1(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega,
 \label{A inv laplace}
 \end{equation}
-where $\gamma$ is a real number such that all the singularities of the integrands are below the contour of integration. The integrals are evaluated along an infinite horizontal line in the upper half of the complex plane.
+where $\sigma$ is a real number such that all the singularities of the integrand are below the contour of integration. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane.
 
 Since the problem of finding the solution is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $T_1$, $T_2$, and $D$ and the zeros of $D$. Identifying the singularities allows us to modify the contour so that it is confined to a single-valued branch and the zeroes of $D$ are poles of the integrand whose residues determine the value of the modified contour integral.
 
@@ -1083,66 +1084,68 @@ The set of branch points of a sum of functions is the union of the branch points
 
 $T_1$ and $T_2$ have no other singularities. Therefore, the poles of $\tilde{A}_1$ and $\tilde{A}_2$ are precisely the zeroes of the dispersion function $D$. The subset of these zeroes that are real are the eigenfrequencies of the asymmetric slab studied in Chapter~\ref{chap: EVP} and the subset that are complex are the leaky modes. There is a rich spectrum of eigenmodes which,in the absence of any simplification to the model, are not possible to describe analytically.
 
-So the integrand has 18 branch points and an infinite number of poles that are not possible to describe analytically. This is an intractable problem. Therefore, we will instead solve the simplified problem of a thin symmetric slab with zero-beta plasma. From there, we will study what would happen when symmetry is broken.
+The integrand has 18 branch points and an infinite number of poles that are not possible to describe analytically. This is an intractable problem. Therefore, we will instead solve the simplified problem of a thin symmetric slab with zero-beta plasma. From there, we will study what would happen when symmetry is broken.
 
 \subsubsection{Solving a simplified case - Thin zero-beta symmetric slab}
 
-When simplifying to a symmetric slab, we use the notation subscript $e$ to denote the symmetric \textit{external} environment, rather than subscripts 1 and 2. Under the zero-beta approximation, the tube speed is identical to the sound speed. Therefore, the points $\omega = \pm \omega_{00,e}, \omega_{T0,e}$ are no longer branch points. The only remaining branch points are $\omega = \pm \omega_{A0,e}$
+When simplifying to a symmetric slab, we use the notation subscript $e$ to denote the symmetric \textit{external} environment, rather than subscripts 1 and 2. Now that we are considering a symmetric slab, the parameters on each side of the slab are equal. Under the zero-beta approximation, the tube speed is identical to the sound speed. Therefore, the branch points at $\omega = \pm \omega_{00,e}$ and $\omega = \pm\omega_{T0,e}$ degenerate. The remaining branch points are $\omega = \pm \omega_{A0,e}$.
 
+Under the zero-beta approximation, the dispersion relation for a symmetric slab simplifies to
+\begin{equation}
+\rho_ev_{Ae}^2m_e\left(
+\begin{matrix}
+\tan \\
+-\cot
+\end{matrix} \right)(n_0x_0) = -\rho_0v_{A0}^2n_0,
+\end{equation}
+where $n_0^2 = -m_0^2 \approx \omega^2/v_{A0}^2 - k^2$ and $m_e^2 \approx k^2 - \omega^2/v_{Ae}^2$. \cite{edw_etal82} noticed that this is precisely the dispersion relation for Love waves, which are horizontally polarized surface wave that appears in Earth seismology \citep{lov11}. Equilibrium pressure balance requires that $\rho_ev_{Ae}^2 = \rho_0v_{A0}^2$, therefore, the dispersion relation reduces to
+\begin{equation}
+\left(
+\begin{matrix}
+\tan \\
+-\cot
+\end{matrix} \right)(n_0x_0) = -\frac{n_0}{m_e}.
+\end{equation}
+The $\tan$ version of this equation describes sausage modes and the $\cot$ version describes kink modes.
 
-\subsection{Asymptotic solution - non-magnetic external plasma}
-If the external plasma is non-magnetic, \textit{i.e.} $v_{A1} = v_{A2} = 0$, then the integral has (algebraic) branch points at $\omega = \pm \omega_{A0}$, $\pm \omega_{00,1,2}$, and $\pm \omega_{T0}$, where, without loss of generality, we let $\omega_1 < \omega_2$. The contour, $C = C_1 + C_2 + C_3 + C_4 + C_5$ for the inverse Laplace transform can be modified as shown in Figure~\ref{fig: brom contour}. To ensure that the contour remains on a single Riemann surface, it is modified around the branch cuts so as to encircle the poles. The closed contour $C$ is a sum of the following sub-contours:
+With the aim of finding solutions to this dispersion relation, we start with the equation describing kink modes. By letting the non-dimensional slab width, $kx_0$, be small, we can expand the eigenfrequencies of the first order kink body mode as a polynomial in $kx_0$, the largest two terms of which are
+\begin{equation}
+\omega = \pm kv_{Ae}\left[ 1 - \frac{1}{2}\left( \frac{v_{Ae}^2}{v_{A0}^2} - 1 \right) (kx_0)^2 \right].
+\end{equation}
+This is the only eigenmode of the low-beta slab. However, it is not the only zero of the dispersion function. The other zeros have non-zero imaginary part and therefore have a decreasing amplitude over time. They are leaky modes. To find these, we must first investigate on which Riemann sheet we expect them to be. In this case, the branch points are due to the square root functions in $m_e$ and $n_0$. These functions each contribute two branches. The branches of the function $m_e$ determine the behaviour of the velocity outside the slab. Outside the slab, the transverse velocity has the form $\tilde{v}_x = \tilde{A}_1e^{m_e(x_0 + x)}$ plus terms due to the inverse Laplace transform of the Green's function term (Equation~\ref{V sol}). Trapped modes require that $v_x \to 0$ as $x \to \infty$. This is only possible when $\mathrm{Re}\{m_e\} > 0$, which for trapped modes simplifies to $m_e > 0$. For the trapped mode, we have $\omega < \omega_{Ae}$, therefore to ensure that $m_e > 0$, we must take the positive square root in the definition of $m_e$. This ensures that the trapped modes are physical, by which we mean that they do not perturb plasma far from the slab. Therefore, we define the positive branch of $m_e$ as the \textit{principle sheet}\footnote{Due to it's physically relevant solutions, the equivalent of this sheet in the cylindrical problem has been labelled as the \textit{physical sheet} \citep{rud_etal06b}.}.
+
+On the other hand, for leaky modes, we require that $v_x \nrightarrow 0$ as $x \to \infty$. Therefore, these modes must exist on the Riemann sheet defined by the negative square root in $m_e$. This is the \textit{non-principle sheet}\footnote{Also known as the \textit{non-physical sheet} \citep{rud_etal06b}}.
+
+Leaky kink modes on the non-principle sheet are complex solutions to the equation
+\begin{equation}
+\tan\left(kx_0\sqrt{\frac{\omega^2}{\omega_0^2} - 1}\right) = -\frac{\sqrt{1 - \frac{\omega^2}{\omega_e^2}}}{\sqrt{\frac{\omega^2}{\omega_0^2} - 1}}.
+\end{equation}
+This equation admits solutions where the argument of the $\tan$ function remains finite as $kx_0 \to \infty$. For this to be satisfied, the solution must be of the form $\omega = \nu / kx_0$, where $\nu$ is independent of $kx_0$. Substituting this ansatz into the above equation and using the fact that $\tan$ is $\pi$-periodic, we find that the leaky kink mode solutions, for small $kx_0$, are
+\begin{equation}
+\omega = \frac{v_{A0}}{x_0}\left[ n\pi - i\tanh^{-1}\left( \frac{v_{A0}}{v_{Ae}} \right) \right],
+\end{equation}
+for $n \in \mathbb{Z}$.
+
+Similarly, the leaky sausage modes on the non-principle sheet are complex solutions to the equation
+\begin{equation}
+\tan\left(kx_0\sqrt{\frac{\omega^2}{\omega_0^2} - 1}\right) = \frac{\sqrt{\frac{\omega^2}{\omega_0^2} - 1}}{\sqrt{1 - \frac{\omega^2}{\omega_e^2}}}
+\end{equation}
+and are given by
+\begin{equation}
+\omega = \frac{v_{A0}}{x_0}\left[ (n + \frac{1}{2})\pi - i\tanh^{-1}\left( \frac{v_{A0}}{v_{Ae}} \right) \right],
+\end{equation}
+for small $kx_0$ and for $n \in \mathbb{Z}$. It is easy to see that, for each pole, one can construct an open ball centred on the pole that contains no other poles, therefore all the poles are isolated.
+
+Now the integrals in question given in Equation~\eqref{A inv laplace} can be calculated using the Bromwich contour in Figure~\ref{fig: brom contour}. To ensure that the contour remains on a single Riemann surface, it is modified around the branch cuts so as to encircle the poles. The closed contour $C$ is a sum of the following sub-contours:
 \begin{itemize}
-	\item $C_0$: the horizontal line with imaginary part $\gamma$.
-	\item $C_1$: the horizontal line from $L + \delta i$ to $\omega_0 + \delta i$, round the semicircle of radius $\delta$ and back along the horizontal line from $\omega_0 - \delta i$ to $L - \delta i$.
-	\item $C_2$: the vertical lines from $\pm L + \gamma i$ to $\pm L + \delta i$ and the arcs of the large semicircle centred at the origin with radius $\Delta$.
-	\item $C_3$: the vertical line up to, around, and back down from $\omega_T$.
-	\item $C_4$: the vertical line up to, around, and back down from $-\omega_T$.
-	\item $C_5$: the horizontal line from $-L - \delta i$ to $-\omega_0 - \delta i$, round the semicircle of radius $\delta$ and back along the horizontal line from $-\omega_0 + \delta i$ to $-L + \delta i$.
+	\item $C_0$: the horizontal line with imaginary part $\sigma$.
+	\item $C_1$: the horizontal line from $L + \delta i$ to $\omega_{Ae} + \delta i$, round the semicircle of radius $\delta$ and back along the horizontal line from $\omega_{Ae} - \delta i$ to $L - \delta i$.
+	\item $C_2$: the vertical lines from $\pm L + \sigma i$ to $\pm L + \delta i$ and the arcs of the large semicircle centred at the origin with radius $L$.
+	\item $C_3$: the vertical line up to, around, and back down from $\omega_{A0}$.
+	\item $C_4$: the vertical line up to, around, and back down from $-\omega_{A0}$.
+	\item $C_5$: the horizontal line from $-L - \delta i$ to $-\omega_{Ae} - \delta i$, round the semicircle of radius $\delta$ and back along the horizontal line from $-\omega_{Ae} + \delta i$ to $-L + \delta i$.
 \end{itemize}
-We use the integral along $C$ as $\delta \to 0$ and $L \to \infty$ to determine the inverse Laplace transform from Equation~\eqref{A inv laplace}. In the limit of $L \to \infty$, the integral along $C_0$ is identical to the desired integral in Equation~\eqref{A inv laplace}. The integrals along each of the sub-contours $C_1 - C_5$ are calculated in the following subsections.
-
-
-\begin{figure}
-	\centering
-	\scalebox{0.9}{
-		\begin{tikzpicture}[very thick, decoration={
-			markings,
-			mark=at position 0.29 with {\arrow{>}}}
-		]
-		
-		\tikzset{
-			branchcut/.style={decorate, decoration={snake}, draw=red}, 
-		}
-		
-		\draw [->, thick] (-5,0) -- (5,0) node[above]{$\Re(\omega)$};
-		\draw [->, thick] (0,-5) -- (0,2) node[left]{$\Im(\omega)$};
-		
-		\draw [postaction={decorate}, thick] (-4,1) -- (4,1);
-
-
-		
-		\node [above left] at (0,1) {$\gamma$};
-		\draw[fill] (0,1) circle [radius=0.025];
-		
-		
-
-		
-		%		\node [above] at (-1.7,1) {$C_0$};
-		%		\node [above] at (2,0) {$C_1$};
-		%		\node [below right] at (2.8,-2.8) {$C_2$};
-		%		
-		%		\node [right] at (0.5,-1) {$C_3$};
-		%		\node [left] at (-0.5,-1) {$C_4$};
-		%		\node [above] at (-2,0) {$C_5$};
-		
-		\node [above] at (4,1) {$L$};
-		\node [above] at (-4,1) {$-L$};
-		\end{tikzpicture} 
-	}
-	\caption{The Bromwich contour, $C = C_1 + C_2 + C_3 + C_4 + C_5$, for the complex integration of $\tilde{A}_{1,2}$ in the inverse Laplace transform in Equation~\eqref{A inv laplace}. The radius of the large semicircle is $L$ and the radius of the small semicircles around the points $\pm \omega_0$ and $\pm \omega_T$ is $\delta$.}
-\end{figure}
-
+The integral in the inverse Laplace transform along the horizontal line is the same as the integral along the closed contour minus the integrals along the other constituent contours, \textit{i.e.} $C_0 = C - \sum_{n = 1}^{5}C_n$. The integrals along each of the contours $C$ and $C_1$ to $C_5$ are calculated in the following subsections.
 
 \begin{figure}
 	\centering
@@ -1188,7 +1191,7 @@ We use the integral along $C$ as $\delta \to 0$ and $L \to \infty$ to determine 
 		\draw [thick,domain=180:0] plot ({0.15*cos(\x) - 0.5}, {0.15*sin(\x)});
 		\draw [thick,domain=180:0] plot ({0.15*cos(\x) + 0.5}, {0.15*sin(\x)});
 		
-		\node [above left] at (0,1) {$\gamma$};
+		\node [above left] at (0,1) {$\sigma$};
 		
 		\draw[fill] (0,1) circle [radius=0.025];
 		
@@ -1204,9 +1207,9 @@ We use the integral along $C$ as $\delta \to 0$ and $L \to \infty$ to determine 
 		\draw[fill] (-0.5,0) circle [radius=0.025];
 		\node [above] at (-0.5,0) {$-\omega_{A}$};
 		
-		\draw[fill, blue] (-1.25,0) circle [radius=0.1];
+		\draw[fill, blue] (-1,0) circle [radius=0.1];
 		
-		\draw[fill, blue] (1.25,0) circle [radius=0.1];
+		\draw[fill, blue] (1,0) circle [radius=0.1];
 		
 		\draw[fill, blue] (-2,-1) circle [radius=0.1];
 		
@@ -1224,495 +1227,166 @@ We use the integral along $C$ as $\delta \to 0$ and $L \to \infty$ to determine 
 		
 		\draw[fill, blue] (5,-1) circle [radius=0.1];
 		
-%		\node [above] at (-1.7,1) {$C_0$};
-%		\node [above] at (2,0) {$C_1$};
-%		\node [below right] at (2.8,-2.8) {$C_2$};
-%		
-%		\node [right] at (0.5,-1) {$C_3$};
-%		\node [left] at (-0.5,-1) {$C_4$};
-%		\node [above] at (-2,0) {$C_5$};
-		
-		\node [above] at (4,1) {$L$};
-		\node [above] at (-4,1) {$-L$};
-		\end{tikzpicture} 
-	}
-	\caption{The Bromwich contour, $C = C_1 + C_2 + C_3 + C_4 + C_5$, for the complex integration of $\tilde{A}_{1,2}$ in the inverse Laplace transform in Equation~\eqref{A inv laplace}. The radius of the large semicircle is $L$ and the radius of the small semicircles around the points $\pm \omega_0$ and $\pm \omega_T$ is $\delta$.}
-	\label{fig: brom contour}
-\end{figure}
-
-
-\subsubsection{Integral along $C_1$ and $C_5$}
-In the limit as $\delta \to 0$, the integral along the semicircular part of $C_1$ approaches 0 because the integrand is analytic in this limit and the length of the contour approaches zero.
-
-As $L \to \infty$ the integrals along $C_1$ become
-\begin{align}
-I_{C_1} &= \int_{C_1} \frac{T_{1,2}}{D} e^{-i\omega t} d\omega \\
-&= \int_{\infty}^{\omega_0} \frac{T_{1,2}^+}{D^+} e^{-i\omega t} d\omega + \int_{\omega_0}^{\infty} \frac{T_{1,2}^-}{D^-} e^{-i\omega t} d\omega \\
-&= \int_{\omega_0}^{\infty} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega,
-\end{align}
-where superscripts $+$ and $-$ indicate the value of the function above and below the horizontal branch cut $[\omega_0, \infty)$, respectively.
-
-For values of $\omega$ between the branch points at $\omega_0$, $\omega_1$, $\omega_2$, and $\omega_A$, the integrand is analytic (except at the endpoints), therefore we can use integration by parts in these sub-intervals. For example, the integral over the sub-interval $(\omega_0, \omega_1)$ is
-\begin{align}
-I_{(\omega_0, \omega_1)} &= \int_{\omega_0}^{\omega_1} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \\
-&= \frac{i}{t} \left\{ \left[ \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t}\right]_{\omega_0}^{\omega_1} - \int_{\omega_0}^{\omega_1} \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \right\}.
-\end{align}
-Given that $T_{1,2}^+(\omega_0)/D^\pm(\omega_0) = T_{1,2}^-(\omega_0)/D^\pm(\omega_0)$, the slowest decaying term is the first term on the right hand side evaluated at $\omega_1$, which decays like $\mathcal{O}(t^{-1})$ as $t \to \infty$. Repeating this for the other three intervals over which the integrand is analytic, and using the fact that $T_{1,2}^\pm(\omega)/D^\pm(\omega) \to 0$ as $|\omega| \to \infty$, we find that the slowest decaying terms decay like $\mathcal{O}(t^{-1})$ as $t \to \infty$. Therefore $I_{C_1} = \mathcal{O}(t^{-1})$ (and similarly $I_{C_5} = \mathcal{O}(t^{-1})$) as $t \to \infty$.
-
-
-\subsubsection{Integral along \texorpdfstring{$C_2$}{C2}}
-As $L \to \infty$, points that occupy the curve $C_2$ will behave like $|\omega| \to \infty$. When $|\omega| \to \infty$, $T_{1,2} = \mathcal{O}(|\omega|)$ and $D = \mathcal{O}(|\omega|^2)$, therefore the integrands behave like $T_{1,2}/D = \mathcal{O}(1/|\omega|)$. Therefore the integral around $C_2$ approaches $0$ as $L \to \infty$.
-
-
-\subsubsection{Integral along $C_3$ and $C_4$}
-In the limit as $\delta \to 0$, the integral along the semicircular part of $C_3$ approaches 0 because the integrand is analytic in this limit and the length of the contour approaches zero. As $L \to \infty$ and $\delta \to 0$, the integrals along $C_3$ become
-\begin{align}
-I_{C_3} &= \int_{C_3} \frac{T_{1,2}}{D} e^{-i\omega t} d\omega \\
-&= \int_{\omega_T}^{\omega_T - \infty i} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega,
-\end{align}
-where superscripts $+$ and $-$ indicate the value of the function to the right and left of the vertical branch cut $\omega_T + [0,\infty)i$, respectively. The integrand is analytic in the integration interval (except at the endpoints), so by integration by parts
-\begin{equation}
-I_{C_3} = \frac{i}{t} \left\{ \left[ \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t}\right]_{\omega_T}^{\omega_T -\infty i} - \int_{\omega_T}^{\omega_T - \infty i} \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \right\}.
-\end{equation}
-the first term is zero because $T_{1,2}^\pm(\omega)/D^\pm(\omega) \to 0$ as $|\omega| \to \infty$ and $T_{1,2}^+(\omega_T)/D^\pm(\omega_T) = T_{1,2}^-(\omega_T)/D^\pm(\omega_T)$. Therefore, using integration by parts for a second time,
-\begin{align}
-I_{C_3} &= -\frac{i}{t} \int_{\omega_T}^{\omega_T - \infty i} \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \\
-&= \frac{1}{t^2} \left\{ \left[ \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t}\right]_{\omega_T}^{\omega_T -\infty i} - \int_{\omega_T}^{\omega_T - \infty i} \frac{d^2}{d\omega^2} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \right\} \\
-&= \mathcal{O}(t^{-2}) \text{ as } t \to \infty.
-\end{align}
-
-
-\subsubsection{Poles (AKA eigenfrequencies)}
-Let $v_A > c_i$ for $i = 0, 1, 2$, then there can exist, in general:
-\begin{enumerate}
-	\item 2 slow surface modes,
-	\item an infinite number of slow body modes,
-	\item 2 fast surface modes.
-\end{enumerate}
-1 and 2 exist for all values of $kx_0$. 3 exist only for $kx_0$ values greater than a cut-off value. Analytical expressions for the behaviour of the eigenmodes do not exist in general. It is at this point that we are forced to make two simplifications to the model:
-\begin{itemize}
-	\item The thin-slab approximation, so that $kx_0 \ll 1$
-	\item The approximate symmetry simplification, so that $\rho_1 \approx \rho_2$.
-\end{itemize}
-The eigenmodes of an asymmetric magnetic slab under these simplifications are given by the following expressions:
-\begin{itemize}
-	\item Slow quasi-sausage surface modes:
-	\begin{equation}
-	\omega^2=k^2c_\textrm{T}^2\left[1-\frac{2(kx_0)(c_0^2-c_\textrm{T}^2)}{(c_0^2+v_\textrm{A}^2)\left(\frac{\rho_0}{\rho_1}\frac{(c_1^2-c_\textrm{T}^2)^{1/2}}{c_1}+\frac{\rho_0}{\rho_2}\frac{(c_2^2-c_\textrm{T}^2)^{1/2}}{c_2}\right)}\right],
-	\label{thinslab slow saus surf}
-	\end{equation}
-	which is less than $k^2c_\textrm{T}^2$ and exists only when $c_1>c_\textrm{T}$ and $c_2>c_\textrm{T}$.
-	\item If $c_1=c_2=c_\textrm{e}$ (and therefore $\rho_1=\rho_2=\rho_\textrm{e}$), then there exists a fast sausage surface mode:
-	\begin{equation}
-	\omega^2=k^2c_\textrm{e}^2\left(1-\left[\frac{\rho_\textrm{e}}{\rho_0}\frac{c_\textrm{e}^2(c_0^2-c_\textrm{e}^2)(kx_0)}{(c_0^2+v_\textrm{A}^2)(c_\textrm{T}^2-c_\textrm{e}^2)}\right]^2\right)
-	\label{thinslab fast saus surf}
-	\end{equation}
-	in the thin slab limit.
-	\item Slow quasi-kink surface mode:
-	\begin{equation}
-	\omega^2=\frac{k^2x_0v_\textrm{A}^2\left(\frac{\rho_0}{\rho_1}m_1+\frac{\rho_0}{\rho_2}m_2\right)}{\left(\frac{\rho_0}{\rho_1}m_1x_0+\frac{\rho_0}{\rho_2}m_2x_0\right)+2}\approx{}\frac{1}{2}k^2v_\textrm{A}^2\left(\frac{\rho_0}{\rho_1}+\frac{\rho_0}{\rho_2}\right)kx_0.
-	\label{thinslab slow kink surf}
-	\end{equation}
-	\item Quasi-sausage body solutions:
-	\begin{equation}
-	\omega^2=k^2c_\textrm{T}^2\left(1+\frac{c_\textrm{T}^4(kx_0)^2}{c_0^2v_\textrm{A}^2\pi^2j^2}\right), \quad j=1,2,\ldots. \label{thinslab saus body}
-	\end{equation}
-	\item Quasi-kink body solutions:
-	\begin{equation}
-	\omega^2=k^2c_\textrm{T}^2\left(1+\frac{c_\textrm{T}^4(kx_0)^2}{c_0^2v_\textrm{A}^2\pi^2(j-\frac{1}{2})^2}\right), \quad j=1,2,\ldots. \label{thinslab kink body}
-	\end{equation}
-\end{itemize}
-
-Solution of the inverse Laplace transform is the sum of the residues at these points.
-
-As shown in Appendix~\ref{app: approx sym DR}, under the approximate symmetry simplification, the dispersion function, $D(\omega)$, becomes
-\begin{equation}
-D(\omega) = \frac{\sinh{2m_0x_0}}{4\Lambda_1\Lambda_2} D_k(\omega) D_s(\omega),
-\end{equation}
-where
-\begin{align}
-D_k(\omega) &= \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth(m_0x_0), \\
-D_s(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh(m_0x_0).
-\end{align}
-This can be further simplified for surface modes under the thin-slab approximation, to first order in $kx_0$, to
-\begin{align}
-D_k(\omega) &= \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\frac{1}{m_0x_0}, \\
-D_s(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2m_0x_0.
-\end{align}
-
-
-\subsubsection{Residues}
-In order to calculate the residue of each pole, we much determine their order. Firstly, for the slow kink surface mode, $\omega = \omega_{sks}$, it can be shown that $D_s(\omega_{sks}) \neq 0$, and after some algebra,
-\begin{equation}
-D_k(\omega) = \frac{\rho_1\rho_2\omega^2R}{m_0m_1m_2x_0} (\omega^2 - \omega_{sks}^2),
-\end{equation}
-where
-\begin{equation}
-R = 2 + \left( \frac{\rho_0}{\rho_1} + \frac{\rho_0}{\rho_2} \right)kx_0,
-\end{equation}
-so each of $\omega = \pm \omega_{sks}$ are simple zeros of $D_k$ and hence of $D$, therefore, they are simple poles of the integrand in question.
-
-Therefore, the residue of the integrand at $\omega = \omega_{sks}$ is
-\begin{align}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{sks} \right\} &= \lim_{\omega \to \omega_{sks}} \left\{ (\omega - \omega_{sks}) \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \right\} \\
-&= \frac{2m_0m_1m_2x_0\Lambda_1\Lambda_2}{\rho_1\rho_2\omega_{sks}^2Rm_0x_0}|_{\omega = \omega_{sks}} \frac{T_1(\omega_{sks})}{2\omega_{sks}D_s(\omega_{sks})} e^{-i\omega_{sks}t} \\
-&= \frac{\omega_{sks}}{R} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{-i\omega_{sks}t}.
-\end{align}
-Similarly, the residue at $\omega = -\omega_{sks}$ is
-\begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = -\omega_{sks} \right\} = \frac{\omega_{sks}}{R} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{i\omega_{sks}t}
-\end{equation}
-since $T_1$ and $D_s$ are even functions of $\omega$. 
-
-Similarly, the residues for the slow sausage surface mode $\omega = \pm \omega_{sss}$ are 
-\begin{align}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{sss} \right\} &= \lim_{\omega \to \omega_{sss}} \left\{ (\omega - \omega_{sss}) \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \right\} \\
-&= \frac{2m_0m_1m_2\Lambda_1\Lambda_2}{\rho_1\rho_2\omega_{sss}^2m_0x_0}|_{\omega = \omega_{sss}} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)k(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{2\omega_{sss}D_k(\omega_{sss})} e^{-i\omega_{sss}t} \\
-&= \frac{\omega_{sss}}{kx_0} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{D_k(\omega_{sss})} e^{-i\omega_{sss}t}.
-\end{align}
-Similarly, the residue at $\omega = -\omega_{sss}$ is
-\begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = -\omega_{sss} \right\} = \frac{\omega_{sss}}{kx_0} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{D_k(\omega_{sss})} e^{i\omega_{sss}t}.
-\end{equation}
-
-Regarding the fast kink body modes $\omega = \pm \omega_{fkbj}$, for $j = 1, 2, ...$, it can be shown that $|\cosh(m_0x_0)D_s(\omega_{fkbn})| \neq 0, \infty$. By letting $\omega_{fkbj}^2 = \omega_T^2(1 + v(kx_0)^2)$, for $v > 0$, we can show that\footnote{We consider the functions $D_s$ and $D_k$ multiplied by factors of $\cosh(m_0x_0)$ and $\sinh(m_0x_0)$, respectively, to ensure that singularities are regularised. The factors come from the $\sinh(2m_0x_0) = 2\sinh(m_0x_0)\cosh(m_0x_0)$ in the dispersion function $D$.}
-\begin{align}
-D(\omega(v)) &= \frac{\sinh(2m_0x_0)}{4\Lambda_1\Lambda_2}D_k(\omega(v))D_s(\omega(v)) \\
-&= \frac{1}{2}\cosh(m_0x_0)D_s(\omega(v))\left[\cos\left(\frac{c_T}{\sqrt{(c_0^2 + v_A^2)v}}\right) + \mathcal{O}(kx_0)\right] \\
-&= \frac{1}{2}\cosh(m_0x_0)D_s(\omega(v))\left[\frac{\pi(j + \frac{1}{2})(-1)^{j + 1}}{2\nu_j}(v - \nu_j) + \mathcal{O}((v - \nu_j)^2) + \mathcal{O}(kx_0)\right],
-\end{align}
-where $\nu_j = c_T^4 / c_0^2v_A^2\pi^2(j - \frac{1}{2})^2$ for $j \in \mathbb{N}$ such that $\omega_{fkbj} = \pm \omega_T\sqrt{1 + \nu_j(kx_0)^2}$ are simple zeros of the dispersion function $D$. Since $T_{1,2}(\omega_{fkbj}) \neq 0$, they are also simple poles of $T_{1,2}/D$. Therefore, the residues at $\omega = \omega_{fkbj}$ are\footnote{The zero of $\cosh(m_0x_0)$ when $\omega = \omega_{fkbj}$ regularises the singularities of $D_s(\omega)$.}
-\begin{align}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{fkbj} \right\} &= \lim_{\omega \to \omega_{fkbj}} \left\{ (\omega - \omega_{fkbj}) \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \right\} \\
-&= \lim_{v \to \nu_j} \left\{ \frac{1}{2} \omega_T (kx_0)^2(v - \nu_j) \frac{T_1(\omega(v))}{D(\omega(v))} e^{-i\omega(v)t} \right\} \\
-&= \frac{2(-1)^{j+1}\omega_T\nu_j(kx_0)^2}{\pi(j-\frac{1}{2})\cosh(m_0x_0)} \frac{T_1(\omega_{fkbj})}{D_s(\omega_{fkbj})}e^{-i\omega_{fkbj}t}.
-\end{align}
-Similarly, the residue at $\omega = -\omega_{fkbj}$ is
-\begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = -\omega_{fkbj} \right\} = \frac{2(-1)^{j}\omega_T\nu_j(kx_0)^2}{\pi(j-\frac{1}{2})\cosh(m_0x_0)} \frac{T_1(\omega_{fkbj})}{D_s(\omega_{fkbj})}e^{i\omega_{fkbj}t}
-\end{equation}
-
-The residues for the fast sausage body modes, $\omega_{fsbj} = \pm \omega_T\sqrt{1 + \eta_j(kx_0)^2}$, where $\eta_j = c_T^4 / c_0^2v_A^2\pi^2j^2$ for $j \in \mathbb{N}$, are similarly given by
-\begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{fsbj} \right\} = \frac{2i(-1)^{j}\omega_T\eta_j(kx_0)^2}{\pi j\sinh(m_0x_0)} \frac{T_1(\omega_{fsbj})}{D_k(\omega_{fsbj})}e^{-i\omega_{fsbj}t}
-\end{equation}
-and
-\begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = -\omega_{fsbj} \right\} = \frac{2i(-1)^{j}\omega_T\eta_j(kx_0)^2}{\pi j\sinh(m_0x_0)} \frac{T_1(\omega_{fsbj})}{D_k(\omega_{fsbj})}e^{i\omega_{fsbj}t}
-\end{equation}
-
-The residues for the integrand of $A_2$ are found by replacing subscript 2 with 1.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{Asymptotic solution - non-magnetic external plasma}
-If the external plasma is non-magnetic, \textit{i.e.} $v_{A1} = v_{A2} = 0$, then the integral has (algebraic) branch points at $\omega = \pm \omega_{A0}$, $\pm \omega_{00,1,2}$, and $\pm \omega_{T0}$, where, without loss of generality, we let $\omega_1 < \omega_2$. The contour, $C = C_1 + C_2 + C_3 + C_4 + C_5$ for the inverse Laplace transform can be modified as shown in Figure~\ref{fig: brom contour}. To ensure that the contour remains on a single Riemann surface, it is modified around the branch cuts so as to encircle the poles. The closed contour $C$ is a sum of the following sub-contours:
-\begin{itemize}
-	\item $C_0$: the horizontal line with imaginary part $\gamma$.
-	\item $C_1$: the horizontal line from $L + \delta i$ to $\omega_0 + \delta i$, round the semicircle of radius $\delta$ and back along the horizontal line from $\omega_0 - \delta i$ to $L - \delta i$.
-	\item $C_2$: the vertical lines from $\pm L + \gamma i$ to $\pm L + \delta i$ and the arcs of the large semicircle centred at the origin with radius $\Delta$.
-	\item $C_3$: the vertical line up to, around, and back down from $\omega_T$.
-	\item $C_4$: the vertical line up to, around, and back down from $-\omega_T$.
-	\item $C_5$: the horizontal line from $-L - \delta i$ to $-\omega_0 - \delta i$, round the semicircle of radius $\delta$ and back along the horizontal line from $-\omega_0 + \delta i$ to $-L + \delta i$.
-\end{itemize}
-We use the integral along $C$ as $\delta \to 0$ and $L \to \infty$ to determine the inverse Laplace transform from Equation~\eqref{A inv laplace}. In the limit of $L \to \infty$, the integral along $C_0$ is identical to the desired integral in Equation~\eqref{A inv laplace}. The integrals along each of the sub-contours $C_1 - C_5$ are calculated in the following subsections.
-
-\begin{figure}
-	\centering
-	\scalebox{0.9}{
-		\begin{tikzpicture}[very thick, decoration={
-			markings,
-			mark=at position 0.29 with {\arrow{>}}}
-		]
-		
-		\tikzset{
-			branchcut/.style={decorate, decoration={snake}, draw=red}, 
-		}
-		
-		\draw [->, thick] (-5,0) -- (5,0) node[above]{$\Re(\omega)$};
-		\draw [->, thick] (0,-5) -- (0,2) node[left]{$\Im(\omega)$};
-		
-		\draw [postaction={decorate}, thick] (-4,1) -- (4,1);
-		\draw [thick] (-4,1) -- (-4,0.15);
-		\draw [thick] (4,1) -- (4,0.15);
-		\draw [thick] (-4,0.15) -- (-1.5,0.15);
-		\draw [thick] (4,0.15) -- (1.5,0.15);
-		\draw [thick] (-4,-0.15) -- (-1.5,-0.15);
-		\draw [thick] (4,-0.15) -- (1.5,-0.15);
-		
-		\draw [branchcut, thick] (0.5, 0) -- (0.5, -5);
-		\draw [branchcut, thick] (-0.5, 0) -- (-0.5, -5);
-		\draw [branchcut, thick] (1.5, 0) -- (5, 0);
-		\draw [branchcut, thick] (-1.5, 0) -- (-5, 0);
-		
-		\draw [thick,domain=90:-90] plot ({0.15*cos(\x) - 1.5}, {0.15*sin(\x)});
-		\draw [thick,domain=90:270] plot ({0.15*cos(\x) + 1.5}, {0.15*sin(\x)});
-		
-		\draw [postaction={decorate}, thick,domain=-2.3:-80.8] plot ({4*cos(\x)}, {4*sin(\x)});
-		\draw [thick,domain=-85:-95] plot ({4*cos(\x)}, {4*sin(\x)});
-		\draw [thick,domain=182.3:260.8] plot ({4*cos(\x)}, {4*sin(\x)});
-		
-		\draw [thick] (-0.35,0) -- (-0.35,-3.99);
-		\draw [thick] (0.35,0) -- (0.35,-3.99);
-		
-		\draw [thick] (-0.65,0) -- (-0.65,-3.94);
-		\draw [thick] (0.65,0) -- (0.65,-3.94);
-		
-		\draw [thick,domain=180:0] plot ({0.15*cos(\x) - 0.5}, {0.15*sin(\x)});
-		\draw [thick,domain=180:0] plot ({0.15*cos(\x) + 0.5}, {0.15*sin(\x)});
-		
-		\node [above left] at (0,1) {$\gamma$};
-		
-		\draw[fill] (0,1) circle [radius=0.025];
-		
-		\draw[fill] (3.5,0) circle [radius=0.025];
-		\node [below] at (3.5,0) {$\omega_{A}$};
-		
-		\draw[fill] (-3.5,0) circle [radius=0.025];
-		\node [below] at (-3.5,0) {$-\omega_{A}$};
-		
-		\draw[fill] (2.5,0) circle [radius=0.025];
-		\node [below] at (2.5,0) {$\omega_{2}$};
-		
-		\draw[fill] (-2.5,0) circle [radius=0.025];
-		\node [below] at (-2.5,0) {$-\omega_{2}$};
-		
-		\draw[fill] (2,0) circle [radius=0.025];
-		\node [below] at (2,0) {$\omega_{1}$};
-		
-		\draw[fill] (-2,0) circle [radius=0.025];
-		\node [below] at (-2,0) {$-\omega_{1}$};
-		
-		\draw[fill] (1.5,0) circle [radius=0.025];
-		\node [below] at (1.5,0) {$\omega_{0}$};
-		
-		\draw[fill] (-1.5,0) circle [radius=0.025];
-		\node [below] at (-1.5,0) {$-\omega_{0}$};
-		
-		\draw[fill] (0.5,0) circle [radius=0.025];
-		\node [below] at (0.5,0) {$\omega_{T}$};
-		
-		\draw[fill] (-0.5,0) circle [radius=0.025];
-		\node [below] at (-0.5,0) {$-\omega_{T}$};
-		
 		\node [above] at (-1.7,1) {$C_0$};
-		\node [above] at (2,0) {$C_1$};
+		\node [above] at (3,0) {$C_1$};
 		\node [below right] at (2.8,-2.8) {$C_2$};
 		
 		\node [right] at (0.5,-1) {$C_3$};
 		\node [left] at (-0.5,-1) {$C_4$};
-		\node [above] at (-2,0) {$C_5$};
+		\node [above] at (-3,0) {$C_5$};
 		
 		\node [above] at (4,1) {$L$};
 		\node [above] at (-4,1) {$-L$};
 		\end{tikzpicture} 
 	}
-	\caption{The Bromwich contour, $C = C_1 + C_2 + C_3 + C_4 + C_5$, for the complex integration of $\tilde{A}_{1,2}$ in the inverse Laplace transform in Equation~\eqref{A inv laplace}. The radius of the large semicircle is $L$ and the radius of the small semicircles around the points $\pm \omega_0$ and $\pm \omega_T$ is $\delta$.}
+	\caption{The Bromwich contour, $C = \sum_{n = 0}^{5}C_n$, for the complex integration of $\tilde{A}_{1,2}$ in the inverse Laplace transform in Equation~\eqref{A inv laplace}. The radius of the large semicircle is $L$ and the radius of the small semicircles around the points $\pm \omega_0$ and $\pm \omega_T$ is $\delta$. The blue circles are the poles and the red lines indicate the branch cuts.}
 	\label{fig: brom contour}
 \end{figure}
 
+\subsubsection{Integral along $C$}
+The contour $C$ is closed and has been chosen such that the integrand can be made to be meromorphic on this contour, given a particular choice of Riemann sheet. Therefore, we would like to use the Residue theorem to calculate this integral. While the Residue theorem is often quoted with a restriction to a finite number of isolated poles, it is also valid when there are infinitely many isolated poles \citep{ahl79}.
 
-\subsubsection{Integral along $C_1$ and $C_5$}
-In the limit as $\delta \to 0$, the integral along the semicircular part of $C_1$ approaches 0 because the integrand is analytic in this limit and the length of the contour approaches zero.
+The residue of the trapped kink body modes are calculated as follows. First, we must determine the order of the pole. The order of the pole is equivalent to the order of the corresponding zero of the dispersion function. The dispersion function for a symmetric slab can be factorised into a product of a functions governing sausage and kink modes, namely
+\begin{equation}
+D(\omega) = -2\rho_0^2v_{A0}^4 \frac{\cosh{2m_0x_0}}{\tanh{m_0x_0} + \coth{m_0x_0}} D_s(\omega) D_k(\omega),
+\end{equation}
+where
+\begin{equation}
+D_s(\omega) = m_0 + m_e\tanh{m_0x_0} \quad \text{and} \quad D_k(\omega) = m_0 + m_e\coth{m_0x_0}.
+\end{equation}
+Denote the trapped kink eigenfrequency by $\omega_k$. We know that $D_s(\omega_k) \neq 0$. We can expand the function $D_k$ as a Taylor series about the frequency $\omega_k$ as
+\begin{equation}
+D_k(\omega) = D_k(\omega_k) + D_k'(\omega)(\omega - \omega_k) + O((\omega - \omega_k)^2).
+\end{equation}
+Then the order of $\omega_k$ as a zero of $D_k$ (and hence of $D$) is determined by the order of the first derivative of $D_k$ that is not small when evaluated at $\omega_k$. First, we check the order of $D_k'(\omega_k)$. Using the product and chain rules,
+\begin{equation}
+D_k'(\omega) = \omega\left[ \frac{1}{v_{A0}^2m_0} (m_e\text{csch}^2{m_0x_0} - 1) - \frac{1}{v_{Ae}^2m_e}\coth{m_0x_0} \right].
+\end{equation}
+Evaluated at $\omega = \omega_k$, it can easily be shown that $D_k'(\omega_k) = O(1)$ with respect to the small quantity $kx_0$. In particular, $D_k'(\omega_k)$ is not small. Therefore, $\omega_k$ is a simple pole of the integrand.
 
-As $L \to \infty$ the integrals along $C_1$ become
+The residues of the trapped kink body modes are thus
 \begin{align}
-I_{C_1} &= \int_{C_1} \frac{T_{1,2}}{D} e^{-i\omega t} d\omega \\
-&= \int_{\infty}^{\omega_0} \frac{T_{1,2}^+}{D^+} e^{-i\omega t} d\omega + \int_{\omega_0}^{\infty} \frac{T_{1,2}^-}{D^-} e^{-i\omega t} d\omega \\
-&= \int_{\omega_0}^{\infty} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega,
+\text{Res}&\left\{ \frac{T_1}{D} e^{-i\omega t} ; \omega = \omega_k \right\} = \lim_{\omega \to \omega_k} (\omega - \omega_k)\frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \notag \\
+&= \lim_{\omega \to \omega_k}\frac{1}{D'(\omega)} [T_1(\omega) + (\omega - \omega_k)T_1'(\omega) - it(\omega - \omega_k)T_1(\omega)]e^{-i\omega t} \notag \\
+&= \lim_{\omega \to \omega_k} \frac{T_1(\omega)}{D'(\omega)}e^{-i\omega t} \notag \\
+&= \chi_1^{(k)} e^{-i\omega_k t},
 \end{align}
-where superscripts $+$ and $-$ indicate the value of the function above and below the horizontal branch cut $[\omega_0, \infty)$, respectively.
+where $\chi_1^{(k)} = T_1(\omega_k)/D(\omega_k)$. L'Hopital's rule was used in the above derivation. Similarly, 
+\begin{equation}
+\text{Res}\left\{ \frac{T_1}{D} e^{-i\omega t} ; \omega = -\omega_k \right\} = -\chi_1^{(k)} e^{i\omega_k t},
+\end{equation}
+because $T_1$ is an even functions of $\omega$ and $D'$ is an odd function of $\omega$. The sum of these two residues is
+\begin{equation}
+-2i\chi_1^{(k)}\sin{\omega_k t}.
+\end{equation}
 
-For values of $\omega$ between the branch points at $\omega_0$, $\omega_1$, $\omega_2$, and $\omega_A$, the integrand is analytic (except at the endpoints), therefore we can use integration by parts in these sub-intervals. For example, the integral over the sub-interval $(\omega_0, \omega_1)$ is
+The residues at the leaky kink modes can be calculated as follows. We denote the eigenfrequency of the $n$th leaky kink mode as $\omega_{kn}$. Following the say line of reasoning as for the trapped kink modes, $D'(\omega_{kn}) = O(1)$ with respect to $kx_0$, so $D'(\omega_{kn})$ is not small. Therefore, these poles are simple. The residue at $\omega_{kn}$, for $n \in \mathbb{Z}$, is
+\begin{equation}
+\text{Res}\left\{ \frac{T_1}{D} e^{-i\omega t} ; \omega = \omega_{kn} \right\} = \chi_1^{(kn)} e^{-i\omega_{kn} t},
+\end{equation}
+where $\chi_1^{(kn)} = T_1(\omega_{kn})/D(\omega_{kn})$. Since, $\omega_{kn}$ is complex, it is instructive to split it up into its real and imaginary parts by writing the residue as
+\begin{equation}
+\chi_1^{(kn)} \exp\left\{-i \pi tn\frac{v_{A0}}{x_0}\right\} e^{-\gamma t},
+\end{equation}
+where $\gamma = \frac{v_{A0}}{x_0}\tanh^{-1}(v_{A0}/v_{Ae})$.
+
+Similarly, we denote the eigenfrequencies of the leaky sausage modes by $\omega_{sn}$, for $n \in \mathbb{Z}$. These poles have resides
+\begin{equation}
+\text{Res}\left\{ \frac{T_1}{D} e^{-i\omega t} ; \omega = \omega_{sn} \right\} = \chi_1^{(sn)} \exp\left\{-i \pi t\left(n + \frac{1}{2}\right)\frac{v_{A0}}{x_0}\right\} e^{-\gamma t},
+\end{equation}
+where $\chi_1^{(sn)} = T_1(\omega_{sn})/D(\omega_{sn})$.
+
+In the residues for the leaky sausage and kink modes, the first exponential has an imaginary argument and therefore contributes an oscillatory component. The second exponential has a negative real argument and therefore contributes a decaying component with decrement $\gamma$.
+
+
+\subsubsection{Integral along $C_1$, $C_3$, $C_4$, and $C_5$}
+In the limit as $\delta \to 0$, the integral along the semicircular part of $C_1$ vanishes because the integrand is analytic in this limit and the length of the contour approaches zero.
+
+As $L \to \infty$ the integrals along the horizontal parts of $C_1$ become
 \begin{align}
-I_{(\omega_0, \omega_1)} &= \int_{\omega_0}^{\omega_1} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \\
-&= \frac{i}{t} \left\{ \left[ \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t}\right]_{\omega_0}^{\omega_1} - \int_{\omega_0}^{\omega_1} \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \right\}.
+I_{C_1}
+&= \int_{\infty}^{\omega_{Ae}} \frac{T_1^+}{D^+} e^{-i\omega t} d\omega + \int_{\omega_{Ae}}^{\infty} \frac{T_1^-}{D^-} e^{-i\omega t} d\omega \\
+&= \int_{\omega_{Ae}}^{\infty} \left( \frac{T_1^-}{D^-} - \frac{T_1^+}{D^+} \right) e^{-i\omega t} d\omega,
 \end{align}
-Given that $T_{1,2}^+(\omega_0)/D^\pm(\omega_0) = T_{1,2}^-(\omega_0)/D^\pm(\omega_0)$, the slowest decaying term is the first term on the right hand side evaluated at $\omega_1$, which decays like $\mathcal{O}(t^{-1})$ as $t \to \infty$. Repeating this for the other three intervals over which the integrand is analytic, and using the fact that $T_{1,2}^\pm(\omega)/D^\pm(\omega) \to 0$ as $|\omega| \to \infty$, we find that the slowest decaying terms decay like $\mathcal{O}(t^{-1})$ as $t \to \infty$. Therefore $I_{C_1} = \mathcal{O}(t^{-1})$ (and similarly $I_{C_5} = \mathcal{O}(t^{-1})$) as $t \to \infty$.
+where superscripts $+$ and $-$ indicate the value of the function above and below the horizontal branch cut $[\omega_{Ae}, \infty)$, respectively. For values of $\omega$ close to the branch cut, the integrand is analytic, except at the branch point. In particular, the integrand is analytic except at the endpoint of the integral, therefore, we can use integration by parts to show that
+\begin{align}
+I_{C_1} &= \frac{i}{t} \left\{ \left[ \left( \frac{T_1^-}{D^-} - \frac{T_1^+}{D^+} \right) e^{-i\omega t}\right]_{\omega_{Ae}}^{\infty} - \int_{\omega_{Ae}}^{\infty} \frac{d}{d\omega} \left( \frac{T_1^-}{D^-} - \frac{T_1^+}{D^+} \right) e^{-i\omega t} d\omega \right\}.
+\end{align}
+Given that $T_1^+/D^+ = T_1^-/D^-$ when evaluated at the branch point and that $T_1^\pm(\omega)/D^\pm(\omega) \to 0$ as $|\omega| \to \infty$, the first term on the right hand side vanishes. On the second term, we can perform integration by parts again to see that the $I_{C_1} = O(t^{-2})$ as $t \to \infty$. 
+
+Similarly, $I_{C_3}, I_{C_4}, I_{C_5} = \mathcal{O}(t^{-2})$ as $t \to \infty$.
 
 
 \subsubsection{Integral along \texorpdfstring{$C_2$}{C2}}
-As $L \to \infty$, points that occupy the curve $C_2$ will behave like $|\omega| \to \infty$. When $|\omega| \to \infty$, $T_{1,2} = \mathcal{O}(|\omega|)$ and $D = \mathcal{O}(|\omega|^2)$, therefore the integrands behave like $T_{1,2}/D = \mathcal{O}(1/|\omega|)$. Therefore the integral around $C_2$ approaches $0$ as $L \to \infty$.
+As $L \to \infty$, points on the curve $C_2$ will behave like $|\omega| \to \infty$. When $|\omega| \to \infty$, $T_1 = \mathcal{O}(|\omega|)$ and $D = \mathcal{O}(|\omega|^2)$ (except when the contour intersects one or more of the poles), therefore the integrands behave like $T_1/D = \mathcal{O}(1/|\omega|)$. Therefore, the integral around $C_2$ approaches $0$ as $L \to \infty$.
+
+Since there is an infinite number of isolated poles that stretch out infinitely in the positive and negative imaginary direction, it is possible to choose a sequence of contours where $L \to \infty$ such that the above result does not hold. Any sequence of contours such that an infinite number of contours pass through poles as $L \to \infty$ would suffice for this. Given that we are free to choose the sequence of contours, we can choose a sequence that does not contain an infinite number of contours that pass through poles.
 
 
-\subsubsection{Integral along $C_3$ and $C_4$}
-In the limit as $\delta \to 0$, the integral along the semicircular part of $C_3$ approaches 0 because the integrand is analytic in this limit and the length of the contour approaches zero. As $L \to \infty$ and $\delta \to 0$, the integrals along $C_3$ become
-\begin{align}
-I_{C_3} &= \int_{C_3} \frac{T_{1,2}}{D} e^{-i\omega t} d\omega \\
-&= \int_{\omega_T}^{\omega_T - \infty i} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega,
-\end{align}
-where superscripts $+$ and $-$ indicate the value of the function to the right and left of the vertical branch cut $\omega_T + [0,\infty)i$, respectively. The integrand is analytic in the integration interval (except at the endpoints), so by integration by parts
+\subsubsection{Combining integrals to derive velocity solution}
+We can combine these integrals to show that
 \begin{equation}
-I_{C_3} = \frac{i}{t} \left\{ \left[ \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t}\right]_{\omega_T}^{\omega_T -\infty i} - \int_{\omega_T}^{\omega_T - \infty i} \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \right\}.
-\end{equation}
-the first term is zero because $T_{1,2}^\pm(\omega)/D^\pm(\omega) \to 0$ as $|\omega| \to \infty$ and $T_{1,2}^+(\omega_T)/D^\pm(\omega_T) = T_{1,2}^-(\omega_T)/D^\pm(\omega_T)$. Therefore, using integration by parts for a second time,
-\begin{align}
-I_{C_3} &= -\frac{i}{t} \int_{\omega_T}^{\omega_T - \infty i} \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \\
-&= \frac{1}{t^2} \left\{ \left[ \frac{d}{d\omega} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t}\right]_{\omega_T}^{\omega_T -\infty i} - \int_{\omega_T}^{\omega_T - \infty i} \frac{d^2}{d\omega^2} \left( \frac{T_{1,2}^-}{D^-} - \frac{T_{1,2}^+}{D^+} \right) e^{-i\omega t} d\omega \right\} \\
-&= \mathcal{O}(t^{-2}) \text{ as } t \to \infty.
-\end{align}
-
-
-\subsubsection{Poles (AKA eigenfrequencies)}
-Let $v_A > c_i$ for $i = 0, 1, 2$, then there can exist, in general:
-\begin{enumerate}
-	\item 2 slow surface modes,
-	\item an infinite number of slow body modes,
-	\item 2 fast surface modes.
-\end{enumerate}
-1 and 2 exist for all values of $kx_0$. 3 exist only for $kx_0$ values greater than a cut-off value. Analytical expressions for the behaviour of the eigenmodes do not exist in general. It is at this point that we are forced to make two simplifications to the model:
-\begin{itemize}
-	\item The thin-slab approximation, so that $kx_0 \ll 1$
-	\item The approximate symmetry simplification, so that $\rho_1 \approx \rho_2$.
-\end{itemize}
-The eigenmodes of an asymmetric magnetic slab under these simplifications are given by the following expressions:
-\begin{itemize}
-	\item Slow quasi-sausage surface modes:
-	\begin{equation}
-	\omega^2=k^2c_\textrm{T}^2\left[1-\frac{2(kx_0)(c_0^2-c_\textrm{T}^2)}{(c_0^2+v_\textrm{A}^2)\left(\frac{\rho_0}{\rho_1}\frac{(c_1^2-c_\textrm{T}^2)^{1/2}}{c_1}+\frac{\rho_0}{\rho_2}\frac{(c_2^2-c_\textrm{T}^2)^{1/2}}{c_2}\right)}\right],
-	\label{thinslab slow saus surf}
-	\end{equation}
-	which is less than $k^2c_\textrm{T}^2$ and exists only when $c_1>c_\textrm{T}$ and $c_2>c_\textrm{T}$.
-	\item If $c_1=c_2=c_\textrm{e}$ (and therefore $\rho_1=\rho_2=\rho_\textrm{e}$), then there exists a fast sausage surface mode:
-	\begin{equation}
-	\omega^2=k^2c_\textrm{e}^2\left(1-\left[\frac{\rho_\textrm{e}}{\rho_0}\frac{c_\textrm{e}^2(c_0^2-c_\textrm{e}^2)(kx_0)}{(c_0^2+v_\textrm{A}^2)(c_\textrm{T}^2-c_\textrm{e}^2)}\right]^2\right)
-	\label{thinslab fast saus surf}
-	\end{equation}
-	in the thin slab limit.
-	\item Slow quasi-kink surface mode:
-	\begin{equation}
-	\omega^2=\frac{k^2x_0v_\textrm{A}^2\left(\frac{\rho_0}{\rho_1}m_1+\frac{\rho_0}{\rho_2}m_2\right)}{\left(\frac{\rho_0}{\rho_1}m_1x_0+\frac{\rho_0}{\rho_2}m_2x_0\right)+2}\approx{}\frac{1}{2}k^2v_\textrm{A}^2\left(\frac{\rho_0}{\rho_1}+\frac{\rho_0}{\rho_2}\right)kx_0.
-	\label{thinslab slow kink surf}
-	\end{equation}
-	\item Quasi-sausage body solutions:
-	\begin{equation}
-	\omega^2=k^2c_\textrm{T}^2\left(1+\frac{c_\textrm{T}^4(kx_0)^2}{c_0^2v_\textrm{A}^2\pi^2j^2}\right), \quad j=1,2,\ldots. \label{thinslab saus body}
-	\end{equation}
-	\item Quasi-kink body solutions:
-	\begin{equation}
-	\omega^2=k^2c_\textrm{T}^2\left(1+\frac{c_\textrm{T}^4(kx_0)^2}{c_0^2v_\textrm{A}^2\pi^2(j-\frac{1}{2})^2}\right), \quad j=1,2,\ldots. \label{thinslab kink body}
-	\end{equation}
-\end{itemize}
-
-Solution of the inverse Laplace transform is the sum of the residues at these points.
-
-As shown in Appendix~\ref{app: approx sym DR}, under the approximate symmetry simplification, the dispersion function, $D(\omega)$, becomes
-\begin{equation}
-D(\omega) = \frac{\sinh{2m_0x_0}}{4\Lambda_1\Lambda_2} D_k(\omega) D_s(\omega),
-\end{equation}
-where
-\begin{align}
-D_k(\omega) &= \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth(m_0x_0), \\
-D_s(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh(m_0x_0).
-\end{align}
-This can be further simplified for surface modes under the thin-slab approximation, to first order in $kx_0$, to
-\begin{align}
-D_k(\omega) &= \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\frac{1}{m_0x_0}, \\
-D_s(\omega) &= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2m_0x_0.
-\end{align}
-
-
-\subsubsection{Residues}
-In order to calculate the residue of each pole, we much determine their order. Firstly, for the slow kink surface mode, $\omega = \omega_{sks}$, it can be shown that $D_s(\omega_{sks}) \neq 0$, and after some algebra,
-\begin{equation}
-D_k(\omega) = \frac{\rho_1\rho_2\omega^2R}{m_0m_1m_2x_0} (\omega^2 - \omega_{sks}^2),
+A_1(t) = -2\chi_1^{(k)}\sin{\omega_k t} - iS_1 e^{-\gamma t} + \mathcal{O}(t^{-2}),
+\label{A}
 \end{equation}
 where
 \begin{equation}
-R = 2 + \left( \frac{\rho_0}{\rho_1} + \frac{\rho_0}{\rho_2} \right)kx_0,
+S_1 = \sum_{n \in \mathbb{Z}} \left( \chi_1^{(kn)}\exp\left\{-i\pi t n \frac{v_{A0}}{x_0}\right\} + \chi_1^{(sn)}\exp\left\{-i\pi t \left(n+\frac{1}{2}\right) \frac{v_{A0}}{x_0}\right\} \right).
 \end{equation}
-so each of $\omega = \pm \omega_{sks}$ are simple zeros of $D_k$ and hence of $D$, therefore, they are simple poles of the integrand in question.
 
-Therefore, the residue of the integrand at $\omega = \omega_{sks}$ is
+Referring back to the Equation~\eqref{vx sol inv LPT}, which for a symmetric slab waveguide looks like\footnote{The Green's function $G_1$ and the initial condition function $f_1$ retain their subscript $1$ rather than $e$ because the initial condition imposed on the symmetric waveguide could still be asymmetric.}
+\begin{equation}
+\hat{v}_x(x, t) = \mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{m_e(x + x_0)} \right\} + \mathcal{L}^{-1} \left\{ \int_{-\infty}^{-x_0} G_1(x; s)f_1(\omega, s)ds \right\}.
+\label{vx sol inv LPT sym}
+\end{equation}
+
+The first of the inverse Laplace transforms is related to $A_1$ as follows. $\tilde{A}_1e^{m_e(x + x_0)}$ has the same analytical properties as $\tilde{A}_1$ in the sense that they have the same singularities and hence the same Riemann surface. Therefore, the first inverse Laplace transform is given by Equation~\eqref{A} but where each term is multiplied by $e^{m_e(x + x_0)}$ evaluated at that term's corresponding frequency. The function $m_e(\omega)$ evaluated at $\omega_{kn}$ or $\omega_{sn}$ does not have simply analytical form, however, evaluated at $\omega_k$, we have
+\begin{equation}
+m_e(\omega_k) = k\left( \frac{v_{Ae}^2}{v_{A0}^2} - 1 \right) (kx_0).
+\end{equation}
+Therefore, the first inverse Laplace transform is
 \begin{align}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{sks} \right\} &= \lim_{\omega \to \omega_{sks}} \left\{ (\omega - \omega_{sks}) \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \right\} \\
-&= \frac{2m_0m_1m_2x_0\Lambda_1\Lambda_2}{\rho_1\rho_2\omega_{sks}^2Rm_0x_0}|_{\omega = \omega_{sks}} \frac{T_1(\omega_{sks})}{2\omega_{sks}D_s(\omega_{sks})} e^{-i\omega_{sks}t} \\
-&= \frac{\omega_{sks}}{R} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{-i\omega_{sks}t}.
+\mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{m_e(x + x_0)} \right\} = &-2\chi_1^{(k)}\sin{\omega_k t}\exp\left\{ k(x + x_0)\left( \frac{v_{Ae}^2}{v_{A0}^2} - 1 \right) (kx_0) \right\} \notag \\
+&- iS'_1 e^{-\gamma t} + \mathcal{O}(t^{-2}),
 \end{align}
-Similarly, the residue at $\omega = -\omega_{sks}$ is
-\begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = -\omega_{sks} \right\} = \frac{\omega_{sks}}{R} \frac{T_1(\omega_{sks})}{D_s(\omega_{sks})} e^{i\omega_{sks}t}
-\end{equation}
-since $T_1$ and $D_s$ are even functions of $\omega$. 
-
-Similarly, the residues for the slow sausage surface mode $\omega = \pm \omega_{sss}$ are 
+where
 \begin{align}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{sss} \right\} &= \lim_{\omega \to \omega_{sss}} \left\{ (\omega - \omega_{sss}) \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \right\} \\
-&= \frac{2m_0m_1m_2\Lambda_1\Lambda_2}{\rho_1\rho_2\omega_{sss}^2m_0x_0}|_{\omega = \omega_{sss}} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)k(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{2\omega_{sss}D_k(\omega_{sss})} e^{-i\omega_{sss}t} \\
-&= \frac{\omega_{sss}}{kx_0} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{D_k(\omega_{sss})} e^{-i\omega_{sss}t}.
+S'_1 = \sum_{n \in \mathbb{Z}} \bigg( & \chi_1^{(kn)}\exp\left\{-i\pi t n \frac{v_{A0}}{x_0} + m_e(\omega_{kn})(x + x_0) \right\} \\
+&\left.+ \chi_1^{(sn)}\exp\left\{-i\pi t \left(n+\frac{1}{2}\right) \frac{v_{A0}}{x_0} + m_e(\omega_{sn})(x + x_0)\right\} \right).
 \end{align}
-Similarly, the residue at $\omega = -\omega_{sss}$ is
-\begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = -\omega_{sss} \right\} = \frac{\omega_{sss}}{kx_0} \frac{(\omega_{sss}^2 - \omega_T^2)}{(\omega_{sss}^2 - \omega_A^2)(\frac{\rho_0}{\rho_1}\sqrt{1 - \frac{c_T^2}{c_1^2}} + \frac{\rho_0}{\rho_2}\sqrt{1 - \frac{c_T^2}{c_2^2}})}\frac{T_1(\omega_{sss})}{D_k(\omega_{sss})} e^{i\omega_{sss}t}.
-\end{equation}
 
-Regarding the fast kink body modes $\omega = \pm \omega_{fkbj}$, for $j = 1, 2, ...$, it can be shown that $|\cosh(m_0x_0)D_s(\omega_{fkbn})| \neq 0, \infty$. By letting $\omega_{fkbj}^2 = \omega_T^2(1 + v(kx_0)^2)$, for $v > 0$, we can show that\footnote{We consider the functions $D_s$ and $D_k$ multiplied by factors of $\cosh(m_0x_0)$ and $\sinh(m_0x_0)$, respectively, to ensure that singularities are regularised. The factors come from the $\sinh(2m_0x_0) = 2\sinh(m_0x_0)\cosh(m_0x_0)$ in the dispersion function $D$.}
+Finally, we need to determine an asymptotic form for the inverse Laplace transform of the Green's function term in Equation~\eqref{vx sol inv LPT sym}. This term is a double integral where the inner integral is with respect to $s$ and outer is the inverse Laplace transform which is an integral with respect to $\omega$. The functions $G_1(x, s)f_1(\omega, s)$ and $e^{-i\omega t}$ are continuous functions of $s$ and $\omega$, therefore we are free to switch the order of integration. After doing so, the inner integral is
+\begin{equation}
+\int_{i\sigma - \infty}^{i\sigma 
++ \infty} G_1(x, s)f_1(\omega, s) e^{-i\omega t} ~d\omega.
+\end{equation}
+If we restrict the initial condition to being only horizontal, \textit{i.e.} $\hat{v}_{z0} = \dot{\hat{v}}_{z0} = 0$, then $f$ is linear in $\omega$ and the integrand of this integral has branch points at $\pm \omega_{Ae}$ and no poles. Therefore, with branch cuts along the real axis on the set $(-\infty, -\omega_{Ae}] \cup [\omega_{Ae}, \infty)$ we can use a Bromwich contour that has two horizontal modifications around the branch cuts. Because the integrand has no poles, the integral around the closed contour vanishes, the integral along the large semicircle vanishes, and in the integrals along the horizontal contours are $\mathcal{O}(t^{-2})$. Therefore, the term in the horizontal velocity solution is $\mathcal{O}(t^{-2})$ as $t \to \infty$.
+
+Putting all of this together, we find that
 \begin{align}
-D(\omega(v)) &= \frac{\sinh(2m_0x_0)}{4\Lambda_1\Lambda_2}D_k(\omega(v))D_s(\omega(v)) \\
-&= \frac{1}{2}\cosh(m_0x_0)D_s(\omega(v))\left[\cos\left(\frac{c_T}{\sqrt{(c_0^2 + v_A^2)v}}\right) + \mathcal{O}(kx_0)\right] \\
-&= \frac{1}{2}\cosh(m_0x_0)D_s(\omega(v))\left[\frac{\pi(j + \frac{1}{2})(-1)^{j + 1}}{2\nu_j}(v - \nu_j) + \mathcal{O}((v - \nu_j)^2) + \mathcal{O}(kx_0)\right],
+\hat{v}_x(x, t) = &-2\chi_1^{(k)}\sin{\omega_k t}\exp\left\{ k(x + x_0)\left( \frac{v_{Ae}^2}{v_{A0}^2} - 1 \right) (kx_0) \right\} \notag \\
+&- iS'_1 e^{-\gamma t} + \mathcal{O}(t^{-2}),
+\label{v asymptotic sol}
 \end{align}
-where $\nu_j = c_T^4 / c_0^2v_A^2\pi^2(j - \frac{1}{2})^2$ for $j \in \mathbb{N}$ such that $\omega_{fkbj} = \pm \omega_T\sqrt{1 + \nu_j(kx_0)^2}$ are simple zeros of the dispersion function $D$. Since $T_{1,2}(\omega_{fkbj}) \neq 0$, they are also simple poles of $T_{1,2}/D$. Therefore, the residues at $\omega = \omega_{fkbj}$ are\footnote{The zero of $\cosh(m_0x_0)$ when $\omega = \omega_{fkbj}$ regularises the singularities of $D_s(\omega)$.}
-\begin{align}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{fkbj} \right\} &= \lim_{\omega \to \omega_{fkbj}} \left\{ (\omega - \omega_{fkbj}) \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \right\} \\
-&= \lim_{v \to \nu_j} \left\{ \frac{1}{2} \omega_T (kx_0)^2(v - \nu_j) \frac{T_1(\omega(v))}{D(\omega(v))} e^{-i\omega(v)t} \right\} \\
-&= \frac{2(-1)^{j+1}\omega_T\nu_j(kx_0)^2}{\pi(j-\frac{1}{2})\cosh(m_0x_0)} \frac{T_1(\omega_{fkbj})}{D_s(\omega_{fkbj})}e^{-i\omega_{fkbj}t}.
-\end{align}
-Similarly, the residue at $\omega = -\omega_{fkbj}$ is
-\begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = -\omega_{fkbj} \right\} = \frac{2(-1)^{j}\omega_T\nu_j(kx_0)^2}{\pi(j-\frac{1}{2})\cosh(m_0x_0)} \frac{T_1(\omega_{fkbj})}{D_s(\omega_{fkbj})}e^{i\omega_{fkbj}t}
-\end{equation}
+which is valid for $x < -x_0$. Similarly, we can derive the asymptotic solution for the regions $|x| < x_0$ and $x > x_0$, but their functional form is the same so we focus just on the solution given by Equation~\eqref{v asymptotic sol}.
 
-The residues for the fast sausage body modes, $\omega_{fsbj} = \pm \omega_T\sqrt{1 + \eta_j(kx_0)^2}$, where $\eta_j = c_T^4 / c_0^2v_A^2\pi^2j^2$ for $j \in \mathbb{N}$, are similarly given by
-\begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = \omega_{fsbj} \right\} = \frac{2i(-1)^{j}\omega_T\eta_j(kx_0)^2}{\pi j\sinh(m_0x_0)} \frac{T_1(\omega_{fsbj})}{D_k(\omega_{fsbj})}e^{-i\omega_{fsbj}t}
-\end{equation}
-and
-\begin{equation}
-\mathrm{Res}\left\{ \frac{T_1}{D}e^{-i\omega t}; \omega = -\omega_{fsbj} \right\} = \frac{2i(-1)^{j}\omega_T\eta_j(kx_0)^2}{\pi j\sinh(m_0x_0)} \frac{T_1(\omega_{fsbj})}{D_k(\omega_{fsbj})}e^{i\omega_{fsbj}t}
-\end{equation}
+The solution is made up of three parts. The first term is an undamped sinusoid in time and corresponds to the contribution from the trapped kink body mode. There are no trapped sausage modes in the zero-beta slab, so they have no contribution to the solution. The second term is an exponentially decreasing term due to wave leakage in the form of leaky sausage and kink body modes. The terms that are $\mathcal{O}(t^{-2})$ as $t \to \infty$ are not due to collective modes but instead represent the propagation of an initial velocity impulse across the waveguide before collective modes are set up. It gives an indication as to the set up time of collective modes.
 
-The residues for the integrand of $A_2$ are found by replacing subscript 2 with 1.
+Like the magnetic flux tube \citep{rud_etal06b,ter_etal06}, the temporal evolution of a magnetic slab follows three phases: the \textit{initial phase}, the \textit{impulsive phase}, and the \textit{stationary phase}. The initial phase is dominated by the distribution of the initial disturbance. The impulsive phase is dominated by the leaky modes. The stationary phase is dominated by the trapped modes.
+
+The decrement $\gamma = \mathcal{O}((kx_0)^{-1})$ is large, therefore, the amplitude of the leaky modes attenuates rapidly. In general, these terms will decay faster than the $\mathcal{O}(t^{-2})$ terms. This means that, in general, the impulsive phase will be short to non-existent. In particular, the impulsive phase of the magnetic slab is, in general, significantly shorter than the impulsive phase for a magnetic flux tube, whose decrement $\gamma = \mathcal{O}(kx_0)$ is small \citep{rud_etal06b}.
+
+However, the initial conditions have a strong effect on the relative contributions of each of the terms and hence on the duration of each of the three phases \citep{ter_etal06,ter_etal07}. This can be to such an extent that the contribution of any individual mode could be zero or the any of the three phases might not exist. For example, a symmetric initial condition will induce only kink modes and an anti-symmetric initial condition will induce only kink modes. Higher order modes are induced by initial conditions that have a shorter characteristic length scale \citep{ter_etal07}.
 
 
-\textcolor{red}{What about the poles of $G_{0,1,2}$? How can we say that the asymptotics of $p$ are the same as the asymptotics of $A$?}
+\subsection{Generalising to an asymmetric slab}
+The solution found in the previous section is valid for a symmetric slab. The main affect that waveguide asymmetry has on the temporal evolution of an initial disturbance is that the first order fast kink body mode, which is trapped by a symmetric slab, is leaky for thin asymmetric slabs. This has been shown by the presence of a cut-off value for trapped modes in the dispersion diagrams in Chapter~\ref{chap: EVP} and by \cite{all_etal17} and \cite{zsa_etal18}. This means that a thin asymmetric slab of cold plasma will not have a stationary phase for any initial condition because there are no trapped modes. All the energy from the initial condition is leaked out of the waveguide.
 
 
-\section{Discussion}
+\section{Chapter conclusions}
+In this chapter, we have used mathematical methods to investigate the 
 \textcolor{red}{
 	The zeroes of the dispersion function, that is, the normal modes, make up the discrete spectrum of modes. In general, the governing MHD wave equation contains a continuous spectrum in addition to the discrete spectrum. The continuous spectrum is established at the zeroes of the function $N(\omega^2) = \rho (c_0^2 + v_A^2)(\omega^2 - k^2v_A^2)(\omega^2 - k^2v_S^2)$ (defined in \cite{goe_etal04}, page 500) and induce branch cuts in the complex $\omega$ plane, which must be integrated around when taking inverse Laplace transforms to ensure that the contour is contained within a single-valued Riemann sheet. An incompressible asymmetric slab has no branch points, so only the normal modes contribute to the time-dependant solution.}
-
-\section{Conclusions}
 
 
 \appendix
@@ -1784,15 +1458,15 @@ F_1(\omega) = \int_0^\infty f(t) e^{-\omega t} dt,
 \quad \text{and} \quad
 F_2(\omega) = \int_0^\infty f(t) e^{i\omega t} dt.
 \end{equation}
-Trivially, $F_1(-i\omega) = F_2(\omega)$. Using the standard inverse Laplace transform, and letting $\gamma$ be real and greater than the real part of all the singularities of $F_1(\omega)$, the original function $f(t)$ can be written
+Trivially, $F_1(-i\omega) = F_2(\omega)$. Using the standard inverse Laplace transform, and letting $\sigma$ be real and greater than the real part of all the singularities of $F_1(\omega)$, the original function $f(t)$ can be written
 \begin{align}
-f(t) & = \frac{1}{2\pi i} \lim_{T\to\infty} \int_{\gamma - iT}^{\gamma + iT} F_1(\omega)e^{\omega t} d\omega, \\
-& = \frac{1}{2\pi i} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_1(-i\omega)e^{-i\omega t} (-id\omega), \\
-& = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_2(\omega)e^{-i\omega t} d\omega.
+f(t) & = \frac{1}{2\pi i} \lim_{T\to\infty} \int_{\sigma - iT}^{\sigma + iT} F_1(\omega)e^{\omega t} d\omega, \\
+& = \frac{1}{2\pi i} \lim_{T\to\infty} \int_{i\sigma - T}^{i\sigma + T} F_1(-i\omega)e^{-i\omega t} (-id\omega), \\
+& = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\sigma - T}^{i\sigma + T} F_2(\omega)e^{-i\omega t} d\omega.
 \end{align}
 Therefore, the inverse transform of the non-standard Laplace transform is
 \begin{equation}
-f(t) = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\gamma - T}^{i\gamma + T} F_2(\omega)e^{-i\omega t} d\omega.
+f(t) = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\sigma - T}^{i\sigma + T} F_2(\omega)e^{-i\omega t} d\omega.
 \end{equation}
 
 
