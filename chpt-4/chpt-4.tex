@@ -93,33 +93,15 @@
 \label{sec: IVP intro}
 %------------------------------------------------------------------------------
 
-Eigenmodes are rightfully considered the building blocks of linear oscillations of complex MHD models. They describe how wave power is spatially distributed across a waveguide and define natural oscillation frequencies. However, when solving an MHD wave problem using an EVP approach, such as was used in Chapter~\ref{chap: EVP}, we use a Fourier decomposition in time, so that the eigenmodes have time dependence proportional to $\exp(i\omega t)$. This is a simple time-dependence: a sinusoidal oscillation with frequency $\omega$, and allows a time-independent solution to be found. Whilst this view is useful for understanding the spatial properties of the wave, eigenmodes do not paint the whole picture. A more complete description involves studying the time-evolution by solving the associated IVP.
+Eigenmodes are rightfully considered the building blocks of linear oscillations of complex MHD models. They define natural oscillation frequencies and describe how wave power is spatially distributed across a waveguide. However, when solving an MHD wave problem using an EVP approach, such as was used in Chapter~\ref{chap: EVP}, we use a Fourier decomposition in time, so that the eigenmodes have time dependence proportional to $\exp(i\omega t)$. This is a simple time-dependence: a sinusoidal oscillation with frequency $\omega$, and allows an effectively time-independent solution to be found. Whilst this approach is useful for understanding the spatial properties of the wave, eigenmodes do not paint the whole picture. A more complete description involves studying the time-evolution by solving the associated initial value problem (IVP).
 
-The IVP approach to MHD wave problems has been utilised by many authors, developing the theory of time-dependant wave phenomena including phase mixing and resonant absorption. They either solve the IVP analytically or numerically. 
+The IVP approach to MHD wave problems has been utilised by several authors, developing the theory of time-dependant wave phenomena including phase mixing and resonant absorption. The first use of an IVP approach to solar MHD waveguides was by \cite{sed71} who, quite ahead of their time, showed that the discrete spectrum\footnote{The term being used here in the functional analytical sense.} of the cold magnetic cylindrical waveguide contains more than just eigenmodes. They derived the existence of exponentially damped collective oscillations. The damping mechanism of these oscillations was later shown to be lateral wave leakage due to the waveguide not fully containing the collective oscillation \citep{rud_etal06b}.
 
-\color{red}
-Notes:
-IVPs useful for:
-Damping/resonance: phase mixing, resonant absorption, wave leakage, heating.
-Reflection/transmission: propagation from low atmosphere to upper atmosphere.
+The IVP approach has been particularly useful for studying leaky modes. \cite{cal03} catalogued the possible types of wave leakage that a cylindrical waveguide could have, with their associated damping rate, by solving the IVP of a cold magnetic flux tube. Of particular note is what \cite{cal03} described as the ``principal leaky kink mode", which is the leaky analogue of the principal kink mode, the first order trapped kink body mode. \cite{rud_etal06b} showed that it is not possible to observe this proposed leaky mode because it is not a physical solution of the dispersion equation. More precisely, it is a solution that is found only on the non-physical Riemann sheet. After some debate \citep{cal06,rud_etal06}, the principal leaky kink mode has been demonstrated both analytically and numerically to not contribute to the IVP solution. In particular, \cite{ter_etal06} solved the IVP numerically to show that the principal leaky kink mode is does not contribute to the solution for the initial conditions that they tested and \cite{and_etal07} used spectral theory to show that the principal leaky kink mode is not part of the physical spectrum.
 
-\cite{sed71} - original method for asymptotic analysis of MHD IVP. Analogy to Landau damping of hot plasma oscillations.
-\cite{and_etal07} - spectral measure interpretation, continuous spectrum, leaky modes.
-\cite{rud_etal02} - asymptotic analysis of line-tied straight mag flux tube with transition region.
-\cite{rud_etal06} - asymptotic analysis of line-tied straight mag flux tube without transition region. Deeper analysis of Riemann surface and singularities.
+The timescale of amplitude attenuation due to wave leakage has been shown to be much longer than the damping timescale of resonant absorption \citep{rob19}. This has quite rightly led the solar physics community to focus on resonant absorption as the more plausible mechanism for the damping of coronal loop oscillations. It is worth noting however that waveguide curvature can amplify wave leakage \citep{sel_etal07}.
 
-
-Numerical results: \cite{ter_etal06}
-
-Physicality of the principle leaky kink mode: \cite{cal03} solved the initial value problem of transverse waves in a cold magnetic flux tube. \cite{rud_etal06} repeated it showing PLK modes are on an unphysical branch of the complex plane (?). Commented on by \cite{cal06} and in return by \cite{rud_etal06b}. Settled (?) by considering numerical solution by \cite{ter_etal07} and analytically by \cite{and_etal07}. So PLK modes are not physical.
-
-Time scales of wave leakage much longer than time scale of resonant absorption \citep{rob19}, but curvature can amplify leakage \citep{sel_etal07}.
-
-\color{black}
-
-The utility of the IVP approach in the present chapter is to determine a time-scale over which collective and coherent asymmetric oscillations can be expected to develop following an initial perturbation of an MHD waveguides. \textcolor{red}{Can leaky modes Perhaps we can also discuss the resonant absorption of asymmetric waves? Shouldn't be too hard to do this on top of what we've already done. Consider an asymmetric slab with continuous monotonic interfaces. Expect the RA to be stronger on one of the sides. Would this have an impact on the propagation direction of the wave? Do leaky modes transport momentum?}
-
-The structure of this chapter is as follows. Leaky waves play a key role in IVPs in MHD waveguides so Section~\ref{sec: IVP leaky} discusses leaky waves in the IVP context. In Section~\ref{sec: IVP int}, we solve the MHD IVP for a interface between two plasmas, correcting several significant errors made in previous research. In Section~\ref{sec: IVP slab}, we solve the MHD IVP for an asymmetric slab.
+The utility of the IVP approach in the present chapter is to determine a time-scale over which collective and coherent asymmetric oscillations can be expected to develop following an initial perturbation of an MHD waveguides. The structure of this chapter is as follows. Leaky waves play a key role in IVPs in MHD waveguides so Section~\ref{sec: IVP leaky} discusses leaky waves in the IVP context. In Section~\ref{sec: IVP int}, we solve the IVP for an interface between two plasmas, correcting several significant errors made in previous research. In Section~\ref{sec: IVP slab}, we solve the MHD IVP for a symmetric slab and discuss how this generalises to an asymmetric slab.
 
 
 %------------------------------------------------------------------------------
@@ -127,9 +109,9 @@ The structure of this chapter is as follows. Leaky waves play a key role in IVPs
 \label{sec: IVP leaky}
 %------------------------------------------------------------------------------
 
-Small amplitude MHD waves guided by an isolated plasma inhomogeneity are made up of \textit{trapped} and \textit{leaky} wave components. Trapped waves maintain a constant (when averaged over a period) amplitude through time and are spatially evanescent away from the waveguide. Trapped waves were the subject of the analysis in Chapter~\ref{chap: EVP}. One can then ask whether there can exist any modes with attenuated amplitude through time. Attenuating amplitude means the waves would be losing energy in the direction of propagation. Without any damping mechanism\footnote{The discontinuous Alfv\'{e}n speed profile used in our model avoids resonant absorption and phase mixing and neglecting viscosity avoids viscous damping.}, there is no way for this energy to be converted into heat. The energy is not \textit{lost}, rather, it is \textit{moved}. Energy must be transported orthogonal to the propagation direction.
+Small amplitude MHD waves guided by an isolated plasma inhomogeneity are made up of \textit{trapped} and \textit{leaky} wave components. Trapped waves maintain a constant (when averaged over a period) amplitude through time and are spatially evanescent away from the waveguide. Trapped waves were the subject of the analysis in Chapter~\ref{chap: EVP}. One can then ask whether there can exist any modes with attenuated amplitude through time. Without any damping mechanism\footnote{The discontinuous Alfv\'{e}n speed profile used in our model avoids resonant absorption and phase mixing and neglecting viscosity avoids viscous damping.}, there is no way for this energy to be converted into heat. The energy is not \textit{lost}, rather, it is \textit{transported}. Energy must be transported orthogonal to the propagation direction.
 
-To see this mathematically, consider the \textit{Poynting flux}, which represents the directional energy flux of a magnetic field. The Poynting flux is defined as $\mathbf{S} = (\mathbf{E} \times \bB)/\mu_0$ (see, for example, \citealp{pri14}). In ideal MHD, Ohm's law tells us that the electric field is approximately $\mathbf{E} = -(\bv \times \bB)$. Therefore, using a standard vector calculus identity, the Poynting flux can be written as $\mathbf{S} = [B^2\bv - (\bv \cdot \bB)\bB] / \mu_0$. Under the assumption that that wave is temporally attenuating, the angular frequency must have a (negative) imaginary part, $\omega = \omega_R + i\omega_I$. The time-averaged Poynting flux over a wave period, $T = 2\pi/\omega_R$, is a more instructive quantity because it neglects the small changes in energy flux that do not contribute to the energy flux over time-scales longer than a wave period. The velocity perturbation time-averaged from an initial time $t_0$ is
+To see this mathematically, consider the \textit{Poynting flux}, which represents the directional energy flux of a magnetic field. The Poynting flux is defined as $\mathbf{S} = (\mathbf{E} \times \bB)/\mu_0$ (see, for example, \citealp{pri14}). In ideal MHD, Ohm's law tells us that the electric field is approximately $\mathbf{E} = -(\bv \times \bB)$. Therefore, using a standard vector calculus identity, the Poynting flux can be written as $\mathbf{S} = [B^2\bv - (\bv \cdot \bB)\bB] / \mu_0$. Under the assumption that that wave is temporally attenuating, the angular frequency must be complex (with a negative imaginary part), $\omega = \omega_R + i\omega_I$. The time-averaged Poynting flux over a wave period, $T = 2\pi/\omega_R$, is a more instructive quantity because it neglects the small changes in energy flux that do not contribute to the energy flux over time-scales longer than a wave period. The velocity perturbation time-averaged from an initial time $t_0$ is
 \begin{align}
 	\langle \bv \rangle &= \frac{1}{T} \int_{t_0}^{t_0 + T} \bv ~dt \\
 	&= \frac{1}{T} \int_{t_0}^{t_0 + T} \mathbf{\hat{v}} e^{i(kz - \omega t)} ~dt \\
@@ -139,8 +121,9 @@ To linear order, the time-averaged Poynting flux due to an MHD wave in our model
 \begin{align}
 \langle \mathbf{S} \rangle &= \frac{1}{\mu_0}[B_0^2\langle\bv\rangle - (\langle\bv\rangle \cdot \bB_0)\bB_0] \\
 &= \frac{iB_0^2}{\omega T \mu_0} \hat{v}_x e^{i(kz - \omega t_0)} (e^{\omega_I T} - 1) \mathbf{\hat{x}}.
+\label{p flux}
 \end{align}
-For trapped waves, the frequency is purely real, \textit{i.e.} $\omega_I = 0$, hence $\langle \bv \rangle = \mathbf{0}$, giving a vanishing time-averaged Poynting flux (to linear order). For non-trapped waves, the time-averaged Poynting flux is in the transverse direction, orthogonal to the direction of propagation. Energy leaks away from the waveguide, balancing the amplitude attenuation. Waves of this type are known as \textit{leaky}.
+For trapped waves, the frequency is purely real, \textit{i.e.} $\omega_I = 0$, hence $\langle \bv \rangle = \mathbf{0}$, giving a vanishing time-averaged Poynting flux (to linear order). Equation~\eqref{p flux} shows that for non-trapped waves, the time-averaged Poynting flux is in the $x$-direction, orthogonal to the direction of propagation. Energy leaks laterally away from the waveguide, balancing the amplitude attenuation in the propagation direction. Waves of this type are known as \textit{leaky}.
 
 As discussed in Chapter~\ref{chpt: ray}, wave leakage can occur for incidence angles greater then the critical angle for total internal reflection. A proportion of the energy is transmitted into the external plasma. When posed as an eigenvalue problem, the leaky modes have eigenfunctions that are spatially oscillatory in the external plasma (Figure~\ref{fig: leaky eigenfunction}) as opposed to trapped modes, which have eigenfunctions that are evanescent in the external plasma (Figure~\ref{fig: trapped eigenfunction}).
 \begin{figure}
@@ -155,9 +138,9 @@ As discussed in Chapter~\ref{chpt: ray}, wave leakage can occur for incidence an
 	\caption{Typical eigenfunctions for trapped and leaky modes of an MHD waveguide. The arrows denote the direction of energy flux.}
 	\label{fig: eigenfunction}
 \end{figure}
-Leaky modes are not normal eigenmodes of the true sense, in that they do not make up any orthogonal set of elements of the MHD Hilbert space. This is equivalent to the frequencies of leaky modes not being elements of the discrete spectrum\footnote{The spectrum of a bounded operator on a Hilbert space is the set of scalars $\omega$ such that the operator $\mathbf{F} - \lambda\mathbf{I}$ does not have a bounded inverse on the Hilbert space. Here, $\mathbf{F}$ and $\mathbf{I}$ are the ideal MHD force operator and the identity operator, respectively. The discrete spectrum is made up of the eigenvalue of the operator $\mathbf{F}$. The spectrum is a generalisation of the set of eigenvalues of an operator in the sense that the discrete spectrum is a subset of the spectrum.}. This is clearly seen by the fact that they perturb plasma at an arbitrary distance from the waveguide, therefore input an infinite amount of energy on the plasma. Instead, they contribute to the continuous spectrum\footnote{The continuous spectrum is the subset of the spectrum whose elements $\lambda$ are dense and that $\mathbf{F} - \lambda\mathbf{I}$ is injective but not surjective.}. For the slab waveguide, the spectral measure associated with the continuous spectrum has peaks at specific frequencies. These peaks are the allowed frequencies of the leaky modes. This gives the erroneous impression that they contribute to the discrete spectrum. Leaky modes of a slab waveguide are analysed in more detail from the perspective of spectral theory by \cite{and_etal07}.
+Leaky modes are not normal eigenmodes of the true sense, in that they do not contribute to the orthogonal set of elements of the MHD Hilbert space. This is equivalent to the frequencies of leaky modes not being elements of the discrete spectrum\footnote{The spectrum of a bounded operator on a Hilbert space is the set of scalars $\omega$ such that the operator $\mathbf{F} - \lambda\mathbf{I}$ does not have a bounded inverse on the Hilbert space. Here, $\mathbf{F}$ and $\mathbf{I}$ are the ideal MHD force operator and the identity operator, respectively. The discrete spectrum is made up of the eigenvalue of the operator $\mathbf{F}$. The spectrum is a generalisation of the set of eigenvalues of an operator in the sense that the discrete spectrum is a subset of the spectrum.}. This is clearly seen by the fact that they perturb plasma at an arbitrary distance from the waveguide, therefore input an infinite amount of energy on the plasma. Instead, they contribute to the continuous spectrum\footnote{The continuous spectrum is the subset of the spectrum whose elements $\lambda$ are dense and that $\mathbf{F} - \lambda\mathbf{I}$ is injective but not surjective.}. For the slab waveguide, the spectral measure associated with the continuous spectrum has peaks at specific frequencies. These peaks are the allowed frequencies of the leaky modes. This gives the erroneous impression that they contribute to the discrete spectrum. Leaky modes of a slab waveguide are analysed in more detail from the perspective of spectral theory by \cite{and_etal07}.
 
-The physical nature of leaky modes is that they dominate to the time-dependent solution for intermediate time scales, \textit{i.e.} much longer than the period of the dominant eigenmode and less than (or of the order of) the timescale of damping due to energy leakage, and intermediate length scales from the waveguide \citep{rud_etal06b,rud_etal02}. This means that they contribute a finite amount of energy, rather than an infinite amount if they were superposed as a standard eigenmode. \textcolor{red}{Maybe say that this has only been shown for tube, we will show it for slab. Only include this if we actually do show it.}
+The physical nature of leaky modes is that they can dominate the time-dependent solution for intermediate time scales, \textit{i.e.} much longer than the period of the dominant eigenmode and less than (or of the order of) the timescale of damping due to energy leakage, and at intermediate length scales from the waveguide \citep{rud_etal06b,rud_etal02}. This means that they contribute a finite amount of energy, rather than an infinite amount if they were superposed as a standard eigenmode. This is shown in Section~\ref{sec: compressible slab} for an MHD slab.
 
 
 %------------------------------------------------------------------------------
@@ -165,7 +148,7 @@ The physical nature of leaky modes is that they dominate to the time-dependent s
 \label{sec: IVP int}
 %------------------------------------------------------------------------------
 
-In seminal research, and one of the earlier uses of the IVP approach to an MHD wave problem, \cite{rae_etal81} modelled surface waves propagating along an isolated tangential interface, parallel to the $z$-axis, separating two distinct plasmas. In this section, we bring to attention several ways in which the derivation and results of that paper are incorrect and correct the analysis. To our knowledge, this is the first time these errors has been reported.
+In seminal research, and one of the earlier uses of the IVP approach to an MHD wave problem, \cite{rae_etal81} modelled surface waves propagating along an isolated tangential interface, parallel to the $z$-axis, separating two distinct plasmas. In this section, we bring to attention several ways in which the derivation and results of that paper are incorrect and correct the analysis. To our knowledge, this is the first time these errors have been reported.
 
 Consider a stationary, inviscid plasma that is stratified in the $x$-direction only that has unidirectional magnetic field $\bB = (0, 0, B(x))$. Following \cite{rae_etal81}, we let the plasma be incompressible. First, taking Fourier components in the $z$-direction\footnote{To maintain consistency with the remainder of this thesis, we look for parameters proportional to $e^{ikz}$ instead of $e^{-ikz}$ as was taken by \cite{rae_etal81}.}
 \begin{equation}
@@ -215,7 +198,7 @@ where
 This function is the corrected version of Equations~(11)-(13) of \cite{rae_etal81}. The red opperator is the corrected version. However, because \cite{rae_etal81} assumed that $\partial \rho_0 / \partial x = 0$, this error was inconsequential. Additionally, a typographical error was made in the above equation, where they wrote subscript $x$ in place of our subscript $\textcolor{red}{z}$. Note that there is a factor of -1 discrepancy between this function and that of \cite{rae_etal81} due to taking different Fourier forms. For future utility, we define $\Psi_0 = \Psi(x, 0)$ by function $\Psi(x, t) = k[\rho_0\hat{\Omega}(x, t) - \rho_0'\hat{v}_z(x, t)]$ so that $f(x, \omega) = \omega \Psi_0 + i\frac{\partial \Psi_0}{\partial t}$.
 
 
-\subsection{Discontinuous interface}
+\subsection{Tangential interface}
 
 Consider an equilibrium structuring of this plasma with magnetic field and density profiles given by
 \begin{equation}
@@ -477,7 +460,6 @@ and, by L'Hopital's rule,
 \end{align}
 Equation~\eqref{sol dirac delta}, where we can see the contribution from the surface mode as well as the body mode, is the corrected version of Equation~(34) in \cite{rae_etal81}.
 
-\textcolor{red}{Possibly complete the continuous interface IVP to see whether the R+R81 errors have consequences there.}
 
 %------------------------------------------------------------------------------
 \section{Temporal evolution of a slab waveguide}
@@ -668,6 +650,7 @@ a \left(\frac{\omega}{k}\right)^4 + b \left(\frac{\omega}{k}\right)^2 + c = 0,
 which has solutions
 \begin{equation}
 \left(\frac{\omega_{0\pm}}{k}\right)^2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a},
+\label{quad sol}
 \end{equation}
 where
 \begin{align}
@@ -897,7 +880,7 @@ When $\rho_1 = \rho_2 = \rho_0$ and $x_0 = 0$, the solution given by Equation~\e
 The time-dependant evolution of a perturbation of an incompressible asymmetric magnetic slab are thus purely superposition of normal modes. There is no contribution from the continuous spectrum. There is instantaneous set-up of coherently oscillating collective modes. It is the introduction of compressibility that introduces a continuous spectrum, and therefore a leaky component to the oscillation. This is the subject of the following subsection.
 
 
-\subsection{Compressible slab}
+\subsection{Compressible slab} \label{sec: compressible slab}
 
 In this subsection, we solve the initial value problem of a compressible asymmetric slab. 
 
@@ -1000,7 +983,7 @@ Putting all of this together, the Laplace transform of the transverse velocity i
 
 For physically relevant solutions, we require that the transverse velocity) and the total pressure be continuous across the interfaces at $x = \pm x_0$.
 
-Continuity in transverse velocity, $\tilde{v}_x$, is satisfied automatically by considering the solutions inside and outside the slab given by Equations~\eqref{V sol 0},~\eqref{V sol 1}, and~\eqref{V sol 2}, respectively, and our definition of $\tilde{A}_1 = \tilde{v}_x(-x_0)$ and $\tilde{A}_2 = \tilde{v}_x(x_0)$.
+Continuity in transverse velocity, $\tilde{v}_x$, is satisfied automatically by considering the solutions inside and outside the slab given by Equations~\eqref{V sol}, and our definition of $\tilde{A}_1 = \tilde{v}_x(-x_0)$ and $\tilde{A}_2 = \tilde{v}_x(x_0)$.
 
 Continuity in total pressure can be dealt with as follows. The perturbation in total pressure is related to the velocity gradient by\footnote{Found by combining that induction equation with the momentum equation, see, for example, the bottom row of Equation~(2) by \cite{and_etal07}.}
 \begin{equation}
@@ -1022,9 +1005,8 @@ where double brackets indicate a jump in the quantity,
 \begin{equation}
 [[f]]_{x=x_0} = \lim_{\epsilon \to 0} [f(x_0 + \epsilon) - f(x_0 - \epsilon)].
 \end{equation}
-\textcolor{red}{check we havent redefined lambda.}
 
-Substituting the solutions given by Equations~\eqref{P sol 0}, \eqref{P sol 1}, and~\eqref{P sol 2} into these boundary conditions gives
+Substituting the solutions given by Equation~\eqref{V sol} into these boundary conditions gives
 \begin{equation}
 \tilde{A}_1(\omega) = \frac{T_1(\omega)}{D(\omega)}, \quad \tilde{A}_2(\omega) = \frac{T_2(\omega)}{D(\omega)},
 \end{equation}
@@ -1112,7 +1094,7 @@ With the aim of finding solutions to this dispersion relation, we start with the
 \begin{equation}
 \omega = \pm kv_{Ae}\left[ 1 - \frac{1}{2}\left( \frac{v_{Ae}^2}{v_{A0}^2} - 1 \right) (kx_0)^2 \right].
 \end{equation}
-This is the only eigenmode of the low-beta slab. However, it is not the only zero of the dispersion function. The other zeros have non-zero imaginary part and therefore have a decreasing amplitude over time. They are leaky modes. To find these, we must first investigate on which Riemann sheet we expect them to be. In this case, the branch points are due to the square root functions in $m_e$ and $n_0$. These functions each contribute two branches. The branches of the function $m_e$ determine the behaviour of the velocity outside the slab. Outside the slab, the transverse velocity has the form $\tilde{v}_x = \tilde{A}_1e^{m_e(x_0 + x)}$ plus terms due to the inverse Laplace transform of the Green's function term (Equation~\ref{V sol}). Trapped modes require that $v_x \to 0$ as $x \to \infty$. This is only possible when $\mathrm{Re}\{m_e\} > 0$, which for trapped modes simplifies to $m_e > 0$. For the trapped mode, we have $\omega < \omega_{Ae}$, therefore to ensure that $m_e > 0$, we must take the positive square root in the definition of $m_e$. This ensures that the trapped modes are physical, by which we mean that they do not perturb plasma far from the slab. Therefore, we define the positive branch of $m_e$ as the \textit{principle sheet}\footnote{Due to it's physically relevant solutions, the equivalent of this sheet in the cylindrical problem has been labelled as the \textit{physical sheet} \citep{rud_etal06b}.}.
+This is the only eigenmode of the low-beta slab. It is equivalent to the fast principal kink mode in a magnetic flux tube described by \cite{cal03}. For this reason, we refer to this mode as the fast principal kink mode of a magnetic slab. The other zeros have non-zero imaginary part and therefore have a decreasing amplitude over time. They are leaky modes. To find these, we must first investigate on which Riemann sheet we expect them to be. In this case, the branch points are due to the square root functions in $m_e$ and $n_0$. These functions each contribute two branches. The branches of the function $m_e$ determine the behaviour of the velocity outside the slab. Outside the slab, the transverse velocity has the form $\tilde{v}_x = \tilde{A}_1e^{m_e(x_0 + x)}$ plus terms due to the inverse Laplace transform of the Green's function term (Equation~\ref{V sol}). Trapped modes require that $v_x \to 0$ as $x \to \infty$. This is only possible when $\mathrm{Re}\{m_e\} > 0$, which for trapped modes simplifies to $m_e > 0$. For the trapped mode, we have $\omega < \omega_{Ae}$, therefore to ensure that $m_e > 0$, we must take the positive square root in the definition of $m_e$. This ensures that the trapped modes are physical, by which we mean that they do not perturb plasma far from the slab. Therefore, we define the positive branch of $m_e$ as the \textit{principle sheet}\footnote{Due to it's physically relevant solutions, the equivalent of this sheet in the cylindrical problem has been labelled as the \textit{physical sheet} \citep{rud_etal06b}.}.
 
 On the other hand, for leaky modes, we require that $v_x \nrightarrow 0$ as $x \to \infty$. Therefore, these modes must exist on the Riemann sheet defined by the negative square root in $m_e$. This is the \textit{non-principle sheet}\footnote{Also known as the \textit{non-physical sheet} \citep{rud_etal06b}}.
 
@@ -1134,7 +1116,7 @@ and are given by
 \begin{equation}
 \omega = \frac{v_{A0}}{x_0}\left[ (n + \frac{1}{2})\pi - i\tanh^{-1}\left( \frac{v_{A0}}{v_{Ae}} \right) \right],
 \end{equation}
-for small $kx_0$ and for $n \in \mathbb{Z}$. It is easy to see that, for each pole, one can construct an open ball centred on the pole that contains no other poles, therefore all the poles are isolated.
+for small $kx_0$ and for $n \in \mathbb{Z}$. It is easy to see that, for each pole, one can construct an open ball centred on the pole that contains no other poles, therefore all the poles are isolated. These sausage and kink leaky modes are the slab versions of the ``leaky trig mode" defined in a magnetic flux tube by \cite{cal03}.
 
 Now the integrals in question given in Equation~\eqref{A inv laplace} can be calculated using the Bromwich contour in Figure~\ref{fig: brom contour}. To ensure that the contour remains on a single Riemann surface, it is modified around the branch cuts so as to encircle the poles. The closed contour $C$ is a sum of the following sub-contours:
 \begin{itemize}
@@ -1246,7 +1228,7 @@ The integral in the inverse Laplace transform along the horizontal line is the s
 \subsubsection{Integral along $C$}
 The contour $C$ is closed and has been chosen such that the integrand can be made to be meromorphic on this contour, given a particular choice of Riemann sheet. Therefore, we would like to use the Residue theorem to calculate this integral. While the Residue theorem is often quoted with a restriction to a finite number of isolated poles, it is also valid when there are infinitely many isolated poles \citep{ahl79}.
 
-The residue of the trapped kink body modes are calculated as follows. First, we must determine the order of the pole. The order of the pole is equivalent to the order of the corresponding zero of the dispersion function. The dispersion function for a symmetric slab can be factorised into a product of a functions governing sausage and kink modes, namely
+The residue of the principal kink mode is calculated as follows. First, we must determine the order of the pole. The order of the pole is equivalent to the order of the corresponding zero of the dispersion function. The dispersion function for a symmetric slab can be factorised into a product of a functions governing sausage and kink modes, namely
 \begin{equation}
 D(\omega) = -2\rho_0^2v_{A0}^4 \frac{\cosh{2m_0x_0}}{\tanh{m_0x_0} + \coth{m_0x_0}} D_s(\omega) D_k(\omega),
 \end{equation}
@@ -1254,7 +1236,7 @@ where
 \begin{equation}
 D_s(\omega) = m_0 + m_e\tanh{m_0x_0} \quad \text{and} \quad D_k(\omega) = m_0 + m_e\coth{m_0x_0}.
 \end{equation}
-Denote the trapped kink eigenfrequency by $\omega_k$. We know that $D_s(\omega_k) \neq 0$. We can expand the function $D_k$ as a Taylor series about the frequency $\omega_k$ as
+Denote the principal kink eigenfrequency by $\omega_k$. We know that $D_s(\omega_k) \neq 0$. We can expand the function $D_k$ as a Taylor series about the frequency $\omega_k$ as
 \begin{equation}
 D_k(\omega) = D_k(\omega_k) + D_k'(\omega)(\omega - \omega_k) + O((\omega - \omega_k)^2).
 \end{equation}
@@ -1264,7 +1246,7 @@ D_k'(\omega) = \omega\left[ \frac{1}{v_{A0}^2m_0} (m_e\text{csch}^2{m_0x_0} - 1)
 \end{equation}
 Evaluated at $\omega = \omega_k$, it can easily be shown that $D_k'(\omega_k) = O(1)$ with respect to the small quantity $kx_0$. In particular, $D_k'(\omega_k)$ is not small. Therefore, $\omega_k$ is a simple pole of the integrand.
 
-The residues of the trapped kink body modes are thus
+The residues of the forwards and backwards propagating principal kink modes are thus
 \begin{align}
 \text{Res}&\left\{ \frac{T_1}{D} e^{-i\omega t} ; \omega = \omega_k \right\} = \lim_{\omega \to \omega_k} (\omega - \omega_k)\frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \notag \\
 &= \lim_{\omega \to \omega_k}\frac{1}{D'(\omega)} [T_1(\omega) + (\omega - \omega_k)T_1'(\omega) - it(\omega - \omega_k)T_1(\omega)]e^{-i\omega t} \notag \\
@@ -1280,7 +1262,7 @@ because $T_1$ is an even functions of $\omega$ and $D'$ is an odd function of $\
 -2i\chi_1^{(k)}\sin{\omega_k t}.
 \end{equation}
 
-The residues at the leaky kink modes can be calculated as follows. We denote the eigenfrequency of the $n$th leaky kink mode as $\omega_{kn}$. Following the say line of reasoning as for the trapped kink modes, $D'(\omega_{kn}) = O(1)$ with respect to $kx_0$, so $D'(\omega_{kn})$ is not small. Therefore, these poles are simple. The residue at $\omega_{kn}$, for $n \in \mathbb{Z}$, is
+The residues at the leaky kink modes can be calculated as follows. We denote the eigenfrequency of the $n$th leaky kink mode as $\omega_{kn}$. Following the same line of reasoning as for the principal kink mode, $D'(\omega_{kn}) = O(1)$ with respect to $kx_0$, so $D'(\omega_{kn})$ is not small. Therefore, these poles are simple. The residue at $\omega_{kn}$, for $n \in \mathbb{Z}$, is
 \begin{equation}
 \text{Res}\left\{ \frac{T_1}{D} e^{-i\omega t} ; \omega = \omega_{kn} \right\} = \chi_1^{(kn)} e^{-i\omega_{kn} t},
 \end{equation}
@@ -1380,13 +1362,19 @@ However, the initial conditions have a strong effect on the relative contributio
 
 
 \subsection{Generalising to an asymmetric slab}
-The solution found in the previous section is valid for a symmetric slab. The main affect that waveguide asymmetry has on the temporal evolution of an initial disturbance is that the first order fast kink body mode, which is trapped by a symmetric slab, is leaky for thin asymmetric slabs. This has been shown by the presence of a cut-off value for trapped modes in the dispersion diagrams in Chapter~\ref{chap: EVP} and by \cite{all_etal17} and \cite{zsa_etal18}. This means that a thin asymmetric slab of cold plasma will not have a stationary phase for any initial condition because there are no trapped modes. All the energy from the initial condition is leaked out of the waveguide.
+The solution found in the previous section is valid for a symmetric slab. The main affect that waveguide asymmetry has on the temporal evolution of an initial disturbance is that the principal kink mode, which is trapped by a symmetric slab, is leaky for thin asymmetric slabs. This has been shown by the presence of a cut-off value for trapped modes in the dispersion diagrams in Chapter~\ref{chap: EVP} and by \cite{all_etal17} and \cite{zsa_etal18}. This means that a thin asymmetric slab of cold plasma will not have a stationary phase for any initial condition because there are no trapped modes. All the energy from the initial condition is leaked out of the waveguide.
+
+It is worth comparing the principal kink mode in this problem to the ``principal leaky mode" whose physical relevance has been the subject of debate \citep{cal03,rud_etal06b,cal06,rud_etal06}. \cite{cal03} claimed that in addition to the trapped principle kink mode, which is indisputably physical, there exists a corresponding leaky mode whose real part of its frequency is equal to the principal kink frequency. This leaky mode was later shown to be unphysical by \cite{rud_etal06b}. In the present chapter, the principal kink mode which becomes leaky when the slab is asymmetric is not the mode that \cite{cal03} labelled the ``principal leaky mode". Instead, it is the principal trapped kink mode that has become leaky due to the waveguide asymmetry.
 
 
 \section{Chapter conclusions}
-In this chapter, we have used mathematical methods to investigate the 
-\textcolor{red}{
-	The zeroes of the dispersion function, that is, the normal modes, make up the discrete spectrum of modes. In general, the governing MHD wave equation contains a continuous spectrum in addition to the discrete spectrum. The continuous spectrum is established at the zeroes of the function $N(\omega^2) = \rho (c_0^2 + v_A^2)(\omega^2 - k^2v_A^2)(\omega^2 - k^2v_S^2)$ (defined in \cite{goe_etal04}, page 500) and induce branch cuts in the complex $\omega$ plane, which must be integrated around when taking inverse Laplace transforms to ensure that the contour is contained within a single-valued Riemann sheet. An incompressible asymmetric slab has no branch points, so only the normal modes contribute to the time-dependant solution.}
+In this chapter, we have used mathematical methods to investigate the temporal evolution of MHD waves in simple models of solar waveguides.
+
+First, we focussed on the evolution of incompressible MHD waves along a tangential interface. The main result from this analysis was to correct an error in one of the key articles using the initial value approach in MHD \citep{rae_etal81}, showing that surface modes, not just body modes, are induced by a uniform vorticity initial condition.
+
+Next, we investigated the evolution of incompressible MHD waves along an asymmetric slab. Under the incompressible approximation, there is no initial phase or impulsive phase. There is only a stationary phase. That is to say that the initial impulse is propagated away instantly as purely trapped collective modes. Mathematically, this is equivalent to there being no branch points of the integrand of the inverse Laplace transform. The poles, whose residues give the contribution of the trapped eigenmodes, ar the only singularities of the integrand.
+
+Finally, we investigated the evolution of MHD wave in a slab of cold plasma. The solution evolves, in general, through three phases: the initial phase, the impulsive phase, and the stationary phase. These are the same phases through which an initially perturbed magnetic flux tube evolves \citep{rud_etal06b}. The main difference between the slab and flux tube is that the impulsive phase for a magnetic slab is significantly shorter. When a thin slab of cold plasma is asymmetric, the stationary phase is no longer present because the trapped kink mode becomes leaky. After some time, all the energy will be leaked from the slab.
 
 
 \appendix
@@ -1499,7 +1487,7 @@ a &= \frac{2}{\tau_0 + c_0} \left[ \rho_0^2 + \rho_e^2 + \rho_0\rho_e(\tau_0 + c
 b &= \frac{-2}{\tau_0 + c_0} \left[ 2(\rho_0^2v_{A0}^2 + \rho_e^2v_{Ae}^2) + \rho_0\rho_e(v_{A0}^2 + v_{Ae}^2)(\tau_0 + c_0) \right], \\
 c &= \frac{2}{\tau_0 + c_0} \left[ \rho_0^2v_{A0}^4 + \rho_e^2v_{Ae}^4 + \rho_0\rho_ev_{A0}^2v_{Ae}^2(\tau_0 + c_0) \right],
 \end{align}
-where $\tau_0 = \tanh{kx_0}$ and $c_0 = \coth{kx_0}$. The discriminant in the solution, Equation~\eqref{solution omega0}, reduces to
+where $\tau_0 = \tanh{kx_0}$ and $c_0 = \coth{kx_0}$. The discriminant in the solution, Equation~\eqref{quad sol}, reduces to
 \begin{equation}
 b^2 - 4ac = 4\rho_0^2\rho_e^2(v_{A0}^2 - v_{Ae}^2)^2 \left(\frac{\tau_0 - c_0}{\tau_0 + c_0}\right)^2. 
 \end{equation}
@@ -1545,7 +1533,6 @@ L'Hopital's Rule is a powerful tool for evaluating limits of quotients of functi
 \begin{equation}
 \lim_{z \to z_0}\frac{f(z)}{g(z)} = \frac{f'(z)}{g'(z)}.
 \end{equation}
-There are stronger formulations of the complex L'Hopital's rule which are superfluous for our present needs \textcolor{red}{CITATION?}.
 
 Applied to the present problem, the requirements for L'Hopital's rule to hold are:
 \begin{enumerate}
@@ -1572,28 +1559,6 @@ Below, we validate that each of these conditions holds:
 	\end{equation}
 	Therefore, the zeros of the function $D$ are always at least a factor of $i$ away from the zeros of $D'$ (and are a factor of exactly $i$ away if and only if $d = b^2 - 4ac = 0$). The result follows.
 \end{enumerate}
-
-
-\section{Approximately symmetric slab parameter expansions}
-For an approximately symmetric slab, that is, when $\rho_2 = \rho_1(1 + \epsilon)$ where $\epsilon \ll 1$, then the first order expansions in $\epsilon$ of other relevant parameters are given below.
-\begin{itemize}
-	\item $c_2^2 = c_1^2 \frac{\rho_1}{\rho_2} = c_1^2 \left(\frac{1}{1 + \epsilon}\right) \approx c_1^2 (1 - \epsilon).$
-	
-	\item $m_2 = \sqrt{k^2 - \frac{\omega^2}{c_2^2}} = \sqrt{k^2 - \frac{\omega^2}{c_1^2}(1 + \epsilon)} \approx m_1(1 - \frac{\omega^2}{2c_1^2m_1^2}\epsilon)$.
-	
-	\item $\Lambda_2 = \frac{\rho_2 \omega^2}{m_2} = \frac{\rho_1(1 + \epsilon) \omega^2}{m_1\left(1 - \frac{1}{2m_1^2}\epsilon\right)} \approx \frac{\rho_1(1 + \epsilon) \omega^2}{m_1}\left(1 + \frac{1}{2m_1^2}\epsilon\right) = \Lambda_1\left( 1 + \epsilon \left[ 1 + \frac{\omega^2}{2c_1^2m_1^2} \right] \right)$.
-	
-	\item $I_2 = \int_{x_0}^\infty e^{m_2(x_0 - s)} f(\omega, s) ds = \int_{-\infty}^{-x_0} e^{m_2(x_0 + s)} f(\omega, s) ds$, if $f(\omega, -x) = f(\omega, x)~\forall x \in (-\infty, -x_0)$. Therefore,
-	\begin{align}
-	I_2 & = \int_{-\infty}^{-x_0} e^{\epsilon m_1M(x_0 + s)} e^{m_1(x_0 + s)} f(\omega, s) ds, \text{ where } M = -\frac{\omega^2}{2c_1^2m_1^2}, \\
-	& = I_1 + \epsilon m_1M \int_{-\infty}^{-x_0} (x_0 + s) e^{m_1(x_0 + s)} f(\omega, s) ds.
-	\end{align}
-	It doesn't seem that this simplifies into $I_1(1 + J\epsilon)$ without making $f$ less general.
-	
-\end{itemize}
-
-
-\color{black}
 
 
 \bibliographystyle{agsm}
