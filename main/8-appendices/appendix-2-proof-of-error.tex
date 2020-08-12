@@ -1,0 +1,58 @@
+\chapter{Proof of the error in \cite{rae_etal81}}
+
+\cite{rae_etal81} claim that the solution to the above system of equations is given by 
+\begin{equation}
+\tilde{v}_x(x) = \left\{
+\begin{aligned}
+A_-e^{kx}  \: \textcolor{red}{+} \: \frac{1}{\epsilon_-} & \int_{-\infty}^{0} G(x;s)f(x)ds, & \text{if  } x<0,\\
+A_+e^{-kx} - \frac{1}{\epsilon_+} & \int_{0}^{\infty} G(x;s)f(x)ds, & \text{if  } x>0,
+\end{aligned}
+\right.
+\label{ivp interface sol}
+\end{equation}
+where
+\begin{equation}
+G(x;s) = \frac{1}{2k}[e^{ks}e^{-kx}H(x-s) + e^{-ks}e^{kx}H(s-x)]
+\end{equation}
+and $H$ is the Heaviside step function. By requiring continuity of transverse perturbation, Equation~\eqref{ivp interface BC}, the authors determine the constants $A_-$ and $A_+$ to be
+\begin{align}
+A_- & = \left[\textcolor{red}{+} \: \int_{-\infty}^0 f(s)e^{ks} ds - \frac{1}{2}\left(1 - \frac{\epsilon_-}{\epsilon_+}\right)\int_0^\infty f(s)e^{-ks} ds\right] / k(\epsilon_- + \epsilon_+), \\
+A_+ & = \left[-\int_0^\infty f(s)e^{-ks} ds \: \textcolor{red}{+} \: \frac{1}{2}\left(1 - \frac{\epsilon_+}{\epsilon_-}\right)\int_{-\infty}^0 f(s)e^{ks} ds\right] / k(\epsilon_- + \epsilon_+).
+\label{ivp interface constants}
+\end{align}
+
+The \textcolor{red}{red} operators in Equations~\eqref{ivp interface sol} and~\eqref{ivp interface constants} are incorrect.
+
+Let's see whether Equation~\eqref{ivp interface sol} satisfies Equation~\eqref{ivp interface gov}. First, we find that
+\begin{align}
+\frac{d^2}{dx^2} G(x;s) = \frac{1}{2k}[& e^{ks}e^{-kx}(k^2H(x-s) - 2k\delta(x-s) + \delta'(x-s)) + \notag \\
+& e^{-ks}e^{kx}(k^2H(s-x) - 2k\delta(s-x) + \delta'(s-x))].
+\end{align}
+It is also useful to recall the following delta function identities:
+\begin{equation}
+\int_{-\epsilon}^\epsilon \delta(x)f(x) dx = f(0), \quad \text{and} \quad \int_{-\epsilon}^\epsilon \delta'(x)f(x) dx = -f(0),
+\end{equation}
+for any $\epsilon > 0$ and function $f$. Using the equations above, we find that
+\begin{align}
+\frac{d^2\tilde{v}_x}{dx^2} = & k^2A_-e^{kx} \: \textcolor{red}{+} \: \frac{1}{\epsilon_-}\int_{-\infty}^0 \frac{d^2G}{dx^2}(x;s) f(s) ds \\
+= & k^2A_-e^{kx} \: \textcolor{red}{+} \: \frac{1}{2k\epsilon_-}\left[k^2\left\{\int_{-\infty}^x e^{ks}e^{-kx}f(s) ds  + \int_x^0 e^{-ks}e^{kx}f(s) ds\right\} \right. \\
+& \left.- 4kf(x) + [(e^{ks}e^{-kx}-e^{-ks}e^{kx})f(s)]'_{s=x} \right] \\
+= & k^2A_-e^{kx} \: \textcolor{red}{+} \: \frac{1}{2k\epsilon_-}\left[k^2\int_{-\infty}^0 G(x;s)f(s) ds - 2kf(x) \right] \\
+= & k^2\tilde{v}_x \: \textcolor{red}{-} \: \frac{1}{\epsilon_-}f(x).
+\label{ivp interface error}
+\end{align}
+Therefore, the solution given by Equation~\eqref{ivp interface sol} does not satisfy Equation~\eqref{ivp interface gov}. It does, however, if the \textcolor{red}{red} plus were a minus, making the correct solution 
+\begin{equation}
+\tilde{v}_x(x) = \left\{
+\begin{aligned}
+A_-e^{kx} - \frac{1}{\epsilon_-} & \int_{-\infty}^{0} G(x;s)f(x)ds, & \text{if  } x<0,\\
+A_+e^{-kx} - \frac{1}{\epsilon_+} & \int_{0}^{\infty} G(x;s)f(x)ds, & \text{if  } x>0,
+\end{aligned}
+\right.
+\label{ivp interface sol correct}
+\end{equation}
+where $A_-$ and $A_+$ are given by
+\begin{align}
+A_- & = \left[- \int_{-\infty}^0 f(s)e^{ks} ds - \frac{1}{2}\left(1 - \frac{\epsilon_-}{\epsilon_+}\right)\int_0^\infty f(s)e^{-ks} ds\right] / k(\epsilon_- + \epsilon_+), \\
+A_+ & = \left[-\int_0^\infty f(s)e^{-ks} ds - \frac{1}{2}\left(1 - \frac{\epsilon_+}{\epsilon_-}\right)\int_{-\infty}^0 f(s)e^{ks} ds\right] / k(\epsilon_- + \epsilon_+).
+\end{align}

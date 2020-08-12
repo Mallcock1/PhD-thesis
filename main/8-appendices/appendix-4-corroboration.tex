@@ -1,0 +1,69 @@
+\chapter{Corroboration of incompressible solutions with previous results}
+
+\section{Interface}\label{app: interface}
+When we let the width of an asymmetric slab vanish, we recover the traditional interface geometry. Letting $x_0 \to 0$, the parameters $a$, $b$, and $c$, from Equations~\eqref{solution a}, \eqref{solution b}, and~\eqref{solution c}, reduce to
+\begin{align}
+a &= \rho_0(\rho_1 + \rho_2), \\
+b &= -\rho_0v_{A0}^2(\rho_1 +\rho_2) - \rho_0(\rho_1v_{A1}^2 + \rho_2v_{A2}^2), \\
+c &= \rho_0v_{A0}^2(\rho_1v_{A1}^2 + \rho_2v_{A2}^2).
+\end{align}
+Therefore, when the slab width vanishes, the eigenmodes given by Equation~\eqref{solution omega0} reduce to
+\begin{equation}
+\left(\frac{\omega_0}{k}\right)^2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} =
+\begin{cases}
+v_{A0}^2, \\
+\frac{\rho_1v_{A1}^2 + \rho_2v_{A2}^2}{\rho_1 + \rho_2}.
+\end{cases}
+\end{equation}
+The first solution above is degenerate because, while the parameter $v_{A0}$ makes sense in the limit as the slab width vanishes, it is meaningless in an interface system constructed without an inner region. The second solution corroborates with the surface eigenfrequencies of an interface, as expected \citep{rob81a}.
+
+
+
+\section{Symmetric slab}\label{app: symmetric}
+
+By letting the parameters on each external plasma region be equal (\textit{i.e.} $\rho_1 = \rho_2 = \rho_e$, and similar for the magnetic field and Aflv\'{e}n speed) the asymmetric slab is reduced to a symmetric slab. In this limit, the parameters $a$, $b$, and $c$, from Equations~\eqref{solution a}, \eqref{solution b}, and~\eqref{solution c}, can be reduced to
+\begin{align}
+a &= \frac{2}{\tau_0 + c_0} \left[ \rho_0^2 + \rho_e^2 + \rho_0\rho_e(\tau_0 + c_0) \right], \\
+b &= \frac{-2}{\tau_0 + c_0} \left[ 2(\rho_0^2v_{A0}^2 + \rho_e^2v_{Ae}^2) + \rho_0\rho_e(v_{A0}^2 + v_{Ae}^2)(\tau_0 + c_0) \right], \\
+c &= \frac{2}{\tau_0 + c_0} \left[ \rho_0^2v_{A0}^4 + \rho_e^2v_{Ae}^4 + \rho_0\rho_ev_{A0}^2v_{Ae}^2(\tau_0 + c_0) \right],
+\end{align}
+where $\tau_0 = \tanh{kx_0}$ and $c_0 = \coth{kx_0}$. The discriminant in the solution, Equation~\eqref{quad sol}, reduces to
+\begin{equation}
+b^2 - 4ac = 4\rho_0^2\rho_e^2(v_{A0}^2 - v_{Ae}^2)^2 \left(\frac{\tau_0 - c_0}{\tau_0 + c_0}\right)^2. 
+\end{equation}
+Therefore, the eigenfrequencies reduce to
+\begin{equation}
+\left(\frac{\omega_0}{k}\right)^2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} =
+\begin{cases}
+\frac{\rho_0v_{A0}^2 + \rho_ev_{Ae}^2c_0}{\rho_0 + \rho_ec_0}, \\
+\frac{\rho_0v_{A0}^2 + \rho_ev_{Ae}^2\tau_0}{\rho_0 + \rho_e\tau_0},
+\end{cases}
+\end{equation}
+which corroborates with Equation~(12) in \cite{rob81b}.
+
+
+\section{Corroboration with interface}
+When $\rho_1 = \rho_2 = \rho_0$,
+\begin{equation}
+T_{1,2}[\Psi_0](\omega) = -2\Omega_0\rho_0 e^{kx_0} (\e_0 \cosh{kx_0} + \e_{2,1}\sinh{kx_0}).
+\end{equation}
+
+When $\rho_1 = \rho_2 = \rho_0$ and $x_0 = 0$, we expect that the solution will reduce to (the corrected version of) Equation~(25) in \cite{rae_etal81}. Let's check that this is the case.
+
+When the above conditions hold, the dispersion function reduces to $D(\omega) = \e_0(\e_1 + \e_2)$ and its zeroes reduce to $\omega_{0+} = kv_{A0}$ and $\omega_{0-} = kv_{AS} = k \sqrt{(v_{A1}^2 + v_{A2}^2) / 2}$. Therefore, the functionals reduce to
+\begin{equation}
+T_{1,2}[\Psi_0](\omega) = -2\Omega_0\rho_0 \e_0,
+\quad 
+\chi_{1,2}[\Psi_0](\omega_{0+}) = 0,
+\quad
+\chi_{1,2}[\Psi_0](\omega_{0-}) = \frac{\Omega_0}{2k^2v_{AS}}.
+\end{equation}
+Therefore, the transverse velocity solution reduces to
+\begin{equation}
+v_x = -\frac{i\Omega_0}{k} 
+\begin{cases}
+(1 - e^{kx})\cos{kv_{A1}t} + e^{kx}\cos{kv_{AS}t} \quad &\text{ for } x < 0, \\
+(1 - e^{-kx})\cos{kv_{A2}t} + e^{-kx}\cos{kv_{AS}t} \quad &\text{ for } x > 0,
+\end{cases}
+\end{equation}
+which corroborates with (the corrected version of) the result from \cite{rae_etal81}.

@@ -1,0 +1,1357 @@
+
+%------------------------------------------------------------------------------
+\chapter{Asymmetric waveguides - eigenvalue problem}
+\label{chap: EVP}
+%------------------------------------------------------------------------------
+
+
+%------------------------------------------------------------------------------
+\section{Chapter introduction}
+\label{sec: EVP intro}
+%------------------------------------------------------------------------------
+
+The aim of this chapter is to investigate the physics of asymmetric MHD waves as an eigenvalue problem (EVP). To isolate the behaviour introduced when symmetry is broken, it is instructive to analyse the most simple model that maintains asymmetric MHD waves. That way, any novel behaviour can be unambiguously attributed to the asymmetry of the model. The simplest model of an asymmetric waveguide is an asymmetric magnetic slab\footnote{More precisely, the simplest model of an asymmetric MHD waveguide is an interface between different plasmas; the asymmetric slab is the simplest asymmetric waveguide that can oscillate in a collective body mode (see Section~\ref{sec: body}).}, breaking the symmetry of the magnetic slab analysed in Chapter~\ref{sec: slab} and by \cite{rob81b}.
+
+The EVP approach to MHD wave problems was first employed by \cite{alf42} to derive the theoretic existence and propagation speed of magnetically driven waves in fluids, the result that awarded him the Nobel Prize in Physics in 1970. These waves are now known as \textit{Alfv\'{e}n waves}. The EVP for Alfv\'{e}n waves in uniform plasma is analysed in Chapter~\ref{sec: MHD waves hom}. This sparked several decades of detections of Alfv\'{e}n waves in several areas of plasma physics, from experimental, with early detection in magnetised mercury \citep{lun49}, sodium \citep{leh54}, and bismuth \citep{hes_etal73}, to geophysics, with surprisingly early detection of Alfv\'{e}n waves in the Earth's ionosphere, driven by a nuclear weapon test \citep{ber_etal60}.
+
+More relevant to the present thesis is that the discovery of Alfv\'{e}n waves got the solar physics world asking the question: \textit{are there Alfv\'{e}n waves on the Sun?} The difficulty in establishing a confident affirmative answer to this question is that in structured plasma, such as the solar atmosphere, MHD waves demonstrate mixed properties \citep{goo_etal09,goo_etal12,goo_etal19}. By this we mean that they can propagate both vorticity (like Alfv\'{e}n waves do) and compression (like magneto-acoustic waves do). In particular, this allows for the ubiquitous presence of standing kink waves in the solar atmosphere \citep{tom_etal07}. Quite confusingly known as \textit{Alfv\'{e}nic}, these waves are almost completely incompressible, and therefore produce similar observational signatures to true Alfv\'{e}n waves. This explains the erroneous detection of Alfv\'{e}n waves in the corona \citep{tom_etal07}, which are more likely to have been standing kink waves \citep{van_etal08b}. More likely true observations of Alfv\'{e}n waves have since been made in X-ray jets \citep{cir_etal07}, prominences \citep{oka_etal07}, and spicules \citep{dep_etal07}, and in their torsional variety in magnetic bright points \citep{jes_etal09}. A review of the theory and observations of solar Alfv\'{e}n waves was conducted by \cite{mat_etal13}.
+
+After the detection of ubiquitous MHD waves in the solar atmosphere, whether they be Alfv\'{e}n, Alfv\'{e}nic, or another kind entirely, comes the question: \textit{do they contribute to the heating of the corona?} This question must be answered in two parts: (1) \textit{is there enough energy transported in these waves to heat the corona?} and (2) \textit{is there a mechanism for converting this wave energy into thermal energy?} \cite{wit_etal77}, amongst others, have shown that an energy input of $10^2 - 10^4$~W~m$^{-2}$ is required to balance the thermal losses from radiation and solar wind in order to maintain the corona's high temperatures of approximately 2~MK. Many Alfv\'{e}n wave observational studies have estimated the energy density transported by the observed MHD waves. This has been backed up by numerical studies that show that sufficient energy can be found in, for example, high-frequency torsional Alfv\'{e}n waves \citep{sri_etal17}. A number of mechanisms for dissipating this wave energy into the coronal environment have been proposed, including phase mixing \citep{hey_etal83} and resonant absorption \citep{ion78}, that can significantly shorten the time-scale for energy dissipation by resistive or viscous processes.
+
+More sophisticated MHD waveguides have been investigated with an EVP approach. The first non-uniform plasma system that was investigated with an EVP was the tangential interface between semi-infinite plasma regions with distinct parameters (\citealp{rob81a}; see Chapter~\ref{sec: tangential interface}). They showed the existence of trapped MHD surface waves that can be either \textit{fast} or \textit{slow}, depending on the phase difference between the pressure gradient and magnetic restoring forces. The contact discontinuity, where the magnetic field intersects the interface, was shown by \cite{vic_etal18} to contain most of its oscillatory power in modes that leak energy laterally away from the interface. Two parallel tangential interfaces, in the form of a symmetric slab waveguide, were shown by \cite{rob81b} and \cite{edw_etal82} to oscillate in both surface and body modes, depending on whether the spatial signature of the wave is evanescent or oscillatory within the slab (see Chapter~\ref{sec: symmetric slab}).
+
+Modelling the cylindrical nature of coronal loops, focus moved towards cylindrical waveguides. This began with an investigation by \cite{edw_etal83} into the oscillatory modes of straight cylindrical flux tubes of infinite length (see Chapter~\ref{sec: magnetic flux tube}). They showed the existence of \textit{fluting modes}, which have azimuthal wavenumber $m \geq 2$, in addition to the already familiar sausage ($m = 0$) and kink ($m = 1$) modes. Inhomogeneities in the solar atmosphere as such that it is unlikely that the axisymmetry of a circular cross-sectional cylinder will be sufficient to model coronal loops. To accommodate the diversion from axisymmetry, elliptical cross-sectional tubes were investigated by \cite{gu_etal80}, \cite{rud03}, \cite{erd_etal09}, and \cite{mor_etal11}. The sausage mode (and other even-ordered azimuthal modes) differs from its counterpart in circular cross-sectional tubes only by it's phase speed, whereas the kink mode (and other odd-ordered azimuthal modes) splits into two modes with axial displacement polarized along the major and minor axes.
+
+Other EVP investigations of MHD waves have studied the effect of curvature, including a curved magnetic slab \citep{ver_etal06a,ver_etal06b} and a semi-toroidal loop \citep{van_etal04}. The semi-toroidal loop is a mathematical model that approximates coronal loops well. It was shown that curvature has no first order effect on the frequency and damping time of kink quasi-mode oscillations. This result has justifiably made the solar physics community more comfortable applying the more simple theory of MHD waves in straight waveguide models to curved solar structures. The effects of curvature on coronal loop kink oscillations is reviewed by \cite{van_etal09}.
+
+Loop systems above active regions are often observed to oscillate collectively and even single coronal loops have been hypothesised to have a multi-stranded fine structure \citep{asc_etal00}, motivating the study of mathematical models of adjacent flux tubes. \cite{lun_etal08} showed numerically that a system of two adjacent flux tubes of equal parameters oscillates in four trapped eigenmodes: two where the tubes oscillate in phase and two in anti-phase. \cite{van_etal08} generalised this to a system of two distinct flux tubes. This is discussed in more detail as an example of an asymmetric MHD waveguide in Section~\ref{sec: other waveguides}.
+
+What this chapter does to build upon previous studies is to focus on the nuances of asymmetric MHD eigenmodes by building up from the simplest asymmetric MHD waveguide. In particular, we determine precisely how asymmetry of MHD waveguides is manifested in MHD waves, the effects of varying the asymmetry, and how this affects observational wave signatures in the solar atmosphere.
+
+In Section~\ref{sec: EVP asym slab}, we introduce the general asymmetric slab model and derive the dispersion relation for its trapped eigenmodes. Since the  dispersion relation for the general model is not analytically solvable, we consider a simplification with non-magnetised external plasma, which yields analytical solutions under certain approximations in Section~\ref{sec: analytical solutions} and numerical solutions more generally in Section~\ref{sec: numerical solutions}. We study the fully general eigenmodes in Section~\ref{sec: EVP mag}. We briefly overview the insights from other asymmetric waveguides including multi-layered plasma, distinct adjacent flux tubes, and non axisymmetric flux tubes in Section~\ref{sec: other waveguides}. We cover the conclusions of this chapter in Section~\ref{sec: chpt 2 conc}.
+
+Section~\ref{sec: EVP non-mag} is based on \cite{all_etal17} and Section~\ref{sec: EVP mag} is based on parts of \cite{zsa_etal18}.
+
+%------------------------------------------------------------------------------
+\section{Asymmetric slab}
+\label{sec: EVP asym slab}
+%------------------------------------------------------------------------------
+\subsection{Model description}
+Figure~\ref{fig: eq} illustrates the construction of the mathematical model of an asymmetric slab, where a three-dimensional, unbounded, inviscid plasma is separated into three regions by two parallel planar interfaces at $x = \pm x_0$. The equilibrium magnetic field is in the $z$-direction and has magnitude
+\begin{equation}
+	B(x)=
+	\begin{cases}
+		B_1 & \text{if } x < -x_0, \\
+		B_0 & \text{if } |x|\leq{x_0}, \\
+		B_2 & \text{if } x > x_0,
+	\end{cases}
+\end{equation}
+where $B_j$, for $j = 0, 1, 2$, are constant. Within each region, denoted by subscripts 0, 1, and 2, the plasma is uniform and the equilibrium plasma pressure, density, and temperature are denoted by $p_j$, $\rho_j$, and $T_j$, respectively, for $j = 0, 1, 2$. This defines an \textit{isolated} waveguide, by which we mean there are no adjacent waveguides that can affect or be affected by the oscillations.
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\path [fill=lightgray, opacity=0.45] (3.5,0) -- (3.5,4) -- (6.5,4) -- (6.5,0) -- (3.5,0);
+	\shade[left color=lightgray,right color=white, opacity=0.45] (6.5,0) -- (6.5,4) -- (7,4.3) -- (7,0.3) -- (6.5,0);
+	\shade[top color=lightgray,bottom color=white, opacity=0.45] (3.5,0) -- (6.5,0) -- (6.5,-0.3) -- (3.5,-0.3) -- (3.5,0);
+	\shade[top color=white,bottom color=lightgray, opacity=0.45] (3.5,4) -- (4,4.3) -- (7,4.3) -- (6.5,4) -- (3.5,4);
+	\shade[left color=lightgray,right color=white, opacity=0.45] (6.5,0) -- (6.5,-0.3) -- (7,0) -- (7,0.3) -- (6.5,0);
+	
+	\path [fill=lightgray, opacity=0.8] (6.5,0) -- (6.5,4) -- (10,4) -- (10,0) -- (6.5,0);
+	\shade[top color=lightgray,bottom color=white, opacity=0.8] (6.5,0) -- (10,0) -- (10,-0.3) -- (6.5,-0.3) -- (6.5,0);
+	\shade[top color=white,bottom color=lightgray, opacity=0.8] (6.5,4) -- (7,4.3) -- (10.5,4.3) -- (10,4) -- (6.5,4);
+	\shade[left color=lightgray,right color=white, opacity=0.8] (10,-0.3) -- (10,4) -- (10.5,4.3) -- (10.5,0) -- (10,-0.3);
+	
+	\path [fill=lightgray, opacity=0.2] (0,0) -- (0,4) -- (3.5,4) -- (3.5,0) -- (0,0);
+	\shade[top color=lightgray,bottom color=white, opacity=0.2] (0,0) -- (3.5,0) -- (3.5,-0.3) -- (0,-0.3) -- (0,0);
+	\shade[top color=white,bottom color=lightgray, opacity=0.2] (0,4) -- (0.5,4.3) -- (4,4.3) -- (3.5,4) -- (0,4);
+	
+	\draw [<->] (0,1) -- (0,0) -- (10,0);
+	\draw [->] (0,0) -- (0.5,0.3);
+	
+	% mag field left
+	\draw [ultra thick, red, -stealth] (1,0) -- (1,4);
+	\draw [ultra thick, red, path fading=south] (1,-0.3) -- (1,0);
+	\draw [ultra thick, red, path fading=north] (2,0) -- (2, 1.7);
+	\draw [ultra thick, red, path fading=south] (2,-0.3) -- (2,0);
+	\draw [ultra thick, red, path fading=south] (2,2.2) -- (2,3.9);
+	\draw [ultra thick, red, -stealth] (2,3.9) -- (2,4);
+	\draw [ultra thick, red, -stealth] (3,0) -- (3,4);
+	\draw [ultra thick, red, path fading=south] (3,-0.3) -- (3,0);
+	
+	% mag field mid
+	\draw [ultra thick, dashed] (3.5,0) -- (3.5,4);
+	\draw [ultra thick, dashed, path fading=east] (3.5,0) -- (4,0.3);
+	\draw [ultra thick, dashed, path fading=east] (3.5,4) -- (4,4.3);
+	\draw [ultra thick, dashed, path fading=east] (3.5,2) -- (4,2.3);
+	\draw [ultra thick, dashed, path fading=east] (3.5,1) -- (4,1.3);
+	\draw [ultra thick, dashed, path fading=east] (3.5,3) -- (4,3.3);
+	\draw [ultra thick, red, -stealth] (4,0) -- (4,4);
+	\draw [ultra thick, red, path fading=south] (4,-0.3) -- (4,0);
+	\draw [ultra thick, red, path fading=north] (4.5,0) -- (4.5, 1.7);
+	\draw [ultra thick, red, path fading=south] (4.5,-0.3) -- (4.5,0);
+	\draw [ultra thick, red, path fading=south] (4.5,2.2) -- (4.5,3.9);
+	\draw [ultra thick, red, -stealth] (4.5,3.9) -- (4.5,4);
+	\draw [ultra thick, red, path fading=north] (5,0) -- (5, 1.7);
+	\draw [ultra thick, red, path fading=south] (5,-0.3) -- (5, 0);
+	\draw [ultra thick, red, path fading=south] (5,2.2) -- (5,3.9);
+	\draw [ultra thick, red, -stealth] (5,3.9) -- (5,4);
+	\draw [ultra thick, red, path fading=north] (5.5,0) -- (5.5, 1.7);
+	\draw [ultra thick, red, path fading=south] (5.5,-0.3) -- (5.5, 0);
+	\draw [ultra thick, red, path fading=south] (5.5,2.2) -- (5.5,3.9);
+	\draw [ultra thick, red, -stealth] (5.5,3.9) -- (5.5,4);
+	\draw [ultra thick, red, -stealth] (6,0) -- (6,4);
+	\draw [ultra thick, red, path fading=south] (6,-0.3) -- (6,0);
+	\draw [ultra thick, dashed] (6.5,0) --(6.5,4);
+	\draw [ultra thick, dashed, path fading=east] (6.5,0) -- (7,0.3);
+	\draw [ultra thick, dashed, path fading=east] (6.5,4) -- (7,4.3);
+	\draw [ultra thick, dashed, path fading=east] (6.5,2) -- (7,2.3);
+	\draw [ultra thick, dashed, path fading=east] (6.5,1) -- (7,1.3);
+	\draw [ultra thick, dashed, path fading=east] (6.5,3) -- (7,3.3);
+	
+		
+	% mag field right
+	\draw [ultra thick, red, path fading=north] (7.5,0) -- (7.5, 1.7);
+	\draw [ultra thick, red, path fading=south] (7.5,-0.3) -- (7.5,0);
+	\draw [ultra thick, red, path fading=south] (7.5,2.2) -- (7.5,3.9);
+	\draw [ultra thick, red, -stealth] (7.5,3.9) -- (7.5,4);
+	\draw [ultra thick, red, path fading=north] (8.5,0) -- (8.5, 1.7);
+	\draw [ultra thick, red, path fading=south] (8.5,-0.3) -- (8.5,0);
+	\draw [ultra thick, red, path fading=south] (8.5,2.2) -- (8.5,3.9);
+	\draw [ultra thick, red, -stealth] (8.5,3.9) -- (8.5,4);
+	
+	\small
+	\node [below] at (3.5,0) {$-x_0$};
+	\node [below] at (6.5,0) {$x_0$};
+	\node [below] at (10,0) {$x$};
+	\node [left] at (0,1) {$z$};
+	\node [right] at (0.5,0.3) {$y$};
+	
+	\normalsize
+	\node [right] at (1,2) {$\rho_1$, $p_1$, $B_1$};
+	\node [right] at (4,2) {$\rho_0$, $p_0$, $B_0$};
+	\node [right] at (7.1,2) {$\rho_2$, $p_2$, $B_2$};
+	\end{tikzpicture}
+	\caption{The equilibrium state inside the slab, ($|x| \leq x_0$) and outside the slab, ($x < -x_0$ and $x > x_0$). The red arrows illustrate magnetic field lines, $B(x)\mathbf{\widehat{z}}$, and the dashed black lines indicate the boundaries of the slab.}
+	\label{fig: eq}
+\end{figure}
+
+To ensure that the model is in equilibrium, the total pressure in each external region must balance the total pressure in the internal region, therefore
+\begin{equation}
+	p_1 + \frac{B_1^2}{2\mu_0} = p_0 + \frac{B_0^2}{2\mu_0} = p_2 + \frac{B_2^2}{2\mu_0}, \label{pressure balance}
+\end{equation}
+where $\mu_0$ is the permeability of free space. We can rewrite Equation~\eqref{pressure balance} as
+\begin{equation}
+\rho_i\left(c_i^2 + \frac{\gamma}{2}v_{Ai}^2\right) = \rho_j\left(c_j^2 + \frac{\gamma}{2}v_{Aj}^2\right), \quad \text{for} \quad i, j = 0, 1, 2, \label{sound and density}
+\end{equation}
+where we define the sound and Alfv\'{e}n speeds in each region by $c_j = \sqrt{\gamma p_j/\rho_j}$ and $v_{Aj} = B_j/\sqrt{\mu\rho_j}$, respectively, for $j = 0, 1, 2$. The adiabatic index\footnote{The adiabatic index is assumed uniform across the whole domain under the single-fluid approximation.} is $\gamma$.
+
+
+\subsection{The dispersion relation}
+
+In the derivation of the dispersion relation, we decompose the linearised ideal MHD equations into Fourier coefficients then combine them into an ordinary differential equation (ODE) for the transverse velocity perturbation for each of the three plasma regions. After finding the general solution to each of these ODEs, we match the solutions across each interface at $\pm x_0$. The condition for the existence of non-trivial solutions will specify discrete eigenfrequencies for a given wavenumber. This is the dispersion relation. In mathematical terms, we're converting a set of partial differential equations into ordinary differential equations, into algebraic equations, into a single equation. From a form that we cannot solve into a form that we can.
+
+
+\subsubsection{Derivation} \label{sec: asym slab DR der}
+
+We begin with the ideal MHD equations, linearised around a static equilibrium with subscripts $j$, Equations~\eqref{cont eqn lin}-\eqref{ind eqn lin}. Taking the partial derivative with respect to time of Equation~\eqref{mom eqn lin} and eliminating $\bB$ using Equation~\eqref{ind eqn lin}, gives
+\begin{align}
+	\frac{\partial^2 v_x}{\partial t^2} &= \frac{\partial}{\partial x}\left[ (c_j^2 + v_{Aj}^2)\nabla\cdot\bv - v_{Aj}^2\frac{\partial v_z}{\partial z} \right] + v_{Aj}^2 \frac{\partial^2 v_x}{\partial z^2} \label{mom x} \\
+	\frac{\partial^2 v_y}{\partial t^2} &= \frac{\partial}{\partial y}\left[ (c_j^2 + v_{Aj}^2)\nabla\cdot\bv - v_{Aj}^2\frac{\partial v_z}{\partial z} \right] + v_{Aj}^2 \frac{\partial^2 v_y}{\partial z^2} \label{mom y} \\
+	\frac{\partial^2 v_z}{\partial t^2} &= c_j^2\frac{\partial}{\partial z}(\nabla\cdot\bv). \label{mom z}
+\end{align}
+Seeking Fourier solutions like $f(\mathbf{x},t) = \hat{f}(x) \exp\{i(ly + kz - \omega t)\}$, where $\mathbf{k} = (0, l, k)$ is the wavenumber vector and $\omega$ is the angular frequency, for $\mathbf{v}$ in Equation~\eqref{mom y} gives
+\begin{equation}
+(k^2v_{Aj}^2 - \omega^2)\hat{v}_y = l((c_j^2 + v_{Aj}^2)(i\hat{v}_x' - l\hat{v}_y - k\hat{v}_z) + kv_{Aj}^2\hat{v}_z),
+\end{equation}
+where $' = d/dx$. If the component of the wavenumber in the $y$-direction is zero, \textit{i.e.} $l = 0$, then this equation reduces to
+\begin{equation}
+(k^2v_{Aj}^2 - \omega^2)\hat{v}_y(x) = 0,
+\end{equation}
+which yield two solutions. Firstly, $\omega^2 = k^2v_{Aj}^2$ is a solution corresponding to shear Alfv\'{e}n waves with different phase speed for each magnetic iso-surface (in this case the isosurfaces are surfaces parallel to the $yz$-plane). The second solution is $\hat{v}_y(x) = 0$ for all $x$ and therefore $v_y = 0$, \textit{i.e.} waves without perturbation component along the slab and perpendicular to the magnetic field. These solutions correspond to magneto-acoustic modes. Thus we have a decoupling of the shear Alfv\'{e}n modes from the magneto-acoustic modes.
+
+Focusing from here on magneto-acoustic modes, we seek solutions of the Fourier form
+\begin{equation}
+\bv(\mathbf{x},t)=(\hat{v}_x(x)\textrm{e}^{i(kz-\omega{t})}, 0, \hat{v}_z(x)\textrm{e}^{i(kz-\omega{t})}),
+\label{vcomponents}
+\end{equation}
+This restricts the investigation to magneto-acoustic waves propagating parallel to the equilibrium magnetic field, with velocity perturbation amplitude $\hat{v}_x(x)$ in the $x$-direction, and $\hat{v}_z(x)$ in the $z$-direction. With this ansatz, Equation~\eqref{mom y} degenerates and Equations~\eqref{mom x} and~\eqref{mom z} become
+\begin{align}
+&-\omega^2\hat{v}_x = (c_j^2+v_\textrm{Aj}^2)(\hat{v}_x'' + ik\hat{v}_z') - v_\textrm{Aj}^2ik\hat{v}_z'-v_\textrm{Aj}^2k^2\hat{v}_x, \label{mom x 2} \\
+&-\omega^2\hat{v}_z = c_j^2ik(\hat{v}_x' + ik\hat{v}_z). \label{mom z 2}
+\end{align}
+These equations can be combined to give an ordinary differential equation for $\hat{v}_x$, namely
+\begin{equation}
+\hat{v}_x'' - m_j^2\hat{v}_x = 0, \quad \text{where} \quad
+m_j^2 = \frac{(k^2v_\textrm{Aj}^2 - \omega^2)(k^2c_j^2 - \omega^2)}{(c_j^2 + v_\textrm{Aj}^2)(k^2c_\textrm{Tj}^2 - \omega^2)}. \label{v_x ODE}
+\end{equation}
+This is identical to the corresponding equation governing, for example, a tangential interface or a symmetric slab, derived in Sections~\ref{sec: MHD waves interface} and~\ref{sec: MHD waves sym slab} by \cite{rob81a} and \cite{edw_etal82}.
+
+Solutions of Equations~\eqref{v_x ODE} are a linear combination of hyperbolic functions. We restrict our model to waves trapped by the slab by imposing the boundary condition $\hat{v}_x \to 0$ as $|x| \to \infty$. Thus, the general solution for the velocity perturbation in the $x$-direction is
+\begin{equation}
+\hat{v}_x(x)=
+\begin{cases}
+A(\cosh{m_1x} + \sinh{m_1x}), & \text{if } x < -x_0, \\
+B\cosh{m_0x} + C\sinh{m_0x}, & \text{if } |x| \leq {x_0}, \\
+D(\cosh{m_2x} - \sinh{m_2x}), & \text{if  } x > x_0, 
+\end{cases} \label{vsoln}
+\end{equation}
+where $A$, $B$, $C$, and $D$ are arbitrary constants (with respect to $x$). The remaining boundary conditions are continuity of velocity and total pressure across the slab boundaries at $x = \pm{x_0}$.
+
+With the aim of finding an expression for the total pressure perturbation, the Equations~\eqref{cont eqn lin} and~\eqref{energy eqn lin} can be combined to give
+\begin{equation}
+	\frac{\partial p}{\partial t} = - \rho_jc_i^2\nabla\cdot\bv.
+\end{equation}
+Using the above equation and the $z$-component of Equation~\eqref{ind eqn lin}, the perturbation in total pressure (plasma pressure, $p$, plus magnetic pressure, $B_jB_z/\mu$) across the whole domain has amplitude
+\begin{equation}
+\hat{p}_T(x) = \frac{\Lambda_j}{m_j}\hat{v}_x'(x), \label{tot p}
+\end{equation}
+where
+\begin{equation}
+\Lambda_j = \frac{i\rho_j(\omega^2 - \omega_{Aj}^2)}{m_j\omega}, \quad \text{for} \quad j = 0, 1, 2. \label{Lambdas}
+\end{equation}
+Ensuring continuity of velocity and total pressure across the slab boundaries gives four coupled algebraic equations, namely
+\begin{equation}
+\left(
+\begin{matrix}
+c_1-s_1             &-c_0           &s_0            &0                   \\
+0                   &c_0            &s_0            &s_2-c_2             \\
+\Lambda_1(c_1-s_1)  &\Lambda_0s_0   &-\Lambda_0c_0  &0                   \\
+0                   &\Lambda_0s_0   &\Lambda_0c_0   &-\Lambda_2(s_2-c_2)
+\end{matrix}
+\right)
+\left(
+\begin{matrix}
+A \\
+B \\
+C \\
+D
+\end{matrix}
+\right)
+=
+\left(
+\begin{matrix}
+0 \\
+0 \\
+0 \\
+0
+\end{matrix}
+\right),
+\label{coefmatrix}
+\end{equation}
+where $c_j = \cosh{m_jx_0}$ and $s_j = \sinh{m_jx_0}$ for $j=0,1,2$, for brevity. The condition for the existence of non-trivial solutions to this system of equations is that the determinant of the matrix is zero. Applying this condition gives us the dispersion relation for an asymmetric slab, namely
+\begin{equation}
+(\Lambda_0^2 + \Lambda_1\Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)\coth{2m_0x_0} = 0. \label{DR lambda}
+\end{equation}
+By expanding each $\Lambda_j$, we can write this dispersion relation in familiar variables as
+\begin{align}
+&m_0^2(\omega^2 - \omega_{A1}^2)(\omega^2 - \omega_{A2}^2) + \frac{\rho_0}{\rho_1}m_1\frac{\rho_0}{\rho_2}m_2(\omega^2 - \omega_{A0}^2)^2 \notag \\
+& + m_0(\omega^2 - \omega_{A0}^2)\left[\frac{\rho_0}{\rho_1}m_1(\omega^2 - \omega_{A2}^2) + \frac{\rho_0}{\rho_2}m_2(\omega^2 - \omega_{A1}^2)\right]\coth{2m_0x_0} = 0. \label{DR}
+\end{align}
+
+
+\subsubsection{First-order asymmetric slab}
+
+There is a key qualitative difference between waves propagating along symmetric and asymmetric magnetic slabs. The dispersion relation governing an asymmetric slab is a single equation, whereas the dispersion relation governing a symmetric slab \citep{rob81a} consists of two independent equations, corresponding to the sausage and kink eigenmodes. This corresponds to mixed properties of the asymmetric eigenmodes.
+
+Under the approximation that the densities and temperatures of the external plasma are of the same order, the dispersion relation, Equation~\eqref{DR}, can be factorised to give the approximate dispersion relation
+\begin{equation}
+\left[\Lambda_0(\Lambda_1+\Lambda_2)+2\Lambda_1\Lambda_2\tanh{m_0x_0}\right]\left[\Lambda_0(\Lambda_1+\Lambda_2)+2\Lambda_1\Lambda_2\coth{m_0x_0}\right]=0. \label{DR approx lambda}
+\end{equation}
+To show this, define each bracket as the functions
+\begin{align}
+D_s(\omega) &:= \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh{m_0x_0}, \\
+D_k(\omega) &:= \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth{m_0x_0}.
+\end{align}
+Their product is
+\begin{align}
+D_s(\omega)D_k(\omega) = & \left[ \Lambda_0(\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\tanh{m_0x_0} \right] \notag \\
+& \left[ \Lambda_0 (\Lambda_1 + \Lambda_2) + 2\Lambda_1\Lambda_2\coth{m_0x_0} \right] \notag \\
+=& \Lambda_0^2 (\Lambda_1 + \Lambda_2)^2 + 2\Lambda_0(\Lambda_1 + \Lambda_2)\Lambda_1\Lambda_2(\tanh{m_0x_0} + \coth{m_0x_0}) \notag \\
+& + 4\Lambda_1^2\Lambda_2^2 \notag \\
+=& 4\Lambda_1\Lambda_2 \left[ (\Lambda_0^2F + \Lambda_1\Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)\coth(2m_0x_0) \right],
+\end{align}
+where
+\begin{equation}
+F = \frac{(\Lambda_1 + \Lambda_2)^2}{4\Lambda_1\Lambda_2}.
+\end{equation}
+When the plasma parameters on each side of the slab are approximately equal, \textit{i.e.} $\Lambda_2 = \Lambda_1 (1 + \epsilon L)$, with $\epsilon \ll 1$ and $L \approx 1$, $F$ becomes
+\begin{equation}
+F = \frac{(2 + \epsilon L)^2}{4(1 + \epsilon L)} = 1 + \mathcal{O}(\epsilon^2).
+\end{equation}
+Therefore, 
+\begin{equation}
+(\Lambda_0^2 + \Lambda_1\Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)\coth(2m_0x_0) = \frac{1}{4\Lambda_1\Lambda_2} D_s(\omega) D_k(\omega) + \mathcal{O}(\epsilon^2).
+\end{equation}
+Therefore, to linear order of waveguide asymmetry, if the dispersion relation, Equation~\eqref{DR lambda} is satisfied, then either $D_s(\omega) = 0$ or $D_k(\omega) = 0$, which completes the proof of Equation~\eqref{DR approx lambda}.
+
+The expressions for the variables $\Lambda_i$ for $i=0,1,2$ in Equations~\eqref{Lambdas} can be employed to yield the approximately symmetric dispersion relation
+\begin{equation}
+(\omega^2 - \omega_{A0}^2)\left(\frac{\rho_0}{\rho_1}\frac{m_1}{(\omega^2 - \omega_{A1}^2)} + \frac{\rho_0}{\rho_2}\frac{m_2}{(\omega^2 - \omega_{A2}^2)}\right) + 2m_0\left(\begin{matrix}\tanh \\ \coth \end{matrix}\right)(m_0x_0) = 0. \label{DR approx}
+\end{equation}
+This equation is now in a form similar to the dispersion relation corresponding to MHD waves along a symmetric magnetic slab,
+\begin{equation}
+\rho_im_e(\omega^2 - \omega_\textrm{Ai}^2) + \rho_em_i(\omega^2 - \omega_\textrm{Ae}^2)\left(\begin{matrix}\tanh \\ \coth \end{matrix}\right)(m_ix_0) = 0, \label{DRsym}
+\end{equation}
+where internal and external parameters are denoted by subscripts $i$ and $e$.
+
+
+\subsection{Asymmetric eigenmodes}
+There is a rich spectrum of MHD eigenmodes on an asymmetric magnetic slab. The key distinctions of these modes from the eigenmodes of a symmetric slab are discussed in this subsection. To aid the reader's understanding, we have created over a hundred three-dimensional animations of symmetric and asymmetric eigenmodes in a magnetic slab, available at \cite{all_etal18c}. The videos visualise the oscillations in the slab boundaries, magnetic field, density, and velocity field. The eigenmodes in visualised are:
+\begin{itemize}
+	\item Alfv\'{e}n modes:
+	\begin{itemize}
+		\item Oscillating on a single magnetic isosurface.
+		\item Oscillating on multiple magnetic isosurfaces.
+	\end{itemize}
+	\item Symmetric slab:
+	\begin{itemize}
+		\item Fast and slow, sausage and kink surface modes.
+		\item Fast and slow, 1st, 2nd, and 3rd order sausage and kink body modes.
+	\end{itemize}
+	\item Asymmetric slab:
+	\begin{itemize}
+		\item Fast and slow, sausage and kink surface modes.
+		\item Fast and slow, 1st, 2nd, and 3rd order sausage and kink body modes.
+	\end{itemize}
+\end{itemize}
+That is 33 different eigenmodes visualised with, each with 12 different camera angles and a corresponding dispersion diagram.
+
+The dispersion relation for a symmetric slab, Equation~\eqref{DRsym}, consists of two decoupled equations that correspond to the two types of eigenmodes supported by the slab: the \textit{sausage} and \textit{kink} MHD waves. In an asymmetric slab, the sausage and kink modes are modified by the external density difference, causing an asymmetry of the oscillation amplitude on each side of the slab (for visualisation see Figures~\ref{fig: saus} and~\ref{fig: kink}). We call these asymmetric \textit{quasi-sausage} and \textit{quasi-kink} eigenmodes. In a symmetric slab, sausage modes are characterised by an undisplaced slab axis in the centre of the slab. In an asymmetric slab, this undisplaced position is shifted towards the side of greatest external density for quasi-kink modes and towards the side of lowest external density for quasi-sausage modes. For symmetric kink modes, the width of the perturbed slab remains constant along the slab, but this characteristic is lost in an asymmetric slab. This highlights the mixed nature of these modes.
+
+Additionally, this shows that it is the phase of the boundary oscillations that is a more fundamental distinguishing characteristic of sausage and kink modes. For this reason, when we refer to \textit{quasi-sausage} and \textit{quasi-kink} modes of an asymmetric slab, we refer strictly to modes which oscillate the waveguide boundaries in \textit{anti-phase} and \textit{in-phase}, respectively.
+
+A key characteristic of kink modes of a symmetric waveguide (slab or tube) is that they are, to a first approximation, incompressible \citep{goo_etal09}. That is, the density perturbations are small compared to the perturbations in other parameters, such as velocity and magnetic field strength\footnote{Hence, transverse kink modes of symmetric waveguides are also described as \textit{Alfv\'{e}nic}.}. This is largely a result of the waveguide's cross-sectional width remaining constant throughout the oscillation. However, quasi-kink modes do not preserve the cross-sectional width. Therefore, they are, in general, compressible. The compressibility of a kink-like eigenmode is a similar result to \cite{ver_etal06a}, who showed that the kink mode of a curved slab waveguide does not preserve cross-sectional width and is therefore compressible.
+
+The differences between symmetric and asymmetric eigenmodes are summarised in Table~\ref{tab: eigenmode differences}.
+
+\begin{figure}
+	\makebox[\textwidth][c]{
+		\subfloat[Quasi-kink]{\scalebox{1}{
+				\begin{tikzpicture}[scale=0.86]
+				\draw [->] (0,0) -- (7,0);
+				
+				\shade[bottom color=lightgray,top color=white, opacity=0.7] (1.5,2) to [out=-90,in=90] (2.5,0.75) to (5.25,0.75) to [out=90,in=-90] (4.75,2) to (1.5,2);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.7] (2.5,0.75) to (5.25,0.75) to [out=-90,in=90] (4.75,-0.5) to (1.5,-0.5) to [out=90,in=-90] (2.5,0.75);
+				
+				\draw [thick] (1.5,2) to [out=-90,in=90] (2.5,0.75) to [out=-90,in=90] (1.5,-0.5);
+				\draw [thick] (4.75,2) to [out=-90,in=90] (5.25,0.75) to [out=-90,in=90] (4.75,-0.5);
+				
+				\draw [thick, red, -stealth] (2.0417,-0.5) to [out=90,in=-90] (2.9583, 0.75) to [out=90,in=-90] (2.0417,2);
+				\draw [thick, red, -stealth] (2.5833,-0.5) to [out=90,in=-90] (3.4167, 0.75) to [out=90,in=-90] (2.5833,2);
+				\draw [thick, red, -stealth] (3.125,-0.5) to [out=90,in=-90] (3.875, 0.75) to [out=90,in=-90] (3.125,2);
+				\draw [thick, red, -stealth] (3.6667,-0.5) to [out=90,in=-90] (4.3333, 0.75) to [out=90,in=-90] (3.6667,2);
+				\draw [thick, red, -stealth] (4.2083,-0.5) to [out=90,in=-90] (4.7917, 0.75) to [out=90,in=-90] (4.2083,2);
+				
+				\draw [thick, dashed, opacity=0.5] (2.5,2) to [out=-90,in=90] (1.5,0.75) to [out=-90,in=90] (2.5,-0.5);
+				\draw [thick, dashed, opacity=0.5] (5.25,2) to [out=-90,in=90] (4.75,0.75) to [out=-90,in=90] (5.25,-0.5);
+				
+				% % % % % % % % % % % % % % % % % % % % % % % % % %
+				
+				\draw [->] (0,0) -- (0,2);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node at (3.65,0.8) {$\rho_0$};
+				
+				\footnotesize
+				\node [below] at (2,-0.5) {$-x_0$};
+				\node [below] at (5,-0.5) {$x_0$};
+				
+				\node [left] at (0,2) {$z$};
+				\node [below] at (7,0) {$x$};
+				\draw [-] (2,-0.5) -- (2,2);
+				\draw [-] (5,-0.5) -- (5,2);
+				\end{tikzpicture}
+				\label{fig: saus}}}
+		%
+		%
+		%
+		%
+		\subfloat[Quasi-sausage]{\scalebox{1}{
+				\begin{tikzpicture}[scale=0.86]
+				\draw [->] (0,0) -- (7,0);
+				
+				\shade[bottom color=lightgray,top color=white, opacity=0.7] (1.75,2) to [out=-90,in=90] (2.25,0.75) to (4.5,0.75) to [out=90,in=-90] (5.5,2) to (1.75,2);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.7] (2.25,0.75) to (4.5,0.75) to [out=-90,in=90] (5.5,-0.5) to (1.75,-0.5) to [out=90,in=-90] (2.25,0.75);
+				
+				\draw [thick] (1.75,2) to [out=-90,in=90] (2.25,0.75) to [out=-90,in=90] (1.75,-0.5);
+				\draw [thick, dashed, opacity=0.5] (4.5,2) to [out=-90,in=90] (5.5,0.75) to [out=-90,in=90] (4.5,-0.5);
+				
+				\draw [thick, red, -stealth] (2.375,-0.5) to [out=90,in=-90] (2.625, 0.75) to [out=90,in=-90] (2.375,2);
+				\draw [thick, red, -stealth] (3,-0.5) to [out=90,in=-90] (3, 0.75) to [out=90,in=-90] (3,2);
+				\draw [thick, red, -stealth] (3.625,-0.5) to [out=90,in=-90] (3.375, 0.75) to [out=90,in=-90] (3.625,2);
+				\draw [thick, red, -stealth] (4.25,-0.5) to [out=90,in=-90] (3.75, 0.75) to [out=90,in=-90] (4.25,2);
+				\draw [thick, red, -stealth] (4.875,-0.5) to [out=90,in=-90] (4.125, 0.75) to [out=90,in=-90] (4.875,2);
+				
+				\draw [thick, dashed, opacity=0.5] (2.25,2) to [out=-90,in=90] (1.75,0.75) to [out=-90,in=90] (2.25,-0.5);
+				\draw [thick] (5.5,2) to [out=-90,in=90] (4.5,0.75) to [out=-90,in=90] (5.5,-0.5);
+				
+				% % % % % % % % % % % % % % % % % % % % % % % % % %
+				
+				\draw [->] (0,0) -- (0,2);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node [right] at (2.86,1.3) {$\rho_0$};
+				
+				\footnotesize
+				\node [below] at (2,-0.5) {$-x_0$};
+				\node [below] at (5,-0.5) {$x_0$};
+				
+				\node [left] at (0,2) {$z$};
+				\node [below] at (7,0) {$x$};
+				\draw [-] (2,-0.5) -- (2,2);
+				\draw [-] (5,-0.5) -- (5,2);
+				\end{tikzpicture}
+				\label{fig: kink}}}}
+	\caption{Quasi-kink and quasi-sausage modes with external density ordering $\rho_1>\rho_2$. The red arrows illustrate the perturbed magnetic field, the thick solid black lines illustrate the perturbed slab boundaries, and the dashed lines illustrate the future position of the slab boundaries after half a period.}
+\end{figure}
+
+Sausage and kink modes are further categorised into \textit{surface} and \textit{body} modes. Surface modes are waves more enhanced at the slab boundaries, whereas body waves are characterised by oscillations permeating spatially throughout the slab, having their maximum amplitude within the slab. Mathematically, surface waves correspond to exponential solutions of Equation~\eqref{vsoln} within the slab. This occurs when $m_0^2 > 0$, which occurs when the phase speed, $\omega/k$, satisfies
+\begin{equation}
+\frac{\omega}{k}<c_\textrm{T} \quad \text{or} \quad \text{min}\{c_0, v_\textrm{A}\}<\frac{\omega}{k}<\text{max}\{c_0, v_\textrm{A}\}.
+\end{equation}
+Body waves correspond to trigonometric solutions of Equation~\eqref{vsoln} within the slab. Most notably, this means that there can be any number of nodes within the slab where the plasma is unperturbed, so that there exist an infinite set of body eigenmodes. They exist when $m_0^2 < 0$, which occurs when
+\begin{equation}
+c_\textrm{T}<\frac{\omega}{k}<\text{min}\{c_0, v_\textrm{A}\} \quad \text{or} \quad \text{max}\{c_0, v_\textrm{A}\}<\frac{\omega}{k}. \label{bconditions}
+\end{equation}
+
+For a surface mode (Figures~\ref{fig: surf quasi-kink} and~\ref{fig: surf quasi-saus}), the wave power distribution across the slab has a single minimum. The displacement of this minimum from the centre of the slab is a consequence of the asymmetry in the external plasma. The intensity of the maximum amplitudes on the left and right boundaries of the slab is different, reflecting the asymmetry in the external plasma.
+
+Body modes are also affected by the asymmetric external environment (Figures~\ref{fig: body quasi-kink} and~\ref{fig: body quasi-saus}). Local maxima and minima in wave power are shifted towards the external plasma of higher density for a quasi-kink body mode and towards the external plasma of lower density for a quasi-sausage mode. However, this is a much weaker effect than for surface modes because the eigenfrequencies of body waves do not depend strongly on the parameters of the external plasma, and therefore they do not depend strongly on the asymmetry of the waveguide, as shown in Sections~\ref{sec: analytical solutions} and~\ref{sec: numerical solutions}. The same can be said for the eigenfunctions of body modes. These results agree with the intuition that because the majority of the wave power is confined to within the slab, rather than its boundaries, the body modes don't \textit{feel} the external plasma as much as surface waves do.
+
+
+\begin{sidewaystable}
+	\centering
+	\begin{tabular}{cccccc}
+		\toprule
+		\multirow{2}{*}{Mode type} & Boundary & Constant & Axis & Unperturbed & Approximately \\
+		 & oscillations & width & displacement & position & incompressible \\
+		\midrule
+		Symmetric sausage & Anti-phase & No & No & Centre & No \\
+		Quasi-sausage & Anti-phase & No & Yes & Shifted & No \\
+		Symmetric kink & In-phase & Yes & Yes & - & Yes \\
+		Quasi-kink & In-phase & No	& Yes & - & No \\
+		\bottomrule
+	\end{tabular}
+	\caption{The qualitative differences between symmetric and asymmetric surface modes.}
+	\label{tab: eigenmode differences}
+\end{sidewaystable}
+
+
+\newcommand{\scale}{0.88}
+\begin{figure}
+	\makebox[\textwidth][c]{
+		\subfloat[Quasi-kink surface mode]{\scalebox{1}{
+				\begin{tikzpicture}[scale=\scale]
+				\path [fill=lightgray, opacity=0.5] (2,-1.5) -- (2,1.5) -- (5,1.5) -- (5,-1.5) -- (2,-1.5);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.5] (2,-2) to (5,-2) to (5,-1.5) to (2,-1.5) to (2,-2);
+				
+				\shade[top color=white,bottom color=lightgray, opacity=0.5] (2,2) to (5,2) to (5,1.5) to (2,1.5) to (2,2);
+				
+				\draw [-] (2,-2) -- (2,2);
+				\draw [-] (5,-2) -- (5,2);
+				
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (2.5,-1.5) -- (2.5,2);
+%				\draw [ultra thick, red, path fading=south, opacity=0.5] (2.5,-2) -- (2.5,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (3,-1.5) -- (3,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (3,-2) -- (3,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (3.5,-1.5) -- (3.5,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (3.5,-2) -- (3.5,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (4,-1.5) -- (4,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (4,-2) -- (4,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (4.5,-1.5) -- (4.5,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (4.5,-2) -- (4.5,-1.5);
+				
+				\draw [thick] (0,0.2) to [out=10, in=245] (2, 1.5) to [out=295, in=180] (4,0.1) to [out=0, in=230] (5,0.5) to [out=300, in=178] (6.2,0.04) to [out=358, in=180] (7,0.02);
+				
+				\draw [->] (0,0) -- (0,2);
+				\draw [->] (0,0) -- (7,0);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node [right] at (2.88,1.3) {$\rho_0$};
+				
+				\footnotesize
+				\node [below left] at (2.1,0) {$-x_0$};
+				\node [below left] at (5.1,0) {$x_0$};
+				
+				\node [left] at (0,2) {$\widehat{v}_x$};
+				\node [below] at (7,0) {$x$};
+				\end{tikzpicture}
+				\label{fig: surf quasi-kink}}}
+		%
+		%
+		%
+		%
+		\subfloat[Quasi-sausage surface mode]{\scalebox{1}{
+				\begin{tikzpicture}[scale=\scale]
+				\path [fill=lightgray, opacity=0.5] (2,-1.5) -- (2,1.5) -- (5,1.5) -- (5,-1.5) -- (2,-1.5);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.5] (2,-2) to (5,-2) to (5,-1.5) to (2,-1.5) to (2,-2);
+				
+				\shade[top color=white,bottom color=lightgray, opacity=0.5] (2,2) to (5,2) to (5,1.5) to (2,1.5) to (2,2);
+				
+				\draw [-] (2,-2) -- (2,2);
+				\draw [-] (5,-2) -- (5,2);
+				
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (2.5,-1.5) -- (2.5,2);
+%				\draw [ultra thick, red, path fading=south, opacity=0.5] (2.5,-2) -- (2.5,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (3,-1.5) -- (3,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (3,-2) -- (3,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (3.5,-1.5) -- (3.5,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (3.5,-2) -- (3.5,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (4,-1.5) -- (4,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (4,-2) -- (4,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (4.5,-1.5) -- (4.5,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (4.5,-2) -- (4.5,-1.5);
+				
+				\draw [thick] (0,0.025) to [out=0, in=-178] (1.2, 0.05) to [out=2, in=-120] (2,0.5) to [out=-50, in=165] (3,0) to [out=-15, in=115] (5,-1.5) to [out=65, in=-170] (7,-0.2);
+				\draw [->] (0,0) -- (0,2);
+				\draw [->] (0,0) -- (7,0);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node [right] at (2.88,1.3) {$\rho_0$};
+				
+				\footnotesize
+				\node [below left] at (2.1,0) {$-x_0$};
+				\node [below left] at (5.1,0) {$x_0$};
+				
+				\node [left] at (0,2) {$\widehat{v}_x$};
+				\node [below] at (7,0) {$x$};
+				\end{tikzpicture}
+				\label{fig: surf quasi-saus}}}}
+	%
+	%
+	\\
+	%
+	%
+	\makebox[\textwidth][c]{
+		\subfloat[Quasi-kink body mode]{\scalebox{1}{
+				\begin{tikzpicture}[scale=\scale]
+				\path [fill=lightgray, opacity=0.5] (2,-1.5) -- (2,1.5) -- (5,1.5) -- (5,-1.5) -- (2,-1.5);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.5] (2,-2) to (5,-2) to (5,-1.5) to (2,-1.5) to (2,-2);
+				
+				\shade[top color=white,bottom color=lightgray, opacity=0.5] (2,2) to (5,2) to (5,1.5) to (2,1.5) to (2,2);
+				
+				\draw [-] (2,-2) -- (2,2);
+				\draw [-] (5,-2) -- (5,2);
+				
+				\draw [thick] (7,0.025) to [out=180, in=358] (5.5, 0.05) to [out=178, in=300] (5,0.25);
+				
+				
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (2.5,-1.5) -- (2.5,2);
+%				\draw [ultra thick, red, path fading=south, opacity=0.5] (2.5,-2) -- (2.5,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (3,-1.5) -- (3,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (3,-2) -- (3,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (3.5,-1.5) -- (3.5,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (3.5,-2) -- (3.5,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (4,-1.5) -- (4,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (4,-2) -- (4,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (4.5,-1.5) -- (4.5,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (4.5,-2) -- (4.5,-1.5);
+				
+				\draw [thick, smooth, samples=100, domain=2:5] plot (\x,{1.6*cos(2.7*(\x+0.18) r)});
+				
+				\draw [thick] (0,0.2) to [out=10, in=245] (2, 1.5);
+				
+				\draw [->] (0,0) -- (0,2);
+				\draw [->] (0,0) -- (7,0);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node [right] at (2.88,1.3) {$\rho_0$};
+				
+				\footnotesize
+				\node [below left] at (2.1,0) {$-x_0$};
+				\node [below left] at (5.1,0) {$x_0$};
+				
+				\node [left] at (0,2) {$\widehat{v}_x$};
+				\node [below] at (7,0) {$x$};
+				\end{tikzpicture}
+				\label{fig: body quasi-kink}}}
+		%
+		%
+		%
+		%
+		\subfloat[Quasi-sausage body mode]{\scalebox{1}{
+				\begin{tikzpicture}[scale=\scale]
+				\path [fill=lightgray, opacity=0.5] (2,-1.5) -- (2,1.5) -- (5,1.5) -- (5,-1.5) -- (2,-1.5);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.5] (2,-2) to (5,-2) to (5,-1.5) to (2,-1.5) to (2,-2);
+				
+				\shade[top color=white,bottom color=lightgray, opacity=0.5] (2,2) to (5,2) to (5,1.5) to (2,1.5) to (2,2);
+				
+				\draw [-] (2,-2) -- (2,2);
+				\draw [-] (5,-2) -- (5,2);
+				
+				\draw [thick] (0,0.025) to [out=0, in=-178] (1.5, 0.05) to [out=2, in=-120] (2,0.25);
+				
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (2.5,-1.5) -- (2.5,2);
+%				\draw [ultra thick, red, path fading=south, opacity=0.5] (2.5,-2) -- (2.5,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (3,-1.5) -- (3,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (3,-2) -- (3,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (3.5,-1.5) -- (3.5,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (3.5,-2) -- (3.5,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (4,-1.5) -- (4,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (4,-2) -- (4,-1.5);
+%				\draw [ultra thick, red, -stealth,opacity=0.7] (4.5,-1.5) -- (4.5,2);
+%				\draw [ultra thick, red, path fading=south,opacity=0.5] (4.5,-2) -- (4.5,-1.5);
+				
+				%\draw [thick] (2,0.5) to [out=-50, in=180] (2.3,0.25) to [out=0, in=180] (3.2,1) to [out=0, in=180] (4.1,0.1) to [out=-0, in=-120] (5,1.5);
+				
+				\draw [thick, smooth, samples=100, domain=2:5] plot (\x,{1.6*cos(3.75*(\x-0.705) r)});
+				
+				\draw [thick] (5,-1.5) to [out=65, in=-170] (7,-0.2);
+				
+				\draw [->] (0,0) -- (0,2);
+				\draw [->] (0,0) -- (7,0);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node [right] at (2.88,1.3) {$\rho_0$};
+				
+				\footnotesize
+				\node [below left] at (2.1,0) {$-x_0$};
+				\node [below left] at (5.1,0) {$x_0$};
+				
+				\node [left] at (0,2) {$\widehat{v}_x$};
+				\node [below] at (7,0) {$x$};
+				\end{tikzpicture}
+				\label{fig: body quasi-saus}}}}
+	\caption{The transverse velocity perturbation amplitude, $\widehat{v}_x$ as a function of the transverse spatial coordinate, $x$, for quasi-sausage and quasi-kink modes in an isolated magnetic slab with external density ordering $\rho_1 > \rho_2$. The vertical black lines illustrate the boundaries (at $\pm x_0$) of the slab (shaded region).}
+\end{figure}
+
+
+%------------------------------------------------------------------------------
+\section{Asymmetric slab in a non-magnetic environment}
+\label{sec: EVP non-mag}
+%------------------------------------------------------------------------------
+
+Much of the interesting physics due to waveguide asymmetry is exhibited by a magnetic slab with non-magnetic external plasma.
+
+By letting $B_1 = B_2 = 0$, the plasma in the asymmetric external regions is non-magnetic. Then the dispersion relation, Equation~\eqref{DR}, simplifies to
+\begin{align}
+&m_0^2\omega^4 + \frac{\rho_0}{\rho_1}m_1\frac{\rho_0}{\rho_2}m_2(\omega^2 - \omega_\textrm{A0}^2)^2 \notag \\
+&+ m_0\omega^2(\omega^2 - \omega_{A0}^2)\left(\frac{\rho_0}{\rho_1}m_1 + \frac{\rho_0}{\rho_2}m_2\right)\coth{2m_0x_0} = 0, \label{DR non-mag}
+\end{align}
+and the dispersion relation for a slab with first order asymmetry simplifies to
+\begin{equation}
+(\omega^2 - \omega_\textrm{A0}^2)\left(\frac{\rho_0}{\rho_1}m_1 + \frac{\rho_0}{\rho_2}m_2\right)  +  2\omega^2m_0\left(\begin{matrix}\tanh \\ \coth \end{matrix}\right)(m_0x_0) = 0. \label{DR approx non-mag}
+\end{equation}
+
+
+\subsection{Analytical solutions} \label{sec: analytical solutions}
+Analytical solutions to the dispersion relation can only be made under further assumptions about the plasma. In this section, incompressible (Section~\ref{sec: incomp}), zero-beta (Section~\ref{sec: zero-beta}), thin slab (Section~\ref{sec: thin slab}), and wide slab (Section~\ref{sec: wide slab}) approximations are explored. First, we deal with spurious solutions in Section~\ref{sec: spurious}.
+
+\subsubsection{Spurious solutions} \label{sec: spurious}
+There are three sets of spurious roots to the dispersion relation given by $\omega = \pm kv_{A0}$, $\omega = \pm kc_0$, and $\omega = \pm kc_{T0}$. To treat these cases we refer back to the ODE for $\hat{v}_x(x)$ within the slab, Equation~\eqref{v_x ODE}.
+
+When $\omega = \pm kc_{T0}$, $m_0$ is singular, in which case the solution to Equation~\eqref{v_x ODE} is $\hat{v}_x(x) = 0$ within the slab. From Equation\eqref{mom z 2}, it follows that $\hat{v}_z \propto \hat{v}_x'$, we therefore also have $\hat{v}_z(x) = 0$. Given that we are assuming ideal plasma so that the magnetic flux is frozen to the plasma, this means that there is no magnetic field perturbation either. Therefore, $\omega = \pm kc_{T0}$ is a spurious solution.
+
+When $\omega = \pm kc_0$, we have $m_0 = 0$, therefore Equation~\eqref{v_x ODE} has general solution $\hat{v}_x(x) = Bx + C$ for constants $B$ and $C$. Equation~\eqref{mom z 2} further shows that  $\hat{v}_x' = 0$. Therefore, $B = 0$ and $\hat{v}_x(x) = C$. The $z$-component of Equation~\eqref{ind eqn lin} tells us that $\hat{b}_z \propto \hat{v}_x'$ and so $\hat{b}_z = 0$, therefore the magnetic pressure perturbation is zero. It can be shown that the plasma pressure is
+\begin{equation}
+\hat{p}(x) = - \frac{i\rho_0c_0^2}{\omega}\left[\frac{Cx(k^2v_A^2 - \omega^2)}{c_0^2} + C_2\right],
+\end{equation}
+within the slab, for constant $C_2$. To make pressure balance over each interface we must have $C=0$. This means that $v_x(x)=0$ within the slab and therefore across the whole domain. Therefore the pressure outside the slab is zero (since it is proportional to $\hat{v}_x' = 0$) , and by matching pressure, it is zero within the slab. Therefore this solution is a trivial wave.
+
+On the other hand, when $\omega = kv_A$, the total pressure amplitude, $\hat{P}(x)$, is such that
+\begin{equation}
+\widehat{P}(x)=\widehat{v}_x'(x)
+\begin{cases}
+\Lambda_1/m_1, & \text{if } x<-x_0, \\
+\Lambda_0/m_0, & \text{if }|x|\leq{}x_0, \\
+\Lambda_2/m_2, & \text{if }x>x_0,
+\end{cases}
+\end{equation}
+where
+\begin{equation}
+\Lambda_0=-\frac{i\rho_0(k^2v_\textrm{A}^2-\omega^2)}{m_0\omega}, \quad \Lambda_1=\frac{i\rho_1\omega}{m_1}, \quad \text{and} \quad \Lambda_2=\frac{i\rho_2\omega}{m_2}. \label{Lambdas}
+\end{equation}
+(the derivation for this still holds). Note that the singularity due to the division by $m_0^2$ is regulated by the factor of $k^2v_A^2 - \omega^2$ in $\Lambda_0$. Therefore, since $\hat{v}_x' = B$ is constant in the slab, then so is $\hat{P}$. When we match the total pressure over the boundaries we find that the slab must be symmetric. Therefore $B=0$ to ensure that the velocity profile is symmetric. Therefore $\hat{v}_x' = B = 0$, so there is no pressure perturbation. In particular, there is no pressure perturbation outside the slab, which implies that there is no velocity perturbation outside the slab, because they both depend on the same constants. Therefore by continuity of velocity and the fact that it is constant within the slab, the velocity perturbation is zero everywhere. Therefore there is no wave.
+
+
+\subsubsection{Limiting case - incompressible plasma} \label{sec: incomp}
+
+Compressibility is essential for the propagation of sound waves. Consider the dispersion relation, Equation~\eqref{DR non-mag}, in the limit of incompressibility, that is, when $\gamma \to \infty$. In this limit, the sound speeds become unbounded and the tube speed in the slab behaves like $c_{T0} \to {v_{A0}}$. This means that $m_j \to {k}$ for $j = 0, 1, 2$, so that the dispersion relation reduces to
+\begin{equation}
+\omega^4 + \frac{\rho_0^2}{\rho_1\rho_2}(\omega^2 - \omega_{A0}^2)^2 + \omega^2(\omega^2 - \omega_{A0}^2)\left(\frac{\rho_0}{\rho_1} + \frac{\rho_0}{\rho_2}\right) \coth{2kx_0} = 0. \label{DR incomp}
+\end{equation}
+This is a special case of a dispersion relation previously derived by \cite{rud92}, who found solitons propagating on a system of $N$ tangential discontinuities. Equation~\eqref{DR incomp} is a quadratic equation in $\omega^2$ which has solutions
+\begin{equation}
+\omega^2 = k^2v_{A0}^2\left[\frac{2 + \sigma \pm \sqrt{\sigma^2 - 4\frac{\rho_1\rho_2}{\rho_0^2}}}{2\left(1 + \sigma + \frac{\rho_1\rho_2}{\rho_0^2}\right)}\right],
+\end{equation}
+where
+\begin{equation}
+\sigma = \left(\frac{\rho_1}{\rho_0} + \frac{\rho_2}{\rho_0}\right)\coth{2kx_0}.
+\end{equation}
+These solutions hold for all $kx_0 > 0$ and describe surface modes with sub-Alfv\'enic phase speed. The solution found by the plus (minus) on the numerator is the sausage (kink) eigenfrequency. Since $\coth{\theta} > 1$ for all positive $\theta$, and therefore $\sigma^2 - 4\rho_1\rho_2/\rho_0^2 > 0$, these eigenfrequencies are real, as we would expect from spectral theory.
+
+Figures~\ref{fig: incomp22}-\ref{fig: incomp10001} illustrate that in a thin ($kx_0 \ll 1$) incompressible slab, the phase speeds of these modes approach zero or the Alfv\'{e}n speed. In a symmetric wide incompressible slab, the phase speeds converge to the same speed (Figure~\ref{fig: incomp22}), whereas in an asymmetric slab, the phase speeds converge to different speeds (Figures~\ref{fig: incomp102}-\ref{fig: incomp10001}) that depend upon the values of the external densities. This observation is mirrored by both fast and slow surface modes in the more general solutions of a compressible slab solved numerically to give Figure~\ref{fig: slow modes density}.
+
+\begin{figure}
+	\centering
+	\subfloat[$\rho_1/\rho_0=2$, $\rho_2/\rho_0=2$]{\includegraphics[width=0.5\textwidth]{\figdirII Incomp_2_2.pdf}
+		\label{fig: incomp22}}
+	\subfloat[$\rho_1/\rho_0=10$, $\rho_2/\rho_0=2$]{\includegraphics[width=0.5\textwidth]{\figdirII Incomp_10_2.pdf}
+		\label{fig: incomp102}} \\
+	\subfloat[$\rho_1/\rho_0=10$, $\rho_2/\rho_0=0.1$]{\includegraphics[width=0.5\textwidth]{\figdirII Incomp_10_01.pdf}
+		\label{fig: incomp1001}}
+	\subfloat[$\rho_1/\rho_0=100$, $\rho_2/\rho_0=0.1$]{\includegraphics[width=0.5\textwidth]{\figdirII Incomp_100_01.pdf}
+		\label{fig: incomp10001}}
+	\caption{The behaviour of the modes in an incompressible slab. The fast surface modes and all the body modes degenerate leaving two sub-Alfv\'{e}nic surface modes. (a) A symmetric slab, (b)-(d) asymmetric slabs.}
+\end{figure}
+
+One might ask whether the notion of incompressible asymmetric modes is coherent given that the cross-sectional width variation appears to be associated with density perturbation. It is true that incompressible quasi-sausage and quasi-kink modes do not preserve cross-sectional width, however, they do this in a way that does not perturb density. This is achieved by virtue of a significant longitudinal velocity component. The longitudinal velocity allows plasma to flow from sections of the waveguide that have been narrowed by the wave to widened sections.
+
+
+\subsubsection{Limiting case - low-beta} \label{sec: zero-beta}
+
+The case when the magnetic pressure strongly dominates the gas pressure within the slab, \textit{i.e.} $\beta := 2\mu_0{p_0}/B_0^2 \ll 1$, is known as the \textit{low-beta approximation}. This approximation is equivalent to the Alfv\'{e}n speed dominating the sound speed in the slab and provides a good approximation of the solar coronal environment. In this section, the results are to quadratic order in $\beta$.
+
+Under this speed ordering, $m_0^2\approx{}k^2-\omega^2/v_\textrm{A}^2$. After a numerical investigation, it is clear that the frequency of waves in this approximation satisfies $\omega^2\ll{}k^2v_\textrm{A}^2$, in which case $m_0^2\approx k^2$ provides a valid approximation. This means that $m_0^2>0$ and the solutions are surface modes. For a symmetric slab of low-beta plasma (\textit{e.g.} \citealt{rob81b}), the dispersion relation reduces to a quadratic expression in $\omega^2$ whose solutions are the fast sausage and kink surface modes given by
+\begin{equation}
+\omega^2=k^2c_\textrm{e}^2\left(\frac{\sqrt{1+\gamma^2\left(\hspace{-0.11in}\begin{matrix}&\tanh^2 \\&\coth^2 \end{matrix}\right)(kx_0)}-1}{\frac{1}{2}\gamma^2\left(\hspace{-0.11in}\begin{matrix}&\tanh^2 \\&\coth^2 \end{matrix}\right)(kx_0)}\right),
+\end{equation}
+where $c_\textrm{e}$ is the external sound speed, along with a spurious solution.
+
+Unfortunately, for the more general case of an asymmetric slab of low-beta plasma, the dispersion relation does not reduce to an analytically solvable equation. However, we find numerically that there are two fast surface modes. The quasi-sausage surface mode is not present for small $kx_0$, but becomes a solution at an intermediate value of $kx_0$ with phase speed $\omega^2/k^2=\min{(c_1^2,c_2^2)}$. The quasi-kink surface mode is present for all values of $kx_0$. Qualitatively, the solutions for a low-beta plasma are analogous to the fast quasi-sausage and quasi-kink mode solutions, discussed later in Sections~\ref{sec: thin} and~\ref{sec: wide}.
+
+
+\subsubsection{Limiting case - thin slab} \label{sec: thin slab}
+
+Consider the case where the wavelength, $\lambda$, is much greater than the width of the slab, $2x_0$, \textit{i.e} $2x_0/\lambda = kx_0/\pi \ll 1$, or equivalently $kx_0 \ll 1$.
+
+First, consider the quasi-sausage surface modes, which are governed by the $\tanh$ version of Equation~\eqref{DR approx non-mag}, for $m_0^2 > 0$. In the thin slab limit, this equation reduces to
+\begin{equation}
+(\omega^2 - \omega_\textrm{A0}^2)\left(\frac{\rho_0}{\rho_1}m_1 + \frac{\rho_0}{\rho_2}m_2\right) -  2\omega^2m_0^2x_0 = 0. \label{thin}
+\end{equation}
+Clearly, $\omega^2={k^2v_\textrm{A}^2}$ is a solution, but as noted in Section~\ref{sec: spurious}, it is spurious. The other solution for $\omega^2$ behaves like $\omega^2 \to k^2c_\textrm{T0}^2$ as $kx_0 \to 0$. To first order in $kx_0$, this solution is a slow quasi-sausage surface mode given by
+\begin{equation}
+\omega^2 = k^2c_\textrm{T0}^2 \left[1 - \frac{2(kx_0)(c_0^2 - c_\textrm{T0}^2)}{(c_0^2 + v_\textrm{A0}^2)\left(\frac{\rho_0}{\rho_1}\frac{\sqrt{c_1^2 - c_\textrm{T0}^2}}{c_1} + \frac{\rho_0}{\rho_2}\frac{\sqrt{c_2^2 - c_\textrm{T}^2}}{c_2}\right)}\right],
+\label{thin slab slow saus surf}
+\end{equation}
+which is less than $k^2c_\textrm{T0}^2$ and exists only when $c_1 > c_\textrm{T0}$ and $c_2 > c_\textrm{T0}$. 
+
+It is interesting to note that if $c_1 = c_2 = c_\textrm{e}$ (and therefore $\rho_1 = \rho_2 = \rho_\textrm{e}$ by Equation~\eqref{sound and density}), then there exists a second solution to Equation~\eqref{thin}. By letting $\omega^2 = k^2c_\textrm{e}^2(1 + \nu)$ for some $\nu \ll 1$ in Equation~\eqref{thin}, we find the solution to be
+\begin{equation}
+\omega^2 = k^2c_\textrm{e}^2\left(1 - \left[\frac{\rho_\textrm{e}}{\rho_0}\frac{c_\textrm{e}^2(c_0^2 - c_\textrm{e}^2)(kx_0)}{(c_0^2 + v_\textrm{A0}^2)(c_\textrm{T0}^2 - c_\textrm{e}^2)}\right]^2\right)
+\label{thin slab fast saus surf}
+\end{equation}
+in the thin slab limit. This is a fast sausage surface mode, and it degenerates (as a solution in the thin slab limit) as $c_1$ and $c_2$ become distinct. This mode can still exist with a phase speed below the cut-off at $\min(c_1, c_2)$ (see Section~\ref{sec: disp diagrams}).
+
+Next, consider quasi-kink surface mode solutions in the thin slab limit, which are governed by the $\coth$ version of Equation~\eqref{DR approx non-mag}, for $m_0^2 > 0$. As $kx_0 \to 0$, we have $m_0x_0 \to 0$, so $\coth{m_0x_0} \to 1/m_0x_0$. This simplifies the dispersion relation to
+\begin{equation}
+\omega^2 = \frac{k^2x_0v_\textrm{A0}^2\left(\frac{\rho_0}{\rho_1}m_1 + \frac{\rho_0}{\rho_2}m_2\right)}{\left(\frac{\rho_0}{\rho_1}m_1x_0 + \frac{\rho_0}{\rho_2}m_2x_0\right) + 2} \approx \frac{1}{2}k^2v_\textrm{A0}^2\left(\frac{\rho_0}{\rho_1} + \frac{\rho_0}{\rho_2}\right)kx_0.
+\label{thin slab slow kink surf}
+\end{equation}
+This is a slow quasi-kink surface mode that behaves like $\omega/k \to 0$ in the thin slab limit.
+
+For body waves in the thin slab approximation, following the same procedure as for surface waves turns out to be fruitless, so we must reconsider our assumptions. Unfortunately, letting $m_0x_0 \to 0$ as $kx_0 \to 0$, whilst valid for surface modes, is not valid for body modes. Instead, we must consider the scenario where $m_0x_0$ remains finite as $kx_0 \to 0$. This can occur only if $|m_0^2| \to \infty$ as $kx_0 \to 0$.  To ensure that $|m_0^2| \to \infty$, we are restricted to solutions that behave like $\omega^2 \to k^2c_\textrm{T0}^2$ as $kx_0 \to 0$. Considering Equation~\eqref{DR approx non-mag}, this can only be the case when $m_0^2 < 0$, \textit{i.e.} only for body modes. To find these solutions, set $\omega^2 = k^2c_\textrm{T0}^2(1 + \nu(kx_0)^2)$ for some $\nu > 0$ that is to be determined. To see why this form has been chosen, a substitution into the definition of $m_0^2$ demonstrates that $|m_0^2| \to \infty$ and $m_0x_0$ remains bounded as $kx_0 \to 0$, as required. Using this ansatz, Equation~\eqref{DR approx} has a countably infinite set of quasi-sausage body solutions which, in the thin slab limit, behave like
+\begin{equation}
+\omega^2 = k^2c_\textrm{T0}^2\left[1 + \frac{c_\textrm{T0}^4(kx_0)^2}{c_0^2v_\textrm{A0}^2\pi^2j^2}\right], \quad \text{for} \quad j = 1, 2, \ldots. \label{thin slab saus body}
+\end{equation}
+There are also quasi-kink body solutions that, in the thin slab limit, behave like
+\begin{equation}
+\omega^2 = k^2c_\textrm{T0}^2\left[1 + \frac{c_\textrm{T0}^4(kx_0)^2}{c_0^2v_\textrm{A0}^2\pi^2(j - \frac{1}{2})^2}\right], \quad \text{for} \quad j = 1, 2, \ldots. \label{thin slab kink body}
+\end{equation}
+Equations~\eqref{thin slab saus body} and \eqref{thin slab kink body} show us that to quadratic order in $kx_0$ the quasi-sausage and quasi-kink body modes do not depend on the external environment parameters. The effects of external density and temperature are felt in the higher order terms, which explains why Equations~\eqref{thin slab saus body} and~\eqref{thin slab saus body} are identical to the corresponding solutions in a thin symmetric slab derived by \citealt{rob81b}. This also explains theoretically why body modes only weakly depend on the asymmetry of the external plasma, as discussed in the context of solar atmospheric magnetic field diagnostics in Chapter~\ref{chap: SMS}.
+
+
+\subsubsection{Limiting case - wide slab} \label{sec: wide slab}
+
+The wide slab approximation the limit of the slab width being is much larger than the wavelength, \textit{i.e.} when $kx_0 \gg 1$. To understand the properties of the eigenfrequencies in a wide asymmetric slab, it is instructive to return to the dispersion relation in lambda notation, Equation~\eqref{DR lambda}. For surface modes in the slab, the wide slab approximation implies that $m_0x_0 \gg 1$, therefore $\coth{m_0x_0} \approx 1$ (this is checked \textit{a posteriori} by \citealp{rob81b}). Under this approximation, Equation~\eqref{DR lambda}, becomes
+\begin{equation}
+(\Lambda_0 + \Lambda_1)(\Lambda_0 + \Lambda_2) = 0,
+\end{equation}
+which gives us two families of solutions, one satisfying $\Lambda_0 + \Lambda_1 = 0$ and the other satisfying $\Lambda_0 + \Lambda_2 = 0$. These are equivalent to
+\begin{equation}
+	\rho_0m_j(\omega^2 - \omega_\textrm{A0}^2) + \rho_jm_0\omega^2 = 0,
+\end{equation}
+for $j = 1, 2$, respectively. This equation is the same as the dispersion relation governing surface waves along a single interface between a magnetized and a non-magnetized plasma, Equation\eqref{DR interface} for $v_{A1} = v_{A2} = 0$. Hence, the surface mode solutions of a wide asymmetric slab are precisely the those that propagate along each interface independently. This corroborates our intuition that, as the slab width increases, the interfaces have diminishing influence on each other. In the wide slab limit, the interfaces have no influence on each other at all, allowing each to oscillate independently with its own characteristic frequency.
+
+Unfortunately, the body waves have no parallel in the single interface model because body waves in a slab owe their existence to both of the two interfaces. In the wide slab limit, body waves behave like $\omega^2 \to k^2c_0^2$ as $kx_0 \to \infty$. To see this, substitute the ansatz $\omega^2 = k^2c_0^2 \left(1 + \nu/(kx_0)^2\right)$ into the dispersion relation, Equation~\eqref{DR approx non-mag}, to retrieve the family of quasi-sausage body modes given by
+\begin{equation}
+\omega^2 = k^2c_0^2\left[1 - \frac{\pi^2(j - \frac{1}{2})^2c_0^2}{(v_{A0}^2 - c_0^2)(kx_0)^2}\right], \quad j = 1, 2, \ldots \label{wide slab saus body}
+\end{equation}
+in the wide slab limit. Similarly, there exist quasi-kink body modes given by
+\begin{equation}
+\omega^2 = k^2c_0^2\left[1 - \frac{\pi^2j^2c_0^2}{(v_{A0}^2 - c_0^2)(kx_0)^2}\right], \quad j = 1, 2, \ldots \label{wide slab kink body}
+\end{equation}
+in the wide slab limit. These solutions are valid only when $v_{A0} > c_0$.
+
+This analysis may be repeated for $v_{A0} < c_0$ to find that, in the wide slab limit, there exist quasi-sausage body modes given by
+\begin{equation}
+\omega^2 = k^2v_\textrm{A0}^2\left[1 - \frac{\pi^2(j - \frac{1}{2})^2v_{A0}^2}{(c_0^2 - v_{A0}^2)(kx_0)^2}\right], \quad \text{for} \quad j = 1, 2, \ldots \label{wide slab saus body2}
+\end{equation}
+and quasi-kink body modes of the form
+\begin{equation}
+\omega^2 = k^2v_{A0}^2\left[1 - \frac{\pi^2j^2v_\textrm{A0}^2}{(c_0^2 - v_{A0}^2)(kx_0)^2}\right], \quad \text{for} \quad j = 1, 2, \ldots . \label{wide slab kink body2}
+\end{equation}
+These solutions demonstrate that, to quadratic order in $1/kx_0$, the wide slab body modes are independent of the external plasma parameters. Therefore, Equations~\eqref{wide slab saus body}-\eqref{wide slab kink body2} are identical to the body mode solutions in a wide symmetric slab \citep{rob81b}. Equations~\eqref{thin slab slow saus surf}-\eqref{thin slab kink body},~\eqref{wide slab saus body} and~\eqref{wide slab kink body} also appear in~\cite{li_etal13} for a symmetric magnetic slab with shear flow when the shear flow speed is set to zero.
+
+
+\subsection{Numerical solutions} \label{sec: numerical solutions}
+
+Numerical methods are required to investigate solutions to the asymmetric slab dispersion relation, Equation~\eqref{DR non-mag}, without having to rely on further approximations. Focus is placed on the additional physics that arises from the asymmetry of the external plasma.
+
+
+\subsubsection{Description of numerical procedure}
+To solve Equation~\eqref{DR non-mag} numerically, we view the left-hand-side as a function $D(\omega)$ of the wave frequency, $\omega$, and wavenumber $k$. We call this function a \textit{dispersion function}. This means that for a given wavenumber value, we are solving a simple root-finding problem, where the aim is to find the zeros of the dispersion function, \textit{i.e.} find $\omega$ such that $D(\omega) = 0$. To accomplish this, we use the \textit{secant method}. The Secant method is a standard root-finding procedure that is equivalent to the Newton-Raphson method utilising a finite difference approximation to the derivative of the dispersion function. This method is chosen because the derivative of the dispersion function is not easily derived. The cost is that the secant method has lower order of convergence (golden ratio, $\psi \approx 1.618$) than the Newton-Raphson method (2).
+
+For a range of values of the non-dimensionalised half slab width, $kx_0$, we use the secant method to iterate towards the many zeroes of the dispersion function. The algorithm is most unstable for very large and very small values of $kx_0$ due to the different sheets of the function being very close together (small $kx_0$) or the solution curves having approximately zero gradient (large $kx_0$). Therefore, a middle value of $kx_0$ is first used with with a range of initial values. Then, working outwards form the middle, the initial values for the secant method applied to the next values of $kx_0$ are the roots found from the previous step. This process is continued until zeroes of the dispersion function are found for the whole range of $kx_0$ values.
+
+
+\subsubsection{Dispersion diagrams} \label{sec: disp diagrams}
+
+\begin{figure}[]
+	\centering
+	\subfloat[$v_{A0} > c_0$]{\includegraphics[width=0.5\textwidth]{\figdirII disp_sbs_R1-5.pdf}
+		\label{fig: disp sbs}}
+	\subfloat[$v_{A0} < c_0$]{\includegraphics[width=0.5\textwidth]{\figdirII disp_sbb_R1-5.pdf}
+		\label{fig: disp sbb}}
+	\caption{Dispersion diagram for the dispersion relation, Equation~\eqref{DR non-mag}. The surface (body) modes are in plotted red (blue) and the sausage (kink) modes are represented by solid (dashed) lines. The density ratios are $\rho_1/\rho_0 = 1.5$ and $\rho_2/\rho_0 = 2$, and the characteristic speed orderings are $c_2 = 1.2c_0$ and (a)$v_{A0} = 1.3c_0$ and (b)$v_{A0} = 0.9c_0$.}
+	\label{fig: disp}
+\end{figure}
+
+Figure~\ref{fig: disp} illustrates the solutions to the dispersion relation, Equation~\eqref{DR non-mag}, for two orderings of the characteristic speeds. Figure~\ref{fig: disp sbs} illustrates the spectrum of modes we would expect to find in the corona and Figure~\ref{fig: disp sbb} illustrates the spectrum of modes we would expect to find in the photosphere.
+
+In both coronal and photospheric conditions, there are slow sausage and kink surface modes (illustrated by the slowest red lines) and an infinite sequence of slow sausage and kink body modes (illustrated by the slowest blue lines). Each sausage body mode propagates faster than its corresponding kink mode, which agrees with the analytical solutions in Equations~\eqref{thin slab saus body},~\eqref{thin slab kink body},~\eqref{wide slab saus body}-\eqref{wide slab kink body2}.
+
+In coronal conditions, there exist fast sausage and kink surface modes with phase speeds between $c_0$ and $\min{c_1, c_2}$. Figure~\ref{fig: disp sbs} shows that the minimum of $c_1$ and $c_2$ becomes a new cut-off, causing the fast kink surface mode to transform into a slow kink first-order body mode for smaller values of $kx_0$. In Section~\ref{sec: critical slab width}, the precise value of this critical slab width is determined and the eigenfunction is analysed across this transition.
+
+In photospheric conditions, there exists an infinite sequence of fast sausage and kink body modes with phase speeds between $c_0$ and $\min{c_1, c_2}$. For values of the slab width below a cut-off value (that is unique for every order of body mode), these modes cease to be trapped by the slab and leak energy into the surrounding plasma. In Section~\ref{sec: fast mode cut-off}, the precise value of these cut-off values is determined.
+
+
+\subsubsection{Critical slab width for kink mode transformation} \label{sec: critical slab width}
+First, let's derive an analytical expression for the critical slab width, over which the slow kink first-order body mode transitions into a fast kink surface mode. To do this, let $\omega^2 = k^2c_0^2(1 + \nu)$ for some $\nu \ll 1$. Then we have
+\begin{equation}
+m_0^2 = -\frac{\nu k^2c_0^2(v_A^2 - c_0^2(1 + \nu))}{(c_0^2 + v_A^2)(c_T^2 - c_0^2(1 + \nu))},
+\end{equation}
+which, when terms of quadratic and higher order in $\nu$ are neglected, reduces to
+\begin{equation}
+m_0^2 = \frac{\nu k^2(v_A^2 - c_0^2)}{c_0^2},
+\end{equation}
+and therefore,
+\begin{equation}
+\tanh(2m_0x_0) = 2kx_0\sqrt{\frac{\nu(v_A^2 - c_0^2)}{c_0^2}}.
+\end{equation}
+Substituting these into the dispersion relation for quasi-kink modes, neglecting terms of quadratic and higher order in $\nu$, and solving for $kx_0$ gives us the critical value for the 1st fast kink body mode as
+\begin{equation}
+kx_0 = \frac{c_0^2 \left(\frac{\rho_2}{\rho_0}c_2\sqrt{c_1^2 - c_0^2} + \frac{\rho_1}{\rho_0}c_1\sqrt{c_2^2 - c_0^2}\right)}{2(v_A^2 - c_0^2)\sqrt{(c_1^2 - c_0^2)(c_2^2 - c_0^2)}}.
+\end{equation}
+
+Across this transitional value, the eigenfunction changes functional form inside the slab from trigonometric to exponential function (see Figure~\ref{fig: transitional kink eigenfunction}). 
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{\figdirII xi_of_x_body_surface_conversion.png}
+	\caption{The eigenfunction of the transitional kink mode. The critical slab width occurs between $kx_0 = 4$ and $kx_0 = 5$.}
+	\label{fig: transitional kink eigenfunction}
+\end{figure}
+
+
+\subsubsection{Fast mode cut-off} \label{sec: fast mode cut-off}
+If $c_1 = c_2$, we have a symmetric slab and therefore no fast mode cut-off. Let $c_1 \neq c_2$ and let $\omega = \min(kc_1, kc_2)$. Without loss of generality, consider the case where $c_1 < c_2$ so that $m_1 = 0$. Therefore,
+\begin{equation}
+m_0^2 = \frac{k^2 (c_0^2 - c_1^2)(v_A^2 - c_1^2)}{(c_0^2 + v_A^2)(c_T^2 - c_1^2)} = k^2m^2,
+\quad \text{and} \quad
+m_2^2 = k^2\left(1-\frac{c_1^2}{c_2^2}\right).
+\end{equation}
+Substituting these expressions in the dispersion relation and solving for $kx_0$ gives the fast mode cut-off values
+\begin{equation}
+kx_0 = \frac{1}{2m} \tanh^{-1}\left( \frac{1}{m c_1^2} \frac{\rho_0}{\rho_2} \sqrt{1 - \frac{c_1^2}{c_2^2}}(c_1^2 - v_{A0}^2) \right). \label{fast mode cut-off}
+\end{equation}
+
+For surface modes, $m_0^2 > 0$, therefore the argument of the $\tanh^{-1}$ term is real, so that Equation~\eqref{fast mode cut-off} admits a single solution. This corresponds to the cut-off value for the fast sausage surface mode in Figure~\ref{fig: disp sbs}.
+ 
+For body modes, $m_0^2 < 0$, therefore the argument of the $\tanh^{-1}$ term is imaginary. Defining $n \in \mathbb{R}$ as $n = im$ and utilising the fact that $\tanh^{-1}(ix) = i\tan^{-1}(x)$, we can rewrite Equation~\eqref{fast mode cut-off} as
+\begin{equation}
+kx_0 = \frac{1}{2n} \left[\tan_p^{-1}\left( \frac{1}{n c_1^2} \frac{\rho_0}{\rho_2} \sqrt{1 - \frac{c_1^2}{c_2^2}}(v_{A0}^2 - c_1^2) \right) + j\pi \right], \label{fast mode cut-off 2}
+\end{equation}
+for $j \in \mathbb{Z}$ and $\tan_p^{-1}$ refers to the principle value of the inverse $\tan$ function, \textit{i.e.} the value in the range $(-\pi/2, \pi/2)$. This infinite set of solutions corresponds to the infinite set of fast sausage and kink body modes, each of which has a cut-off, as seen in Figure~\ref{fig: disp sbb}.
+
+When the slab is symmetric, the cut-off for both the fast sausage surface mode and the fast sausage first-order body mode are zero. See this by setting $c_1 = c_2$ in the argument of $\tanh^{-1}$ and $\tan_p^{-1}$ in Equations~\eqref{fast mode cut-off} and~\eqref{fast mode cut-off 2}, respectively. This means that the modes cease to have a cut-off at all and exist for all values of the slab width, $kx_0$, which corroborates with the results of \cite{rob81b}.
+
+
+\subsubsection{Varying the degree of asymmetry}
+
+\begin{figure}
+	\centering
+	\subfloat[]{\includegraphics[scale=0.5]{\figdirII SS_SK_DS_v2.pdf}
+		\label{fig: density ratio}} \\
+	%\vspace{-0.4in}
+	\subfloat[$\frac{\rho_\textrm{e}}{\rho_0}=0.1$]{\includegraphics[scale=0.45]{\figdirII SS_SK_Re01_v2.pdf}
+		\label{fig: density ratio 0.1}}
+	\subfloat[$\frac{\rho_\textrm{e}}{\rho_0}=10$]{\includegraphics[scale=0.45]{\figdirII SS_SK_Re10_v2.pdf}
+		\label{fig: density ratio 10}}
+	\caption{The effect of varying the ratio, $\rho_\textrm{e}/\rho_0$, of the slab density to the symmetric external density, on the dispersion of the slow surface modes of a magnetic slab in a symmetric external plasma. The red and blue surfaces correspond to the kink and sausage modes, respectively. Panels (b) and (c) are slices of panel (a) at specific values of $\rho_\textrm{e}/\rho_0$. These slices are superimposed onto panel (a) as black lines. The characteristic speed orderings are $v_\textrm{A0} = 0.5c_0$, $c_\textrm{e} = c_0$.}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+	\subfloat[]{\includegraphics[scale=0.5]{\figdirII FullDR_SS_SK_DS_v2.pdf}
+		\label{fig: slow modes density}} \\
+	\subfloat[$kx_0 = 0.01$]{\includegraphics[scale=0.45]{\figdirII FullDR_SS_SK_Kfixed001_v2.pdf}
+		\label{fig: slow modes density 0.01}}
+	\subfloat[$kx_0 = 0.1$]{\includegraphics[scale=0.45]{\figdirII FullDR_SS_SK_Kfixed01_v2.pdf}
+		\label{fig: slow modes density 0.1}} \\
+	\subfloat[$kx_0 = 1$]{\includegraphics[scale=0.45]{\figdirII FullDR_SS_SK_Kfixed1_v2.pdf}
+		\label{fig: slow modes density 1}}
+	\subfloat[$kx_0 = 3$]{\includegraphics[scale=0.45]{\figdirII FullDR_SS_SK_Kfixed3_v2.pdf}
+		\label{fig: slow modes density 3}}
+	\caption{(a) The slow quasi-sausage (blue) and quasi-kink (red) surface mode solutions of the dispersion relation (Equation~\eqref{DR}) are plotted showing the variation of the dispersion as the ratio of one external density to the internal density is changed. The other density ratio is held fixed at $\rho_2/\rho_0=2$. The characteristic speed orderings are $c_2=0.7c_0$, $v_\textrm{A}=0.4c_0$, and $c_1$ varies to satisfy equilibrium pressure balance, given by Equation~\eqref{sound and density}. Panels (b)-(e) are slices of panel (a) for specific values of the non-dimensional slab width, $kx_0$.}
+\end{figure}
+
+
+First, consider a magnetised slab with symmetric non-magnetic external plasma, as described by \cite{rob81b} and summarised in Section~\ref{sec: MHD waves sym slab}. Figures~\ref{fig: density ratio}-\ref{fig: density ratio 10} illustrate how varying the ratio of external to internal density affects the propagation speeds of the slow kink and sausage surface modes. An increase in the density ratio, $\rho_\textrm{e}/\rho_0$, causes a decrease in the propagation speed of the slow modes. The fast surface modes demonstrate an identical behaviour (not shown). The body modes are weakly dependent on the external density, so that the propagation speed decreases only negligibly as the density ratio increases.
+
+More generally, consider an asymmetric slab whose equilibrium conditions are given by Figure~\ref{fig: eq}. Figures~\ref{fig: slow modes density}-\ref{fig: slow modes density 3} illustrate the behaviour of the slow surface modes as the external density on one side of the slab is varied while holding fixed the other external density. The slice where $\rho_1/\rho_0 = 2$ corresponds to a symmetric slab, where the usual behaviour is observed: that the phase speeds of the two slow surface modes converge to a speed that is slower than the tube speed, $c_\textrm{T0}$, as the slab width increases. However, as the external densities become distinct, the phase speeds of these modes no longer converge to the same value in the wide slab limit. This can also be seen in Figures~\ref{fig: disp sbs} and~\ref{fig: disp sbb}.
+
+For a wide slab width, $kx_0 \gg 1$, Figure~\ref{fig: slow modes density 3} illustrates that the eigenfrequencies of the slow surface modes possess a wave phenomenon known as \textit{avoided crossing}. An avoided crossing occur when the phase speeds of two wave modes avoid intersecting when a parameter of the system is varied. This occurs when there are constraints preventing two solution from being equal and it demonstrates a transferral of properties between the two modes. Analysis this phenomenon can be used to give insight into the modal structure. There is rich literature regarding avoided crossings for the eigensolutions of a wide range of physical processes including coupled spring oscillations in classical mechanics \citep{nov10} and energy level repulsion in quantum physics \citep{naq_etal72}. In MHD wave theory, the subject has been covered only briefly, for example, between fast and slow magneto-acoustic gravity waves in a magnetically stratified plasma by \cite{abd90} and \cite{mat_etal16}.
+
+\begin{figure} []
+	\centering
+	\subfloat[]{\includegraphics[scale=0.55]{\figdirII disp.pdf}
+		\label{fig: disp avoided crossing}} \\
+	
+	\subfloat[]{\includegraphics[width=\textwidth]{\figdirII xix_v2.pdf}
+		\label{fig: xi}}
+	\caption{(a) The slow surface mode solutions of the dispersion relation, Equation~\eqref{DR}, are plotted showing the variation of the dispersion as the ratio of one external density to the internal density is changed. The other density ratio is held fixed at $\rho_2/\rho_0=2$ and the non-dimensionalised slab width $kx_0 = 1.5$. The characteristic speed orderings are $c_2=0.7c_0$, $v_\textrm{A}=0.4c_0$, and $c_1$ varies to satisfy equilibrium pressure balance, given by Equation~\eqref{sound and density}. The parameters at each blue and red dot in panel(a) are used to plot the spatial variation of the transverse displacement perturbation, $\widehat{\xi}_x$, given by panel (b). The upper (lower) plots in panel (b) correspond to the quasi-sausage (quasi-kink) mode solutions.}
+	\label{fig: avoided crossing}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{\figdirII xi_of_x_slow_body.png}
+	\caption{The variation (or lack thereof) of the first three slow sausage and kink body eigenfunctions as the asymmetry in the background plasma is varied. The first, third, and fifth rows are kink modes and the second, fourth, and sixth rows are sausage modes. The density ratio $\rho_1/\rho_0$ is varied while the other density ratio is held fixed at $\rho_2/\rho_0 = 2.0$. Therefore, the middle column of panels for which $\rho_1/\rho_0 = 2.0$ corresponds to a symmetric slab.}
+	\label{fig: body eigenmodes}
+\end{figure}
+
+In the present study, the avoided crossing occurs between quasi-kink and quasi-sausage surface solutions to the asymmetric slab. This explains why the dispersion relation does not decouple into two equations (Section~\ref{sec: symmetric comp}). Figure~\ref{fig: avoided crossing} demonstrates that during the transition across the avoided crossing, the quasi-sausage and quasi-kink modes exchange the slab boundary upon which the largest perturbation occurs. For example, the left plots of Figure~\ref{fig: xi} show that the quasi-sausage mode has its highest amplitude on the interface of highest local phase-speed (equivalently, lowest external density). The quasi-kink mode demonstrates the opposite behaviour. The central plots show the special case of a symmetric slab, where $\rho_1 = \rho_2$, demonstrating the spatial antisymmetry and symmetry in the symmetric sausage and kink mode, respectively. As the left external density, $\rho_1$, dominates the right external density, $\rho_2$, the right plots of Figure~\ref{fig: xi} show that, again, the quasi-sausage mode has its higher amplitude on the interface of higher local phase-speed, but this is now on the other interface. By the term \textit{local phase speed}, we are referring to the phase-speed that a slow surface mode propagating along that interface would have if the other interface were not there. Each interface of an asymmetric magnetic slab has a distinct local phase-speed and they are inversely proportional to the density in the non-magnetic region \citep{rob81a}.
+
+When they exist, the fast quasi-sausage and quasi-kink surface modes demonstrate an identical behaviour (not shown). As demonstrated analytically in Equations~\eqref{thin slab saus body}, \eqref{thin slab kink body} and~\eqref{wide slab saus body}-\eqref{wide slab kink body2}, the body modes are not dependent on internal or external densities to quadratic order in $kx_0$. This means that body modes demonstrate only a weak dependence on the external densities, and an avoided crossing does not occur between these modes.
+
+
+\subsection{Analogy to coupled spring and mass oscillator} \label{sec: mechanical example}
+One particularly interesting characteristic of asymmetric eigenmodes is that the interface which oscillates with the highest amplitude is different for sausage and kink modes. This characteristic changes across the avoided crossing, as shown in Figure~\eqref{fig: avoided crossing}. To investigate this further, we propose an analogy with a coupled mechanical simple harmonic oscillation system\footnote{More information on coupled simple harmonic oscillators can be found in \cite{nov10}.}.
+
+Consider a system of two identical masses of mass $m$ between two fixed walls, with light springs connecting the left wall to the left mass, the masses together, and the right mass to the right wall (Figure~\ref{fig: springs sym eq}). The springs have spring constants $k_1$, $k_0$, and $k_2$, respectively. The coordinates $x_1$ and $x_2$, which give the displacements of the two masses at time $t$, uniquely specify the system. Applying Newton's Second Law of Motion gives a coupled system of differential equations
+\begin{equation}
+	m\frac{d^2}{dt^2}\left(
+	\begin{matrix}
+		x_1 \\
+		x_2
+	\end{matrix}
+	\right)
+	=
+	\left(
+	\begin{matrix}
+		-k_1 - k_0 & k_0 \\
+		k_0 & -k_2 - k_0
+	\end{matrix}
+	\right)
+	\left(
+	\begin{matrix}
+	x_1 \\
+	x_2
+	\end{matrix}
+	\right).
+\end{equation}
+Looking for wave solutions of the form $x_1(t) = \hat{x}_1 e^{-i\omega t}$, and similar for $x_2(t)$, and defining $\omega_j = k_j/m$ for $j = 0, 1, 2$, gives
+\begin{equation}
+	\left(
+	\begin{matrix}
+		\omega_1^2 + \omega_0^2 - \omega^2 & -\omega_0^2 \\
+		-\omega_0^2 & \omega_2^2 + \omega_0^2 - \omega^2
+	\end{matrix}
+	\right)
+	\left(
+	\begin{matrix}
+		\hat{x}_1 \\
+		\hat{x}_2
+	\end{matrix}
+	\right) = 
+	\left(
+	\begin{matrix}
+		0 \\
+		0
+	\end{matrix}
+	\right). \label{coupled oscillator matrix}
+\end{equation}
+For non-trivial solutions to exist, the matrix must be singular. For this to occur, its determinant must vanish, \textit{i.e.}
+\begin{equation}
+	(\omega_1^2 + \omega_0^2 - \omega^2)(\omega_1^2 + \omega_0^2 - \omega^2) - \omega_0^4 = 0,
+\end{equation}
+which has solutions
+\begin{equation}
+	\omega_\pm^2 = \frac{1}{2}\left[ \omega_2^2 - \omega_1^2 + 2\omega_0^2 \pm \sqrt{(\omega_2^2 - \omega_2^2) + \omega_0^4} \right].
+\end{equation}
+Thus, there are two eigenfrequences of the system. This is to be expected because the system has two degrees of freedom: the one-dimensional movement of each of the two masses. The eigenfunctions (\textit{i.e.} the values of $\hat{x}_1$ and $\hat{x}_2$) associated with these eigenfrequencies are found by substituting the eigenfrequencies back into Equation~\eqref{coupled oscillator matrix}. Thus, we find that the ratio of the oscillation amplitudes of each mass is
+\begin{align}
+	\frac{\hat{x}_1}{\hat{x}_2} & = -\frac{1}{\omega_0^2}(\omega_2^2 + \omega_0^2 - \omega_\pm^2) \\
+	& = -\frac{1}{2W}\left[1 \pm \sqrt{1 + 4W^2} \right]. \label{coupled oscillator ratio}
+\end{align}
+where $W = \omega_0^2 / (\omega_2^2 - \omega_1^2)$. Without loss of generality, let $\omega_2 > \omega_1$ so that $W > 0$. Then, considering Equation~\ref{coupled oscillator ratio}, the eigenmode with eigenfrequency $\omega_+$ gives $\hat{x}_1 / \hat{x}_2 < 0$, \textit{i.e.} the masses oscillate in anti-phase. This is known as the \textit{breathing mode} and is equivalent to the sausage modes of the MHD slab model. The eigenmode with eigenfrequency $\omega_-$ gives $\hat{x}_1 / \hat{x}_2 > 0$, \textit{i.e.} the masses oscillate in phase. This is known as the \textit{sloshing mode} and is equivalent to the kink modes of the MHD slab model.
+
+Comparing with the magnetic slab model, the three springs here correspond to the three regions of plasma, and the masses to the plasma interfaces. The breathing mode has highest amplitude on the mass connected to the external spring with lowest spring constant and the sloshing mode has highest amplitude on the mass connected to the external spring with highest spring constant (shown analytically in Appendix~\ref{app: coupled oscillator modes}). A higher spring constant in this model is analogous to a lower density outside the magnetic slab. This is because a higher spring constant in an uncoupled spring-mass system gives a higher characteristic frequency. This gives motivation as to why the surface modes of the asymmetric magnetic slab have higher amplitudes on different sides for quasi-sausage and quasi-kink modes.
+
+\begin{figure}
+	\makebox[\textwidth][c]{
+		\subfloat[Symmetric equilibrium]{\scalebox{0.6}{
+			\begin{tikzpicture}
+				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
+				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
+				\draw[Spring] (0,0) -- (2,0);
+				\draw[Spring, thin] (2,0) -- (4,0);
+				\draw[Spring] (4,0) -- (6,0);
+				
+				\draw [dashed] (2,1) -- (2,-1);
+				\draw [dashed] (4,1) -- (4,-1);
+				
+				\draw (2,0) node [fill=red,circle,scale=0.8] {};
+				\draw (4,0) node [fill=red,circle,scale=0.8] {};
+				
+				\Large
+				\draw (1,0.6) node [] {$k_\textrm{e}$};
+				\draw (3,0.6) node [] {$k_0$};
+				\draw (5,0.6) node [] {$k_\textrm{e}$};
+			\end{tikzpicture}
+			\label{fig: springs sym eq}}}
+
+		\subfloat[Symmetric sloshing]{\scalebox{0.6}{
+			\begin{tikzpicture}
+				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
+				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
+				\draw[Spring] (0,0) -- (1.5,0);
+				\draw[Spring, thin] (1.5,0) -- (3.5,0);
+				\draw[Spring] (3.5,0) -- (6,0);
+				
+				\draw [dashed] (2,1) -- (2,-1);
+				\draw [dashed] (4,1) -- (4,-1);
+				
+				\draw (1.5,0) node [fill=red,circle,scale=0.8] {};
+				\draw (3.5,0) node [fill=red,circle,scale=0.8] {};
+				
+				\Large
+				\draw (1,0.6) node [] {$k_\textrm{e}$};
+				\draw (3,0.6) node [] {$k_0$};
+				\draw (5,0.6) node [] {$k_\textrm{e}$};
+			\end{tikzpicture}
+			\label{fig: springs sym in-phase}}}
+
+		\subfloat[Symmetric breathing]{\scalebox{0.6}{
+			\begin{tikzpicture}
+				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
+				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
+				\draw[Spring] (0,0) -- (1.5,0);
+				\draw[Spring, thin] (1.5,0) -- (4.5,0);
+				\draw[Spring] (4.5,0) -- (6,0);
+				
+				\draw [dashed] (2,1) -- (2,-1);
+				\draw [dashed] (4,1) -- (4,-1);
+				
+				\draw (1.5,0) node [fill=red,circle,scale=0.8] {};
+				\draw (4.5,0) node [fill=red,circle,scale=0.8] {};
+				
+				\Large
+				\draw (1,0.6) node [] {$k_\textrm{e}$};
+				\draw (3,0.6) node [] {$k_0$};
+				\draw (5,0.6) node [] {$k_\textrm{e}$};
+			\end{tikzpicture}
+			\label{fig: springs sym anti-phase}}}}
+	\\
+	\makebox[\textwidth][c]{
+		\subfloat[Asymmetric equilibrium]{\scalebox{0.6}{
+			\begin{tikzpicture}
+				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
+				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
+				\draw[Spring, line width=1] (0,0) -- (2,0);
+				\draw[Spring, thin] (2,0) -- (4,0);
+				\draw[Spring, line width=2] (4,0) -- (6,0);
+				
+				\draw [dashed] (2,1) -- (2,-1);
+				\draw [dashed] (4,1) -- (4,-1);
+				
+				\draw (2,0) node [fill=red,circle,scale=0.8] {};
+				\draw (4,0) node [fill=red,circle,scale=0.8] {};
+				
+				\Large
+				\draw (1,0.6) node [] {$k_1$};
+				\draw (3,0.6) node [] {$k_0$};
+				\draw (5,0.6) node [] {$k_2$};
+			\end{tikzpicture}
+			\label{fig: springs asym eq}}}
+
+		\subfloat[Asymmetric sloshing]{\scalebox{0.6}{
+			\begin{tikzpicture}
+				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
+				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
+				\draw[Spring, line width=1] (0,0) -- (1.8,0);
+				\draw[Spring, thin] (1.8,0) -- (3.2,0);
+				\draw[Spring, line width=2] (3.2,0) -- (6,0);
+				
+				\draw [dashed] (2,1) -- (2,-1);
+				\draw [dashed] (4,1) -- (4,-1);
+				
+				\draw (1.8,0) node [fill=red,circle,scale=0.8] {};
+				\draw (3.2,0) node [fill=red,circle,scale=0.8] {};
+				
+				\Large
+				\draw (1,0.6) node [] {$k_1$};
+				\draw (3,0.6) node [] {$k_0$};
+				\draw (5,0.6) node [] {$k_2$};
+			\end{tikzpicture}
+			\label{fig: springs asym in-phase}}}
+
+		\subfloat[Asymmetric breathing]{\scalebox{0.6}{
+			\begin{tikzpicture}
+				\filldraw[pattern=north east lines] (0,-0.5) -| (-0.2,0.5) -| (0,-0.5);
+				\filldraw[pattern=north east lines] (6,-0.5) -| (6.2,0.5) -| (6,-0.5);
+				\draw[Spring, line width=1] (0,0) -- (1.2,0);
+				\draw[Spring, thin] (1.2,0) -- (4.2,0);
+				\draw[Spring, line width=2] (4.2,0) -- (6,0);
+				
+				\draw [dashed] (2,1) -- (2,-1);
+				\draw [dashed] (4,1) -- (4,-1);
+				
+				\draw (1.2,0) node [fill=red,circle,scale=0.8] {};
+				\draw (4.2,0) node [fill=red,circle,scale=0.8] {};
+				
+				\Large
+				\draw (1,0.6) node [] {$k_1$};
+				\draw (3,0.6) node [] {$k_0$};
+				\draw (5,0.6) node [] {$k_2$};
+			\end{tikzpicture}
+			\label{fig: springs asym anti-phase}}}}
+
+	\caption{A coupled mechanical oscillator gives an analogy to the eigenmodes of symmetric and asymmetric magnetic slabs. Spring constants are denoted $k$, with a thicker spring corresponding to a higher spring constant. Figures~(a) and~(d) show the symmetric and asymmetric spring systems in equilibrium. Figures~(b) and~(c) show the normal modes of a symmetric system. Figures~(e) and~(f) show the normal modes of an asymmetric system with spring constants $k_2 > k_1$. In each panel, the vertical dashed lines give the positions of the red masses at equilibrium.}
+	\label{fig: springs all}
+\end{figure}
+
+
+%------------------------------------------------------------------------------
+\section{Asymmetric slab in a magnetic environment}
+\label{sec: EVP mag}
+%------------------------------------------------------------------------------
+
+Now we return to the general model for a magnetic slab, that is, a magnetic slab with asymmetric external environment.
+
+The eigenfrequencies of the magnetic slab with asymmetric external environment are illustrated in Figure~\ref{fig: disp mag} and are broadly similar to the slab in a non-magnetic environment. The main difference is in the existence of slow surface and slow body modes for a single set of waveguide parameters. This is true for conditions intermediate between those typical for the corona and photosphere. This can be seen in Figure~\ref{fig: disp mag 2}, where there is a family of slow body modes. A deeper analysis of the magnetic slab with asymmetric external environment is given by \cite{zsa_etal18}.
+
+\begin{figure}[]
+	\centering
+	\subfloat[$v_{A0} > c_0$]{\includegraphics[scale=0.45]{\figdirII disp-mag-outside-photophere.png}
+		\label{fig: disp mag 1}} \\
+	\subfloat[$v_{A0} < c_0$]{\includegraphics[scale=0.45]{\figdirII disp-mag-outside-2.png}
+		\label{fig: disp mag 2}}
+	\caption{The dispersion diagram for the an asymmetric magnetic slab with external magnetic field. The solutions are found by numerical solution of the dispersion relation, Equation~\eqref{DR}, for given waveguide parameters. The red lines illustrate quasi-sausage modes and the blue lines illustrate quasi-kink modes. Panel (a) shows the existence of a family of slow body modes and fast surface modes. Panel (b) shows the existence of a family of slow body modes, a slow quasi-sausage and quasi-kink surface mode, a fast quasi-kink surface mode, and a family of fast body modes, the slowest of which being a first order fast quasi-sausage mode that exists as a body mode for slab waveguides thinner than a critical width, and as a surface mode for wider slabs.}
+	\label{fig: disp mag}
+\end{figure}
+
+
+\subsection{Implications for observations}
+
+Accurate mode identification is a key aspect of SMS. Different modes can differ in characteristics such as damping rate, phase and group speed, and, most relevant to this Thesis, response to waveguide asymmetry. Therefore, inaccurate mode identification can lead to significant error in diagnosis of background parameters. This subsection warns observational solar physicists of two possible ways in which errors in mode identification  could be made due to waveguide asymmetry.
+
+
+\subsubsection{Quasi-symmetric eigenmodes}
+
+It is possible for asymmetric MHD waves to have similar observational qualities to symmetric MHD waves. This can occur when the restoring force (that is, the sum of the pressure gradient and Lorentz forces) of MHD perturbations is equal at both interfaces. This can occur in an asymmetric slab when the asymmetry in the pressure gradient force is precisely balanced by the asymmetry in the Lorentz force. We describe an eigenmode with this property as an \textit{quasi-symmetric} mode. Equivalently, we define quasi-symmetric modes to be eigenmodes which have equal amplitude on each boundary of the slab\footnote{If we further specify that the penetration depth of perturbations in the external plasma be equal on each side of the slab, so that the eigenfunction is symmetric, then it must be the case that the external parameters are equal and we have a symmetric slab.}. This is equivalent to setting $\hat{v}_x (-x_0) = - \hat{v}_x (x_0)$ for quasi-sausage modes and $\hat{v}_x (-x_0) = \hat{v}_x (x_0)$ for quasi-kink modes. The aim in this subsection is to prove that the necessary and sufficient condition for the existence of quasi-symmetric eigenmodes of an asymmetric magnetic slab is
+\begin{equation}
+\frac{\rho_1}{m_1}(k^2v_{A1}^2 - \omega^2) = \frac{\rho_2}{m_2}(k^2v_{A2}^2 - \omega^2), \label{quasi-sym condition}
+\end{equation}
+for a given frequency, $\omega$, and wavenumber, $k$.
+
+To show that Equation~\eqref{quasi-sym condition} is sufficient for there to exist quasi-symmetric modes, consider an asymmetric magnetic slab with parameters that satisfy Equation~\eqref{quasi-sym condition}. Under this supposition, the transverse velocity perturbation solution for quasi-sausage modes reduces to
+\begin{equation}
+\hat{v}_x(x) =
+\begin{cases}
+A(\cosh{m_1x} + \sinh{m_1x}) & \text{if } x < -x_0, \\
+C\sinh{m_0x} & \text{if } |x| \leq x_0, \\
+D(\cosh{m_2x} - \sinh{m_2x}) & \text{if  } x > x_0,
+\end{cases}
+\end{equation}
+where
+\begin{equation}
+A = \frac{-Cs_0}{c_1 - s_1}, \quad
+D = \frac{Cs_0}{c_2 - s_2}, \quad
+C \text{ is arbitrary}.
+\end{equation}
+We have denoted $c_j = \cosh{m_jx_0}$ and $s_j = \sinh{m_jx_0}$, for $j = 1, 2$, for brevity. The solution within the slab, $|x| \leq x_0$, is an odd function of $x$, therefore $\hat{v}_x(x_0) = -\hat{v}_x(-x_0)$. Therefore Equation~\eqref{quasi-sym condition} is a sufficient condition for the existence of quasi-symmetric modes. For quasi-kink modes, a similar proof is followed, where we find that $\hat{v}_x(x)$ is an even function within the slab.
+
+To show that Equation~\eqref{quasi-sym condition} is necessary for there to exist quasi-symmetric modes, consider an asymmetric magnetic slab which supports quasi-symmetric modes. The transverse velocity perturbation solution is given by
+\begin{equation}
+\hat{v}_x(x) =
+\begin{cases}
+A(\cosh{m_1x} + \sinh{m_1x}) & \text{if } x < -x_0, \\
+B\cosh{m_0x} + C\sinh{m_0x} & \text{if } |x| \leq x_0, \\
+D(\cosh{m_2x} - \sinh{m_2x}) & \text{if } x > x_0, \label{vsoln}
+\end{cases}
+\end{equation}
+where
+\begin{align}
+A &= \frac{1}{c_1 - s_1}(Bc_0 - Cs_0), \label{constA C} \\ 
+D &= \frac{1}{c_2 - s_2}(Bc_0 + Cs_0), \label{constD C} \\
+B &= \frac{\Lambda_0c_0 + \Lambda_1s_0}{\Lambda_0s_0 + \Lambda_1c_0}C = -\frac{\Lambda_0c_0 + \Lambda_2s_0}{\Lambda_0s_0 + \Lambda_2c_0}C, \label{constB C} \\
+C & \text{ is arbitrary},
+\end{align}
+for quasi-sausage modes, and
+\begin{align}
+A &= \frac{1}{c_1 - s_1}(Bc_0 - Cs_0), \label{constA B} \\ 
+D &= \frac{1}{c_2 - s_2}(Bc_0 + Cs_0), \label{constD B} \\
+C &= \frac{\Lambda_0s_0 + \Lambda_1c_0}{\Lambda_0c_0 + \Lambda_1s_0}B = -\frac{\Lambda_0s_0 + \Lambda_2c_0}{\Lambda_0c_0 + \Lambda_2s_0}B, \label{constB B} \\
+B & \text{ is arbitrary},
+\end{align}
+for quasi-kink modes. Given the supposition that the slab supports quasi-symmetric modes, we have, for quasi-sausage modes,
+\begin{align}
+\hat{v}_x(-x_0) &= -\hat{v}_x(x_0), \\
+\implies \left(\frac{\Lambda_0c_0 + \Lambda_1s_0}{\Lambda_0s_0 + \Lambda_1c_0}\right) c_0 - s_0 &= -\left(\frac{\Lambda_0c_0 + \Lambda_1s_0}{\Lambda_0s_0 + \Lambda_1c_0}\right)c_0 - s_0, \\
+\implies \Lambda_0c_0 + \Lambda_1s_0 &= 0. \label{quasi-sym proof 1}
+\end{align}
+Similarly, taking the second expression for $B$, we deduce that 
+\begin{equation}
+\Lambda_0c_0 + \Lambda_2s_0 = 0. \label{quasi-sym proof 2}
+\end{equation}
+By subtracting Equation~\eqref{quasi-sym proof 2} from Equation~\eqref{quasi-sym proof 1}, it follows that $\Lambda_1 = \Lambda_2$, which is equivalent to Equation~\eqref{quasi-sym condition}. This concludes the proof that Equation~\eqref{quasi-sym condition} is a necessary condition for the existence of quasi-symmetric quasi-sausage modes. For quasi-kink modes, a similar proof can be followed to show that $\hat{v}_x(x_0) = \hat{v}_x(-x_0)$ implies Equation~\eqref{quasi-sym condition}. This completes the proof that Equation~\eqref{quasi-sym condition} is a necessary and sufficient condition for the existence of quasi-symmetric modes.
+
+The main consequence of this result is that one can not conclude from an observation of a MHD wave that appears symmetric (\textit{i.e.} that the boundary oscillations have equal amplitudes) that the underlying waveguide is symmetric. This fallacy could lead to incorrect mode identification and therefore erroneous diagnosis of the background plasma.
+
+Is it possible to differentiate between a symmetric and a quasi-symmetric eigenmode? Theoretically, the answer to this question is \textit{yes}. Quasi-symmetric modes have symmetric amplitudes at the boundaries but they have asymmetric penetration depths into the external plasmas (see Figure~\ref{fig: quasi-sym}). In theory, one could track the attenuation of the oscillation amplitude of plasma away from the slab on each side. If the attenuation is asymmetric, the mode is likely to be quasi-symmetric and the underlying waveguide asymmetric. In practice, however, this will prove difficult. Although we currently have the required spatial resolution for measuring the spatial attenuation of MHD waves in isolated waveguides, solar structures are unlikely to be sufficiently isolated to allow for good measurements of spatial attenuation.
+
+
+\begin{figure}
+	\makebox[\textwidth][c]{
+		\subfloat[Quasi-symmetric quasi-sausage mode]{
+			\begin{tikzpicture}[scale=\scale]
+				\path [fill=lightgray, opacity=0.5] (2,-1.5) -- (2,1.5) -- (5,1.5) -- (5,-1.5) -- (2,-1.5);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.5] (2,-2) to (5,-2) to (5,-1.5) to (2,-1.5) to (2,-2);
+				
+				\shade[top color=white,bottom color=lightgray, opacity=0.5] (2,2) to (5,2) to (5,1.5) to (2,1.5) to (2,2);
+				
+				\draw [-] (2,-2) -- (2,2);
+				\draw [-] (5,-2) -- (5,2);
+				
+				
+				\draw [thick] (0,0.2) to [out=10, in=245] (2, 1.5) to [out=280, in=180] (3.5,0.1) to [out=0, in=260] (5,1.5) to [out=280, in=178] (6.2,0.04) to [out=358, in=180] (7,0.02);
+				
+				\draw [->] (0,0) -- (0,2);
+				\draw [->] (0,0) -- (7,0);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node [right] at (2.88,1.3) {$\rho_0$};
+				
+				\footnotesize
+				\node [below left] at (2.1,0) {$-x_0$};
+				\node [below left] at (5.1,0) {$x_0$};
+				
+				\node [left] at (0,2) {$\widehat{v}_x$};
+				\node [below] at (7,0) {$x$};
+			\end{tikzpicture}
+			\label{fig: quasi-sym saus}
+		}
+			
+		\subfloat[Quasi-symmetric quasi-kink mode]{
+			\begin{tikzpicture}[scale=\scale]
+				\path [fill=lightgray, opacity=0.5] (2,-1.5) -- (2,1.5) -- (5,1.5) -- (5,-1.5) -- (2,-1.5);
+				
+				\shade[bottom color=white,top color=lightgray, opacity=0.5] (2,-2) to (5,-2) to (5,-1.5) to (2,-1.5) to (2,-2);
+				
+				\shade[top color=white,bottom color=lightgray, opacity=0.5] (2,2) to (5,2) to (5,1.5) to (2,1.5) to (2,2);
+				
+				\draw [-] (2,-2) -- (2,2);
+				\draw [-] (5,-2) -- (5,2);
+				
+				\draw [thick] (0,0.025) to [out=0, in=-178] (1.2, 0.05) to [out=2, in=260] (2,1.5) to [out=280, in=165] (3.5,0) to [out=-15, in=100] (5,-1.5) to [out=65, in=-170] (7,-0.2);
+				\draw [->] (0,0) -- (0,2);
+				\draw [->] (0,0) -- (7,0);
+				
+				\node at (1,1) {$\rho_1$};
+				\node at (6,1) {$\rho_2$};
+				\node [right] at (2.88,1.3) {$\rho_0$};
+				
+				\footnotesize
+				\node [below left] at (2.1,0) {$-x_0$};
+				\node [below left] at (5.1,0) {$x_0$};
+				
+				\node [left] at (0,2) {$\widehat{v}_x$};
+				\node [below] at (7,0) {$x$};
+			\end{tikzpicture}
+		\label{fig: quasi-sym kink}
+		}
+	}
+	\caption{The eigenfunctions of a quasi-symmetric modes. The (absolute) oscillation amplitude is equal on each boundary so such a mode could be misidentified as a symmetric mode. An example of a difference between a quasi-symmetric mode and its symmetric counterpart is that quasi-symmetric modes have asymmetric penetration depth.}
+	\label{fig: quasi-sym}
+\end{figure}
+
+
+\subsubsection{Asymmetric mode or a superposition of symmetric modes?}
+
+A second implication that asymmetric eigenmodes have for mode identification in solar observations is that a waveguide oscillating in an asymmetric mode could be indistinguishable from a superposition of symmetric eigenmodes.
+
+Consider how one has traditionally identified sausage and kink eigenmodes of a symmetric waveguide. To identify sausage modes, it has been presumed sufficient to identify oscillation in the cross-sectional width. To identify kink modes, previous studies have presumed it to be sufficient to identify perturbation of the waveguide axis (for example, \citealp{mor_etal12}). The mixed characteristics of sausage and kink modes in asymmetric waveguides (see Table~\ref{tab: eigenmode differences}) tell us that these two characteristics are necessary but not sufficient for identification of the respective modes.
+
+To appreciate the potential misidentification, consider a hypothetical observation of a waveguide in the solar atmosphere from which oscillations can be identified in both the cross-sectional width and the axis (for example, Figure~\ref{fig: fibril5_dt}). A naive approach would be to assume that the waveguide is symmetric, so that the only explanation for the cross-sectional oscillation is a symmetric sausage mode and the only explanation for the axial oscillation is a symmetric kink mode. One might then conclude that the observation is of a superposition of a sausage mode and a kink mode. However, as can be seen in Table~\ref{tab: eigenmode differences}, if the waveguide is instead asymmetric (and the asymmetry need only be small, such that it might not be directly observable) then both the oscillation in cross-sectional width and the axial oscillation could be due to asymmetric eigenmodes. Therefore, the correct identification could be a quasi-sausage mode, quasi-kink mode, or superposition of both types. More information is required in order to confidently identify a mode.
+
+One possible resolution to this problem is to measure the background parameters on each side of the waveguide to determine the degree of asymmetry before identifying the modes. If the waveguide is determined to be symmetric, symmetric modes can be identified. If not, the more general asymmetric modes can be identified.
+
+One problem with this approach is that determining the key background parameters, the density and magnetic field strength, is often very difficult and estimates will have an associated uncertainty large enough that it would often not be possible to rule out the possibility of asymmetry. Another problem with this approach is that even relatively small degrees of waveguide asymmetry can cause significant asymmetry in the eigenmodes. For example, the second panel of Figure~\ref{fig: xi} shows a case where the ratio of the external densities is only $\rho_2 / \rho_1 = 2/1.5 = 1.33$ (\textit{i.e.} a relative difference of 33\%), yet the asymmetry in the eigenfunctions, measured, for example, by the ratio of the oscillation amplitudes at each interface, is approximately $|\hat{\xi}_x(x_0) / \hat{\xi}_x(-x_0)| \approx 4$ for quasi-kink modes and 0.25 for quasi-sausage modes, \textit{i.e.} a relative difference of approximately 400\%, easily sufficient to show up in observations. This is a increase in the relative difference of a factor of 12.
+
+A second resolution is to independently measure the propagation speeds of the cross-sectional width oscillation and axial oscillation. Distinct eigenmodes propagate at distinct phase-speeds\footnote{This is an example of the uniqueness of eigenvalues in Sturm-Liouville systems (see, for example, \citealp{boy_etal12}).}. If, in fact, the observation is of a superposition of symmetric sausage and kink eigenmodes, then each eigenmode will propagate at a distinct phase speed. Specifically, the cross-sectional oscillation will propagate at a different speed to the axial oscillation, and the oscillations will become out of phase. Whereas, if the oscillations in cross-sectional width and axis are both due to a single asymmetric eigenmode, then they will both share the same propagation speed and remain in phase. If different propagation speeds between these oscillations can be identified, then it will more likely be a superposition of symmetric modes than asymmetric modes.
+
+One problem with this approach is that often only a small number of periods are observed before either the wave is damped or the waveguide disappears from observational view or breaks up\footnote{A notable exception to this are decayless kink oscillations \citep{nis_etal13}.}. When only a small number of periods are observed, there are often either too few periods to observe the cross-sectional width oscillations breaking phase with axial oscillations, or errors in the phase-speed measurements too large to determine a difference. A second problem is that for some equilibrium parameters, the phase speeds of the symmetric sausage and kink eigenmodes are very similar so would require many periods before breaking phase. For example, this is true for body modes in most parameter regimes and for surface modes in a wide slab.
+
+
+%------------------------------------------------------------------------------
+\section{Other asymmetric waveguides}
+\label{sec: other waveguides}
+%------------------------------------------------------------------------------
+
+For completion, we briefly discuss studies of other MHD waveguides that display asymmetric properties.
+
+\subsection{Multi-layered plasma}
+\cite{shu_etal18} and \cite{all_etal19} studied a waveguide formed by an arbitrary number of parallel tangential discontinuities. This model generalises the asymmetric slab waveguide studied in depth in this chapter. The eigenfunctions, \textit{i.e.} the distribution of wave amplitude transversely across the waveguide for each eigenmode, are not at all simple. For trapped modes, the eigenfunction must be evanescent in the external plasma regions. However, the eigenfunction can be either evanescent or spatially oscillatory in each internal region. This allows for parts of the waveguide to oscillate like a body mode and other parts like a surface mode. Each pair of interfaces can oscillate in phase or in anti-phase, each internal region can oscillate like a body or a surface mode, and each eigenmode can be of either fast or slow variety, depending on the phase of the pressure gradient and magnetic restoring forces. Each combination corresponds to a distinct mode. An additional interface increases the number of distinct eigenmodes by a factor of approximately four\footnote{Due to the infinite number of body modes, the set of eigenmodes of a multi-layered waveguide more than one interface has cardinality $\aleph_0$ (\textit{aleph-null}, the cardinality of the natural numbers). In particular, these sets are the same size, in the sense of cardinality. Instead, we can use the \textit{number density} to get a feel for the number of eigenmodes. The number density of a set gives the asymptotic proportion of elements of the set compared to the natural numbers from 1 to $n$ as $n \to \infty$. It is in the number density sense that an additional interface increases the size of distinct eigenmodes by a factor of approximately four.}. The precise combination of eigenmodes driven in a physical system is dependent on the distribution of the driver across the waveguide as well as the plasma parameters.
+
+This work corroborates with the work of \cite{rud92}, who studied soliton propagation along a waveguide formed by an arbitrary number of tangential discontinuities, with magnetic field in each plasma region in an arbitrary tangential direction.
+
+Plasma with multiple layers is present in several parts of the solar atmosphere. Gravitational stratification, as well as other currently unknown effects, stratify the solar atmosphere into approximately radial layers. Large gradients between plasma of different parameters are present, for example, between the chromosphere and the corona. Inhomogeneities in the lower solar atmosphere can form waveguides that have an approximately multi-layered structure. For example, the atmosphere above elongated magnetic bright points and clusters of elongated sunspots or sunspots with several light bridges (and corresponding overlying light walls) can form horizontally layered systems.
+
+Where these models of multi-layered waveguides might fail is in the assumption that the whole waveguide oscillates collectively. For this to occur, the wavelength must be the same order as the characteristic length scale of the waveguide, otherwise, each interface will oscillate independently. For example, the atmosphere above granules in quiet Sun regions is structured with magnetic bright points and has length scale around the size of granules, which is on the order of 1~Mm \citep{ras03}. MHD oscillations in these structures also have wavelength on the order of 1~Mm \citep{jaf_etal17}. Therefore, it is likely that a multi-layered waveguide formed of several magnetic bright points and adjacent over-granule atmosphere will oscillate collectively. On the other hand, a structure with characteristic length-scale of 1~Mm, oscillating with wavelength 1~km is unlikely to oscillate collectively. In this case we would expect oscillations to be locally distributed, perhaps manifested as surface modes localised to the interfaces between the plasma regions.
+
+
+\subsection{Non-stationary plasma}
+\cite{bar_etal18} studied the onset of the Kelvin-Helmholtz instability (KHI) in asymmetric magnetic slab waveguides. The KHI owes its existence to velocity shear and, for a given model, there exists a critical difference in flow speed between different fluid regions such that any greater difference will trigger instability. In their model, \cite{bar_etal18} induced a uniform flow in the slab and showed that increased asymmetry in the external plasma is associated with a decrease in the critical flow speed. This mechanism works counter to the stabilising effect due to the magnetic field tangential to the interface.
+
+This multi-layered flowing plasma model has application in the flank of CME ejecta as they rapidly flows through the sparse coronal environment \citep{fou_etal11}.
+
+
+\subsection{Adjacent waveguides}
+As mentioned in the introduction to this chapter, \cite{lun_etal08} showed numerically that a system of two adjacent flux tubes of equal parameters oscillates in four trapped eigenmodes: two where the tubes oscillate in phase and two in anti-phase. As expected, the tubes oscillate independently when the distance between them significantly exceeds the wavelength. The tubes in this model are equal in spatial scale and plasma parameters, so this constitutes a symmetric model. \cite{van_etal08} generalised this model to a system of unequal tubes.
+
+It is possible that our present limits on spatial resolution obscure the multi-stranded fine structure of coronal loops. There is no reason for these strands to be equal in size or plasma parameters. Therefore, we might expect stands of different parameters to form a coronal loop that oscillates collectively as an asymmetric waveguide. If this is the case, the asymmetric adjacent flux tube model of \cite{van_etal08} will be particularly useful.
+
+
+%------------------------------------------------------------------------------
+\section{Chapter conclusions}
+\label{sec: chpt 2 conc}
+%------------------------------------------------------------------------------
+
+In this chapter, we have investigated a simple asymmetric slab model of layered solar atmospheric waveguides using an EVP approach. We derive the dispersion relation, Equation~\eqref{DR}, for linear oscillations of this waveguide. In contrast to that of a symmetric slab the dispersion relation for an asymmetric slab does not decouple into separate equations for kink and sausage modes. Instead, all the eigenmodes are described by the single transcendental equation. Despite this, the eigenmodes can still be categorised into distinct \textit{quasi-kink} and \textit{quasi-sausage} modes depending on whether the boundary oscillations are in phase or in anti-phase, respectively. By generalising the MHD slab model, we have shown that it is the in phase or anti-phase relationship between oscillations at the waveguide boundaries that is the fundamental distinction between sausage mode and kink modes, rather than other often-used proxies such as axial displacement and cross-sectional width variation.
+
+There are some key difference between quasi-kink and quasi-sausage modes and their symmetric counterparts (summarised in Table~\ref{tab: eigenmode differences}). In particular, \textit{quasi-kink modes} do not preserve the cross-sectional width and are, in general compressible. This is in stark contrast to the often observed symmetric kink modes, which are practically incompressible, to the point where they are often indistinguishable from Alfv\'{e}n mode, leading to them adopting the name Alfv\'{e}nic. Both quasi-sausage and quasi-kink modes perturb the axis of the waveguide. This is in contrast to the symmetric modes, of which only kink modes perturb the waveguide axis. The mixed nature of the eigenmodes leads to the presence of avoided crossing phenomena between quasi-sausage and quasi-kink modes in the dispersion diagrams of asymmetric waveguides.
+
+These differences between the symmetric and asymmetric eigenmodes could lead to misidentification of observed MHD oscillations in the solar atmosphere. If one were to observe an MHD wave with axial displacement, it could be a kink mode of a symmetric waveguide, or a quasi-kink or quasi-sausage mode of an asymmetric waveguide. Further analysis, such as the measurement of different phase-speeds for the axial perturbation and the intensity perturbation, is required to make a confident mode identification. For this reason, we should use several observational proxies so that ambiguity can be reduced.
+
+Another mechanism for wave misidentification is due to the possible existence of quasi-symmetric eigenmodes. These are modes that appear symmetric \textit{i.e.} the oscillation amplitudes on each interface are equal. This special type of asymmetric eigenmode can exist if and only if a condition, Equation~\eqref{quasi-sym condition}, on the background parameters is satisfied. Misidentification can occur if one were to observe a wave with symmetric boundary oscillations and deduce from this that the underlying waveguide must be symmetric. From this information alone, the waveguide could be symmetric or asymmetric and the wave could be a symmetric mode or a quasi-symmetric mode. Further analysis, for example measurement of the penetration depth of the wave into the surrounding plasma, would be need to make confident mode identification. Although, in practice, the penetration depth of MHD waves is difficult to measure due to the presence of neighbouring inhomogeneities that obscure the wave's evanescence.
+
+The dispersion relation for asymmetric eigenmodes is analytically solvable under further approximations to the plasma. We derive analytically solutions in the limits of incompressible plasma, zero-beta plasma, thin slab, and wide slab. One of the key results from this is that while asymmetric surface modes are strongly dependent on the external plasma parameters, asymmetric body modes are independent of the external plasma parameters to leading order in the slab width. In particular, surface modes are strongly dependent on the waveguide asymmetry, whereas body modes are not. This has the implication that the magneto-seismology techniques developed in Chapter~\ref{chap: SMS} are only useful for surface modes.
+
+Asymmetric eigenfunctions have unequal oscillation amplitudes on each interface (unless it is the eigenfunction of a quasi-symmetric mode). We found that the side of the waveguide which oscillates with the largest amplitude is different for quasi-sausage and quasi-kink modes. This is a surprising result because one might naively expect the largest amplitude to be on the side with lowest density in the external plasma because of the lower density would be expected to give less resistance to perturbation. Establishing an analogy with an asymmetric spring-mass coupled oscillator makes this property less surprising. Like those of an asymmetric slab, the eigenfunctions of the sloshing and breathing modes (analogous to quasi-kink and quasi-sausage modes) a spring-mass oscillator have largest amplitude on different masses.

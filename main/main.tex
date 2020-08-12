@@ -18,6 +18,104 @@
 \usepackage{siunitx}
 \usepackage{combelow}
 \usepackage{afterpage}
+\usepackage{epigraph}
+\usepackage[titletoc]{appendix}
+
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+\usetikzlibrary{snakes}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{arrows,shapes, positioning}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{tabularx}
+\usepackage{makecell}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% the following is to alter tikz settings to improve springs figure.
+\usetikzlibrary{decorations.pathmorphing,calc,patterns}
+\makeatletter
+\def\pgfdecorationspringstraightlinelength{0.5cm}
+\def\pgfdecorationspringnumberofelement{8}
+\def\pgfdecorationspringnaturallength{5cm}
+\pgfkeys{%
+	/pgf/decoration/.cd,
+	spring straight line length/.code={%
+		\pgfmathsetlengthmacro\pgfdecorationspringstraightlinelength{#1}},
+	spring natural length/.code={%
+		\pgfmathsetlengthmacro\pgfdecorationspringnaturallength{#1}},
+	spring number of element/.store in=\pgfdecorationspringnumberofelement
+}
+
+\pgfdeclaredecoration{coil spring}{straight line}{%
+	\state{straight line}[%
+	persistent precomputation = {%
+		% Compute the effective length of the spring (without the length
+		% of the two straight lines): \pgfdecorationspringeffectivelength
+		\pgfmathsetlengthmacro{\pgfdecorationspringeffectivelength}%
+		{\pgfdecoratedpathlength-2*\pgfdecorationspringstraightlinelength}
+		% Compute the effective length of one coil pattern:
+		% \pgfdecorationspringeffectivelengthofonecoil
+		\pgfmathsetlengthmacro{\pgfdecorationspringeffectivelengthofonecoil}%
+		{\pgfdecorationspringeffectivelength/\pgfdecorationspringnumberofelement}
+	},
+	width = \pgfdecorationspringstraightlinelength,
+	next state = draw spring]{%
+		\pgfpathlineto{%
+			\pgfqpoint{%
+				\pgfdecorationspringstraightlinelength}{0pt}}
+	}
+	\state{draw spring}%
+	[width=\pgfdecorationspringeffectivelengthofonecoil,
+	repeat state=\pgfdecorationspringnumberofelement-1,next state=final]{%
+		\pgfpathcurveto
+		{\pgfpoint@onspringcoil{0    }{ 0.555}{1}}
+		{\pgfpoint@onspringcoil{0.445}{ 1    }{2}}
+		{\pgfpoint@onspringcoil{1    }{ 1    }{3}}
+		\pgfpathcurveto
+		{\pgfpoint@onspringcoil{1.555}{ 1    }{4}}
+		{\pgfpoint@onspringcoil{2    }{ 0.555}{5}}
+		{\pgfpoint@onspringcoil{2    }{ 0    }{6}}
+		\pgfpathcurveto
+		{\pgfpoint@onspringcoil{2    }{-0.555}{7}}
+		{\pgfpoint@onspringcoil{1.555}{-1    }{8}}
+		{\pgfpoint@onspringcoil{1    }{-1    }{9}}
+		\pgfpathcurveto
+		{\pgfpoint@onspringcoil{0.445}{-1    }{10}}
+		{\pgfpoint@onspringcoil{0    }{-0.555}{11}}
+		{\pgfpoint@onspringcoil{0    }{ 0    }{12}}
+	}
+	\state{final}{%
+		\pgfpathlineto{\pgfpointdecoratedpathlast}
+	}
+}
+
+\def\pgfpoint@onspringcoil#1#2#3{%
+	\pgf@x=#1\pgfdecorationsegmentamplitude%
+	\pgf@x=.5\pgf@x%
+	\pgf@y=#2\pgfdecorationsegmentamplitude%
+	\pgfmathparse{0.083333333333*\pgfdecorationspringeffectivelengthofonecoil}%
+	\pgf@xa=\pgfmathresult pt
+	\advance\pgf@x by#3\pgf@xa%
+}
+
+\makeatother
+
+\tikzset{%
+	Spring/.style = {%
+		decoration = {%
+			coil spring,
+			spring straight line length = 0.2cm,
+			% To be added
+			spring natural length = #1,
+			spring number of element = 4,
+			amplitude=2mm},
+		decorate,
+		very thick},
+	Spring/.default = {4cm}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{geometry}
  \geometry{
@@ -67,17 +165,30 @@
 \newcommand{\ssr}{    {\it Space Sci. Rev.}}
 \newcommand{\caa}{{\it Chinese Astron. Astrohpys.}} 
 \newcommand{\apjs}{    {\it Astrophys. J. Suppl.}}
+\newcommand{\lrsp}{{\it Living Rev. Solar Phys.}}
+\newcommand{\planss}{{\it Planetary and Space Sci.}}
 
 \def\UrlFont{\sf}
 
 \title{The Sun's Asymmetric Waveguides}   %note \\[1ex] is a line break in the title
 
-\author{Matthew Allcock}
+\author{Matthew Mark Allcock}
 
 \degree{Doctor of Philosophy}
-\degreedate{2020}
+\degreedate{July 2020}
 
 \begin{document}
+
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bB}{\mathbf{B}}
+
+\newcommand{\figdirI}{figures/chpt-1/}
+\newcommand{\figdirII}{figures/chpt-2/}
+\newcommand{\figdirIII}{figures/chpt-3/}
+\newcommand{\figdirIV}{figures/chpt-4/}
+\newcommand{\figdirV}{figures/chpt-5/}
+\newcommand{\figdirVI}{figures/chpt-6/}
+
 
 %this baselineskip gives sufficient line spacing for an examiner to easily
 %markup the thesis with comments
@@ -106,18 +217,27 @@
 
 \begin{romanpages}          % start roman page numbering
 \tableofcontents            % generate and include a table of contents
-\listoffigures              % generate and include a list of figures
+%\listoffigures              % generate and include a list of figures
 \end{romanpages}            % end roman page numbering
 
 %now include the files of latex for each of the chapters etc
 \include{1-chpt/chpt-1}
-%\include{2-chpt/chpt-2}
-%\include{3-chpt/chpt-3}
-\include{4-conclusions/conclusions}
+\include{2-chpt/chpt-2}
+\include{3-chpt/chpt-3}
+\include{4-chpt/chpt-4}
+\include{5-chpt/chpt-5}
+\include{6-conclusions/conclusions}
+\include{7-future-work/future-work}
 
 %now enable appendix numbering format and include any appendices
-\appendix
-%\include{5-appendices/appendix1}
+\begin{appendices}
+\include{8-appendices/appendix-1-spring-mass-oscillator}
+\include{8-appendices/appendix-2-proof-of-error}
+\include{8-appendices/appendix-3-laplace-transform}
+\include{8-appendices/appendix-4-corroboration}
+\include{8-appendices/appendix-5-lhopital}
+\end{appendices}
+
 
 %%next line adds the Bibliography to the contents page
 \addcontentsline{toc}{chapter}{Bibliography}

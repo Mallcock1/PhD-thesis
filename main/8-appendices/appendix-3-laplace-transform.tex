@@ -1,0 +1,17 @@
+\chapter{Non-standard Laplace transform}\label{app: laplace trans}
+Consider a function $f(t)$, whose standard Laplace transform, $F_1(\omega)$, and non-standard Laplace transform, $F_2(\omega)$, are
+\begin{equation}
+F_1(\omega) = \int_0^\infty f(t) e^{-\omega t} dt,
+\quad \text{and} \quad
+F_2(\omega) = \int_0^\infty f(t) e^{i\omega t} dt.
+\end{equation}
+Trivially, $F_1(-i\omega) = F_2(\omega)$. Using the standard inverse Laplace transform, and letting $\sigma$ be real and greater than the real part of all the singularities of $F_1(\omega)$, the original function $f(t)$ can be written
+\begin{align}
+f(t) & = \frac{1}{2\pi i} \lim_{T\to\infty} \int_{\sigma - iT}^{\sigma + iT} F_1(\omega)e^{\omega t} d\omega, \\
+& = \frac{1}{2\pi i} \lim_{T\to\infty} \int_{i\sigma - T}^{i\sigma + T} F_1(-i\omega)e^{-i\omega t} (-id\omega), \\
+& = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\sigma - T}^{i\sigma + T} F_2(\omega)e^{-i\omega t} d\omega.
+\end{align}
+Therefore, the inverse transform of the non-standard Laplace transform is
+\begin{equation}
+f(t) = \frac{1}{2\pi} \lim_{T\to\infty} \int_{i\sigma - T}^{i\sigma + T} F_2(\omega)e^{-i\omega t} d\omega.
+\end{equation}

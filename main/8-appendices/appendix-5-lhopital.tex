@@ -1,0 +1,31 @@
+\chapter{Validation of L'Hopital's rule} \label{app: l'hopital}
+L'Hopital's Rule is a powerful tool for evaluating limits of quotients of functions, provided that these functions satisfy certain necessary criteria. L'Hopital's Rule (for function of complex variables) states that, for functions $f$ and $g$ which are analytic at a point $z_0$, if $f(x_0) = g(z_0) = 0$, $g'(z_0) \neq 0$ then
+\begin{equation}
+\lim_{z \to z_0}\frac{f(z)}{g(z)} = \frac{f'(z)}{g'(z)}.
+\end{equation}
+
+Applied to the present problem, the requirements for L'Hopital's rule to hold are:
+\begin{enumerate}
+	\item The functions $(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t}$ and $kD(\omega)$ are analytic at $\omega_{0+}$,
+	\item $[(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t}]|_{\omega = \omega_{0+}} = kD(\omega_{0+}) = 0$,
+	\item $kD'(\omega_{0+}) \neq 0$.
+\end{enumerate}
+
+Below, we validate that each of these conditions holds:
+\begin{enumerate}
+	\item Functions $T_1(\omega)$ and $D(\omega)$ are polynomials and hence are analytic. Since products of analytic functions are also analytic, $(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t}$ and $kD(\omega)$ are analytic. In particular, they are analytic at $\omega_{0+}$.
+	
+	\item The point $\omega_{0+}$ is a zero of $D(\omega)$ (by definition of $\omega_{0+}$) and $T_1(\omega)$ is regular at $\omega_{0+}$, therefore $[(\omega - \omega_{0+}) T_1(\omega) e^{-i\omega t}]|_{\omega = \omega_{0+}} = kD(\omega_{0+}) = 0$.
+	
+	\item The function $D'(\omega)$ can be rewritten as
+	\begin{align}
+	D'(\omega) &= 2k^2\omega\left[ 2\{c_0\rho_0(\rho_1 + \rho_2) + s_0(\rho_0^2 + \rho_1\rho_2)\}\frac{\omega^2}{k^2} \right. \notag \\
+	& \qquad \qquad - \left. \{c_0\rho_0[\rho_1v_{A1}^2 + \rho_2v_{A2}^2 + (\rho_1 + \rho_2)v_{A0}^2] + s_0[2\rho_0^2v_{A0}^2 + \rho_1\rho_2(v_{A1}^2 + v_{A2}^2)]\}\right] \\
+	& = 2k^2\omega\left[ 2a \frac{\omega^2}{k^2} + b \right],
+	\end{align}
+	where $a$ and $b$ are given by Equations~\eqref{solution a} and~\eqref{solution b}. The above equation has zeros at $\omega = 0$ and $\omega = \pm \omega_0$, where
+	\begin{equation}
+	\frac{\omega_0^2}{k^2} = -\frac{b}{2a}.
+	\end{equation}
+	Therefore, the zeros of the function $D$ are always at least a factor of $i$ away from the zeros of $D'$ (and are a factor of exactly $i$ away if and only if $d = b^2 - 4ac = 0$). The result follows.
+\end{enumerate}

@@ -1,0 +1,1293 @@
+
+%------------------------------------------------------------------------------
+\chapter{Asymmetric waveguides - initial value problem}
+\label{chap: IVP}
+%------------------------------------------------------------------------------
+
+%------------------------------------------------------------------------------
+\section{Chapter introduction}
+\label{sec: IVP intro}
+%------------------------------------------------------------------------------
+
+Eigenmodes are rightfully considered the building blocks of linear oscillations of complex MHD models. They define natural oscillation frequencies and describe how wave power is spatially distributed across a waveguide. However, when solving an MHD wave problem using an EVP approach, such as was used in Chapter~\ref{chap: EVP}, we use a Fourier decomposition in time, so that the eigenmodes have time dependence proportional to $\exp(i\omega t)$. This is a simple time-dependence: a sinusoidal oscillation with frequency $\omega$, and allows an effectively time-independent solution to be found. Whilst this approach is useful for understanding the spatial properties of the wave, eigenmodes do not paint the whole picture. A more complete description involves studying the time-evolution by solving the associated initial value problem (IVP).
+
+The IVP approach to MHD wave problems has been utilised by several authors, developing the theory of time-dependant wave phenomena including phase mixing and resonant absorption. The first use of an IVP approach to solar MHD waveguides was by \cite{sed71} who, quite ahead of their time, showed that the discrete spectrum\footnote{The term being used here in the functional analytical sense.} of the cold magnetic cylindrical waveguide contains more than just eigenmodes. They derived the existence of exponentially damped collective oscillations. The damping mechanism of these oscillations was later shown to be lateral wave leakage due to the waveguide not fully containing the collective oscillation \citep{rud_etal06b}.
+
+The IVP approach has been particularly useful for studying leaky modes. \cite{cal03} catalogued the possible types of wave leakage that a cylindrical waveguide could have, with their associated damping rate, by solving the IVP of a cold magnetic flux tube. Of particular note is what \cite{cal03} described as the ``principal leaky kink mode", which is the leaky analogue of the principal kink mode, the first order trapped kink body mode. \cite{rud_etal06b} showed that it is not possible to observe this proposed leaky mode because it is not a physical solution of the dispersion equation. More precisely, it is a solution that is found only on the non-physical Riemann sheet. After some debate \citep{cal06,rud_etal06}, the principal leaky kink mode has been demonstrated both analytically and numerically to not contribute to the IVP solution. In particular, \cite{ter_etal06} solved the IVP numerically to show that the principal leaky kink mode is does not contribute to the solution for the initial conditions that they tested and \cite{and_etal07} used spectral theory to show that the principal leaky kink mode is not part of the physical spectrum.
+
+The timescale of amplitude attenuation due to wave leakage has been shown to be much longer than the damping timescale of resonant absorption \citep{rob19}. This has quite rightly led the solar physics community to focus on resonant absorption as the more plausible mechanism for the damping of coronal loop oscillations. It is worth noting however that waveguide curvature can amplify wave leakage \citep{sel_etal07}.
+
+The utility of the IVP approach in the present chapter is to determine a time-scale over which collective and coherent asymmetric oscillations can be expected to develop following an initial perturbation of an MHD waveguides. The structure of this chapter is as follows. Leaky waves play a key role in IVPs in MHD waveguides so Section~\ref{sec: IVP leaky} discusses leaky waves in the IVP context. In Section~\ref{sec: IVP int}, we solve the IVP for an interface between two plasmas, correcting several significant errors made in previous research. In Section~\ref{sec: IVP slab}, we solve the MHD IVP for a symmetric slab and discuss how this generalises to an asymmetric slab.
+
+
+%------------------------------------------------------------------------------
+\section{Leaky waves}
+\label{sec: IVP leaky}
+%------------------------------------------------------------------------------
+
+Small amplitude MHD waves guided by an isolated plasma inhomogeneity are made up of \textit{trapped} and \textit{leaky} wave components. Trapped waves maintain a constant (when averaged over a period) amplitude through time and are spatially evanescent away from the waveguide. Trapped waves were the subject of the analysis in Chapter~\ref{chap: EVP}. One can then ask whether there can exist any modes with attenuated amplitude through time. Without any damping mechanism\footnote{The discontinuous Alfv\'{e}n speed profile used in our model avoids resonant absorption and phase mixing and neglecting viscosity avoids viscous damping.}, there is no way for this energy to be converted into heat. The energy is not \textit{lost}, rather, it is \textit{transported}. Energy must be transported orthogonal to the propagation direction.
+
+To see this mathematically, consider the \textit{Poynting flux}, which represents the directional energy flux of a magnetic field. The Poynting flux is defined as $\mathbf{S} = (\mathbf{E} \times \bB)/\mu_0$ (see, for example, \citealp{pri14}). In ideal MHD, Ohm's law tells us that the electric field is approximately $\mathbf{E} = -(\bv \times \bB)$. Therefore, using a standard vector calculus identity, the Poynting flux can be written as $\mathbf{S} = [B^2\bv - (\bv \cdot \bB)\bB] / \mu_0$. Under the assumption that that wave is temporally attenuating, the angular frequency must be complex (with a negative imaginary part), $\omega = \omega_R + i\omega_I$. The time-averaged Poynting flux over a wave period, $T = 2\pi/\omega_R$, is a more instructive quantity because it neglects the small changes in energy flux that do not contribute to the energy flux over time-scales longer than a wave period. The velocity perturbation time-averaged from an initial time $t_0$ is
+\begin{align}
+	\langle \bv \rangle &= \frac{1}{T} \int_{t_0}^{t_0 + T} \bv ~dt \\
+	&= \frac{1}{T} \int_{t_0}^{t_0 + T} \mathbf{\hat{v}} e^{i(kz - \omega t)} ~dt \\
+	&= \frac{i}{\omega T} \mathbf{\hat{v}} e^{i(kz - \omega t_0)} (e^{\omega_I T} - 1).
+\end{align}
+To linear order, the time-averaged Poynting flux due to an MHD wave in our model is
+\begin{align}
+\langle \mathbf{S} \rangle &= \frac{1}{\mu_0}[B_0^2\langle\bv\rangle - (\langle\bv\rangle \cdot \bB_0)\bB_0] \\
+&= \frac{iB_0^2}{\omega T \mu_0} \hat{v}_x e^{i(kz - \omega t_0)} (e^{\omega_I T} - 1) \mathbf{\hat{x}}.
+\label{p flux}
+\end{align}
+For trapped waves, the frequency is purely real, \textit{i.e.} $\omega_I = 0$, hence $\langle \bv \rangle = \mathbf{0}$, giving a vanishing time-averaged Poynting flux (to linear order). Equation~\eqref{p flux} shows that for non-trapped waves, the time-averaged Poynting flux is in the $x$-direction, orthogonal to the direction of propagation. Energy leaks laterally away from the waveguide, balancing the amplitude attenuation in the propagation direction. Waves of this type are known as \textit{leaky}.
+
+As discussed in Chapter~\ref{chpt: ray}, wave leakage can occur for incidence angles greater then the critical angle for total internal reflection. A proportion of the energy is transmitted into the external plasma. When posed as an eigenvalue problem, the leaky modes have eigenfunctions that are spatially oscillatory in the external plasma (Figure~\ref{fig: leaky eigenfunction}) as opposed to trapped modes, which have eigenfunctions that are evanescent in the external plasma (Figure~\ref{fig: trapped eigenfunction}).
+\begin{figure}
+	\subfloat[Trapped]{
+		\includegraphics[width=\textwidth]{\figdirIV trapped.pdf}
+		\label{fig: trapped eigenfunction}
+	} \\
+	\subfloat[Leaky]{
+		\includegraphics[width=\textwidth]{\figdirIV leaky.pdf}
+		\label{fig: leaky eigenfunction}
+	}
+	\caption{Typical eigenfunctions for trapped and leaky modes of an MHD waveguide. The arrows denote the direction of energy flux.}
+	\label{fig: eigenfunction}
+\end{figure}
+Leaky modes are not normal eigenmodes of the true sense, in that they do not contribute to the orthogonal set of elements of the MHD Hilbert space. This is equivalent to the frequencies of leaky modes not being elements of the discrete spectrum\footnote{The spectrum of a bounded operator on a Hilbert space is the set of scalars $\omega$ such that the operator $\mathbf{F} - \lambda\mathbf{I}$ does not have a bounded inverse on the Hilbert space. Here, $\mathbf{F}$ and $\mathbf{I}$ are the ideal MHD force operator and the identity operator, respectively. The discrete spectrum is made up of the eigenvalue of the operator $\mathbf{F}$. The spectrum is a generalisation of the set of eigenvalues of an operator in the sense that the discrete spectrum is a subset of the spectrum.}. This is clearly seen by the fact that they perturb plasma at an arbitrary distance from the waveguide, therefore input an infinite amount of energy on the plasma. Instead, they contribute to the continuous spectrum\footnote{The continuous spectrum is the subset of the spectrum whose elements $\lambda$ are dense and that $\mathbf{F} - \lambda\mathbf{I}$ is injective but not surjective.}. For the slab waveguide, the spectral measure associated with the continuous spectrum has peaks at specific frequencies. These peaks are the allowed frequencies of the leaky modes. This gives the erroneous impression that they contribute to the discrete spectrum. Leaky modes of a slab waveguide are analysed in more detail from the perspective of spectral theory by \cite{and_etal07}.
+
+The physical nature of leaky modes is that they can dominate the time-dependent solution for intermediate time scales, \textit{i.e.} much longer than the period of the dominant eigenmode and less than (or of the order of) the timescale of damping due to energy leakage, and at intermediate length scales from the waveguide \citep{rud_etal06b,rud_etal02}. This means that they contribute a finite amount of energy, rather than an infinite amount if they were superposed as a standard eigenmode. This is shown in Section~\ref{sec: compressible slab} for an MHD slab.
+
+
+%------------------------------------------------------------------------------
+\section{Tangential interface}
+\label{sec: IVP int}
+%------------------------------------------------------------------------------
+
+In seminal research, and one of the earlier uses of the IVP approach to an MHD wave problem, \cite{rae_etal81} modelled surface waves propagating along an isolated tangential interface, parallel to the $z$-axis, separating two distinct plasmas. In this section, we bring to attention several ways in which the derivation and results of that paper are incorrect and correct the analysis. To our knowledge, this is the first time these errors have been reported.
+
+Consider a stationary, inviscid plasma that is stratified in the $x$-direction only that has unidirectional magnetic field $\bB = (0, 0, B(x))$. Following \cite{rae_etal81}, we let the plasma be incompressible. First, taking Fourier components in the $z$-direction\footnote{To maintain consistency with the remainder of this thesis, we look for parameters proportional to $e^{ikz}$ instead of $e^{-ikz}$ as was taken by \cite{rae_etal81}.}
+\begin{equation}
+v_x(x,y,z,t) = \hat{v}_x(x,t)e^{ikz},
+\end{equation}
+the linearised ideal incompressible MHD equations can be simplified to a single equation for the transverse velocity perturbation, namely \citep{pri14}
+\begin{equation}
+\frac{\partial}{\partial x}\left\{\rho_0\left(\frac{\partial^2}{\partial t^2} + k^2v_A^2\right) \frac{\partial\hat{v}_x}{\partial x}\right\} - k^2\rho_0\left(\frac{\partial^2}{\partial t^2} + k^2v_A^2\right)\hat{v}_x = 0.
+\label{gov fourier}
+\end{equation}
+Next, we take the Laplace transform\footnote{The choice of Laplace transform convention is discussed in Appendix~\ref{app: laplace trans}.}, of this equation, where we define
+\begin{equation}
+\tilde{v}_x(x) = \mathcal{L}\{\hat{v}_x(x,t)\} = \int_0^\infty \hat{v}_x(x,t)e^{i\omega t} dt.
+\end{equation}
+Firstly,
+\begin{align}
+\mathcal{L}\left\{\frac{\partial^2 \hat{v}_x}{\partial t^2}\right\} & = \left[\dot{\hat{v}}_x e^{i\omega t}\right]_0^\infty - i\omega \int_0^\infty \dot{\hat{v}}_x e^{i\omega t} dt \\
+& = -\dot{\hat{v}}_{x0} - i\omega\left[\hat{v}_x e^{i\omega t}\right]_0^\infty -\omega^2 \int_0^\infty \hat{v}_x e^{i\omega t} dt \\
+& = i\omega \hat{v}_{x0} - \dot{\hat{v}}_{x0} - \omega^2 \tilde{v}_x,
+\end{align}
+where $\dot{\hat{v}}_x = \partial\hat{v}_x/\partial t$, and we have used the assumption that $\lim_{t \to \infty} \dot{\hat{v}}_{x}(x,t) = \lim_{t \to \infty} \hat{v}_{x}(x,t) = 0$, for all $x$. Therefore, Equation~\eqref{gov fourier} becomes
+\begin{align}
+\frac{d}{dx} &\left[\rho_0\left(\left\{i\omega \hat{v}_{x0}' - \dot{\hat{v}}_{x0}' - \omega^2\tilde{v}_x'\right\} + k^2v_A^2 \tilde{v}_x'\right)\right] \notag \\
+&- k^2\rho_0 \left(\left\{i\omega \hat{v}_{x0} - \dot{\hat{v}}_{x0} - \omega^2\tilde{v}_x\right\} + k^2v_A^2 \tilde{v}_x\right) = 0, \notag
+\end{align}
+where $\tilde{v}'_x = \partial\tilde{v}_x/\partial x$. By defining $\epsilon = \epsilon(x) = \rho_0(x)(k^2v_A(x)^2 - \omega^2)$, this equation is equivalent to
+\begin{align}
+\frac{d}{dx} \left[\epsilon \tilde{v}_x'\right] - k^2\epsilon \tilde{v}_x & = - \rho_0 k^2\left(\dot{\hat{v}}_{x0} - i\omega\hat{v}_{x0}\right) + \frac{\partial}{\partial x}\left[\rho_0\left(\dot{\hat{v}}_{x0}' - i\omega\hat{v}_{x0}'\right)\right] \notag \\
+& = - \rho_0 k^2\left(\dot{\hat{v}}_{x0} - i\omega\hat{v}_{x0}\right) + \rho_0\left(\dot{\hat{v}}_{x0}'' - i\omega\hat{v}_{x0}''\right) + \frac{d\rho_0}{dx}\left(\dot{\hat{v}}_{x0}' - i\omega\hat{v}_{x0}'\right) \notag \\
+& = \rho_0\left[\left(\dot{\hat{v}}_{x0}'' - k^2\dot{\hat{v}}_{x0}\right) - i\omega\left(\hat{v}_{x0}'' - k^2\hat{v}_{x0}\right)\right] + \frac{d\rho_0}{dx}\left(\dot{\hat{v}}_{x0}' - i\omega\hat{v}_{x0}'\right)
+\label{gov reduced}
+\end{align}
+Two equations that will help simplify this equation are derived from the assumption of incompressibility and the definition of vorticity:
+\begin{itemize}
+	\item $\nabla\cdot\mathbf{v} = 0$, from which it follows that $\hat{v}_x' = -ik \hat{v}_z$.
+	\item The vorticity, defined by $\Omega(\mathbf{x},t)\mathbf{\hat{y}} = \hat{\Omega}(x,t)e^{ikz}\mathbf{\hat{y}} = \nabla \times \mathbf{v}(\mathbf{x},t)$, is given by	\begin{equation}
+	\hat{\Omega}(x,t) = -\frac{i}{k}\left(\hat{v}''_x - k^2 \hat{v}_x\right).
+	\end{equation}
+\end{itemize}
+Using the above two equations, Equation~\eqref{gov reduced} simplifies to
+\begin{equation}
+\frac{d}{dx} \left[\epsilon \frac{d \tilde{v}_x}{d x}\right] - k^2\epsilon \tilde{v}_x = f(x), \label{gov}
+\end{equation}
+where
+\begin{equation}f(x) = ik\left\{\rho_0\left[\dot{\hat{\Omega}}_0 - i\omega\hat{\Omega}_0\right] \textcolor{red}{-} \frac{d\rho_0}{dx}\left(\dot{\hat{v}}_{z0} - i\omega\hat{v}_{\textcolor{red}{z}0}\right)\right\}.
+\end{equation}
+This function is the corrected version of Equations~(11)-(13) of \cite{rae_etal81}. The red opperator is the corrected version. However, because \cite{rae_etal81} assumed that $\partial \rho_0 / \partial x = 0$, this error was inconsequential. Additionally, a typographical error was made in the above equation, where they wrote subscript $x$ in place of our subscript $\textcolor{red}{z}$. Note that there is a factor of -1 discrepancy between this function and that of \cite{rae_etal81} due to taking different Fourier forms. For future utility, we define $\Psi_0 = \Psi(x, 0)$ by function $\Psi(x, t) = k[\rho_0\hat{\Omega}(x, t) - \rho_0'\hat{v}_z(x, t)]$ so that $f(x, \omega) = \omega \Psi_0 + i\frac{\partial \Psi_0}{\partial t}$.
+
+
+\subsection{Tangential interface}
+
+Consider an equilibrium structuring of this plasma with magnetic field and density profiles given by
+\begin{equation}
+B(x)=
+\begin{cases}
+B_- & \text{for  }x<0, \\
+B_+ & \text{for  }x>0,
+\end{cases}
+\quad \text{and} \quad
+\rho(x)=
+\begin{cases}
+\rho_- & \text{for  }x<0, \\
+\rho_+ & \text{for  }x>0, \\
+\end{cases}
+\end{equation}
+where $B_j$ and $\rho_j$ are uniform for $j = -, +$. In this equilibrium, Equation~\eqref{gov} tells us that transverse velocity perturbation is related to initial perturbations by
+\begin{equation}
+\frac{d^2\tilde{v}_x}{dx^2} - k^2\tilde{v}_x = 
+\begin{cases}
+f(x)/\epsilon_-, & \text{for  } x < 0,\\
+f(x)/\epsilon_+, & \text{for  } x > 0,
+\end{cases}
+\label{ivp interface gov}
+\end{equation}
+and satisfies the boundary conditions
+\begin{equation}
+\lim_{x \to -\infty}\tilde{v}_x(x) = \lim_{x \to \infty}\tilde{v}_x(x) = 0 \text{ and } \lim_{x \to 0^-}\tilde{v}_x(x) = \lim_{x \to 0^+}\tilde{v}_x(x).
+\label{ivp interface BC}
+\end{equation}
+The first of these boundary conditions ensures that plasma far from the interface is unaffected by its oscillation. The second ensure that the plasma at the interface remains connected. The latter these is referred to as the \textit{kinematic boundary condition} for a free surface in fluid mechanics \citep{goe_etal04}.
+
+The problem given by Equation~\eqref{ivp interface gov} with boundary conditions~\eqref{ivp interface BC} is a \textit{Sturm-Liouville problem} \citep{boy_etal12}. Sturm-Liouville theory tells us that the Green's function, $G(x; s)$, corresponding to Equation~\eqref{ivp interface gov} must satisfy 
+\begin{equation}
+\frac{\partial^2G}{\partial x^2} - k^2 G = \delta(x-s), \quad G(-\infty; s) = G(\infty; s) = 0,
+\end{equation}
+where $\delta$ denotes the Dirac Delta function. It is instructive to piecewise define the Green's function as
+\begin{equation}
+G(x; s) = 
+\begin{cases}
+G_-(x; s), & \text{for } x < 0, \\
+G_+(x; s), & \text{for } x > 0.
+\end{cases}
+\end{equation}
+The general solution of the equation for $G_-$ for $x < 0$ is
+\begin{equation}
+G_-(x; s) = c_1e^{kx} + c_2e^{-kx},
+\end{equation}
+where $c_1$ and $c_2$ are constants with $c_2 = 0$ for $x < s$ and $c_1 = 0$ for $x > s$. Ensuring that $G_-$ and $\partial G_- / \partial x$ have respective jumps of 0 and 1 at $x = s$ determines $c_1$ and $c_2$, so that $G_-(x;s)$ is
+\begin{equation}
+\begin{aligned}
+G_-(x; s) & = -\frac{1}{2k} 
+\begin{cases}
+e^{kx}e^{-ks}, & \text{for } -\infty < x < s, \\
+e^{-kx}e^{ks}, & \text{for } s< x < 0,
+\end{cases} \\
+& = - \frac{1}{2k}\left[e^{ks}e^{-kx}H(x-s) + e^{-ks}e^{kx}H(s-x)\right],
+\end{aligned}
+\end{equation}
+The Sturm-Liouville problem for each plasma ($x < 0$ and $x > 0$) has an inhomogeneous boundary condition at the interface. Therefore, we must add to the standard Green's function solution a term that is a solution to the homogeneous version of Equation~\eqref{ivp interface gov} with inhomogeneous boundary conditions. In this manner, we find that the solution for $x < 0$ is
+\begin{equation}
+\tilde{v}_x(x) = \tilde{A}_-e^{kx} \textcolor{red}{+} \frac{1}{\epsilon_-}\int_{-\infty}^{0} G(x; s) f(s) ds. \label{sol -}
+\end{equation}
+Similarly, the solution for $x > 0$ is
+\begin{equation}
+\tilde{v}_x(x) = \tilde{A}_+e^{-kx} + \frac{1}{\epsilon_+}\int_{0}^{\infty} G(x; s) f(s) ds. \label{sol +}
+\end{equation}
+where
+\begin{equation}
+G(x; s) = - \frac{1}{2k}\left[e^{ks}e^{-kx}H(x-s) + e^{-ks}e^{kx}H(s-x)\right].
+\end{equation}
+Equation~\eqref{sol -} is the corrected version of Equation~(16) in \cite{rae_etal81}. In \cite{rae_etal81}, they have a $-$ instead of a $+$. The erroneous solution is show in Appendix~\ref{app: error} to not satisfy Equation~\eqref{ivp interface gov}.
+
+By imposing continuity of transverse velocity perturbation, we can determine the constants $A_-$ and $A_+$ to be
+\begin{align}
+\tilde{A}_+ & = \frac{1}{k(\epsilon_- + \epsilon_+)}\left[\textcolor{red}{-} \: \int_{-\infty}^0 f(s)e^{ks} ds - \frac{1}{2}\left(1 - \frac{\epsilon_-}{\epsilon_+}\right)\int_0^\infty f(s)e^{-ks} ds\right], \\
+\tilde{A}_- & = \frac{1}{k(\epsilon_- + \epsilon_+)}\left[-\int_0^\infty f(s)e^{-ks} ds \: \textcolor{red}{-} \: \frac{1}{2}\left(1 - \frac{\epsilon_+}{\epsilon_-}\right)\int_{-\infty}^0 f(s)e^{ks} ds\right],
+\end{align}
+which differs to that given by \cite{rae_etal81} by the red operators.
+
+The solution in time is found by taking the inverse Laplace transform of Equations~\eqref{sol -} and~\eqref{sol +}. This is not possible for arbitrary initial conditions. In the following subsection, we derive the solution for several specific initial conditions.
+
+
+\subsubsection{Solution for specific initial conditions}
+
+The corrected solutions for specific initial conditions used by \cite{rae_etal81} are given below:
+
+\begin{enumerate}
+	\item \label{IC1} \textit{Vorticity constant everywhere at $t = 0$}. When the initial vorticity is constant with respect to $x$, \textit{i.e.} $\Omega(x,0) = \Omega_0$, Equation~\eqref{ivp interface sol correct} tells us that the velocity perturbation is	\begin{equation}
+	\tilde{v}_x = -\frac{\rho_0\omega\Omega_0}{k}
+	\begin{cases}
+	\left(1 + \frac{\epsilon_- - \epsilon_+}{\epsilon_- + \epsilon_+}e^{kx}\right)/\epsilon_-, & \text{for } x<0, \\
+	\left(1 + \frac{\epsilon_+ - \epsilon_-}{\epsilon_- + \epsilon_+}e^{-kx}\right)/\epsilon_+, & \text{for } x>0.
+	\end{cases}
+	\end{equation}
+	\item \label{IC2} \textit{Step function vorticity at $t = 0$}. When the initial vorticity is given by $\Omega(x,0) = \Omega_0H(-x)$, Equation~\eqref{ivp interface sol correct} tells us that the velocity perturbation is
+	\begin{equation}
+	\tilde{v}_x = -\frac{\rho_0\omega\Omega_0}{k}
+	\begin{cases}
+	\left(1 - \frac{\epsilon_+}{\epsilon_- + \epsilon_+}e^{kx}\right)/\epsilon_-, & \text{for } x<0, \\
+	\frac{1}{\epsilon_- + \epsilon_+}e^{-kx}, & \text{for } x>0.
+	\end{cases}
+	\end{equation}
+	\item  \label{IC3} \textit{Impulsive vorticity at $t = 0$}. When the initial vorticity\footnote{Note that \cite{rae_etal81} incorrectly use the impulsive initial condition $\Omega(x,0) = \Omega_0\delta(x-x_0)$. This can be shown to be erroneous by considering that the dimensions of the left-hand side, $\Omega(x,0)$, are $[\mathrm{Time}^{-1}]$ and therefore not equal to the dimensions of the right-hand side, $\Omega_0\delta(x-x_0)$, namely $[\mathrm{Distance}^{-1}\mathrm{Time}^{-1}]$. They also omit, without explanation, the density, $\rho_0$, from their solutions.} is given by {$\Omega(x,0) = \Omega_0\delta(k(x-x_0))$}, for $x_0>0$, Equation~\eqref{ivp interface sol correct} tells us that the velocity perturbation is
+	\begin{equation}
+	\tilde{v}_x = -\frac{\rho_0\omega\Omega_0}{k}
+	\begin{cases}
+	\frac{1}{\epsilon_- + \epsilon_+}e^{-k(x_0 - x)}, & \text{for } x < 0, \\
+	\frac{\epsilon_+ - \epsilon_-}{2\epsilon_+(\epsilon_- + \epsilon_+)}e^{-k(x + x_0)} + \frac{e^{-k(x_0 - x)}}{2\epsilon_+}, & \text{for } 0<x<x_0, \\
+	\frac{\epsilon_+ - \epsilon_-}{2\epsilon_+(\epsilon_- + \epsilon_+)}e^{-k(x + x_0)} + \frac{e^{-k(x - x_0)}}{2\epsilon_+}, & \text{for } x>x_0.
+	\end{cases}
+	\end{equation}
+\end{enumerate}
+%
+\begin{figure}
+	\includegraphics[width=\textwidth]{\figdirIV v_x.png}
+	\caption{Original \cite{rae_etal81} (blue) and corrected (green) solutions for the velocity perturbation, $\tilde{v}_x$, for initial condition~\ref{IC1} (left),~\ref{IC2} (middle), and~\ref{IC3} (right). The blue and green curved are the same in the right panel.}
+	\label{fig: vx}
+\end{figure}
+Figure~\ref{fig: vx} illustrates the solutions for the transverse velocity perturbation, $\tilde{v}_x$, for the three specific initial conditions given above, showing both the original and corrected initial transverse velocities.
+
+The full solution for the transverse velocity, $v_x(x, z, t) = \hat{v}_x(x,t)e^{ikz}$ is found by taking the inverse Laplace transform of $\tilde{v}_x$, such that
+\begin{equation}
+\hat{v}_x(x,t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{-L + i\sigma}^{L + i\sigma} \tilde{v}_x(x)e^{-i\omega t} d\omega,
+\end{equation}
+where $\sigma$ is real and such that all the singularities of the integrand lie below the contour of integration in the complex plane. The singularities in the solutions in Laplace space are all poles. Therefore, using Cauchy's Residue Theorem, it follows that
+\begin{equation}
+\hat{v}_x(x, t) = -i\sum \mathrm{Res}\left\{\tilde{v}_xe^{-i\omega t}\right\},
+\end{equation}
+where the summation is over all the poles of the argument.
+
+Considering initial condition~\ref{IC1}, with uniform vorticity, the singularities of this function occur at $\epsilon_- = 0$, $\epsilon_+ = 0$, and $\epsilon_- + \epsilon_+ = 0$. This corresponds to simple poles at $\omega = \pm kv_{A-}$, $\omega = \pm kv_{A+}$, and $\omega = \pm kv_s$, respectively, where
+\begin{equation}
+v_s = \sqrt{\frac{v_{A-}^2 + v_{A+}^2}{2}}.
+\end{equation}
+The residues associated with each singularity are
+\begin{align}
+\mathrm{Res}\left\{\tilde{v}_x e^{-i\omega t}; \pm kv_{A+}\right\} &= \frac{\Omega_0}{2k} e^{\mp ikv_{A+}t}
+\begin{cases}
+0, & \text{for  } x < 0, \\
+1 - e^{-kx}, & \text{for  } x > 0, 
+\end{cases} \\
+\mathrm{Res}\left\{\tilde{v}_x e^{-i\omega t}; \pm kv_{A-}\right\} &= \frac{\Omega_0}{2k} e^{\mp ikv_{A-}t}
+\begin{cases}
+1 - e^{kx}, & \text{for  } x < 0, \\
+0, & \text{for  } x > 0,
+\end{cases} \\
+\mathrm{Res}\left\{\tilde{v}_x e^{-i\omega t}; \pm kv_{s}\right\} &= \frac{\Omega_0}{2k} e^{\mp ikv_st} 
+\begin{cases}
+e^{kx}, & \text{for  } x < 0, \\
+e^{-kx}, & \text{for  } x > 0.
+\end{cases}
+\end{align}
+By summing these residues,
+\begin{equation}
+\hat{v}_x(x, t) = -\frac{i\Omega_0}{k} \begin{cases}
+\cos(kv_{A-}t)\left(1-e^{kx}\right) + \cos(kv_st)e^{kx}, & \text{for  } x<0, \\
+\cos(kv_{A+}t)\left(1-e^{-kx}\right) + \cos(kv_st)e^{-kx}, & \text{for  } x>0. \\
+\end{cases}
+\label{sol int}
+\end{equation}
+This solution differs from that given by \cite{rae_etal81} most notably by a contribution from surface waves (second term), not just body waves (first term). The solution given by \cite{rae_etal81} contained only body modes.
+
+The full solution for $v_x$ when the initial disturbance is of the form of a single wave, is recovered by multiplying the above expression by $e^{ikz}$. In reality, an initial disturbance will be of finite extent. Solutions for such a disturbance are the subject of the following subsection.
+
+
+\subsubsection{Solution for an initial disturbance of finite extent}
+
+The response to a disturbance of finite extent is obtained by a superposition over all the Fourier modes. That is, we must integrate over the wavenumber $k$ using the inverse Fourier transform, namely
+\begin{equation}
+v_x(x, z, t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} \hat{v}_x(x, t) e^{ikz} ~dk.
+\end{equation}
+
+Let's consider an initial impulse that has uniform vorticity with respect to $x$ and is uniform over a finite range $[-z_0, z_0]$, outside of which it is zero. Precisely, the initial velocity is
+\begin{equation}
+v_x(x, z, 0) = \frac{v_0}{2z_0}\left[H(z + z_0) - H(z - z_0)\right],
+\end{equation}
+where $H$ is the Heaviside step function and $v_0$ is constant. The division by $2z_0$ ensures that the integral of the initial velocity is not dependent on the size of the domain of the initial initial disturbance, $2z_0$. In particular, it means that in the limit as $z_0 \to 0$, the initial velocity is a Dirac Delta function of $z$. Therefore, the initial vorticity is
+\begin{equation}
+\Omega(x, z, 0) \mathbf{\hat{y}} = \nabla \times \bv = \frac{v_0}{2z_0}\left[\delta(z + z_0) - \delta(z - z_0)\right] \mathbf{\hat{y}},
+\end{equation}
+which has Fourier transform
+\begin{equation}
+\hat{\Omega}(x, 0) = \int_{-\infty}^{\infty} \Omega(x, z, 0) e^{-ikz} ~dz = i\frac{v_0}{z_0}\sin(kz_0).
+\end{equation}
+The temporal evolution of this initial velocity pulse over a finite $z$-domain is, for the region $\pm x > 0$,
+\begin{alignat}{3}
+v_x &= -\frac{v_0}{2\pi z_0} \int_{\infty}^{\infty} && \frac{1}{k}\sin(kz_0) [(\cos(kv_{A\pm}t) - \cos(kv_st))e^{-|k||x|} \notag \\ & &&- \cos(kv_{A\pm}t)] e^{ikz} ~dk \notag \\
+& = -\frac{v_0}{\pi z_0} \int_{0}^{\infty} && \frac{1}{k} [\sin(k(z + z_0)) - \sin(k(z - z_0))] \notag \\ & && \left[(\cos(kv_{A\pm}t) - \cos(kv_st))e^{-k|x|} - \cos(kv_{A\pm}t)\right] ~dk. \label{vx intermediate}
+\end{alignat}
+Here, we have used the fact that an odd function integrated over the real line vanishes and an even function integrated over the real line is twice its integral over the positive real line. We also used the product-to-sum identity $2\cos{\theta}\sin{\phi} = \sin(\theta + \phi) - \sin(\theta - \phi)$. Further, by use of the similar identity $2\sin{\theta}\cos{\phi} = \sin(\theta + \phi) + \sin(\theta - \phi)$, Equation~\eqref{vx intermediate} can be reduced to a series of integrals of the form
+\begin{equation}
+\int_{0}^{\infty} \frac{1}{k}\sin(k(z + z_0 + v_{A\pm}))e^{-k|x|} ~dk,
+\end{equation}
+and
+\begin{equation}
+\int_{0}^{\infty} \frac{1}{k}\sin(k(z + z_0 + v_{A\pm})) ~dk.
+\end{equation}
+Both of these are known integrals (see, for example, \citealp{abr_etal65}). The general form of the first integral can be evaluated like
+\begin{equation}
+\int_{0}^{\infty} \frac{1}{x}\sin(ax) e^{-bx} ~dx = \tan^{-1}\left(\frac{a}{b}\right),
+\end{equation}
+for $b > 0$. The second of these is a limiting case of the \textit{sine integral}, $\mathrm{Si}(x)$, which can be evaluated in its general form as
+\begin{align}
+\int_{0}^{\infty} \frac{1}{t}\sin(at) ~dt &= \lim_{x \to \infty}\int_{0}^{ax} \frac{1}{t}\sin{t} ~dt \\
+&= \lim_{x \to \infty} \mathrm{Si}(ax)  \\
+&=
+\begin{cases}
+-\pi/2, &\text{if  } a < 0, \\
+0, &\text{if  } a = 0, \\
+\pi/2, &\text{if  } a > 0,
+\end{cases} \\
+&= \frac{\pi}{2} \left[2H(a) - 1\right].
+\end{align}
+Using the above results leads us to the solution
+\begin{align}
+v_x = \frac{v_0}{4\pi z_0} \bigg[ &-\tan^{-1}\left( \frac{z + z_0 + v_{A\pm}t}{|x|} \right) - \tan^{-1}\left( \frac{z + z_0 - v_{A\pm}t}{|x|} \right)  \notag \\
+&+ \tan^{-1}\left( \frac{z - z_0 + v_{A\pm}t}{|x|} \right) + \tan^{-1}\left( \frac{z - z_0 - v_{A\pm}t}{|x|} \right) \notag \\
+&+ \tan^{-1}\left( \frac{z + z_0 + v_st}{|x|} \right) + \tan^{-1}\left( \frac{z + z_0 - v_st}{|x|} \right) \notag \\
+&- \tan^{-1}\left( \frac{z - z_0 + v_st}{|x|} \right) - \tan^{-1}\left( \frac{z - z_0 - v_st}{|x|} \right) \notag \\
+&+ \pi \left\{ H(z + z_0 + v_{A\pm}t) + H(z + z_0 - v_{A\pm}t) \right.  \notag \\
+&\left. - H(z - z_0 + v_{A\pm}t) - H(z - z_0 - v_{A\pm}t) \right\} \bigg]. \label{sol top hat}
+\end{align}
+By taking $t = 0$ in Equation~\eqref{sol top hat}, the initial velocity profile is recovered.
+
+The solution given by Equation~\eqref{sol top hat} is plotted in Figure~\ref{fig: vx incomp sol contour}. The initial perturbation is illustrated in the upper left panel, showing a band of constant velocity between $-z_0 < z < z_0$, where $z_0 = 1$. It is clear that the waves in the left half-plane are propagating more slowly than the waves in the right half-plane. This is because the Alfv\'{e}n speed in the left half-plane, $v_{A-}$, is half that of the right, $v_{A+}$.
+
+The solution is made up of a superposition of several wave modes:
+\begin{enumerate}
+	\item The body wave pulses propagating at speed $v_{A\pm}$, depending on the side of the interface. These waves correspond to the four Heaviside functions in Equation~\eqref{sol top hat}. They can be seen in Figure~\ref{fig: vx incomp sol contour} as the propagating bands of positive velocity (blue).
+	\item The wakes at the front and back on the body waves, which correspond to the first four $\tan^{-1}$ functions in Equation~\eqref{sol top hat}. They can be seen in Figure~\ref{fig: vx incomp sol contour} as the regions of weakly positive velocity (blue) in front of the body waves and regions of weakly negative velocity (red) behind the body waves.
+	\item The surface wave pulses propagating at speed $v_{s}$. These waves correspond to the last four $\tan^{-1}$ functions in Equation~\eqref{sol top hat}. They can be seen in Figure~\ref{fig: vx incomp sol contour} as the regions of positive velocity (blue) close to the interface, propagating at an intermediate speed between the two Alfv\'{e}n speeds.
+\end{enumerate}
+Each wave mode propagates in the positive ad negative $z$-direction because the system has reflectional symmetry about the $z = 0$ axis.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{\figdirIV contour_subplots.png}
+	\caption{Temporal evolution of waves propagating along a tangential interface between incompressible plasmas. Time increases along the rows and down the columns. The interface is at $x = 0$ and the initial perturbation is a constant velocity confined to the band $-z_0 < z < z_0$, where $z_0 = 1$. The Alfv\'{e}n speeds in each half-plane are related by $v_{A+} = 2v_{A-}$.}
+	\label{fig: vx incomp sol contour}
+\end{figure}
+
+
+An interesting limiting case is that of an infinitely thin initial pulse at $z = 0$. We can recover this limit from Equation~\eqref{sol top hat}. In the limit as $z_0 \to 0$, the initial velocity becomes $v_x(x, z, 0) = v_0 \delta(z)$, and its temporal evolution obeys
+\begin{align}
+v_x(x, z, t) = \frac{v_0}{2\pi} \bigg[ &- \frac{|x|}{x^2 + (z + v_{A\pm}t)^2} - \frac{|x|}{x^2 + (z - v_{A\pm}t)^2} \notag \\
+&+ \frac{|x|}{x^2 + (z + v_st)^2} + \frac{|x|}{x^2 + (z - v_st)^2} \notag \\
+&+ \pi\{\delta(z + v_{A\pm}t) + \delta(z - v_{A\pm}t)\} \bigg]. \label{sol dirac delta}
+\end{align}
+In deriving the above limit we have used the results that, by definition of the Dirac Delta function,
+\begin{equation}
+\lim_{z_0 \to 0} \left[\frac{1}{2z_0} \left\{H(z + z_0) - H(z - z_0)\right\}\right] = \delta(z),
+\end{equation}
+and, by L'Hopital's rule,
+\begin{align}
+&\lim_{z_0 \to 0} \left[\frac{1}{2z_0}\left\{\tan^{-1}\left( \frac{z + z_0 + v_{A\pm}t}{|x|} \right) - \tan^{-1}\left( \frac{z - z_0 + v_{A\pm}t}{|x|} \right)\right\}\right] \notag \\
+&= \frac{1}{2} \lim_{z_0 \to 0} \frac{d}{dz_0} \left[\tan^{-1}\left( \frac{z + z_0 + v_{A\pm}t}{|x|} \right) - \tan^{-1}\left( \frac{z - z_0 + v_{A\pm}t}{|x|} \right)\right] \notag \\
+&= \frac{1}{2} \lim_{z_0 \to 0} \left[ \frac{|x|}{x^2 + (z + z_0 + v_{A\pm}t)^2} + \frac{|x|}{x^2 + (z - z_0 + v_{A\pm}t)^2} \right] \notag \\
+&= \frac{|x|}{x^2 + (z + v_{A\pm}t)^2}.
+\end{align}
+Equation~\eqref{sol dirac delta}, where we can see the contribution from the surface mode as well as the body mode, is the corrected version of Equation~(34) in \cite{rae_etal81}.
+
+
+%------------------------------------------------------------------------------
+\section{Temporal evolution of a slab waveguide}
+\label{sec: IVP slab}
+%------------------------------------------------------------------------------
+
+
+Building up the complexity of IVP, we next derive the temporal evolution of plasma in an initially perturbed slab waveguide. We begin with an asymmetric slab of incompressible plasma and later introduce compressibility.
+
+\subsection{Incompressible asymmetric slab}
+
+Consider equilibrium magnetic field and density profiles given by
+\begin{equation}
+B(x)=
+\begin{cases}
+B_1, & \text{if  }x<-x_0, \\
+B_0, & \text{if }|x|\leq{x_0}, \\
+B_2, & \text{if  }x>x_0,
+\end{cases}
+\quad \text{and} \quad
+\rho(x)=
+\begin{cases}
+\rho_1, & \text{if  }x<-x_0, \\
+\rho_0, & \text{if }|x|\leq{x_0}, \\
+\rho_2, & \text{if  }x>x_0,
+\end{cases}
+\end{equation}
+Perturbation to the transverse velocity perturbations are related to initial perturbations of this equilibrium by
+\begin{equation}
+\frac{d^2\tilde{v}_x}{dx^2} - k^2\tilde{v}_x = 
+\begin{cases}
+f(x, \omega)/\epsilon_1, & \text{if  } x<-x_0,\\
+f(x, \omega)/\epsilon_0, & \text{if  } |x|<x_0,\\
+f(x, \omega)/\epsilon_2, & \text{if  } x>x_0,
+\end{cases}
+\label{ivp gov slab 2}
+\end{equation}
+under the boundary conditions
+\begin{equation}
+\lim_{x \to -\infty}\tilde{v}_x(x) = \lim_{x \to \infty}\tilde{v}_x(x) = 0, \text{ and } \lim_{x \to \pm x_0^-}\tilde{v}_x(x) = \lim_{x \to \pm x_0^+}\tilde{v}_x(x).
+\label{ivp slab BC}
+\end{equation}
+
+Sturm-Liouville Theory tells us that the Green's function, $G(x;s)$, corresponding to Equation~\eqref{ivp gov slab 2} must satisfy 
+\begin{equation}
+\frac{\partial^2G}{\partial x^2} - k^2 G = \delta(x - s), \quad G(-x_0; s) = G(x_0; s) = 0.
+\end{equation}
+It is instructive to piecewise define the Green's function as
+\begin{equation}
+G(x; s) = 
+\begin{cases}
+G_1(x; s), & \text{if } x < -x_0, \\
+G_0(x; s), & \text{if } |x| < x_0, \\
+G_2(x; s), & \text{if } x_0 < x.
+\end{cases}
+\end{equation}
+The general solution, for $|x| < x_0$, of the equation for $G_0$ is
+\begin{equation}
+G_0(x; s) = c_1\sinh(k(x - x_0)) + c_2\sinh(k(x + x_0)),
+\end{equation}
+where $c_1 = 0$ for $x < s$ and $c_2 = 0$ for $x > s$. Ensuring $G_0$ and $\partial G_0 / \partial x$ have jumps of 0 and 1, respectively, at $x = s$  determines $c_1$ and $c_2$, so that $G_0(x;s)$ is
+\begin{equation}
+G_0(x;s) = \frac{1}{k\sinh(2k x_0)}
+\begin{cases}
+\sinh(k(s - x_0))\sinh(k(x + x_0)), & \text{if } -x_0<x<s, \\
+\sinh(k(x - x_0))\sinh(k(s + x_0)), & \text{if } s<x<x_0.
+\end{cases}
+\end{equation}
+
+The boundary conditions at the interfaces are inhomogeneous, therefore we must add to the standard Green's function solution a term that is a solution to the homogeneous equation and the inhomogeneous boundary conditions. In this manner, we find that the solution within the slab is
+\begin{align}
+\tilde{v}_x(x) = &\frac{1}{\sinh{2kx_0}} \left[ \tilde{A}_1\sinh(k(x_0 - x)) + \tilde{A}_2\sinh(k(x_0 + x)) \right] \notag \\
+&+ \frac{1}{\epsilon_0}\int_{-x_0}^{x_0} G_0(x;s) f(s, \omega) ds,
+\label{sol 0}
+\end{align}
+where $\tilde{A}_1 = \tilde{v}_x(-x_0)$ and $\tilde{A}_2 = \tilde{v}_x(x_0)$.
+
+Similarly, we find that the Green's function for the plasma outside the slab is 
+\begin{equation}
+G_1(x;s) = \frac{1}{k}
+\begin{cases}
+e^{k(x + x_0)}\sinh(k(s + x_0)), & \text{if } x < s, \\
+e^{k(s + x_0)}\sinh(k(x + x_0)), & \text{if } s < x < -x_0,
+\end{cases}
+\end{equation}
+for $x < -x_0$, and
+\begin{equation}
+G_2(x;s) = -\frac{1}{k}
+\begin{cases}
+e^{-k(s - x_0)}\sinh(k(x - x_0)), & \text{if } x_0 < x < s, \\
+e^{-k(x - x_0)}\sinh(k(s - x_0)), & \text{if } s < x,
+\end{cases}
+\end{equation}
+for $x > x_0$. Therefore, the solution outside the slab is
+\begin{equation}
+\tilde{v}_x(x) = \tilde{A}_1e^{k(x_0 + x)} + \frac{1}{\epsilon_1}\int_{-\infty}^{-x_0} G_1(x;s) f(s, \omega) ds,
+\label{sol 1}
+\end{equation}
+for $x < -x_0$, and
+\begin{equation}
+\tilde{v}_x(x) = \tilde{A}_2e^{k(x_0 - x)} + \frac{1}{\epsilon_2}\int_{x_0}^{\infty} G_2(x;s) f(s, \omega) ds,
+\label{sol 2}
+\end{equation}
+for $x > x_0$.
+
+To establish physically relevant solutions, we require that the transverse velocity and the total pressure are continuous over each interface. The construction of Equations~\eqref{sol 0},~\eqref{sol 1}, and~\eqref{sol 2} ensures that the transverse velocity is automatically continuous over the boundaries. Using Equation~\eqref{tot p}, the perturbation in the total pressure for a compressible plasma is given by $\tilde{p}_T(x) = \Lambda\tilde{v}'_x/m$.
+%where
+%\begin{equation}
+%\Lambda = \frac{i\rho(\omega^2 - k^2v_A^2)}{m\omega},
+%\quad
+%m^2 = \frac{(k^2v_A^2 - \omega^2)(k^2c_0^2 - \omega^2)}{(c_0^2 + v_A^2)(k^2c_T^2 - \omega^2)},
+%\quad \text{and} \quad
+%c_T^2 = \frac{c_0^2 v_A^2}{c_0^2 + v_A^2}.
+%\end{equation}
+When the plasma is incompressible, $m^2 \to k^2$. Therefore, continuity in total pressure is equivalent to continuity in $\epsilon(x)\tilde{v}_x'(x)$ for an incompressible plasma. Applying this boundary condition gives
+\begin{equation}
+\tilde{A}_1(\omega) = \frac{T_1(\omega)}{k D(\omega)}, \quad \tilde{A}_2(\omega) = \frac{T_2(\omega)}{k D(\omega)},
+\end{equation}
+where
+\begin{equation}
+D(\omega) = \epsilon_0 \left(\epsilon_1 + \epsilon_2\right)\cosh(2kx_0) + (\epsilon_0^2 + \epsilon_1\epsilon_2)\sinh(2kx_0)
+\label{D incomp}
+\end{equation}
+is called the \textit{dispersion function} and $T_{1,2}$ are functionals given by
+\begin{align}
+T_1(\omega) &= T_1[f](\omega) = - (I_0^- + I_1) \left[\epsilon_0\cosh(2kx_0) + \epsilon_2\sinh(2kx_0)\right] - \epsilon_0 \left(I_0^+ + I_2\right), \\
+T_2(\omega) &= T_2[f](\omega) = - \epsilon_0\left(I_0^- + I_1\right) - \left(I_0^+ + I_2\right)\left[\epsilon_0\cosh(2kx_0) + \epsilon_1\sinh(2kx_0)\right],
+\end{align}
+where
+\begin{align}
+I_0^\pm &= I_0^\pm[f](\omega) = \int_{-x_0}^{x_0} \frac{\sinh(k(x_0 \pm s))}{\sinh(2kx_0)} f(s, \omega) ds, \\
+I_1 &= I_1[f](\omega) = \int_{-\infty}^{-x_0} e^{k(x_0 + s)} f(s, \omega) ds, \\
+I_2 &= I_2[f](\omega) = \int_{x_0}^\infty e^{k(x_0 - s)} f(s, \omega) ds.
+\end{align}
+
+
+\subsubsection{Solution in time}
+
+To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform. Focusing firstly on the region $x < -x_0$, the solution is
+\newcommand{\e}{\epsilon}
+\begin{align}
+v_x =& \mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{k(x+x_0)} + \frac{1}{\e_1} \int_{-\infty}^{-x_0} G_1(x;s)f(s, \omega)ds \right\}, \\
+=& e^{k(x+x_0)} \mathcal{L}^{-1}\left\{ \tilde{A}_1 \right\} + \int_{-\infty}^{-x_0} G_1(x;s) \mathcal{L}^{-1}\left\{ \frac{f(s, \omega)}{\e_1} \right\} ds, \\
+=& e^{k(x+x_0)} \mathcal{L}^{-1}\left\{ \tilde{A}_1 \right\} \\
+& + \int_{-\infty}^{-x_0} G_1(x;s) \left[ \Psi (s, 0) \mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} + i \frac{\partial \Psi}{\partial t}(s, 0) \mathcal{L}^{-1}\left\{ \frac{1}{\e_1} \right\}\right] ds.
+\label{sol incomp}
+\end{align}
+We evaluate each of the three inverse Laplace transforms in turn.
+
+The first inverse Laplace transform,
+\begin{equation}
+\mathcal{L}^{-1} \{\tilde{A}_1\} = \frac{1}{2\pi} \lim_{L \to \infty} \int_{-L + i\sigma}^{L + i\sigma} \tilde{A}_1 e^{-i\omega t} ~d\omega,
+\end{equation}
+is calculated as follows. The functions $\epsilon_{0,1,2}$ are quadratic in $\omega$, and are therefore entire. The integrals $I_{1,2}$ and $I_0^\pm$ are, in general, linear functions of $\omega$ so also contribute no singularities. Therefore, $T_1$ and $T_2$ are entire functions. Hence, the singularities of $\tilde{A}_1$ are precisely the zeros of the dispersion function, $D(\omega)$.
+
+The zeros of $D(\omega)$ are determined by firstly noting that $D=0$ is the dispersion relation of the corresponding eigenvalue problem solved in Chapter~\ref{chap: EVP} and by \cite{zsa_etal18}. To recap, the dispersion relation governing transverse wave propagation parallel to the magnetic field in an asymmetric slab of compressible plasma is given by
+\begin{equation}
+2(\Lambda_0^2 + \Lambda_1 \Lambda_2) + \Lambda_0(\Lambda_1 + \Lambda_2)[\tanh(m_0x_0) + \coth(m_0x_0)] = 0,
+\label{DR}
+\end{equation}
+where
+\begin{equation}
+\Lambda_j = -\frac{i\rho_j(k^2v_{Aj}^2 - \omega^2)}{\omega m_j},
+\quad
+\text{and}
+\quad
+m_j^2 = \frac{(k^2c_j^2 - \omega^2)(k^2v_{Aj}^2 - \omega^2)}{(c_j^2 + v_{Aj}^2)(k^2c_{Tj}^2 - \omega^2)},
+\end{equation}
+for $j = 0, 1, 2$. When compressibility is neglected, such that the sound speeds, $c_j$, approach infinity, we have $c_{Tj}^2 \to v_{Aj}^2$, $m_j^2 \to k^2$, and therefore $\Lambda_j = -i\rho_j(k^2v_{Aj}^2 - \omega^2)/\omega k = -i\epsilon_j / \omega k$, for $j=0,1,2$. Therefore, Equation~\eqref{DR} can be reduced to the dispersion relation for an incompressible magnetic slab, which is
+\begin{equation}
+2\left(\epsilon_0^2 + \epsilon_1 \epsilon_2\right) + \epsilon_0(\epsilon_1 + \epsilon_2)[\tanh(m_0x_0) + \coth(m_0x_0)] = 0.
+\end{equation}
+This equation can easily to shown to be equivalent to $D(\omega) = 0$, where $D(\omega)$ is given by Equation~\eqref{D incomp}. It follows that the zeros of $D(\omega)$ are precisely the eigenvalues of the asymmetric incompressible magnetic slab. This is a specific case of the powerful general result that the solutions of eigenvalue problems contribute to solutions of initial value problems. This is explored in the MHD setting by \cite{goe_etal04}, Chapter~10.2.
+
+The zeros of $D$ are found by writing the equation $D(\omega) = 0$ as
+\begin{equation}
+\epsilon_0(\epsilon_1 + \epsilon_2) + \left(\epsilon_0^2 + \epsilon_1\epsilon_2\right)\tanh(2kx_0) = 0
+\end{equation}
+and substituting expressions for $\epsilon(x)$, which gives
+\begin{align}
+&\rho_0\left(k^2v_{A0}^2 - \omega^2\right)\left[\rho_1\left(k^2v_{A1}^2 - \omega^2\right) + \rho_2\left(k^2v_{A2}^2 - \omega^2\right)\right] \notag \\
+&+ \left[\rho_0^2\left(k^2v_{A0}^2 - \omega^2\right)^2 + \rho_1\rho_2\left(k^2v_{A1}^2 - \omega^2\right)\left(k^2v_{A2}^2 - \omega^2\right)\right]\tanh(2kx_0) = 0.
+\end{align}
+The above equation can be rewritten as a quadratic in $(\omega/k)^2$, namely
+\begin{equation}
+a \left(\frac{\omega}{k}\right)^4 + b \left(\frac{\omega}{k}\right)^2 + c = 0,
+\end{equation}
+which has solutions
+\begin{equation}
+\left(\frac{\omega_{0\pm}}{k}\right)^2 = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a},
+\label{quad sol}
+\end{equation}
+where
+\begin{align}
+a &= \left(\rho_0^2 + \rho_1\rho_2\right)\tanh(2kx_0) + \rho_0(\rho_1 + \rho_2), \label{solution a} \\
+b &= -\left(2\rho_0^2v_{A0}^2 + \rho_1\rho_2\left(v_{A1}^2 + v_{A2}^2\right)\right)\tanh(2kx_0) \notag \\
+& \quad - \rho_0 \left\{ \rho_1\left(v_{A0}^2 + v_{A1}^2\right) + \rho_2\left(v_{A0}^2 + v_{A2}^2\right) \right\}, \label{solution b} \\
+c &= (\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0v_{A0}^2(\rho_1v_{A1}^2 + \rho_2v_{A2}^2). \label{solution c}
+\end{align}
+The solutions, $\pm\omega_{0\pm}$, must be real \citep{goe_etal04}. They are zeroes of the function $D(\omega)$ of order 1 so are simple poles of the integrand $\hat{A}_1 e^{-i\omega t}$. Additionally, the solutions corroborate with the corresponding incompressible eigenfrequencies for an interface and a symmetric slab, shown in Appendices~\ref{app: interface} and~\ref{app: symmetric}, respectively.
+
+With the location of the singularities of the integrand in hand, we can evaluate the first integral in Equation~\eqref{sol incomp} by making use of the \textit{Residue Theorem} of complex analysis. For this theorem to apply, we must integrate around a closed contour instead of the infinite line in Equation~\eqref{sol incomp}. To accomplish this, we can choose a sequence of contours (known as \textit{Bromwich contours}) such that the limit of the integrals over these contours is equal to the integral over the infinite line. We use the fact that the function $T_1(\omega)$ is entire to construct a Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \sigma)$ to $(L, \sigma)$, and $C_1$ connects $(-L, \sigma)$ and $(L, \sigma)$ via a semi-circle to ensure that $C$ encloses the zeros at $\pm\omega_{0\pm}$ (Figure~\ref{fig: brom cont incomp}). In the limit $L \to \infty$, we recover the desired integral.
+
+\begin{figure}
+	\centering
+	\scalebox{0.9}{
+		\begin{tikzpicture}[very thick,decoration={
+			markings,
+			mark=at position 0.29 with {\arrow{>}}}
+		]
+		\draw [->, thick] (-5,0) -- (5,0) node[above]{$\Re(\omega)$};
+		\draw [->, thick] (0,-5) -- (0,2) node[left]{$\Im(\omega)$};
+		
+		\draw [postaction={decorate}, thick] (-4,1) -- (4,1);
+		\draw [postaction={decorate}, thick] (4,1) to (4,0) node[above left]{$L$} to [out=-90,in=0] (0,-4) to [out=180,in=-90] (-4,0) node[above left]{$L$} to (-4,1);
+		\node [above left] at (0,1) {$\sigma$};
+		
+		\draw[fill] (-4,0) circle [radius=0.025];
+		\draw[fill] (4,0) circle [radius=0.025];
+		\draw[fill] (0,1) circle [radius=0.025];
+		
+		\draw[fill] (3,0) circle [radius=0.025];
+		\node [below] at (3,0) {$\omega_{0+}$};
+		
+		\draw[fill] (-3,0) circle [radius=0.025];
+		\node [below] at (-3,0) {$-\omega_{0+}$};
+		
+		\draw[fill] (1.5,0) circle [radius=0.025];
+		\node [below] at (1.5,0) {$\omega_{0-}$};
+		
+		\draw[fill] (-1.5,0) circle [radius=0.025];
+		\node [below] at (-1.5,0) {$-\omega_{0-}$};
+		
+		\node [above] at (-1.7,1) {$C_0$};
+		\node [below right] at (2.8,-2.8) {$C_1$};
+		\end{tikzpicture} 
+	}
+	\caption{Bromwich contour for the complex integration of $\tilde{A}_{1,2}$.}
+	\label{fig: brom cont incomp}
+\end{figure}
+Considering first the integral along $C_1$, the integrand in question behaves like $T_1(\omega)/kD(\omega) = \mathcal{O}(|\omega|^{-2})$, as $|\omega| \to \infty$. Therefore, the integral around the semi-circle vanishes, \textit{i.e.}
+\begin{equation}
+\lim_{L \to \infty} \int_{C_1} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega = 0.
+\end{equation}
+
+Next, since the integral along contour $C$ is integrated in the clockwise direction, it is equal to $-2\pi i$ multiplied by the sum of the residues of the poles at $\omega = \pm \omega_{0\pm}$. The residues are evaluated using L'Hopital's Rule (the requirements ensuring the validity L'Hopital's Rule in this case are verified in Appendix~\ref{app: l'hopital}). For an arbitrary choice of initial condition, $f(x,\omega)$, the residue at $\omega = \omega_{0+}$ is
+\begin{align}
+\mathrm{Res}&\left\{\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}; \omega = \omega_{0+} \right\} = 
+\lim_{\omega \to \omega_{0+}} \frac{(\omega - \omega_{0+})T_1(\omega)}{kD(\omega)} e^{-i\omega t} \notag \\ 
+&= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} [T_1(\omega) + (\omega - \omega_{0+})T'_1(\omega) - it(\omega - \omega_{0+})T_1(\omega)]e^{-i\omega t} \notag \\
+&= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} T_1\left[\omega \Psi_0 + i\frac{\partial \Psi_0}{\partial t}\right](\omega) e^{-i\omega t} \notag \\
+&= \lim_{\omega \to \omega_{0+}} \frac{1}{kD'(\omega)} \left\{ \omega T_1[\Psi_0](\omega) + iT_1\left[\frac{\partial \Psi_0}{\partial t}\right](\omega) \right\} e^{-i\omega t} \notag \\
+&= \left\{ \omega_{0+} \chi_{1+}[\Psi_0] + i\chi_{1+}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{-i\omega_{0+} t},
+\end{align}
+where $\chi_{1+}[g] := T_1[g](\omega_{0+}) / kD'(\omega_{0+})$ is a functional mapping an arbitrary function $g$ to the real numbers. Similarly, the residues at $\omega = -\omega_{0+}$ and $\omega = \pm\omega_{0-}$ are
+\begin{align}
+\mathrm{Res}\left\{\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}; \omega = -\omega_{0+} \right\} &= \left\{ \omega_{0+} \chi_{1+}[\Psi_0] - i\chi_{1+}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{i\omega_{0+} t}, \\
+\mathrm{Res}\left\{\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}; \omega = \pm \omega_{0-} \right\} &= \left\{ \omega_{0-} \chi_{1-}[\Psi_0] \pm i\chi_{1-}\left[\frac{\partial \Psi_0}{\partial t}\right] \right\} e^{\mp i\omega_{0-} t},
+\end{align}
+respectively, where we define $\chi_{1-}[g] = T_1[g](\omega_{0-}) / kD'(\omega_{0-})$. To derive these residues, we have used the fact that $D'$ is an odd function of $\omega$, and $D$ and $T_1[g]$ are even functions of $\omega$ when the function $g$ that is constant with respect to $\omega$.
+
+Compiling the above results, the solution of the first inverse Laplace Transform in Equation~\eqref{sol incomp} is
+\begin{align}
+\mathcal{L}^{-1}\left\{ \tilde{A}_1 \right\} &= \frac{1}{2\pi} \lim_{L \to \infty} \int_{C_0} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega \\
+&= \frac{1}{2\pi} \lim_{L \to \infty} \int_{C} \frac{T_1(\omega)}{kD(\omega)} e^{-i\omega t} d\omega \notag \\
+&= -i \sum \mathrm{Res}\left\{\frac{T_1(\omega)}{kD(\omega)}e^{-i\omega t}; \omega = \pm \omega_{0\pm} \right\} \notag \\
+&= -i \left\{\omega_{0+}\chi_{1+}[\Psi_0] \left(e^{-i\omega_{0+} t} + e^{i\omega_{0+} t}\right) + i\chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \left(e^{-i\omega_{0+} t} - e^{i\omega_{0+} t}\right) \right. \notag \\
+& \qquad\quad \left. + \omega_{0-}\chi_{1-}[\Psi_0] \left(e^{-i\omega_{0-} t} + e^{i\omega_{0-} t}\right) + i\chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \left(e^{-i\omega_{0-} t} - e^{i\omega_{0-} t}\right)\right\} \notag \\
+&= -2 \left\{ i\omega_{0+}\chi_{1+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) \right. \notag \\
+& \qquad\quad \left. + i\omega_{0-}\chi_{1-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\}.
+\end{align}
+
+
+The second inverse Laplace transform in Equation~\eqref{sol incomp} is calculated as follows.
+\begin{align}
+\mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} &= \frac{1}{2\pi}\lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \frac{\omega e^{-i\omega t}}{\e_1} ~d\omega \notag \\
+&= \frac{1}{2\pi\rho_1}\lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \frac{\omega e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} ~d\omega,
+\end{align}
+whose integrand has simple poles at $\omega = \pm k v_{A1}$. From Jordan's Lemma it follows that the integrand vanishes as $\omega \to \infty$. Therefore, we can construct a Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the poles are
+\begin{align}
+\mathrm{Res}\left\{\frac{\omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}; \omega = \pm kv_{A1} \right\} &= 
+\lim_{\omega \to \pm kv_{A1}} \frac{(\omega \mp kv_{A1}) \omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \\ 
+&= -\frac{1}{2}e^{\mp ikv_{A1} t}.
+\end{align}
+Therefore, the second inverse Laplace transform in Equation~\eqref{sol incomp} is
+\begin{equation}
+\mathcal{L}^{-1}\left\{ \frac{\omega}{\e_1} \right\} = -\frac{i}{\rho_1} \sum \mathrm{Res} \left\{ \frac{\omega e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}; \omega = \pm kv_{A1} \right\} = \frac{i}{\rho_1}\cos{kv_{A1}t}.
+\end{equation}
+
+The third and final inverse Laplace transform in Equation~\eqref{sol incomp} is calculated as follows.
+\begin{align}
+\mathcal{L}^{-1}\left\{ \frac{1}{\e_1} \right\} &= \frac{1}{2\pi}\lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \frac{e^{-i\omega t}}{\e_1} ~d\omega, \notag \\
+&= \frac{1}{2\pi\rho_1}\lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \frac{e^{-i\omega t}}{(kv_{A1} + \omega)(kv_{A1} - \omega)} ~d\omega,
+\end{align}
+whose integrand has simple poles at $\omega = \pm k v_{A1}$. Again, the integrand vanishes as $\omega \to \infty$, so we can integrate around the Bromwich contour as shown in Figure~\ref{fig: brom cont incomp 2}. The residues of the integrand at the poles are
+\begin{align}
+\mathrm{Res}\left\{\frac{e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}; \omega = \pm kv_{A1} \right\} &= 
+\lim_{\omega \to \pm kv_{A1}} \frac{(\omega - kv_{A1}) e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2} \notag \\ 
+&= \mp \frac{1}{2kv_{A1}} e^{\mp ikv_{A1} t}.
+\end{align}
+Therefore, the final inverse Laplace transform in Equation~\eqref{sol incomp} is
+\begin{align}
+\mathcal{L}^{-1}\left\{ \frac{1}{\e_1} \right\} &= -\frac{i}{\rho_1} \sum \mathrm{Res} \left\{ \frac{e^{-i\omega t}}{k^2v_{A1}^2 - \omega^2}; \omega = \pm kv_{A1} \right\} \notag \\
+&= \frac{1}{\rho_1kv_{A1}} \sin{kv_{A1}t}.
+\end{align}
+
+\begin{figure}
+	\centering
+	\scalebox{0.9}{
+		\begin{tikzpicture}[very thick,decoration={
+			markings,
+			mark=at position 0.29 with {\arrow{>}}}
+		]
+		\draw [->, thick] (-5,0) -- (5,0) node[above]{$\Re(\omega)$};
+		\draw [->, thick] (0,-5) -- (0,2) node[left]{$\Im(\omega)$};
+		
+		\draw [postaction={decorate}, thick] (-4,1) -- (4,1);
+		\draw [postaction={decorate}, thick] (4,1) to (4,0) node[above left]{$L$} to [out=-90,in=0] (0,-4) to [out=180,in=-90] (-4,0) node[above left]{$L$} to (-4,1);
+		\node [above left] at (0,1) {$\sigma$};
+		
+		\draw[fill] (-4,0) circle [radius=0.025];
+		\draw[fill] (4,0) circle [radius=0.025];
+		\draw[fill] (0,1) circle [radius=0.025];
+		
+		\draw[fill] (3,0) circle [radius=0.025];
+		\node [below] at (3,0) {$kv_{A1}$};
+		
+		\draw[fill] (-3,0) circle [radius=0.025];
+		\node [below] at (-3,0) {$-kv_{A1}$};
+		
+		\node [above] at (-1.7,1) {$C_0$};
+		\node [below right] at (2.8,-2.8) {$C_1$};
+		\end{tikzpicture} 
+	}
+	\caption{Bromwich contour for the complex integration of the integrand of $J_1$.}
+	\label{fig: brom cont incomp 2}
+\end{figure}
+Combining the above expressions for the three inverse Laplace transforms, the transverse velocity solution for $x<-x_0$ is
+\begin{align}
+v_x(x, t) = &-2 e^{k(x+x_0)} \left\{ i\omega_{0+}\chi_{1+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) \right. \\
+&\left. + i\omega_{0-}\chi_{1-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \\
+&+ \frac{i}{\rho_1} \int_{-\infty}^{-x_0} G_1(x;s) \left[ \Psi(s, 0) \cos{kv_{A1}t} + \frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A1}t}}{kv_{A_1}} \right]~ds.
+\end{align}
+Similarly, the transverse velocity for the region $x>x_0$ is
+\begin{align}
+v_x(x, t) = &-2 e^{k(x_0 - x)} \left\{ i\omega_{0+}\chi_{2+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{2+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) \right. \notag \\
+&\left. + i\omega_{0-}\chi_{2-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{2-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \notag \\
+& + \frac{i}{\rho_2} \int_{x_0}^{\infty} G_2(x;s) \left[ \Psi(s, 0) \cos{kv_{A2}t} + \frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A2}t}}{kv_{A_2}} \right]~ds.
+\end{align}
+Finally, for the region $|x|<x_0$, it is
+\begin{align}
+v_x(x, t) =& -\frac{2}{\sinh{2kx_0}} \left[ \left\{ i\omega_{0+}\chi_{1+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{1+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) \right. \right. \notag \\
+& \left. + i\omega_{0-}\chi_{1-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{1-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \sinh(k(x_0 - x)) \notag \\ 
+& + \left\{ i\omega_{0+}\chi_{2+}[\Psi_0] \cos(\omega_{0+} t) - \chi_{2+}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0+} t) \right. \notag \\
+& \left. \left. + i\omega_{0-}\chi_{2-}[\Psi_0] \cos(\omega_{0-} t) - \chi_{2-}\left[ \frac{\partial \Psi_0}{\partial t} \right] \sin(\omega_{0-} t) \right\} \sinh(k(x_0 + x)) \right] \notag \\
+& + \frac{i}{\rho_0} \int_{-x_0}^{x_0} G_0(x;s) \left[ \Psi(s, 0) \cos{kv_{A0}t} + \frac{\partial \Psi}{\partial t}(s, 0) \frac{\sin{kv_{A0}t}}{kv_{A0}} \right]~ds.
+\end{align}
+
+These solutions are not particularly illuminating in there general form, so we evaluate the solutions using specific initial conditions in the next subsections.
+
+
+\subsubsection{Uniform initial vorticity}
+
+Let $\Omega(x, 0) = \Omega_0$ be constant. Therefore, $\Psi_0 = k\rho_0\Omega_0$ and $\partial \Psi_0 / \partial t = 0$. To evaluate the solution, we evaluate the Green's function integral for each regions of the waveguide separately. Firstly, for $x < -x_0$, 
+\begin{align}
+\int_{-\infty}^{-x_0} G_1(x;s) \Psi_0 ~ds &= \Omega_0 \rho_1 \left[ \sinh(k(x+x_0)) \int_{-\infty}^{x} e^{k(s + x_0)} ~ds \right . \notag \\
+&\qquad \qquad \left.+ e^{k(x+x_0)} \int_{x}^{-x_0} \sinh(k(s+x_0)) ~ds \right] \notag \\
+&= \frac{\Omega_0 \rho_1}{k} \left[ e^{k(x+x_0)} - 1 \right].
+\end{align}
+Secondly, for $|x| < x_0$,
+\begin{align}
+\int_{-x_0}^{x_0} G_0(x;s) \Psi_0 ~ds &= \frac{\Omega_0 \rho_0}{\sinh{2kx_0}} \left[ \sinh(k(x-x_0)) \int_{-x_0}^{x} \sinh(k(s+x_0)) ~ds \right. \notag \\
+&\qquad \qquad \qquad \left. + \sinh(k(x+x_0)) \int_{x}^{x_0} \sinh(k(s-x_0)) ~ds \right], \notag \\
+&= \frac{\Omega_0 \rho_0}{k} \left( \frac{\cosh{kx}}{\cosh{kx_0}} - 1 \right).
+\end{align}
+Finally, for $x > x_0$,
+\begin{align}
+\int_{x_0}^{\infty} G_2(x;s) \Psi_0 ~ds &= - \Omega_0 \rho_2 \left[ e^{-k(x-x_0)} \int_{x_0}^{x} \sinh(k(s-x_0)) ~ds \right. \notag \\
+&\qquad \qquad \quad \left. + \sinh(k(x-x_0)) \int_{x}^{\infty} e^{-k(s-x_0)} ~ds \right], \notag \\
+&= \frac{\Omega_0 \rho_2}{k} \left[ e^{-k(x-x_0)} - 1 \right].
+\end{align}
+The other integrals that need to be evaluated are
+\begin{align}
+I_0^\pm &= \frac{\Omega_0\omega\rho_0k}{\sinh{2kx_0}} \int_{-x_0}^{x_0} \sinh(k(s \pm x_0)) ds, \\
+&= \pm \frac{\Omega_0 \omega \rho_0}{\sinh{2kx_0}} (\cosh{2kx_0 - 1}),
+\end{align}
+\begin{align}
+I_1 &= \Omega_0\omega\rho_1k \int_{-\infty}^{-x_0} e^{k(s + x_0)} ds, \\
+&= \Omega_0 \omega \rho_1,
+\end{align}
+and
+\begin{align}
+I_2 &= \Omega_0\omega\rho_2k \int_{x_0}^{\infty} e^{k(x_0 - s)} ds, \\
+&= \Omega_0 \omega \rho_2.
+\end{align}
+Using the above integrals, the transverse velocity through time for an initially constant vorticity is
+\begin{equation}
+v_x = -\frac{i}{k}\begin{cases}
+2 e^{k(x+x_0)} A^*_1 + \Omega_0 \left\{1 - e^{k(x+x_0)}\right\} \cos{kv_{A1}t} \quad &\text{ for } x<-x_0, \\
+\frac{2}{\sinh{2kx_0}} \left[ A^*_1 \sinh(k(x_0 - x)) + A^*_2 \sinh(k(x_0 + x)) \right] & \\
++ \Omega_0 \left( 1 - \frac{\cosh{kx}}{\cosh{kx_0}} \right)\cos{kv_{A0}t} \quad &\text{ for } x < |x_0|, \\
+2 e^{k(x_0-x)} A^*_2 + \Omega_0 \left\{1 - e^{k(x_0-x)}\right\} \cos{kv_{A2}t} \quad &\text{ for } x>x_0, \\
+\end{cases}
+\label{sol slab}
+\end{equation}
+where
+\begin{equation}
+A^*_{1,2} = \omega_{0+} \frac{T_{1,2}[\psi_0](\omega_{0+})}{D'(\omega_{0+})} \cos(\omega_{0+} t) + \omega_{0-}\frac{T_{1,2}[\psi_0](\omega_{0-})}{D'(\omega_{0-})} \cos(\omega_{0-} t),
+\end{equation}
+and
+\begin{align}
+T_{1,2}[\Psi_0](\omega) = &-\Omega_0\{ (\rho_0 \tanh(kx_0) + \rho_{1,2}) (\e_0 \cosh(2kx_0) + \e_{2,1}\sinh(2kx_0)) \notag \\
+&+ \e_0(\rho_0 \tanh(kx_0) + \rho_{2,1}) \}.
+\end{align}
+
+When $\rho_1 = \rho_2 = \rho_0$ and $x_0 = 0$, the solution given by Equation~\eqref{sol slab} reduces with that of a tangential interface, Equation~\eqref{sol int}.
+
+The time-dependant evolution of a perturbation of an incompressible asymmetric magnetic slab are thus purely superposition of normal modes. There is no contribution from the continuous spectrum. There is instantaneous set-up of coherently oscillating collective modes. It is the introduction of compressibility that introduces a continuous spectrum, and therefore a leaky component to the oscillation. This is the subject of the following subsection.
+
+
+\subsection{Compressible slab} \label{sec: compressible slab}
+
+In this subsection, we solve the initial value problem of a compressible asymmetric slab. 
+
+The more general compressible version of Equation~ \eqref{gov reduced} is
+\begin{equation}
+\tilde{v}_x'' - m^2 \tilde{v}_x = g(x, \omega),
+\end{equation}
+where
+\begin{equation}
+g(x, \omega) = \frac{1}{(c_0^2 + v_A^2)(\omega_T^2 - \omega^2)}\left[ (\omega_0^2 - \omega^2)\left(\dot{\hat{v}}_{x0} - i\omega \hat{v}_{x0}\right) + ikc_0^2\left( \dot{\hat{v}}_{z0}' - i\omega \hat{v}_{z0}'\right) \right]. \label{ODE compressible}
+\end{equation}
+This equation can be reduced to the corresponding equation for incompressible plasma in the limit of infinite sound speed, \textit{i.e.} $c_0 \to \infty$.
+Equation~\eqref{ODE compressible} corroborates with the general initial value problem considered by \cite{and_etal07}, although some algebra is required to transform between velocity and total pressure coordinates.
+
+Considering a magnetic slab in a non-magnetic environment, we have
+\begin{align}
+m_0^2 &= \frac{(\omega_0^2 - \omega^2)(\omega_A^2 - \omega^2)}{(c_0^2 + v_A^2)(\omega_T^2 - \omega^2)}, \quad m_{1,2}^2 = \frac{\omega_{1,2}^2 - \omega^2}{c_{1,2}^2}, \\
+g_{1,2}(x, \omega) &= \frac{1}{c_0^2\omega^2} \left[ (\omega_0^2 - \omega^2)\left(\dot{\hat{v}}_{x0} - i\omega \hat{v}_{x0}\right) + ikc_0^2\left( \dot{\hat{v}}_{z0}' - i\omega \hat{v}_{z0}'\right) \right].
+\end{align}
+
+
+\subsubsection{Solution in Laplace space}
+
+For the solution inside the slab, $|x| < x_0$, $\hat{v}_x(x)$ satisfies
+\begin{equation}
+\left( \frac{\partial^2}{\partial x^2} - m_0^2 \right) \tilde{v}_x = g_0(\omega, x),
+\end{equation}
+under the boundary conditions $\tilde{v}_x(-x_0) = \tilde{A}_1$ and $\tilde{v}_x(-x_0) = \tilde{A}_2$. To solve this we construct the Green's function, $G_0(x;s)$ that satisfies
+\begin{equation}
+\frac{d^2G_0}{dx^2} - m_0^2 G_0 = \delta(x-s), \quad G_0(-x_0;s) = G_0(x_0;s) = 0.
+\end{equation}
+The general solution of this equation is
+\begin{equation}
+G_0(x;s) = c_1\sinh(m_0(x - x_0)) + c_2\sinh(m_0(x + x_0)),
+\end{equation}
+where $c_1 = 0$ for $x < s$ and $c_2 = 0$ for $x > s$. Ensuring $G_0$ and $\partial G_0 / \partial x$ have jumps of 0 and 1 at $x = s$, respectively, determines $c_1$ and $c_2$ so that $G_0(x;s)$ is
+\begin{equation}
+G_0(x;s) = \frac{-1}{m_0\sinh(2m_0 x_0)}
+\begin{cases}
+\sinh(m_0(x_0 - s))\sinh(m_0(x_0 + x)), & \text{if } -x_0<x<s, \\
+\sinh(m_0(x_0 - x))\sinh(m_0(x_0 + s)), & \text{if } s<x<x_0.
+\end{cases}
+\end{equation}
+Then the solution of Equation~\eqref{P eq inside} is
+\begin{align}
+\tilde{v}_x(x) = &\frac{1}{m_0\sinh{2m_0 x_0}} \left[ \tilde{A}_1\sinh(m_0(x_0 - x)) + \tilde{A}_2\sinh(m_0(x_0 + x)) \right] \notag \\
+&+ \int_{-x_0}^{x_0} G_0(x;s) g_0(\omega, s) ~ds.
+\label{V sol 0}
+\end{align}
+This is the sum of the Green's function term and a two terms that are independent solutions to the homogeneous version of Equation~\eqref{P eq inside} that ensure that the inhomogeneous boundary conditions are satisfied.
+
+For the solution outside and to the left of the slab, $x < -x_0$, $\tilde{v}_x(x)$ satisfies
+\begin{equation}
+\left(\frac{d^2}{dx^2} - m_1^2 \right) \tilde{v}_x = g_1(\omega, x),
+\end{equation}
+and the boundary conditions $\tilde{v}_x(-\infty) = 0$, $\tilde{v}_x(-x_0) = \tilde{A}_1$. By following a Green's function method, the solution of this Sturm-Liouville system is
+\begin{equation}
+\tilde{v}_x(x) = \tilde{A}_1e^{m_1(x_0+x)} + \int_{-\infty}^{-x_0} G_1(x; s) g_1(\omega, s) ds,
+\label{V sol 1}
+\end{equation}
+where $m_1 > 0$ and the Green's function, $G_1$, is defined by
+\begin{equation}
+G_1(x; s) = \frac{1}{m_1}
+\begin{cases}
+e^{m_1(x_0 + x)}\sinh(m_1(x_0 + s)), & \text{if } x < s, \\
+e^{m_1(x_0 + s)}\sinh(m_1(x_0 + x)), & \text{if } s < x < -x_0.
+\end{cases}
+\end{equation}
+
+Similarly, the solution outside and to the right of the slab, $x > x_0$, is
+\begin{equation}
+\tilde{v}_x(x) = \tilde{A}_2e^{m_2(x_0-x)} + \int_{x_0}^{\infty} G_2(x; s) g_2(\omega, s) ~ds,
+\label{P sol 2}
+\end{equation}
+where $m_2 > 0$ and the Green's function, $G_2$, is defined by
+\begin{equation}
+G_2(x; s) = \frac{1}{m_2}
+\begin{cases}
+e^{m_2(x_0 - s)}\sinh(m_2(x_0 - x)), & \text{if } x_0 < x < s, \\
+e^{m_2(x_0 - x)}\sinh(m_2(x_0 - s)), & \text{if } s < x.
+\end{cases}
+\end{equation}
+
+Putting all of this together, the Laplace transform of the transverse velocity is
+\begin{equation}
+\tilde{v}_x(x) = 
+\begin{cases}
+\tilde{A}_1e^{m_1(x_0 + x)} + \int_{-\infty}^{-x_0} G_1(x; s) g_1(\omega, s) ~ds, & \text{if } -\infty < x < -x_0, \\
+
+\frac{1}{\sinh{2m_0x_0}} \left[ \tilde{A}_1\sinh(m_0(x_0 - x)) + \tilde{A}_2\sinh(m_0(x_0 + x)) \right]  \\
++ \int_{-x_0}^{x_0} G_0(x; s) g_0(\omega, s) ~ds, & \text{if } |x| < x_0, \\
+
+\tilde{A}_2e^{m_2(x_0 - x)} + \int_{x_0}^{\infty} G_2(x; s) g_2(\omega, s) ~ds, & \text{if } x_0 < x < \infty.
+\end{cases}
+\label{V sol}
+\end{equation}
+
+
+\subsubsection{Matching solutions}
+
+For physically relevant solutions, we require that the transverse velocity) and the total pressure be continuous across the interfaces at $x = \pm x_0$.
+
+Continuity in transverse velocity, $\tilde{v}_x$, is satisfied automatically by considering the solutions inside and outside the slab given by Equations~\eqref{V sol}, and our definition of $\tilde{A}_1 = \tilde{v}_x(-x_0)$ and $\tilde{A}_2 = \tilde{v}_x(x_0)$.
+
+Continuity in total pressure can be dealt with as follows. The perturbation in total pressure is related to the velocity gradient by\footnote{Found by combining that induction equation with the momentum equation, see, for example, the bottom row of Equation~(2) by \cite{and_etal07}.}
+\begin{equation}
+\frac{\partial p_T}{\partial t} = -\rho\left[ \left(c_0^2 + v_A^2\right) \frac{\partial v_x}{\partial x} + c_0^2\frac{\partial v_z}{\partial z} \right].
+\end{equation}
+Looking for solutions proportional to $\exp{ikz}$ and taking Laplace transforms in time leads to
+\begin{equation}
+\tilde{p}_T = -\frac{i\rho}{\omega} \frac{(c_0^2 + v_A^2)(\omega_T^2 - \omega^2)}{(\omega_0^2 - \omega^2)} \tilde{v}_x' + \frac{i}{\omega} \hat{p}_{T0} + \frac{\rho \omega^2}{k\omega(\omega_0^2 - \omega^2)} \left(\dot{\hat{v}}_{z0} - i\omega\hat{v}_{z0}\right).
+\end{equation}
+Therefore, if we make the simplification\footnote{This simplification is not as strict as it might first seem. For example, any pressure perturbation-free transverse kick, such as you might expect from a nearby flare, would do.} to the prescribed initial conditions such that
+\begin{equation}
+\hat{p}_{T0} - \frac{\rho \omega_0^2}{k(\omega_0^2 - \omega^2)} \left(i\hat{v}_{z0} + \omega\dot{\hat{v}}_{z0}\right) = 0,
+\end{equation}
+then the continuity in total pressure boundary condition is equivalent to
+\begin{equation}
+\left[ \left[ \frac{\Lambda}{m} \frac{\partial \tilde{v}_x}{\partial x} \right] \right]_{x=\pm x_0} = 0,
+\end{equation}
+where double brackets indicate a jump in the quantity,
+\begin{equation}
+[[f]]_{x=x_0} = \lim_{\epsilon \to 0} [f(x_0 + \epsilon) - f(x_0 - \epsilon)].
+\end{equation}
+
+Substituting the solutions given by Equation~\eqref{V sol} into these boundary conditions gives
+\begin{equation}
+\tilde{A}_1(\omega) = \frac{T_1(\omega)}{D(\omega)}, \quad \tilde{A}_2(\omega) = \frac{T_2(\omega)}{D(\omega)},
+\end{equation}
+where
+\begin{align}
+T_1(\omega) = T_1[f](\omega) = & -(\Lambda_0\cosh{2m_0 x_0} + \Lambda_2\sinh{2m_0 x_0})(\Lambda_0 I_0^- + \Lambda_1 I_1) \notag \\
+& - \Lambda_0(\Lambda_0 I_0^+ + \Lambda_2 I_2), \\
+T_2(\omega) = T_2[f](\omega) = & - (\Lambda_0\cosh{2m_0 x_0} + \Lambda_1\sinh{2m_0 x_0})(\Lambda_0 I_0^+ + \Lambda_2 I_2) \notag \\
+& -\Lambda_0(\Lambda_0 I_0^- + \Lambda_1 I_1), \\
+D(\omega) = & \Lambda_0(\Lambda_1 + \Lambda_2)\cosh(2m_0x_0) + (\Lambda_0^2 + \Lambda_1\Lambda_2)\sinh(2m_0x_0),
+\label{D}
+\end{align}
+where $\Lambda_j = \rho_j (\omega^2 - \omega_{Aj}^2) /  m_j$, for $j = 0, 1, 2$, and
+\begin{align}
+I_0^\pm &= I_0^\pm[f] = \frac{1}{m_0} \int_{-x_0}^{x_0} \frac{\sinh(m_0(x_0 \pm s))}{\sinh(2m_0x_0)} f(\omega, s) ~ds, \\
+I_1 &= I_1[f] = \frac{1}{m_1} \int_{-\infty}^{-x_0} e^{m_1(s + x_0)} f(\omega, s) ~ds, \\
+I_2 &= I_2[f] = \frac{1}{m_2} \int_{x_0}^\infty e^{m_2(x_0 - s)} f(\omega, s) ~ds.
+\end{align}
+
+
+\subsubsection{Solution in time}
+
+To recover the transverse velocity, $v_x(x, t)$, we employ the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), such that
+\begin{equation}
+\hat{v}_x(x,t) = \mathcal{L}^{-1}\{\tilde{v}_x(x)\} = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \tilde{v}_x(x) e^{-i\omega t} d\omega,
+\label{laplace transform}
+\end{equation}
+where $\sigma$ is a real number such that all the singularities of the integrand are below the contour of integration to ensure that all singularities contribute to the integral. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane and is dependent on the singularities (with respect to $\omega$) of $\tilde{v}_x$, whose residues determine the value of the contour integral. Focusing firstly on the region $x < -x_0$, the solution is
+\begin{align}
+\hat{v}_x(x, t) &= \mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{m_1(x + x_0)} + \int_{-\infty}^{-x_0} G_1(x; s)f_1(\omega, s)ds \right\}, \\
+&= \mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{m_1(x + x_0)} \right\} + \mathcal{L}^{-1} \left\{ \int_{-\infty}^{-x_0} G_1(x; s)f_1(\omega, s)ds \right\}.
+\label{vx sol inv LPT}
+\end{align}
+
+To study the time-dependent behaviour of the transverse velocity, we start by studying the asymptotic behaviour of $A_1(t) = v_x(-x_0, t)$. This is related to the Laplace transformed variable $\tilde{A}_1$ by the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), namely
+\begin{equation}
+A_1(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega,
+\label{A inv laplace}
+\end{equation}
+where $\sigma$ is a real number such that all the singularities of the integrand are below the contour of integration. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane.
+
+Since the problem of finding the solution is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $T_1$, $T_2$, and $D$ and the zeros of $D$. Identifying the singularities allows us to modify the contour so that it is confined to a single-valued branch and the zeroes of $D$ are poles of the integrand whose residues determine the value of the modified contour integral.
+
+To determine the singularities of  $T_1$, $T_2$, and $D$, we determine the singularities of the constituent functions, as follows:
+\begin{itemize}
+	\item The functions $\Lambda_j^2$ are rational functions of $\omega$ with simple poles at $\omega = \pm \omega_{0j}$, for $j = 0, 1, 2$.
+	
+	\item $\Lambda_j$, for $j = 0, 1, 2$, involve radicals and have branch points at $\omega = \pm \omega_{Aj}$, $\pm \omega_{0j}$, and $\pm \omega_{Tj}$, respectively.\footnote{More precisely, $\omega = \pm \omega_{Aj}$, $\pm \omega_{0j}$, and $\pm \omega_{Tj}$ are the ramification points corresponding to the branch points $\Lambda_j(\omega)$, each with ramification index 2. However, the language used in the main text is common shorthand that is considered synonymous.}
+	
+	\item The functions $\cosh{z}$ and $\sinh{z}$ are entire functions of $z$ with only even and odd terms in their respective series expansions. Therefore, $\cosh{z}$ and $z\sinh{z}$ are entire functions of $z^2$. Hence, $\cosh{2m_0x_0}$ and $\Lambda_0\sinh{2m_0x_0}$ have only simple poles at $\omega = \pm\omega_{T0}$.
+	
+	\item The integrands of $I_0^\pm$ are integrated with respect to $s$. Therefore, the singularities of $I_{1,2}$ are precisely the singularities of the integrands. The function $g(z) = \sinh(az) / \sinh(bz)$, for constants $a$ and $b \neq 0$ are entire functions of $z$, containing only even powers (once $g$ has been redefined as to remove the removable singularity at $z = 0$). Therefore, for another complex function $h$, the singularities of the composition $g \cdot h$ are precisely the singularities of the function $h(z^2)$. Hence, by letting $h(\omega) = m_0$, $a = s \pm x_0$, and $b = 2x_0$, it follows that $\sinh(m_0(s - x_0)) / \sinh(2m_0x_0)$ has simple poles at $\omega = \pm \omega_{T0}$.
+	
+	\item To determine the singularities of $I_{1,2}$, we need consider the singularities of the integrands. The functions $e^{\pm a\sqrt{z}}$, for constant $a \neq 0$ have branch points at $z = 0$ that are algebraic (of ramification index 2). Therefore, by setting $a = x_0 \pm s$, it follows that the functions $e^{m_j(x_0 \pm s)}$, and therefore $I_j$, have algebraic branch points at $\omega = \pm \omega_{Aj}$, $\pm \omega_{0j}$, and $\pm \omega_{Tj}$.
+\end{itemize}
+The set of branch points of a sum of functions is the union of the branch points of the constituent functions. Therefore, the branch points of both $T_1$, $T_2$, and $D$ are $\omega = \pm \omega_{A0,1,2}$, $\pm \omega_{00,1,2}$, $\pm \omega_{T0,1,2}$.
+
+$T_1$ and $T_2$ have no other singularities. Therefore, the poles of $\tilde{A}_1$ and $\tilde{A}_2$ are precisely the zeroes of the dispersion function $D$. The subset of these zeroes that are real are the eigenfrequencies of the asymmetric slab studied in Chapter~\ref{chap: EVP} and the subset that are complex are the leaky modes. There is a rich spectrum of eigenmodes which,in the absence of any simplification to the model, are not possible to describe analytically.
+
+The integrand has 18 branch points and an infinite number of poles that are not possible to describe analytically. This is an intractable problem. Therefore, we will instead solve the simplified problem of a thin symmetric slab with zero-beta plasma. From there, we will study what would happen when symmetry is broken.
+
+\subsubsection{Solving a simplified case - Thin zero-beta symmetric slab}
+
+When simplifying to a symmetric slab, we use the notation subscript $e$ to denote the symmetric \textit{external} environment, rather than subscripts 1 and 2. Now that we are considering a symmetric slab, the parameters on each side of the slab are equal. Under the zero-beta approximation, the tube speed is identical to the sound speed. Therefore, the branch points at $\omega = \pm \omega_{00,e}$ and $\omega = \pm\omega_{T0,e}$ degenerate. The remaining branch points are $\omega = \pm \omega_{A0,e}$.
+
+Under the zero-beta approximation, the dispersion relation for a symmetric slab simplifies to
+\begin{equation}
+\rho_ev_{Ae}^2m_e\left(
+\begin{matrix}
+\tan \\
+-\cot
+\end{matrix} \right)(n_0x_0) = -\rho_0v_{A0}^2n_0,
+\end{equation}
+where $n_0^2 = -m_0^2 \approx \omega^2/v_{A0}^2 - k^2$ and $m_e^2 \approx k^2 - \omega^2/v_{Ae}^2$. \cite{edw_etal82} noticed that this is precisely the dispersion relation for Love waves, which are horizontally polarized surface wave that appears in Earth seismology \citep{lov11}. Equilibrium pressure balance requires that $\rho_ev_{Ae}^2 = \rho_0v_{A0}^2$, therefore, the dispersion relation reduces to
+\begin{equation}
+\left(
+\begin{matrix}
+\tan \\
+-\cot
+\end{matrix} \right)(n_0x_0) = -\frac{n_0}{m_e}.
+\end{equation}
+The $\tan$ version of this equation describes sausage modes and the $\cot$ version describes kink modes.
+
+With the aim of finding solutions to this dispersion relation, we start with the equation describing kink modes. By letting the non-dimensional slab width, $kx_0$, be small, we can expand the eigenfrequencies of the first order kink body mode as a polynomial in $kx_0$, the largest two terms of which are
+\begin{equation}
+\omega = \pm kv_{Ae}\left[ 1 - \frac{1}{2}\left( \frac{v_{Ae}^2}{v_{A0}^2} - 1 \right) (kx_0)^2 \right].
+\end{equation}
+This is the only eigenmode of the low-beta slab. It is equivalent to the fast principal kink mode in a magnetic flux tube described by \cite{cal03}. For this reason, we refer to this mode as the fast principal kink mode of a magnetic slab. The other zeros have non-zero imaginary part and therefore have a decreasing amplitude over time. They are leaky modes. To find these, we must first investigate on which Riemann sheet we expect them to be. In this case, the branch points are due to the square root functions in $m_e$ and $n_0$. These functions each contribute two branches. The branches of the function $m_e$ determine the behaviour of the velocity outside the slab. Outside the slab, the transverse velocity has the form $\tilde{v}_x = \tilde{A}_1e^{m_e(x_0 + x)}$ plus terms due to the inverse Laplace transform of the Green's function term (Equation~\ref{V sol}). Trapped modes require that $v_x \to 0$ as $x \to \infty$. This is only possible when $\mathrm{Re}\{m_e\} > 0$, which for trapped modes simplifies to $m_e > 0$. For the trapped mode, we have $\omega < \omega_{Ae}$, therefore to ensure that $m_e > 0$, we must take the positive square root in the definition of $m_e$. This ensures that the trapped modes are physical, by which we mean that they do not perturb plasma far from the slab. Therefore, we define the positive branch of $m_e$ as the \textit{principle sheet}\footnote{Due to it's physically relevant solutions, the equivalent of this sheet in the cylindrical problem has been labelled as the \textit{physical sheet} \citep{rud_etal06b}.}.
+
+On the other hand, for leaky modes, we require that $v_x \nrightarrow 0$ as $x \to \infty$. Therefore, these modes must exist on the Riemann sheet defined by the negative square root in $m_e$. This is the \textit{non-principle sheet}\footnote{Also known as the \textit{non-physical sheet} \citep{rud_etal06b}}.
+
+Leaky kink modes on the non-principle sheet are complex solutions to the equation
+\begin{equation}
+\tan\left(kx_0\sqrt{\frac{\omega^2}{\omega_0^2} - 1}\right) = -\frac{\sqrt{1 - \frac{\omega^2}{\omega_e^2}}}{\sqrt{\frac{\omega^2}{\omega_0^2} - 1}}.
+\end{equation}
+This equation admits solutions where the argument of the $\tan$ function remains finite as $kx_0 \to \infty$. For this to be satisfied, the solution must be of the form $\omega = \nu / kx_0$, where $\nu$ is independent of $kx_0$. Substituting this ansatz into the above equation and using the fact that $\tan$ is $\pi$-periodic, we find that the leaky kink mode solutions, for small $kx_0$, are
+\begin{equation}
+\omega = \frac{v_{A0}}{x_0}\left[ n\pi - i\tanh^{-1}\left( \frac{v_{A0}}{v_{Ae}} \right) \right],
+\end{equation}
+for $n \in \mathbb{Z}$.
+
+Similarly, the leaky sausage modes on the non-principle sheet are complex solutions to the equation
+\begin{equation}
+\tan\left(kx_0\sqrt{\frac{\omega^2}{\omega_0^2} - 1}\right) = \frac{\sqrt{\frac{\omega^2}{\omega_0^2} - 1}}{\sqrt{1 - \frac{\omega^2}{\omega_e^2}}}
+\end{equation}
+and are given by
+\begin{equation}
+\omega = \frac{v_{A0}}{x_0}\left[ (n + \frac{1}{2})\pi - i\tanh^{-1}\left( \frac{v_{A0}}{v_{Ae}} \right) \right],
+\end{equation}
+for small $kx_0$ and for $n \in \mathbb{Z}$. It is easy to see that, for each pole, one can construct an open ball centred on the pole that contains no other poles, therefore all the poles are isolated. These sausage and kink leaky modes are the slab versions of the ``leaky trig mode" defined in a magnetic flux tube by \cite{cal03}.
+
+Now the integrals in question given in Equation~\eqref{A inv laplace} can be calculated using the Bromwich contour in Figure~\ref{fig: brom contour}. To ensure that the contour remains on a single Riemann surface, it is modified around the branch cuts so as to encircle the poles. The closed contour $C$ is a sum of the following sub-contours:
+\begin{itemize}
+	\item $C_0$: the horizontal line with imaginary part $\sigma$.
+	\item $C_1$: the horizontal line from $L + \delta i$ to $\omega_{Ae} + \delta i$, round the semicircle of radius $\delta$ and back along the horizontal line from $\omega_{Ae} - \delta i$ to $L - \delta i$.
+	\item $C_2$: the vertical lines from $\pm L + \sigma i$ to $\pm L + \delta i$ and the arcs of the large semicircle centred at the origin with radius $L$.
+	\item $C_3$: the vertical line up to, around, and back down from $\omega_{A0}$.
+	\item $C_4$: the vertical line up to, around, and back down from $-\omega_{A0}$.
+	\item $C_5$: the horizontal line from $-L - \delta i$ to $-\omega_{Ae} - \delta i$, round the semicircle of radius $\delta$ and back along the horizontal line from $-\omega_{Ae} + \delta i$ to $-L + \delta i$.
+\end{itemize}
+The integral in the inverse Laplace transform along the horizontal line is the same as the integral along the closed contour minus the integrals along the other constituent contours, \textit{i.e.} $C_0 = C - \sum_{n = 1}^{5}C_n$. The integrals along each of the contours $C$ and $C_1$ to $C_5$ are calculated in the following subsections.
+
+\begin{figure}
+	\centering
+	\scalebox{0.9}{
+		\begin{tikzpicture}[very thick, decoration={
+			markings,
+			mark=at position 0.29 with {\arrow{>}}}
+		]
+		
+		\tikzset{
+			branchcut/.style={decorate, decoration={snake}, draw=red}, 
+		}
+		
+		\draw [->, thick] (-5,0) -- (5,0) node[above]{$\Re(\omega)$};
+		\draw [->, thick] (0,-5) -- (0,2) node[left]{$\Im(\omega)$};
+		
+		\draw [postaction={decorate}, thick] (-4,1) -- (4,1);
+		\draw [thick] (-4,1) -- (-4,0.15);
+		\draw [thick] (4,1) -- (4,0.15);
+		\draw [thick] (-4,0.15) -- (-1.5,0.15);
+		\draw [thick] (4,0.15) -- (1.5,0.15);
+		\draw [thick] (-4,-0.15) -- (-1.5,-0.15);
+		\draw [thick] (4,-0.15) -- (1.5,-0.15);
+		
+		\draw [branchcut, thick] (0.5, 0) -- (0.5, -5);
+		\draw [branchcut, thick] (-0.5, 0) -- (-0.5, -5);
+		\draw [branchcut, thick] (1.5, 0) -- (5, 0);
+		\draw [branchcut, thick] (-1.5, 0) -- (-5, 0);
+		
+		\draw [thick,domain=90:-90] plot ({0.15*cos(\x) - 1.5}, {0.15*sin(\x)});
+		\draw [thick,domain=90:270] plot ({0.15*cos(\x) + 1.5}, {0.15*sin(\x)});
+		
+		\draw [postaction={decorate}, thick,domain=-2.3:-80.8] plot ({4*cos(\x)}, {4*sin(\x)});
+		\draw [thick,domain=-85:-95] plot ({4*cos(\x)}, {4*sin(\x)});
+		\draw [thick,domain=182.3:260.8] plot ({4*cos(\x)}, {4*sin(\x)});
+		
+		\draw [thick] (-0.35,0) -- (-0.35,-3.99);
+		\draw [thick] (0.35,0) -- (0.35,-3.99);
+		
+		\draw [thick] (-0.65,0) -- (-0.65,-3.94);
+		\draw [thick] (0.65,0) -- (0.65,-3.94);
+		
+		\draw [thick,domain=180:0] plot ({0.15*cos(\x) - 0.5}, {0.15*sin(\x)});
+		\draw [thick,domain=180:0] plot ({0.15*cos(\x) + 0.5}, {0.15*sin(\x)});
+		
+		\node [above left] at (0,1) {$\sigma$};
+		
+		\draw[fill] (0,1) circle [radius=0.025];
+		
+		\draw[fill] (1.5,0) circle [radius=0.025];
+		\node [above] at (1.5,0) {$\omega_{Ae}$};
+		
+		\draw[fill] (-1.5,0) circle [radius=0.025];
+		\node [above] at (-1.5,0) {$-\omega_{Ae}$};
+		
+		\draw[fill] (0.5,0) circle [radius=0.025];
+		\node [above] at (0.5,0) {$\omega_{A}$};
+		
+		\draw[fill] (-0.5,0) circle [radius=0.025];
+		\node [above] at (-0.5,0) {$-\omega_{A}$};
+		
+		\draw[fill, blue] (-1,0) circle [radius=0.1];
+		
+		\draw[fill, blue] (1,0) circle [radius=0.1];
+		
+		\draw[fill, blue] (-2,-1) circle [radius=0.1];
+		
+		\draw[fill, blue] (-3,-1) circle [radius=0.1];
+		
+		\draw[fill, blue] (-4,-1) circle [radius=0.1];
+		
+		\draw[fill, blue] (-5,-1) circle [radius=0.1];
+		
+		\draw[fill, blue] (2,-1) circle [radius=0.1];
+
+		\draw[fill, blue] (3,-1) circle [radius=0.1];
+		
+		\draw[fill, blue] (4,-1) circle [radius=0.1];
+		
+		\draw[fill, blue] (5,-1) circle [radius=0.1];
+		
+		\node [above] at (-1.7,1) {$C_0$};
+		\node [above] at (3,0) {$C_1$};
+		\node [below right] at (2.8,-2.8) {$C_2$};
+		
+		\node [right] at (0.5,-1) {$C_3$};
+		\node [left] at (-0.5,-1) {$C_4$};
+		\node [above] at (-3,0) {$C_5$};
+		
+		\node [above] at (4,1) {$L$};
+		\node [above] at (-4,1) {$-L$};
+		\end{tikzpicture} 
+	}
+	\caption{The Bromwich contour, $C = \sum_{n = 0}^{5}C_n$, for the complex integration of $\tilde{A}_{1,2}$ in the inverse Laplace transform in Equation~\eqref{A inv laplace}. The radius of the large semicircle is $L$ and the radius of the small semicircles around the points $\pm \omega_0$ and $\pm \omega_T$ is $\delta$. The blue circles are the poles and the red lines indicate the branch cuts.}
+	\label{fig: brom contour}
+\end{figure}
+
+\subsubsection{Integral along $C$}
+The contour $C$ is closed and has been chosen such that the integrand can be made to be meromorphic on this contour, given a particular choice of Riemann sheet. Therefore, we would like to use the Residue theorem to calculate this integral. While the Residue theorem is often quoted with a restriction to a finite number of isolated poles, it is also valid when there are infinitely many isolated poles \citep{ahl79}.
+
+The residue of the principal kink mode is calculated as follows. First, we must determine the order of the pole. The order of the pole is equivalent to the order of the corresponding zero of the dispersion function. The dispersion function for a symmetric slab can be factorised into a product of a functions governing sausage and kink modes, namely
+\begin{equation}
+D(\omega) = -2\rho_0^2v_{A0}^4 \frac{\cosh{2m_0x_0}}{\tanh{m_0x_0} + \coth{m_0x_0}} D_s(\omega) D_k(\omega),
+\end{equation}
+where
+\begin{equation}
+D_s(\omega) = m_0 + m_e\tanh{m_0x_0} \quad \text{and} \quad D_k(\omega) = m_0 + m_e\coth{m_0x_0}.
+\end{equation}
+Denote the principal kink eigenfrequency by $\omega_k$. We know that $D_s(\omega_k) \neq 0$. We can expand the function $D_k$ as a Taylor series about the frequency $\omega_k$ as
+\begin{equation}
+D_k(\omega) = D_k(\omega_k) + D_k'(\omega)(\omega - \omega_k) + O((\omega - \omega_k)^2).
+\end{equation}
+Then the order of $\omega_k$ as a zero of $D_k$ (and hence of $D$) is determined by the order of the first derivative of $D_k$ that is not small when evaluated at $\omega_k$. First, we check the order of $D_k'(\omega_k)$. Using the product and chain rules,
+\begin{equation}
+D_k'(\omega) = \omega\left[ \frac{1}{v_{A0}^2m_0} (m_e\text{csch}^2{m_0x_0} - 1) - \frac{1}{v_{Ae}^2m_e}\coth{m_0x_0} \right].
+\end{equation}
+Evaluated at $\omega = \omega_k$, it can easily be shown that $D_k'(\omega_k) = O(1)$ with respect to the small quantity $kx_0$. In particular, $D_k'(\omega_k)$ is not small. Therefore, $\omega_k$ is a simple pole of the integrand.
+
+The residues of the forwards and backwards propagating principal kink modes are thus
+\begin{align}
+\text{Res}&\left\{ \frac{T_1}{D} e^{-i\omega t} ; \omega = \omega_k \right\} = \lim_{\omega \to \omega_k} (\omega - \omega_k)\frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} \notag \\
+&= \lim_{\omega \to \omega_k}\frac{1}{D'(\omega)} [T_1(\omega) + (\omega - \omega_k)T_1'(\omega) - it(\omega - \omega_k)T_1(\omega)]e^{-i\omega t} \notag \\
+&= \lim_{\omega \to \omega_k} \frac{T_1(\omega)}{D'(\omega)}e^{-i\omega t} \notag \\
+&= \chi_1^{(k)} e^{-i\omega_k t},
+\end{align}
+where $\chi_1^{(k)} = T_1(\omega_k)/D(\omega_k)$. L'Hopital's rule was used in the above derivation. Similarly, 
+\begin{equation}
+\text{Res}\left\{ \frac{T_1}{D} e^{-i\omega t} ; \omega = -\omega_k \right\} = -\chi_1^{(k)} e^{i\omega_k t},
+\end{equation}
+because $T_1$ is an even functions of $\omega$ and $D'$ is an odd function of $\omega$. The sum of these two residues is
+\begin{equation}
+-2i\chi_1^{(k)}\sin{\omega_k t}.
+\end{equation}
+
+The residues at the leaky kink modes can be calculated as follows. We denote the eigenfrequency of the $n$th leaky kink mode as $\omega_{kn}$. Following the same line of reasoning as for the principal kink mode, $D'(\omega_{kn}) = O(1)$ with respect to $kx_0$, so $D'(\omega_{kn})$ is not small. Therefore, these poles are simple. The residue at $\omega_{kn}$, for $n \in \mathbb{Z}$, is
+\begin{equation}
+\text{Res}\left\{ \frac{T_1}{D} e^{-i\omega t} ; \omega = \omega_{kn} \right\} = \chi_1^{(kn)} e^{-i\omega_{kn} t},
+\end{equation}
+where $\chi_1^{(kn)} = T_1(\omega_{kn})/D(\omega_{kn})$. Since, $\omega_{kn}$ is complex, it is instructive to split it up into its real and imaginary parts by writing the residue as
+\begin{equation}
+\chi_1^{(kn)} \exp\left\{-i \pi tn\frac{v_{A0}}{x_0}\right\} e^{-\gamma t},
+\end{equation}
+where $\gamma = \frac{v_{A0}}{x_0}\tanh^{-1}(v_{A0}/v_{Ae})$.
+
+Similarly, we denote the eigenfrequencies of the leaky sausage modes by $\omega_{sn}$, for $n \in \mathbb{Z}$. These poles have resides
+\begin{equation}
+\text{Res}\left\{ \frac{T_1}{D} e^{-i\omega t} ; \omega = \omega_{sn} \right\} = \chi_1^{(sn)} \exp\left\{-i \pi t\left(n + \frac{1}{2}\right)\frac{v_{A0}}{x_0}\right\} e^{-\gamma t},
+\end{equation}
+where $\chi_1^{(sn)} = T_1(\omega_{sn})/D(\omega_{sn})$.
+
+In the residues for the leaky sausage and kink modes, the first exponential has an imaginary argument and therefore contributes an oscillatory component. The second exponential has a negative real argument and therefore contributes a decaying component with decrement $\gamma$.
+
+
+\subsubsection{Integral along $C_1$, $C_3$, $C_4$, and $C_5$}
+In the limit as $\delta \to 0$, the integral along the semicircular part of $C_1$ vanishes because the integrand is analytic in this limit and the length of the contour approaches zero.
+
+As $L \to \infty$ the integrals along the horizontal parts of $C_1$ become
+\begin{align}
+I_{C_1}
+&= \int_{\infty}^{\omega_{Ae}} \frac{T_1^+}{D^+} e^{-i\omega t} d\omega + \int_{\omega_{Ae}}^{\infty} \frac{T_1^-}{D^-} e^{-i\omega t} d\omega \\
+&= \int_{\omega_{Ae}}^{\infty} \left( \frac{T_1^-}{D^-} - \frac{T_1^+}{D^+} \right) e^{-i\omega t} d\omega,
+\end{align}
+where superscripts $+$ and $-$ indicate the value of the function above and below the horizontal branch cut $[\omega_{Ae}, \infty)$, respectively. For values of $\omega$ close to the branch cut, the integrand is analytic, except at the branch point. In particular, the integrand is analytic except at the endpoint of the integral, therefore, we can use integration by parts to show that
+\begin{align}
+I_{C_1} &= \frac{i}{t} \left\{ \left[ \left( \frac{T_1^-}{D^-} - \frac{T_1^+}{D^+} \right) e^{-i\omega t}\right]_{\omega_{Ae}}^{\infty} - \int_{\omega_{Ae}}^{\infty} \frac{d}{d\omega} \left( \frac{T_1^-}{D^-} - \frac{T_1^+}{D^+} \right) e^{-i\omega t} d\omega \right\}.
+\end{align}
+Given that $T_1^+/D^+ = T_1^-/D^-$ when evaluated at the branch point and that $T_1^\pm(\omega)/D^\pm(\omega) \to 0$ as $|\omega| \to \infty$, the first term on the right hand side vanishes. On the second term, we can perform integration by parts again to see that the $I_{C_1} = O(t^{-2})$ as $t \to \infty$. 
+
+Similarly, $I_{C_3}, I_{C_4}, I_{C_5} = \mathcal{O}(t^{-2})$ as $t \to \infty$.
+
+
+\subsubsection{Integral along \texorpdfstring{$C_2$}{C2}}
+As $L \to \infty$, points on the curve $C_2$ will behave like $|\omega| \to \infty$. When $|\omega| \to \infty$, $T_1 = \mathcal{O}(|\omega|)$ and $D = \mathcal{O}(|\omega|^2)$ (except when the contour intersects one or more of the poles), therefore the integrands behave like $T_1/D = \mathcal{O}(1/|\omega|)$. Therefore, the integral around $C_2$ approaches $0$ as $L \to \infty$.
+
+Since there is an infinite number of isolated poles that stretch out infinitely in the positive and negative imaginary direction, it is possible to choose a sequence of contours where $L \to \infty$ such that the above result does not hold. Any sequence of contours such that an infinite number of contours pass through poles as $L \to \infty$ would suffice for this. Given that we are free to choose the sequence of contours, we can choose a sequence that does not contain an infinite number of contours that pass through poles.
+
+
+\subsubsection{Combining integrals to derive velocity solution}
+We can combine these integrals to show that
+\begin{equation}
+A_1(t) = -2\chi_1^{(k)}\sin{\omega_k t} - iS_1 e^{-\gamma t} + \mathcal{O}(t^{-2}),
+\label{A}
+\end{equation}
+where
+\begin{equation}
+S_1 = \sum_{n \in \mathbb{Z}} \left( \chi_1^{(kn)}\exp\left\{-i\pi t n \frac{v_{A0}}{x_0}\right\} + \chi_1^{(sn)}\exp\left\{-i\pi t \left(n+\frac{1}{2}\right) \frac{v_{A0}}{x_0}\right\} \right).
+\end{equation}
+
+Referring back to the Equation~\eqref{vx sol inv LPT}, which for a symmetric slab waveguide looks like\footnote{The Green's function $G_1$ and the initial condition function $f_1$ retain their subscript $1$ rather than $e$ because the initial condition imposed on the symmetric waveguide could still be asymmetric.}
+\begin{equation}
+\hat{v}_x(x, t) = \mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{m_e(x + x_0)} \right\} + \mathcal{L}^{-1} \left\{ \int_{-\infty}^{-x_0} G_1(x; s)f_1(\omega, s)ds \right\}.
+\label{vx sol inv LPT sym}
+\end{equation}
+
+The first of the inverse Laplace transforms is related to $A_1$ as follows. $\tilde{A}_1e^{m_e(x + x_0)}$ has the same analytical properties as $\tilde{A}_1$ in the sense that they have the same singularities and hence the same Riemann surface. Therefore, the first inverse Laplace transform is given by Equation~\eqref{A} but where each term is multiplied by $e^{m_e(x + x_0)}$ evaluated at that term's corresponding frequency. The function $m_e(\omega)$ evaluated at $\omega_{kn}$ or $\omega_{sn}$ does not have simply analytical form, however, evaluated at $\omega_k$, we have
+\begin{equation}
+m_e(\omega_k) = k\left( \frac{v_{Ae}^2}{v_{A0}^2} - 1 \right) (kx_0).
+\end{equation}
+Therefore, the first inverse Laplace transform is
+\begin{align}
+\mathcal{L}^{-1} \left\{ \tilde{A}_1 e^{m_e(x + x_0)} \right\} = &-2\chi_1^{(k)}\sin{\omega_k t}\exp\left\{ k(x + x_0)\left( \frac{v_{Ae}^2}{v_{A0}^2} - 1 \right) (kx_0) \right\} \notag \\
+&- iS'_1 e^{-\gamma t} + \mathcal{O}(t^{-2}),
+\end{align}
+where
+\begin{align}
+S'_1 = \sum_{n \in \mathbb{Z}} \bigg( & \chi_1^{(kn)}\exp\left\{-i\pi t n \frac{v_{A0}}{x_0} + m_e(\omega_{kn})(x + x_0) \right\} \\
+&\left.+ \chi_1^{(sn)}\exp\left\{-i\pi t \left(n+\frac{1}{2}\right) \frac{v_{A0}}{x_0} + m_e(\omega_{sn})(x + x_0)\right\} \right).
+\end{align}
+
+Finally, we need to determine an asymptotic form for the inverse Laplace transform of the Green's function term in Equation~\eqref{vx sol inv LPT sym}. This term is a double integral where the inner integral is with respect to $s$ and outer is the inverse Laplace transform which is an integral with respect to $\omega$. The functions $G_1(x, s)f_1(\omega, s)$ and $e^{-i\omega t}$ are continuous functions of $s$ and $\omega$, therefore we are free to switch the order of integration. After doing so, the inner integral is
+\begin{equation}
+\int_{i\sigma - \infty}^{i\sigma 
++ \infty} G_1(x, s)f_1(\omega, s) e^{-i\omega t} ~d\omega.
+\end{equation}
+If we restrict the initial condition to being only horizontal, \textit{i.e.} $\hat{v}_{z0} = \dot{\hat{v}}_{z0} = 0$, then $f$ is linear in $\omega$ and the integrand of this integral has branch points at $\pm \omega_{Ae}$ and no poles. Therefore, with branch cuts along the real axis on the set $(-\infty, -\omega_{Ae}] \cup [\omega_{Ae}, \infty)$ we can use a Bromwich contour that has two horizontal modifications around the branch cuts. Because the integrand has no poles, the integral around the closed contour vanishes, the integral along the large semicircle vanishes, and in the integrals along the horizontal contours are $\mathcal{O}(t^{-2})$. Therefore, the term in the horizontal velocity solution is $\mathcal{O}(t^{-2})$ as $t \to \infty$.
+
+Putting all of this together, we find that
+\begin{align}
+\hat{v}_x(x, t) = &-2\chi_1^{(k)}\sin{\omega_k t}\exp\left\{ k(x + x_0)\left( \frac{v_{Ae}^2}{v_{A0}^2} - 1 \right) (kx_0) \right\} \notag \\
+&- iS'_1 e^{-\gamma t} + \mathcal{O}(t^{-2}),
+\label{v asymptotic sol}
+\end{align}
+which is valid for $x < -x_0$. Similarly, we can derive the asymptotic solution for the regions $|x| < x_0$ and $x > x_0$, but their functional form is the same so we focus just on the solution given by Equation~\eqref{v asymptotic sol}.
+
+The solution is made up of three parts. The first term is an undamped sinusoid in time and corresponds to the contribution from the trapped kink body mode. There are no trapped sausage modes in the zero-beta slab, so they have no contribution to the solution. The second term is an exponentially decreasing term due to wave leakage in the form of leaky sausage and kink body modes. The terms that are $\mathcal{O}(t^{-2})$ as $t \to \infty$ are not due to collective modes but instead represent the propagation of an initial velocity impulse across the waveguide before collective modes are set up. It gives an indication as to the set up time of collective modes.
+
+Like the magnetic flux tube \citep{rud_etal06b,ter_etal06}, the temporal evolution of a magnetic slab follows three phases: the \textit{initial phase}, the \textit{impulsive phase}, and the \textit{stationary phase}. The initial phase is dominated by the distribution of the initial disturbance. The impulsive phase is dominated by the leaky modes. The stationary phase is dominated by the trapped modes.
+
+The decrement $\gamma = \mathcal{O}((kx_0)^{-1})$ is large, therefore, the amplitude of the leaky modes attenuates rapidly. In general, these terms will decay faster than the $\mathcal{O}(t^{-2})$ terms. This means that, in general, the impulsive phase will be short to non-existent. In particular, the impulsive phase of the magnetic slab is, in general, significantly shorter than the impulsive phase for a magnetic flux tube, whose decrement $\gamma = \mathcal{O}(kx_0)$ is small \citep{rud_etal06b}.
+
+However, the initial conditions have a strong effect on the relative contributions of each of the terms and hence on the duration of each of the three phases \citep{ter_etal06,ter_etal07}. This can be to such an extent that the contribution of any individual mode could be zero or the any of the three phases might not exist. For example, a symmetric initial condition will induce only kink modes and an anti-symmetric initial condition will induce only kink modes. Higher order modes are induced by initial conditions that have a shorter characteristic length scale \citep{ter_etal07}.
+
+
+\subsection{Generalising to an asymmetric slab}
+The solution found in the previous section is valid for a symmetric slab. The main affect that waveguide asymmetry has on the temporal evolution of an initial disturbance is that the principal kink mode, which is trapped by a symmetric slab, is leaky for thin asymmetric slabs. This has been shown by the presence of a cut-off value for trapped modes in the dispersion diagrams in Chapter~\ref{chap: EVP} and by \cite{all_etal17} and \cite{zsa_etal18}. This means that a thin asymmetric slab of cold plasma will not have a stationary phase for any initial condition because there are no trapped modes. All the energy from the initial condition is leaked out of the waveguide.
+
+It is worth comparing the principal kink mode in this problem to the ``principal leaky mode" whose physical relevance has been the subject of debate \citep{cal03,rud_etal06b,cal06,rud_etal06}. \cite{cal03} claimed that in addition to the trapped principle kink mode, which is indisputably physical, there exists a corresponding leaky mode whose real part of its frequency is equal to the principal kink frequency. This leaky mode was later shown to be unphysical by \cite{rud_etal06b}. In the present chapter, the principal kink mode which becomes leaky when the slab is asymmetric is not the mode that \cite{cal03} labelled the ``principal leaky mode". Instead, it is the principal trapped kink mode that has become leaky due to the waveguide asymmetry.
+
+
+\section{Chapter conclusions}
+In this chapter, we have used mathematical methods to investigate the temporal evolution of MHD waves in simple models of solar waveguides.
+
+First, we focussed on the evolution of incompressible MHD waves along a tangential interface. The main result from this analysis was to correct an error in one of the key articles using the initial value approach in MHD \citep{rae_etal81}, showing that surface modes, not just body modes, are induced by a uniform vorticity initial condition.
+
+Next, we investigated the evolution of incompressible MHD waves along an asymmetric slab. Under the incompressible approximation, there is no initial phase or impulsive phase. There is only a stationary phase. That is to say that the initial impulse is propagated away instantly as purely trapped collective modes. Mathematically, this is equivalent to there being no branch points of the integrand of the inverse Laplace transform. The poles, whose residues give the contribution of the trapped eigenmodes, are the only singularities of the integrand.
+
+Finally, we investigated the evolution of MHD wave in a slab of cold plasma. The solution evolves, in general, through three phases: the initial phase, the impulsive phase, and the stationary phase. These are the same phases through which an initially perturbed magnetic flux tube evolves \citep{rud_etal06b}. The main difference between the slab and flux tube is that the impulsive phase for a magnetic slab is significantly shorter. When a thin slab of cold plasma is asymmetric, the stationary phase is no longer present because the trapped kink mode becomes leaky. After some time, all the energy will be leaked from the slab.
