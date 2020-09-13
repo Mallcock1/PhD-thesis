@@ -13,9 +13,9 @@ The Sun is hot. It is so hot that thermal energy overcomes the electromagnetic f
 
 The Sun's atmosphere, particularly the most extended region, known as the \textit{corona}, is dominated by a complex, dynamic, and inhomogeneous magnetic field. This magnetic field contributes to the astronomical energy that drives many of the most energetic events in the solar system, including jets, eruptions, and flares. These dynamic solar events, as well as convectional buffeting from the bubbling interior Sun, drive waves in the solar atmosphere which can be guided by the inhomogeneous magnetic field. What differentiates these waves from waves in fluids, such as sound waves in air, is the contribution of the magnetic field to the waves' restoring force. These waves are known as \textit{magnetohydrodynamic waves}. MHD waves whose restoring force is a combination of the pressure gradient and the magnetic force, but not other forces such as gravity and Coriolis which as neglected in this thesis, are known as \textit{magneto-acoustic waves}.
 
-Observations of MHD waves in the Sun's atmosphere can be used to approximate plasma parameters, such as the magnetic field strength, that are difficult to measure using traditional methods that involve analysis of light spectra \citep{nak_etal05,dem_etal12}. This is accomplished by comparing observations of MHD waves in the solar atmosphere to theoretical results from studying MHD wave propagation in model waveguides that approximate those in the solar atmosphere. This emerging field is inspired by the Earth seismology and is known as \textit{solar magneto-seismology} (SMS) \citep{erd06}. A brief history of SMS is given in Section~\ref{sec: SMS history}. Accurate approximations of plasma parameters in the solar atmosphere are useful for a number of reasons. For numerical solutions to accurately model the solar conditions, we need realistic input parameters. On a more fundamental level, cataloguing realistic solar parameters can provide evidence for or against various hypothetical mechanisms leading to, for example, instability, magnetic reconnection, and waves. Some of these phenomena contribute to the onset of solar flares and coronal mass ejections, which pose a significant threat to modern society on Earth \citep{cab15}. SMS is introduced and discussed in much more depth in Chapter~\ref{chap: SMS}.
+Observations of MHD waves in the Sun's atmosphere can be used to approximate plasma parameters, such as the magnetic field strength, that are difficult to measure using traditional methods that involve analysis of light spectra \citep{nak_etal05,dem_etal12}. This is accomplished by comparing observations of MHD waves in the solar atmosphere to theoretical results from studying MHD wave propagation in model waveguides that approximate those in the solar atmosphere. This emerging field is inspired by the Earth seismology and is known as \textit{solar magneto-seismology} (SMS) \citep{erd06}. A brief history of SMS is given in Section~\ref{sec: SMS history}. Accurate approximations of plasma parameters in the solar atmosphere are useful for a number of reasons. For numerical solutions to accurately model the solar conditions, we need realistic input parameters. On a more fundamental level, cataloguing realistic solar parameters can provide evidence for or against various hypothetical mechanisms leading to, for example, instability, magnetic reconnection, and waves. Some of these phenomena contribute to the onset of solar flares and coronal mass ejections, which pose a significant threat to modern society on Earth \citep{cab15}. SMS is introduced and discussed in more depth in Chapter~\ref{chap: SMS}.
 
-Improvements in the spatial-resolution of solar telescopes have driven a new era of solar physics. Of particular interest to this thesis are observations of MHD waves. Long-predicted by MHD theory \citep{rob00}, MHD waves were first observed in the solar atmosphere at the end of the last century \citep{asc_etal99, nak_etal99}. In recent years, we can observe that these waves are not one-dimensional oscillations like those along a guitar string, but instead they have complex structure in three-dimensions. The precise form of this structure is dictated by the parameters of the inhomogeneous plasma. One characteristic of this structuring is \textit{asymmetry} - the difference in plasma parameters on each side of a structure. This asymmetry of MHD waveguides is the focus of this thesis. In order to motivate the study of asymmetric MHD waves, we first introduce the mathematical framework of MHD.
+Improvements in the spatial-resolution of solar telescopes have driven a new era of solar physics. Of particular interest to this thesis are observations of MHD waves. Some of the first identifications of MHD waves came from non-thermal broadening of transition region and coronal spectral lines \citep{dos_etal76,zir93}. Later, slow MHD waves were observed in coronal plumes \citep{def_etal98,ofm_etal99,ofm_etal00}, and in coronal loops \citep{nak_etal00, rob_etal01}. Fast MHD waves were famously imaged in coronal loops at the end of the millennium with the TRACE solar observatory \citep{asc_etal99, nak_etal99}. In more recent years, improvements in spatial relation of observational instrumentation have suggested that these waves are not one-dimensional oscillations like those along a guitar string, but instead they have complex structure in three-dimensions. The precise form of this structure is dictated by the parameters of the inhomogeneous plasma. One characteristic of this structuring is \textit{asymmetry} - the difference in plasma parameters on each side of a structure. This asymmetry of MHD waveguides is the focus of this thesis. In order to motivate the study of asymmetric MHD waves, we first introduce the mathematical framework of MHD.
 
 
 %------------------------------------------------------------------------------
@@ -26,9 +26,7 @@ Improvements in the spatial-resolution of solar telescopes have driven a new era
 
 \subsection{The equations of ideal magnetohydrodynamics} \label{sec: MHD eqns}
 
-How can we simplify the solar plasma in order to describe it mathematically? To build up a mathematical description of the Sun's plasma dynamics, let's motivate some assumptions.
-
-The Sun's plasma, just like all ordinary  matter in the Universe, is made up of particles\footnote{Atomic or subatomic particles, depending on the temperature of its location in the Sun.}, but MHD waves operate on a \textit{macroscopic} level. By this we mean on length-scales much larger than the \textit{mean free path}, that is, the average distance a particle will travel before colliding with another\footnote{The mean free path in the Sun ranges from approximately 1~cm in the solar interior to 1~km in the sparse corona.}. This means that the \textit{Knudsen number}, the dimensionless parameter defined by the ratio of the mean free path to a characteristic length scale, in the Sun is much less than unity. This motivates the \textit{continuum assumption}, where the fluid is considered to \textit{fill up} the space in which is is contained, so that small-scale inhomogeneities caused by particle dynamics are negligible. This gives us a coherent notion of fluid velocity, $\mathbf{v}(\mathbf{x}, t)$, density, $\rho(\mathbf{x}, t)$, and pressure, $p(\mathbf{x}, t)$, as functions of continuous position, $\mathbf{x}$, and time, $t$.
+The Sun's plasma, just like all ordinary  matter in the Universe, is made up of particles\footnote{Atomic or subatomic particles, depending on the temperature, and hence ionisation, of the solar plasma.}, but MHD waves are a \textit{macroscopic} phenomenon. This means that MHD waves have characteristic length-scales much larger than the \textit{mean free path}, that is, the average distance a particle will travel before colliding with another\footnote{The mean free path in the Sun ranges from approximately 1~cm in the solar interior to 1~km in the sparse corona.}. This means that the \textit{Knudsen number}, the dimensionless parameter defined by the ratio of the mean free path to a characteristic length scale, in the Sun is much less than unity. Additionally, we assume that the length-scales of interest are much larger than the Debeye length, so that Debeye shielding can be neglected. This motivates the \textit{continuum assumption}, where the fluid is considered to \textit{fill up} the space in which it is contained, so that small-scale inhomogeneities caused by particle dynamics are negligible. This means that we have a coherent notion of fluid velocity, $\mathbf{v}(\mathbf{x}, t)$, density, $\rho(\mathbf{x}, t)$, and pressure, $p(\mathbf{x}, t)$, as functions of continuous position, $\mathbf{x}$, and time, $t$.
 
 The universe gifts us fundamental laws that are obeyed by all classical mechanics systems upon which we can build our framework. Firstly, the \textit{conservation of mass} tells us that the change in mass in a fixed volume is due only to mass entering or leaving the volume. The rate of change of density in a fixed volume $V$ is
 \begin{equation}
@@ -75,7 +73,7 @@ Equations~\eqref{cont eqn}, \eqref{energy eqn}, and the three components of \eqr
 \begin{equation}
 	\mathbf{j} = \frac{1}{\eta}(\mathbf{E} + \bv\times\bB),
 \end{equation}
-where $\mathbf{E}$ is the electric field. In this thesis, we are concerned with plasmas where resistive effects, including magnetic reconnection and diffusion, are unimportant. Therefore, we neglect the left hand side of this equation to give
+where $\mathbf{E}$ is the electric field. In this thesis, we are concerned with plasmas where resistive effects, including magnetic reconnection and diffusion, are neglected. Therefore, we omit the left hand side of this equation to give
 \begin{equation}
 \mathbf{E} + \bv\times\bB = 0. \label{ohms law}
 \end{equation}
@@ -103,7 +101,7 @@ The Lorentz force in the momentum Equation~\eqref{mom eqn} can be decomposed usi
 \begin{equation}
 	\frac{1}{\mu}(\nabla\times\bB)\times\bB = \frac{1}{\mu}(\bB\cdot\nabla)\bB - \nabla\left(\frac{\bB^2}{2\mu}\right).
 \end{equation}
-The first term on the right hand side is the \textit{magnetic tension} force which acts normal to $\bB$. It acts to \textit{straighten out} magnetic field lines and its strength is proportional to the field line's curvature. The second term on the right hand side is the \textit{magnetic pressure} force which acts along a negative gradient in magnetic field strength. It acts to \textit{spread out} magnetic field lines.
+The first term on the right hand side is the \textit{magnetic tension} force which acts normal to $\bB$. It acts to \textit{straighten out} curved magnetic field lines and its strength is proportional to the field line's curvature. The second term on the right-hand side is the \textit{magnetic pressure} force which acts along a negative gradient in magnetic field strength. It acts to \textit{spread out} magnetic field lines in the sense that magnetic field lines that are close together will have a force pulling them apart.
 
 
 \subsubsection{Magnetic flux conservation} \label{sec: mag flux conservation}
@@ -121,7 +119,7 @@ where $d\mathbf{l}$ is an element parallel to curve $C$. Using Stokes' Theorem o
 \end{equation}
 Using the induction equation, Equation~\eqref{ind eqn} it is clear that the change in the magnetic flux vanishes. Therefore, magnetic flux is conserved in an ideal plasma.
 
-This result has the important corollary that the magnetic field lines are frozen to the plasma. That is, wherever the magnetic field moves, the plasma follows, and \textit{vice versa}. In other words, plasma elements that initially occupy the same field line will always do so. This is known as \textit{Alfv\'{e}n's frozen flux theorem}.
+This result has the important corollary that the magnetic field lines are frozen to the plasma. That is, wherever the magnetic field moves, the plasma follows, and \textit{vice versa}. In other words, plasma elements that initially occupy the same field line will always do so in ideal MHD. This is known as \textit{Alfv\'{e}n's frozen flux theorem}.
 
 
 %------------------------------------------------------------------------------
@@ -130,7 +128,7 @@ This result has the important corollary that the magnetic field lines are frozen
 %------------------------------------------------------------------------------
 
 \subsection{Magnetohydrodynamic waves in a homogeneous plasma}
-Whilst the Sun's atmosphere is inhomogeneity, it is instructive to first study the MHD waves that propagate in a homogeneous plasma. We start with the ideal MHD equations derived in Section~\ref{sec: MHD eqns},
+Whilst the Sun's atmosphere is in reality inhomogeneous, it is instructive to first study the MHD waves that propagate in a homogeneous plasma. We start with the ideal MHD equations derived in Section~\ref{sec: MHD eqns},
 \begin{align}
 	\frac{\partial\rho}{\partial t} + \nabla\cdot(\rho \bv) &= 0, \\
 	\rho\frac{D\bv}{Dt} &= -\nabla p + \frac{1}{\mu}(\nabla\times\mathbf{B})\times\mathbf{B}, \\
@@ -138,7 +136,7 @@ Whilst the Sun's atmosphere is inhomogeneity, it is instructive to first study t
 	\frac{\partial\bB}{\partial t} &= \nabla\times(\bv\times\bB).
 \end{align}
 
-Consider a stationary homogeneous plasma with equilibrium magnetic field given by $\mathbf{B_0} = (0, 0, B_0)$, without loss of generality. Each parameter can be written as a sum of its equilibrium quantity and a perturbation from that equilibrium, namely, $f = f_0 + f'$, where $f$ is a placeholder for variables $\rho, p, \bv$, and $\bB$. The equilibrium plasma is stationary and homogeneous, so $\bv_0 = 0$, and each equilibrium variable is uniform in space. By considering just small perturbations from equilibrium, \textit{i.e.} $f' \ll f_0$ for each parameter, we can remove the non-linearity from the governing equations. Substituting this form of the variables into the ideal MHD equations and neglecting terms of quadratic order in small perturbation parameters gives us the linearised ideal MHD equations
+Consider a stationary homogeneous plasma with equilibrium magnetic field given by $\mathbf{B_0} = (0, 0, B_0)$, without loss of generality. Each physical quantity can be written as a sum of its equilibrium quantity and a perturbation from that equilibrium, namely, $f = f_0 + f'$, where $f$ is a placeholder for variables $\rho, p, \bv$, and $\bB$. The equilibrium plasma is stationary and homogeneous, so $\bv_0 = 0$, and each equilibrium variable is uniform in space. By considering just small perturbations from equilibrium, \textit{i.e.} $f' \ll f_0$ for each physical quantity, we can remove the non-linearity from the governing equations. Substituting this form of the variables into the ideal MHD equations and neglecting terms of quadratic order or higher in small perturbations gives us the linearised ideal MHD equations
 \begin{align}
 	\frac{\partial\rho'}{\partial t} + \rho_0(\nabla\cdot\bv') &= 0, \label{cont eqn lin} \\
 	\rho_0\frac{\partial\bv'}{\partial t} &= -\nabla p' + \frac{1}{\mu}(\nabla\times\bB')\times\bB_0, \label{mom eqn lin} \\
@@ -189,26 +187,26 @@ The second set of solutions to Equation~\eqref{det sol} are
 \begin{equation}
 	\omega^2 = \frac{1}{2}k^2(c_0^2 + v_A^2)\left(1 \pm \sqrt{1 - 4c_T^2\frac{k_z^2}{k^2}}\right),
 \end{equation}
-where $c_T = c_0^2v_A^2/\sqrt{c_0^2 + v_A^2}$ is the \textit{tube speed}, so called because it is the phase speed of slow waves in a thin magnetic flux tube (see Section~\ref{sec: MHD waves tube}). These solutions are \textit{magneto-acoustic waves}, which are oscillations restored by a combination of both the pressure gradient and Lorentz forces. The solutions with the higher frequency (and hence faster phase speed) are known as \textit{fast magneto-acoustic waves} and the solutions with the lower frequency are known as \textit{slow magneto-acoustic waves}. Physically, perturbations in the fast mode are restored by the pressure gradient and Lorentz forces working in phase, whereas perturbations in the slow mode are restored by the forces working in anti-phase, leading to a less strong restoring force for slow modes.
+where $c_T = c_0^2v_A^2/\sqrt{c_0^2 + v_A^2}$ is known as the \textit{tube speed} or \textit{cusp speed}, so called because it is the phase speed of slow waves in a thin magnetic flux tube (see Section~\ref{sec: MHD waves tube}). These solutions are \textit{magneto-acoustic waves}, which are oscillations restored by a combination of both the pressure gradient and Lorentz forces. The solutions with the higher frequency (and hence faster phase speed) are known as \textit{fast magneto-acoustic waves} and the solutions with the lower frequency are known as \textit{slow magneto-acoustic waves}. Physically, perturbations in the fast mode are restored by the pressure gradient and Lorentz forces working in phase, whereas perturbations in the slow mode are restored by the forces working in anti-phase, leading to a less strong restoring force for slow modes.
 
 
-\subsection{Magnetohydrodynamic waves in an inhomogeneous plasma}
-To progress towards an understanding of MHD waves in the solar atmosphere, we must study MHD waves in simple inhomogeneous plasma configurations. In this subsection, we review the linear MHD waves along simple inhomogeneous structures: a tangential interface (Section~\ref{sec: MHD waves interface}), a symmetric slab (Section~\ref{sec: MHD waves sym slab}), and a magnetic flux tube (Section~\ref{sec: MHD waves tube}).
+\subsection{Magnetohydrodynamic waves in inhomogeneous plasma}
+To progress towards an understanding of MHD waves in the solar atmosphere, we now study MHD waves in simple inhomogeneous plasma configurations. In this subsection, we review the theory of linear MHD waves propagating along simple inhomogeneous structures: a tangential interface (Section~\ref{sec: MHD waves interface}), a symmetric slab (Section~\ref{sec: MHD waves sym slab}), and a magnetic flux tube (Section~\ref{sec: MHD waves tube}).
 
 
 \subsubsection{Tangential interface} \label{sec: MHD waves interface}
 
-MHD wave propagation along a tangential interface, where the magnetic field is tangential to the interface, was first studied by \cite{rob81a}. Consider a plasma at equilibrium  with piecewise uniform magnetic field, $\bB_0(x) = (0, 0, B_0(x))$, given by
+MHD wave propagation along a tangential interface, where the magnetic field is tangential to the interface, was first studied in its popular form by \cite{rob81a}. Consider a plasma at equilibrium  with piecewise uniform magnetic field, $\bB_0(x) = (0, 0, B_0(x))$, given by
 \begin{equation}
 	B_0(x) =
 	\begin{cases}
-		B_- & \text{if } x < 0, \\
+		B_- & \text{if } x \leq 0, \\
 		B_+ & \text{if } x > 0.
 	\end{cases} \label{interface mag}
 \end{equation}
-The interface between the two regions is at $x = 0$, without loss of generality. Given the initially tangent magnetic field, the magnetic field must be tangent to the interface for all time due to ideal magnetic flux conservation (see Section~\ref{sec: mag flux conservation}).
+The interface between the two regions is at $x = 0$, without loss of generality. Given a magnetic field that is initially tangent to the interface, the magnetic field must be tangent to the interface for all time due to ideal magnetic flux conservation (see Section~\ref{sec: mag flux conservation}).
 
-To derive the dispersion relation, first we seek plane wave solutions to the linearised ideal MHD equations, Equations\eqref{cont eqn lin}-\eqref{ind eqn lin} by assuming that parameters behave like $f(x) = \hat{f}e^{i(kz - \omega t)}$, where $k$ and $\omega$ are the wavenumber and angular frequency of $z$-ward propagating waves. They are then combined to show that the transverse velocity perturbation, $\hat{v}_x$, satisfies a Helmholtz differential equation for each of the two plasma regions, denoted by subscript $-$ and $+$, namely
+To derive the dispersion relation, first we seek plane wave solutions to the linearised ideal MHD equations, Equations \eqref{cont eqn lin}-\eqref{ind eqn lin} by assuming that parameters behave like $f(x) = \hat{f}e^{i(kz - \omega t)}$, where $k$ and $\omega$ are the wavenumber and angular frequency of the waves that propagate in the $z$-direction. They are then combined to show that the transverse velocity perturbation, $\hat{v}_x$, satisfies a Helmholtz differential equation for each of the two plasma regions, denoted by subscript $-$ and $+$, namely
 \begin{equation}
 \hat{v}_x'' - m_\pm^2\hat{v}_x = 0, \quad \text{where} \quad
 m_\pm^2 = \frac{(\omega_{A\pm}^2 - \omega^2)(\omega_\pm^2 - \omega^2)}{(c_\pm^2 + v_{A\pm}^2)(\omega_{T\pm}^2 - \omega^2)}, \label{ODE for v}
@@ -221,13 +219,13 @@ Ae^{m_-x}, & \text{if } x < 0, \\
 Be^{-m_+x}, & \text{if } x > 0,
 \end{cases} \label{vsoln}
 \end{equation}
-where $A$ and $B$ are constant with respect to $x$. Equation \eqref{vsoln} gives the distribution of oscillation amplitudes across the waveguide and is known as an \textit{eigenfunction}\footnote{We use the term \textit{eigenmode} to refer to the whole solution, \textit{i.e.} an eigenfrequency and its associated eigenfunction. Eigenmodes are also known as \textit{normal modes}.}. The boundary conditions across the interface are that the velocity and total (gas plus magnetic) pressure are continuous\footnote{These boundary conditions are equivalent to the familiar \textit{kinematic} and \textit{dynamic} boundary conditions on a free surface \cite{goe_etal04}.}. Applying these boundary conditions leads to a system of linear algebraic equations in the unknowns $A$ and $B$. The requirement that there exist non-trivial solutions is that the determinant of this system be zero. this gives us the dispersion relation, namely
+where $A$ and $B$ are constant with respect to $x$. Equation \eqref{vsoln} gives the distribution of oscillation amplitudes across the waveguide and is known as an \textit{eigenfunction}\footnote{We use the term \textit{eigenmode} to refer to the whole solution, \textit{i.e.} an eigenfrequency and its associated eigenfunction. Eigenmodes are also known as \textit{normal modes}.}. The boundary conditions across the interface are that the velocity and total (gas plus magnetic) pressure are continuous\footnote{These boundary conditions are equivalent to the familiar \textit{kinematic} and \textit{dynamic} boundary conditions on a free surface \cite{goe_etal04}.}. Applying these boundary conditions leads to a system of linear algebraic equations in the unknowns $A$ and $B$. The requirement that there exist non-trivial solutions is that the determinant of this system be zero. This gives us the dispersion relation, namely
 \begin{equation}
 	\rho_+m_-(\omega^2 - \omega_{A+}^2) + \rho_-m_+(\omega^2 - \omega_{A-}^2) = 0. \label{DR interface}
 \end{equation}
 The solutions to this equation correspond to \textit{surface} magneto-acoustic modes. These are modes whose eigenfunction decays exponentially away from the interface and owe their existence to the interface. The radicals in $m_\pm$ resist the use of analytical methods to find the solutions, unless further approximations are made (see Section~\ref{sec: asym slab}).
 
-There also exist shear Alfv\'{e}n modes, which we decoupled from the magneto-acoustic modes due to our choice of ansatz. Shear Alfv\'{e}n modes propagate along the magnetic field and perturb it tangentially to the interface, without perturbing the density. Since the perturbations are tangential to the interface, each magnetic isosurface, defined as a surface of constant magnetic field, is free to oscillate independently. These are local modes in that they only oscillate a strict subset of the whole domain, therefore, they do not owe their existence to the interface, and are therefore not discussed in any more detail here.
+There also exist Alfv\'{e}n modes, which are sometimes referred to as \textit{shear Alfv\'{e}n modes} in the slab geometry, which we decoupled from the magneto-acoustic modes due to our choice of ansatz. Alfv\'{e}n modes propagate along the magnetic field and perturb it tangentially to the interface, without perturbing the density. Since the perturbations are tangential to the interface, each magnetic isosurface, defined as a surface of constant magnetic field, is free to oscillate independently (in ideal MHD). These Alfv\'{e}n modes are local modes in that they only oscillate a strict subset of the whole domain, therefore, they do not owe their existence to the interface, and are therefore not discussed in any more detail here.
 
 
 \subsubsection{Symmetric slab} \label{sec: MHD waves sym slab}
@@ -236,7 +234,7 @@ MHD wave propagation along a symmetric magnetic slab was studied by \cite{rob81b
 \begin{equation}
 B_0(x) =
 \begin{cases}
-B_i & \text{if } |x| < x_0, \\
+B_i & \text{if } |x| \leq x_0, \\
 B_e & \text{if } |x| > x_0.
 \end{cases}
 \end{equation}
@@ -253,11 +251,11 @@ where
 \end{align}
 where $m_i$ and $m_e$ are defined in the fashion equivalent to Equation~\eqref{ODE for v}. Therefore, either $D_s = 0$ or $D_k = 0$. Solutions to $D_s = 0$ are the eigenfrequencies of \textit{sausage modes} and solutions to $D_k = 0$ are the eigenfrequencies of \textit{kink modes}. For sausage modes, the boundaries of the slab oscillate in anti-phase and for kink modes, they oscillate in phase.
 
-Whilst the sign of $m_e^2$ must be negative to ensure that the perturbation is attenuated away from the slab, the sign of $m_i^2$ can be positive or negative. If $m_i^2 > 0$, then the transverse velocity perturbation within the slab is a linear combination of exponential functions. Modes of this type are known as surface modes. If $m_i^2 < 0$, then the transverse velocity perturbation within the slab is a linear combination of trigonometric functions. Modes of this type are known as body modes.
+Whilst the sign of $m_e^2$ must be negative to ensure that the perturbation is attenuated away from the slab, the sign of $m_i^2$ can be positive or negative. If $m_i^2 > 0$, then the velocity perturbation within the slab is a linear combination of exponential functions. Modes of this type are known as \textit{surface modes}. If $m_i^2 < 0$, then the velocity perturbation within the slab is a linear combination of trigonometric functions. Modes of this type are known as \textit{body modes}.
 
 Exponential functions are monotonic, so there is only one way in which an internally exponential function can satisfy the continuity conditions at the interfaces. This means that for both sausage and kink varieties, there exists only one surface mode. On the other hand, trigonometric functions are periodic, so there is an infinite number of ways in which an internally trigonometric function can satisfy the continuity conditions at the interfaces. This means that for both sausage or kink varieties, there exist an infinite number of body modes, each with a different integer number of nodes and anti-nodes within the slab.
 
-There also exist shear Alfv\'{e}n modes that behave in the same way as the tangential interface because they perturb the plasma tangentially to the interfaces.
+There also exist Alfv\'{e}n modes that behave in the same way as the tangential interface because they perturb the plasma tangentially to the interfaces.
 
 
 \subsubsection{Magnetic flux tube} \label{sec: MHD waves tube}
@@ -266,7 +264,7 @@ MHD wave propagation along a magnetic flux tube was studied by \cite{edw_etal83}
 \begin{equation}
 B_0(r) =
 \begin{cases}
-B_i & \text{if } r < r_0, \\
+B_i & \text{if } r \leq r_0, \\
 B_e & \text{if } r > r_0.
 \end{cases}
 \end{equation}
@@ -282,7 +280,7 @@ where $K_m$ is the modified Bessel function of the second kind with $m_e^2 > 0$,
 \begin{equation}
 	p_T(r) = B I_m(m_i r), \label{p_T inside}
 \end{equation}
-where $I_m$ is the modified Bessel function of the first kind and $B$ is a constant to be determined. Either $m_i^2 > 0$ or $m_i^2 < 0$. If $m_i^2 < 0$, then Equation~\eqref{p_T inside} can be formulated in terms of the Bessel function of the first kind, $J_m$, because $I_m(iz) \propto J_m(z)$. Also, each modified Bessel function of integer order, when considered as functions of their order, are even functions (\textit{i.e.} $I_{-n} (z) = I_n(z)$ and $K_{-n} (z) = K_n(z)$), modes with negative orders are identical modes to their positive order counterparts. Applying the boundary conditions of continuity in velocity and total pressure using Equations~\eqref{p_T inside} and~\eqref{p_T outside} leads to the dispersion relation for magneto-acoustic waves in a magnetic flux tube, namely
+where $I_m$ is the modified Bessel function of the first kind and $B$ is a constant to be determined. Either $m_i^2 > 0$ or $m_i^2 < 0$. If $m_i^2 < 0$, then Equation~\eqref{p_T inside} can be formulated in terms of the Bessel function of the first kind, $J_m$, because $I_m(iz) \propto J_m(z)$. Also, each modified Bessel function of integer order, when considered as functions of their order, are even functions (\textit{i.e.} $I_{-n} (z) = I_n(z)$ and $K_{-n} (z) = K_n(z)$), modes with negative orders are identical modes to their positive order counterparts. Applying the boundary conditions of continuity in normal velocity and total pressure using Equations~\eqref{p_T inside} and~\eqref{p_T outside} leads to the dispersion relation for magneto-acoustic waves in a magnetic flux tube, namely
 \begin{equation}
 \rho_i(\omega_{Ai}^2 - \omega^2)m_e\frac{K_m'(m_er_0)}{K_m(m_er_0)} = \rho_e(\omega_{Ae}^2 - \omega^2)m_i\frac{I_m'(m_ir_0)}{I_m(m_ir_0)},
 \end{equation}
@@ -299,10 +297,10 @@ There also exist torsional Alfv\'{e}n modes which oscillate individual magnetic 
 
 The remainder of this thesis is structured as follows:
 \begin{itemize}
-	\item \textbf{Chapter 2}: We establish and solve the eigenvalue problem for MHD waves propagating along a magnetic slab waveguide where the external plasma is asymmetric. This is the simplest MHD waveguide that demonstrates asymmetry. The dispersion relation is derived and is solved analytically under certain approximations, and numerically. The eigenmodes can be exist as a generalisation of the traditional sausage and kink modes. Two implications for solar observations are discussed. First, we establish the existence of \textit{quasi-symmetric} eigenmodes. These are modes that appear symmetric even though they propagate along asymmetric waveguides. Secondly, we discuss the difficulty of distinguishing an asymmetric MHD wave from a superposition of symmetric MHD waves in solar atmospheric structures.
-	\item \textbf{Chapter 3}: We introduce ray optics as a mathematical model of MHD wave propagation. We introduce the ambiguities that arise in MHD ray optics due to the anisotropy of the magnetic field. The derive the dispersion relation for the asymmetric slab using ray optics. This approach provides an intuitive notion of lateral wave leakage as transmission of wave power due to partial internal reflection.
-	\item \textbf{Chapter 4}: We establish and solve the initial value problem (IVP) of MHD waves propagating along a magnetic slab waveguide. First, we solve the IVP under the assumption that the plasma is incompressible. Along the way, we correct a major error in a related paper that solves an initial value problem of surface MHD waves on a tangential interface. Secondly, we solve the more difficult IVP under the zero-beta assumption. Finally, we solve the fully compressible, finite-beta IVP.
+	\item \textbf{Chapter 2}: We establish and solve the eigenvalue problem for MHD waves propagating along a magnetic slab waveguide where the external plasma is asymmetric. This is the simplest MHD waveguide that demonstrates asymmetry. The dispersion relation is derived and is solved analytically under certain approximations, and numerically. The eigenmodes can exist as a generalisation of the traditional sausage and kink modes. Two implications for solar observations are discussed. First, we establish the existence of quasi-symmetric eigenmodes. These are modes that have symmetric amplitudes on the waveguide interfaces even though they propagate along asymmetric waveguides, which could lead to misidentification of eigenmodes. Secondly, we discuss the difficulty of distinguishing an asymmetric MHD wave from a superposition of symmetric MHD waves in solar atmospheric structures.
+	\item \textbf{Chapter 3}: We introduce ray optics as a mathematical model of MHD wave propagation. We introduce the ambiguities that arise in MHD ray optics due to the anisotropy of the magnetic field. Then we derive the dispersion relation for the asymmetric slab using ray optics. This approach provides an intuitive notion of lateral wave leakage as transmission of wave power due to partial internal reflection.
+	\item \textbf{Chapter 4}: We establish and solve the initial value problem (IVP) of MHD waves propagating along a magnetic slab waveguide. First, we solve the IVP under the assumption that the plasma is incompressible. Along the way, we revisit and correct a major error in a related paper by \cite{rae_etal81} that solves an initial value problem of surface MHD waves on a tangential interface. Finally, we solve the more difficult IVP under the zero-beta assumption, showing that the perturbed waveguide evolves through three phases: the initial phase, the impulsive phase, and the stationary phase. We show that the impulsive phase is much shorter for a slab waveguide than a cylindrical waveguide.
 	\item \textbf{Chapter 5}: We derive two new inversion techniques that use the symmetry of asymmetric MHD waves to diagnose parameters of the background plasma that are otherwise impossible to measure. We coin these techniques the \textit{Amplitude Ratio Method} and the \textit{Minimum Perturbation Shift Method}. This is the first time that a solar magneto-seismology technique has employed the asymmetry of MHD waves. By diagnosing the Alfv\'{e}n speed in five chromospheric fibrils, we perform a first use of the Amplitude Ratio Method on solar observations. Our results corroborate with previous analyses of chromospheric fibrils that use different methods.
 	\item \textbf{Chapter 6}: A summary and discussion of the conclusions of this thesis.
-	\item \textbf{Chapter 7}: A discussion of possible further work.
+	\item \textbf{Chapter 7}: A discussion of possible further work that would build upon this thesis.
 \end{itemize}
