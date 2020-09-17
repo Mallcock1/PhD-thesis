@@ -9,13 +9,13 @@
 \label{sec: IVP intro}
 %------------------------------------------------------------------------------
 
-Eigenmodes are rightfully considered the building blocks of linear oscillations of complex MHD models. They define natural oscillation frequencies and describe how wave power is spatially distributed across a waveguide. However, when solving an MHD wave problem using an EVP approach, such as was used in Chapter~\ref{chap: EVP}, we use a Fourier decomposition in time, so that the eigenmodes have time dependence proportional to $\exp(i\omega t)$. This is a simple time-dependence: a sinusoidal oscillation with frequency $\omega$, and allows an effectively time-independent solution to be found. Whilst this approach is useful for understanding the spatial properties of the wave, eigenmodes do not paint the whole picture. A more complete description involves studying the time-evolution by solving the associated initial value problem (IVP).
+Eigenmodes are rightfully considered the building blocks of linear oscillations of complex MHD models. They define natural oscillation frequencies and describe how wave power is spatially distributed across a waveguide. However, when solving an MHD wave problem using an EVP approach, such as was used in Chapter~\ref{chap: EVP}, we use a Fourier decomposition in time, so that the eigenmodes have time dependence proportional to $\exp(i\omega t)$. This is a simple time-dependence: a sinusoidal oscillation with frequency $\omega$, and allows an effectively time-independent amplitude to be found. Whilst this approach is useful for understanding the spatial properties of the wave, eigenmodes do not paint the whole picture. A more complete description involves studying the time-evolution by solving the associated initial value problem (IVP).
 
-The IVP approach to MHD wave problems has been utilised by several authors, developing the theory of time-dependant wave phenomena including phase mixing and resonant absorption. The first use of an IVP approach to solar MHD waveguides was by \cite{sed71} who, quite ahead of their time, showed that the discrete spectrum\footnote{The term being used here in the functional analytical sense.} of the cold magnetic cylindrical waveguide contains more than just eigenmodes. They derived the existence of exponentially damped collective oscillations. The damping mechanism of these oscillations was later shown to be lateral wave leakage due to the waveguide not fully containing the collective oscillation \citep{rud_etal06b}.
+The IVP approach to MHD wave problems has been utilised by several authors, developing the theory of time-dependant wave phenomena including phase mixing and resonant absorption. The first use of an IVP approach to solar MHD waveguides was by \cite{sed71} who, quite ahead of their time, showed that the discrete spectrum\footnote{The term spectrum is being used here in the functional analytical sense.} of the cold magnetic cylindrical waveguide contains more than just eigenmodes. They derived the existence of exponentially damped collective oscillations. The damping mechanism of these oscillations was later shown to be lateral wave leakage due to the waveguide not fully containing the collective oscillation \citep{rud_etal06b}.
 
-The IVP approach has been particularly useful for studying leaky modes. \cite{cal03} catalogued the possible types of wave leakage that a cylindrical waveguide could have, with their associated damping rate, by solving the IVP of a cold magnetic flux tube. Of particular note is what \cite{cal03} described as the ``principal leaky kink mode", which is the leaky analogue of the principal kink mode, the first order trapped kink body mode. \cite{rud_etal06b} showed that it is not possible to observe this proposed leaky mode because it is not a physical solution of the dispersion equation. More precisely, it is a solution that is found only on the non-physical Riemann sheet. After some debate \citep{cal06,rud_etal06}, the principal leaky kink mode has been demonstrated both analytically and numerically to not contribute to the IVP solution. In particular, \cite{ter_etal06} solved the IVP numerically to show that the principal leaky kink mode is does not contribute to the solution for the initial conditions that they tested and \cite{and_etal07} used spectral theory to show that the principal leaky kink mode is not part of the physical spectrum.
+The IVP approach has been particularly useful for studying leaky modes. \cite{cal03} catalogued the possible types of wave leakage that a cylindrical waveguide could have, with their associated damping rate, by solving the IVP of a cold magnetic flux tube. Of particular note is what \cite{cal03} described as the ``principal leaky kink mode", which is the leaky analogue of the principal kink mode, that is, the first-order trapped kink body mode. \cite{rud_etal06b} showed that it is not possible to observe this proposed leaky mode because it is not a physical solution of the dispersion equation. More precisely, it is a solution that is found only on the non-physical Riemann sheet. After some debate \citep{cal06,rud_etal06}, it has been shown numerically and later analytically that the principal leaky kink mode does not contribute to the IVP solution. In particular, \cite{ter_etal06} solved the IVP numerically and in doing so demonstrated that the principal leaky kink mode does not contribute to the solution for the initial conditions that they tested and \cite{and_etal07} used spectral theory to show that the principal leaky kink mode is not part of the physical spectrum.
 
-The timescale of amplitude attenuation due to wave leakage has been shown to be much longer than the damping timescale of resonant absorption \citep{rob19}. This has quite rightly led the solar physics community to focus on resonant absorption as the more plausible mechanism for the damping of coronal loop oscillations. It is worth noting however that waveguide curvature can amplify wave leakage \citep{sel_etal07}.
+The timescale of amplitude attenuation due to wave leakage is much longer than the damping timescale of resonant absorption \citep{rob19}. This has quite rightly led the solar physics community to focus on resonant absorption as the more plausible mechanism for the damping of coronal loop oscillations. It is worth noting, however, that waveguide curvature can amplify wave leakage \citep{sel_etal07}.
 
 The utility of the IVP approach in the present chapter is to determine a time-scale over which collective and coherent asymmetric oscillations can be expected to develop following an initial perturbation of an MHD waveguides. The structure of this chapter is as follows. Leaky waves play a key role in IVPs in MHD waveguides so Section~\ref{sec: IVP leaky} discusses leaky waves in the IVP context. In Section~\ref{sec: IVP int}, we solve the IVP for an interface between two plasmas, correcting several significant errors made in previous research. In Section~\ref{sec: IVP slab}, we solve the MHD IVP for a symmetric slab and discuss how this generalises to an asymmetric slab.
 
@@ -25,9 +25,9 @@ The utility of the IVP approach in the present chapter is to determine a time-sc
 \label{sec: IVP leaky}
 %------------------------------------------------------------------------------
 
-Small amplitude MHD waves guided by an isolated plasma inhomogeneity are made up of \textit{trapped} and \textit{leaky} wave components. Trapped waves maintain a constant (when averaged over a period) amplitude through time and are spatially evanescent away from the waveguide. Trapped waves were the subject of the analysis in Chapter~\ref{chap: EVP}. One can then ask whether there can exist any modes with attenuated amplitude through time. Without any damping mechanism\footnote{The discontinuous Alfv\'{e}n speed profile used in our model avoids resonant absorption and phase mixing and neglecting viscosity avoids viscous damping.}, there is no way for this energy to be converted into heat. The energy is not \textit{lost}, rather, it is \textit{transported}. Energy must be transported orthogonal to the propagation direction.
+Small-amplitude MHD waves guided by an isolated plasma inhomogeneity are made up of \textit{trapped} and \textit{leaky} wave components. Trapped waves maintain a constant (when averaged over a period) amplitude through time and are spatially evanescent away from the waveguide. Trapped waves were the subject of the analysis in Chapter~\ref{chap: EVP}. One can then ask whether there can exist any modes with attenuated amplitude through time. Without any damping mechanism\footnote{The discontinuous Alfv\'{e}n speed profile used in the asymmetric slab model avoids resonant absorption and phase mixing and neglecting viscosity avoids viscous damping.}, there is no way for this energy to be converted into heat. The energy is not \textit{lost}, rather, it is \textit{transported}. Energy must be transported orthogonal to the propagation direction.
 
-To see this mathematically, consider the \textit{Poynting flux}, which represents the directional energy flux of a magnetic field. The Poynting flux is defined as $\mathbf{S} = (\mathbf{E} \times \bB)/\mu_0$ (see, for example, \citealp{pri14}). In ideal MHD, Ohm's law tells us that the electric field is approximately $\mathbf{E} = -(\bv \times \bB)$. Therefore, using a standard vector calculus identity, the Poynting flux can be written as $\mathbf{S} = [B^2\bv - (\bv \cdot \bB)\bB] / \mu_0$. Under the assumption that that wave is temporally attenuating, the angular frequency must be complex (with a negative imaginary part), $\omega = \omega_R + i\omega_I$. The time-averaged Poynting flux over a wave period, $T = 2\pi/\omega_R$, is a more instructive quantity because it neglects the small changes in energy flux that do not contribute to the energy flux over time-scales longer than a wave period. The velocity perturbation time-averaged from an initial time $t_0$ is
+To see this mathematically, consider the \textit{Poynting flux}, which represents the directional energy flux of a magnetic field. The Poynting flux is defined as $\mathbf{S} = (\mathbf{E} \times \bB)/\mu_0$ (see, for example, \citealp{pri14}). In ideal MHD, Ohm's law tells us that the electric field is approximately $\mathbf{E} = -(\bv \times \bB)$. Therefore, using a standard vector calculus identity, the Poynting flux can be written as $\mathbf{S} = [B^2\bv - (\bv \cdot \bB)\bB] / \mu_0$. Under the assumption that the wave is temporally attenuating, the angular frequency must be complex (with a negative imaginary part), $\omega = \omega_R + i\omega_I$. The time-averaged Poynting flux over a wave period, $T = 2\pi/\omega_R$, is a more instructive quantity because it neglects the small changes in energy flux that do not contribute to the energy flux over time-scales longer than a wave period. The velocity perturbation time-averaged from an initial time $t_0$ is
 \begin{align}
 	\langle \bv \rangle &= \frac{1}{T} \int_{t_0}^{t_0 + T} \bv ~dt \\
 	&= \frac{1}{T} \int_{t_0}^{t_0 + T} \mathbf{\hat{v}} e^{i(kz - \omega t)} ~dt \\
@@ -150,7 +150,7 @@ The problem given by Equation~\eqref{ivp interface gov} with boundary conditions
 \begin{equation}
 \frac{\partial^2G}{\partial x^2} - k^2 G = \delta(x-s), \quad G(-\infty; s) = G(\infty; s) = 0,
 \end{equation}
-where $\delta$ denotes the Dirac Delta function. It is instructive to piecewise define the Green's function as
+where $\delta$ denotes the Dirac delta function. It is instructive to piecewise define the Green's function as
 \begin{equation}
 G(x; s) = 
 \begin{cases}
@@ -185,7 +185,7 @@ where
 \begin{equation}
 G(x; s) = - \frac{1}{2k}\left[e^{ks}e^{-kx}H(x-s) + e^{-ks}e^{kx}H(s-x)\right].
 \end{equation}
-Equation~\eqref{sol -} is the corrected version of Equation~(16) in \cite{rae_etal81}. In \cite{rae_etal81}, they have a $-$ instead of a $+$. The erroneous solution is show in Appendix~\ref{app: error} to not satisfy Equation~\eqref{ivp interface gov}.
+Equation~\eqref{sol -} is the corrected version of Equation~(16) in \cite{rae_etal81}. In \cite{rae_etal81}, they have a $-$ instead of a $+$. The erroneous solution is shown to not satisfy Equation~\eqref{ivp interface gov} in Appendix~\ref{app: error}.
 
 By imposing continuity of transverse velocity perturbation, we can determine the constants $A_-$ and $A_+$ to be
 \begin{align}
@@ -217,7 +217,7 @@ The corrected solutions for specific initial conditions used by \cite{rae_etal81
 	\frac{1}{\epsilon_- + \epsilon_+}e^{-kx}, & \text{for } x>0.
 	\end{cases}
 	\end{equation}
-	\item  \label{IC3} \textit{Impulsive vorticity at $t = 0$}. When the initial vorticity\footnote{Note that \cite{rae_etal81} incorrectly use the impulsive initial condition $\Omega(x,0) = \Omega_0\delta(x-x_0)$. This can be shown to be erroneous by considering that the dimensions of the left-hand side, $\Omega(x,0)$, are $[\mathrm{Time}^{-1}]$ and therefore not equal to the dimensions of the right-hand side, $\Omega_0\delta(x-x_0)$, namely $[\mathrm{Distance}^{-1}\mathrm{Time}^{-1}]$. They also omit, without explanation, the density, $\rho_0$, from their solutions.} is given by {$\Omega(x,0) = \Omega_0\delta(k(x-x_0))$}, for $x_0>0$, Equation~\eqref{ivp interface sol correct} tells us that the velocity perturbation is
+	\item  \label{IC3} \textit{Impulsive vorticity at $t = 0$}. When the initial vorticity\footnote{Note that \cite{rae_etal81} incorrectly use the impulsive initial condition $\Omega(x,0) = \Omega_0\delta(x-x_0)$. This can be shown to be erroneous by considering that the dimensions of the left-hand side, $\Omega(x,0)$, are $[\mathrm{Time}^{-1}]$ and therefore not equal to the dimensions of the right-hand side, $\Omega_0\delta(x-x_0)$, namely $[\mathrm{Distance}^{-1}\mathrm{Time}^{-1}]$. They also omit, without explanation, the density, $\rho_0$, from their solutions. Neither of these errors are consequential.} is given by {$\Omega(x,0) = \Omega_0\delta(k(x-x_0))$}, for $x_0>0$, Equation~\eqref{ivp interface sol correct} tells us that the velocity perturbation is
 	\begin{equation}
 	\tilde{v}_x = -\frac{\rho_0\omega\Omega_0}{k}
 	\begin{cases}
@@ -291,7 +291,7 @@ Let's consider an initial impulse that has uniform vorticity with respect to $x$
 \begin{equation}
 v_x(x, z, 0) = \frac{v_0}{2z_0}\left[H(z + z_0) - H(z - z_0)\right],
 \end{equation}
-where $H$ is the Heaviside step function and $v_0$ is constant. The division by $2z_0$ ensures that the integral of the initial velocity is not dependent on the size of the domain of the initial initial disturbance, $2z_0$. In particular, it means that in the limit as $z_0 \to 0$, the initial velocity is a Dirac Delta function of $z$. Therefore, the initial vorticity is
+where $H$ is the Heaviside step function and $v_0$ is constant. The division by $2z_0$ ensures that the integral of the initial velocity is not dependent on the size of the domain of the initial initial disturbance, $2z_0$. In particular, it means that in the limit as $z_0 \to 0$, the initial velocity is a Dirac delta function of $z$. Therefore, the initial vorticity is
 \begin{equation}
 \Omega(x, z, 0) \mathbf{\hat{y}} = \nabla \times \bv = \frac{v_0}{2z_0}\left[\delta(z + z_0) - \delta(z - z_0)\right] \mathbf{\hat{y}},
 \end{equation}
@@ -347,23 +347,23 @@ The solution is made up of a superposition of several wave modes:
 	\item The wakes at the front and back on the body waves, which correspond to the first four $\tan^{-1}$ functions in Equation~\eqref{sol top hat}. They can be seen in Figure~\ref{fig: vx incomp sol contour} as the regions of weakly positive velocity (blue) in front of the body waves and regions of weakly negative velocity (red) behind the body waves.
 	\item The surface wave pulses propagating at speed $v_{s}$. These waves correspond to the last four $\tan^{-1}$ functions in Equation~\eqref{sol top hat}. They can be seen in Figure~\ref{fig: vx incomp sol contour} as the regions of positive velocity (blue) close to the interface, propagating at an intermediate speed between the two Alfv\'{e}n speeds.
 \end{enumerate}
-Each wave mode propagates in the positive ad negative $z$-direction because the system has reflectional symmetry about the $z = 0$ axis.
+Each wave mode propagates in the positive and negative $z$-directions because the system has reflectional symmetry about the $z = 0$ axis.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{\figdirIV contour_subplots.png}
-	\caption{Temporal evolution of waves propagating along a tangential interface between incompressible plasmas. Time increases along the rows and down the columns. The interface is at $x = 0$ and the initial perturbation is a constant velocity confined to the band $-z_0 < z < z_0$, where $z_0 = 1$. The Alfv\'{e}n speeds in each half-plane are related by $v_{A+} = 2v_{A-}$.}
+	\caption{Evolution of waves propagating along a tangential interface between incompressible plasmas. Time increases along the rows and down the columns. The interface is at $x = 0$ and the initial perturbation is a constant velocity confined to the band $-z_0 < z < z_0$, where $z_0 = 1$. The Alfv\'{e}n speeds in each half-plane are related by $v_{A+} = 2v_{A-}$.}
 	\label{fig: vx incomp sol contour}
 \end{figure}
 
 
-An interesting limiting case is that of an infinitely thin initial pulse at $z = 0$. We can recover this limit from Equation~\eqref{sol top hat}. In the limit as $z_0 \to 0$, the initial velocity becomes $v_x(x, z, 0) = v_0 \delta(z)$, and its temporal evolution obeys
+A limiting case that allows for direct comparison with \cite{rae_etal81} is that of an infinitely thin initial pulse at $z = 0$. We can recover this limit from Equation~\eqref{sol top hat}. In the limit as $z_0 \to 0$, the initial velocity becomes $v_x(x, z, 0) = v_0 \delta(z)$, and its evolution obeys
 \begin{align}
 v_x(x, z, t) = \frac{v_0}{2\pi} \bigg[ &- \frac{|x|}{x^2 + (z + v_{A\pm}t)^2} - \frac{|x|}{x^2 + (z - v_{A\pm}t)^2} \notag \\
 &+ \frac{|x|}{x^2 + (z + v_st)^2} + \frac{|x|}{x^2 + (z - v_st)^2} \notag \\
 &+ \pi\{\delta(z + v_{A\pm}t) + \delta(z - v_{A\pm}t)\} \bigg]. \label{sol dirac delta}
 \end{align}
-In deriving the above limit we have used the results that, by definition of the Dirac Delta function,
+In deriving the above limit we have used the results that, by definition of the Dirac delta function,
 \begin{equation}
 \lim_{z_0 \to 0} \left[\frac{1}{2z_0} \left\{H(z + z_0) - H(z - z_0)\right\}\right] = \delta(z),
 \end{equation}
@@ -378,14 +378,14 @@ Equation~\eqref{sol dirac delta}, where we can see the contribution from the sur
 
 
 %------------------------------------------------------------------------------
-\section{Temporal evolution of a slab waveguide}
+\section{Wave evolution in a slab waveguide}
 \label{sec: IVP slab}
 %------------------------------------------------------------------------------
 
 
-Building up the complexity of IVP, we next derive the temporal evolution of plasma in an initially perturbed slab waveguide. We begin with an asymmetric slab of incompressible plasma and later introduce compressibility.
+Building up the complexity of IVP, we next derive the evolution of plasma in an initially perturbed slab waveguide. We begin with an asymmetric slab of incompressible plasma (Section~\ref{sec: incomp asym slab}) and later introduce compressibility (Section~\ref{sec: compressible slab}).
 
-\subsection{Incompressible asymmetric slab}
+\subsection{Incompressible asymmetric slab} \label{sec: incomp asym slab}
 
 Consider equilibrium magnetic field and density profiles given by
 \begin{equation}
@@ -577,7 +577,7 @@ c &= (\rho_0^2v_{A0}^4 + \rho_1\rho_2v_{A1}^2v_{A2}^2)\tanh(2kx_0) + \rho_0v_{A0
 \end{align}
 The solutions, $\pm\omega_{0\pm}$, must be real \citep{goe_etal04}. They are zeroes of the function $D(\omega)$ of order 1 so are simple poles of the integrand $\hat{A}_1 e^{-i\omega t}$. Additionally, the solutions corroborate with the corresponding incompressible eigenfrequencies for an interface and a symmetric slab, shown in Appendices~\ref{app: interface} and~\ref{app: symmetric}, respectively.
 
-With the location of the singularities of the integrand in hand, we can evaluate the first integral in Equation~\eqref{sol incomp} by making use of the \textit{Residue Theorem} of complex analysis. For this theorem to apply, we must integrate around a closed contour instead of the infinite line in Equation~\eqref{sol incomp}. To accomplish this, we can choose a sequence of contours (known as \textit{Bromwich contours}) such that the limit of the integrals over these contours is equal to the integral over the infinite line. We use the fact that the function $T_1(\omega)$ is entire to construct a Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \sigma)$ to $(L, \sigma)$, and $C_1$ connects $(-L, \sigma)$ and $(L, \sigma)$ via a semi-circle to ensure that $C$ encloses the zeros at $\pm\omega_{0\pm}$ (Figure~\ref{fig: brom cont incomp}). In the limit $L \to \infty$, we recover the desired integral.
+With the location of the singularities of the integrand in hand, we can evaluate the first integral in Equation~\eqref{sol incomp} by making use of the \textit{Residue Theorem} of complex analysis. For this theorem to apply, we must integrate around a closed contour instead of the infinite line in Equation~\eqref{sol incomp}. To accomplish this, we can choose a sequence of contours (known as Bromwich contours) such that the limit of the integrals over these contours is equal to the integral over the infinite line. We use the fact that the function $T_1(\omega)$ is entire to construct a Bromwich contour, $C = C_0 + C_1$, where $C_0$ is a straight line from $(-L, \sigma)$ to $(L, \sigma)$, and $C_1$ connects $(-L, \sigma)$ and $(L, \sigma)$ via a semi-circle to ensure that $C$ encloses the zeros at $\pm\omega_{0\pm}$ (Figure~\ref{fig: brom cont incomp}). In the limit $L \to \infty$, we recover the desired integral.
 
 \begin{figure}
 	\centering
@@ -822,7 +822,7 @@ g_{1,2}(x, \omega) &= \frac{1}{c_0^2\omega^2} \left[ (\omega_0^2 - \omega^2)\lef
 
 For the solution inside the slab, $|x| < x_0$, $\hat{v}_x(x)$ satisfies
 \begin{equation}
-\left( \frac{\partial^2}{\partial x^2} - m_0^2 \right) \tilde{v}_x = g_0(\omega, x),
+\left( \frac{\partial^2}{\partial x^2} - m_0^2 \right) \tilde{v}_x = g_0(\omega, x), \label{vx eq inside}
 \end{equation}
 under the boundary conditions $\tilde{v}_x(-x_0) = \tilde{A}_1$ and $\tilde{v}_x(-x_0) = \tilde{A}_2$. To solve this we construct the Green's function, $G_0(x;s)$ that satisfies
 \begin{equation}
@@ -840,13 +840,13 @@ G_0(x;s) = \frac{-1}{m_0\sinh(2m_0 x_0)}
 \sinh(m_0(x_0 - x))\sinh(m_0(x_0 + s)), & \text{if } s<x<x_0.
 \end{cases}
 \end{equation}
-Then the solution of Equation~\eqref{P eq inside} is
+Then the solution of Equation~\eqref{vx eq inside} is
 \begin{align}
 \tilde{v}_x(x) = &\frac{1}{m_0\sinh{2m_0 x_0}} \left[ \tilde{A}_1\sinh(m_0(x_0 - x)) + \tilde{A}_2\sinh(m_0(x_0 + x)) \right] \notag \\
 &+ \int_{-x_0}^{x_0} G_0(x;s) g_0(\omega, s) ~ds.
 \label{V sol 0}
 \end{align}
-This is the sum of the Green's function term and a two terms that are independent solutions to the homogeneous version of Equation~\eqref{P eq inside} that ensure that the inhomogeneous boundary conditions are satisfied.
+This is the sum of the Green's function term and a two terms that are independent solutions to the homogeneous version of Equation~\eqref{vx eq inside} that ensure that the inhomogeneous boundary conditions are satisfied.
 
 For the solution outside and to the left of the slab, $x < -x_0$, $\tilde{v}_x(x)$ satisfies
 \begin{equation}
@@ -897,7 +897,7 @@ Putting all of this together, the Laplace transform of the transverse velocity i
 
 \subsubsection{Matching solutions}
 
-For physically relevant solutions, we require that the transverse velocity) and the total pressure be continuous across the interfaces at $x = \pm x_0$.
+For physically relevant solutions, we require that the transverse velocity and the total pressure be continuous across the interfaces at $x = \pm x_0$.
 
 Continuity in transverse velocity, $\tilde{v}_x$, is satisfied automatically by considering the solutions inside and outside the slab given by Equations~\eqref{V sol}, and our definition of $\tilde{A}_1 = \tilde{v}_x(-x_0)$ and $\tilde{A}_2 = \tilde{v}_x(x_0)$.
 
@@ -957,13 +957,11 @@ where $\sigma$ is a real number such that all the singularities of the integrand
 \label{vx sol inv LPT}
 \end{align}
 
-To study the time-dependent behaviour of the transverse velocity, we start by studying the asymptotic behaviour of $A_1(t) = v_x(-x_0, t)$. This is related to the Laplace transformed variable $\tilde{A}_1$ by the inverse Laplace transform (non-standard, discussed in Appendix~\ref{app: laplace trans}), namely
+To study the time-dependent behaviour of the transverse velocity, we start by studying the asymptotic behaviour of
 \begin{equation}
-A_1(t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega,
+A_1(t) = v_x(-x_0, t) = \frac{1}{2\pi} \lim_{L \to \infty} \int_{i\sigma - L}^{i\sigma + L} \frac{T_1(\omega)}{D(\omega)} e^{-i\omega t} d\omega.
 \label{A inv laplace}
 \end{equation}
-where $\sigma$ is a real number such that all the singularities of the integrand are below the contour of integration. The integral is evaluated along an infinite horizontal line in the upper half of the complex plane.
-
 Since the problem of finding the solution is now reduced to solving a complex integral, it is dependent on the singularities (with respect to $\omega$) of $T_1$, $T_2$, and $D$ and the zeros of $D$. Identifying the singularities allows us to modify the contour so that it is confined to a single-valued branch and the zeroes of $D$ are poles of the integrand whose residues determine the value of the modified contour integral.
 
 To determine the singularities of  $T_1$, $T_2$, and $D$, we determine the singularities of the constituent functions, as follows:
@@ -982,7 +980,7 @@ The set of branch points of a sum of functions is the union of the branch points
 
 $T_1$ and $T_2$ have no other singularities. Therefore, the poles of $\tilde{A}_1$ and $\tilde{A}_2$ are precisely the zeroes of the dispersion function $D$. The subset of these zeroes that are real are the eigenfrequencies of the asymmetric slab studied in Chapter~\ref{chap: EVP} and the subset that are complex are the leaky modes. There is a rich spectrum of eigenmodes which,in the absence of any simplification to the model, are not possible to describe analytically.
 
-The integrand has 18 branch points and an infinite number of poles that are not possible to describe analytically. This is an intractable problem. Therefore, we will instead solve the simplified problem of a thin symmetric slab with zero-beta plasma. From there, we will study what would happen when symmetry is broken.
+The integrand has 18 branch points and an infinite number of poles that are not possible to describe analytically. This is a very difficult problem to solve analytically. Therefore, we will instead solve the simplified problem of a thin symmetric slab with zero-beta plasma. From there, we will study what would happen when symmetry is broken (Section~\ref{sec: generalising to asym slab}).
 
 \subsubsection{Solving a simplified case - Thin zero-beta symmetric slab}
 
@@ -1006,11 +1004,11 @@ where $n_0^2 = -m_0^2 \approx \omega^2/v_{A0}^2 - k^2$ and $m_e^2 \approx k^2 - 
 \end{equation}
 The $\tan$ version of this equation describes sausage modes and the $\cot$ version describes kink modes.
 
-With the aim of finding solutions to this dispersion relation, we start with the equation describing kink modes. By letting the non-dimensional slab width, $kx_0$, be small, we can expand the eigenfrequencies of the first order kink body mode as a polynomial in $kx_0$, the largest two terms of which are
+With the aim of finding solutions to this dispersion relation, we start with the equation describing kink modes. By letting the non-dimensional slab width, $kx_0$, be small, we can expand the eigenfrequencies of the first-order kink body mode as a polynomial in $kx_0$, the largest two terms of which are
 \begin{equation}
 \omega = \pm kv_{Ae}\left[ 1 - \frac{1}{2}\left( \frac{v_{Ae}^2}{v_{A0}^2} - 1 \right) (kx_0)^2 \right].
 \end{equation}
-This is the only eigenmode of the low-beta slab. It is equivalent to the fast principal kink mode in a magnetic flux tube described by \cite{cal03}. For this reason, we refer to this mode as the fast principal kink mode of a magnetic slab. The other zeros have non-zero imaginary part and therefore have a decreasing amplitude over time. They are leaky modes. To find these, we must first investigate on which Riemann sheet we expect them to be. In this case, the branch points are due to the square root functions in $m_e$ and $n_0$. These functions each contribute two branches. The branches of the function $m_e$ determine the behaviour of the velocity outside the slab. Outside the slab, the transverse velocity has the form $\tilde{v}_x = \tilde{A}_1e^{m_e(x_0 + x)}$ plus terms due to the inverse Laplace transform of the Green's function term (Equation~\ref{V sol}). Trapped modes require that $v_x \to 0$ as $x \to \infty$. This is only possible when $\mathrm{Re}\{m_e\} > 0$, which for trapped modes simplifies to $m_e > 0$. For the trapped mode, we have $\omega < \omega_{Ae}$, therefore to ensure that $m_e > 0$, we must take the positive square root in the definition of $m_e$. This ensures that the trapped modes are physical, by which we mean that they do not perturb plasma far from the slab. Therefore, we define the positive branch of $m_e$ as the \textit{principle sheet}\footnote{Due to it's physically relevant solutions, the equivalent of this sheet in the cylindrical problem has been labelled as the \textit{physical sheet} \citep{rud_etal06b}.}.
+This is the only eigenmode of the low-beta slab. It is equivalent to the fast principal kink mode in a magnetic flux tube described by \cite{cal03}. For this reason, we refer to this mode as the fast principal kink mode of a magnetic slab. The other zeros have non-zero imaginary part and therefore have a decreasing amplitude over time. They are leaky modes. To find these, we must first investigate on which Riemann sheet we expect them to be. In this case, the branch points are due to the square root functions in $m_e$ and $n_0$. These functions are double-valued so each contribute two branches. The branches of the function $m_e$ determine the behaviour of the velocity outside the slab. Outside the slab, the transverse velocity has the form $\tilde{v}_x = \tilde{A}_1e^{m_e(x_0 + x)}$ plus terms due to the inverse Laplace transform of the Green's function term (Equation~\ref{V sol}). Trapped modes require that $v_x \to 0$ as $x \to \infty$. This is only possible when $\mathrm{Re}\{m_e\} > 0$, which for trapped modes simplifies to $m_e > 0$. For the trapped mode, we have $\omega < \omega_{Ae}$, therefore to ensure that $m_e > 0$, we must take the positive square root in the definition of $m_e$. This ensures that the trapped modes are physical, by which we mean that they do not perturb plasma far from the slab. Therefore, we define the positive branch of $m_e$ as the \textit{principle sheet}\footnote{Due to it's physically relevant solutions, the equivalent of this sheet in the cylindrical problem has been labelled as the \textit{physical sheet} \citep{rud_etal06b}.}.
 
 On the other hand, for leaky modes, we require that $v_x \nrightarrow 0$ as $x \to \infty$. Therefore, these modes must exist on the Riemann sheet defined by the negative square root in $m_e$. This is the \textit{non-principle sheet}\footnote{Also known as the \textit{non-physical sheet} \citep{rud_etal06b}}.
 
@@ -1034,7 +1032,7 @@ and are given by
 \end{equation}
 for small $kx_0$ and for $n \in \mathbb{Z}$. It is easy to see that, for each pole, one can construct an open ball centred on the pole that contains no other poles, therefore all the poles are isolated. These sausage and kink leaky modes are the slab versions of the ``leaky trig mode" defined in a magnetic flux tube by \cite{cal03}.
 
-Now the integrals in question given in Equation~\eqref{A inv laplace} can be calculated using the Bromwich contour in Figure~\ref{fig: brom contour}. To ensure that the contour remains on a single Riemann surface, it is modified around the branch cuts so as to encircle the poles. The closed contour $C$ is a sum of the following sub-contours:
+The integrals in question given in Equation~\eqref{A inv laplace} can be calculated using the Bromwich contour in Figure~\ref{fig: brom contour}. To ensure that the contour remains on a single Riemann surface, it is modified around the branch cuts so as to encircle the poles. The closed contour $C$ is a sum of the following sub-contours:
 \begin{itemize}
 	\item $C_0$: the horizontal line with imaginary part $\sigma$.
 	\item $C_1$: the horizontal line from $L + \delta i$ to $\omega_{Ae} + \delta i$, round the semicircle of radius $\delta$ and back along the horizontal line from $\omega_{Ae} - \delta i$ to $L - \delta i$.
@@ -1142,7 +1140,7 @@ The integral in the inverse Laplace transform along the horizontal line is the s
 \end{figure}
 
 \subsubsection{Integral along $C$}
-The contour $C$ is closed and has been chosen such that the integrand can be made to be meromorphic on this contour, given a particular choice of Riemann sheet. Therefore, we would like to use the Residue theorem to calculate this integral. While the Residue theorem is often quoted with a restriction to a finite number of isolated poles, it is also valid when there are infinitely many isolated poles \citep{ahl79}.
+The contour $C$ is closed and has been chosen such that the integrand can be made to be meromorphic on this contour, given a particular choice of Riemann sheet. Therefore, we would like to use the Residue Theorem to calculate this integral. While the Residue Theorem is often quoted with a restriction to a finite number of isolated poles, it is also valid when there are infinitely many isolated poles \citep{ahl79}.
 
 The residue of the principal kink mode is calculated as follows. First, we must determine the order of the pole. The order of the pole is equivalent to the order of the corresponding zero of the dispersion function. The dispersion function for a symmetric slab can be factorised into a product of a functions governing sausage and kink modes, namely
 \begin{equation}
@@ -1156,7 +1154,7 @@ Denote the principal kink eigenfrequency by $\omega_k$. We know that $D_s(\omega
 \begin{equation}
 D_k(\omega) = D_k(\omega_k) + D_k'(\omega)(\omega - \omega_k) + O((\omega - \omega_k)^2).
 \end{equation}
-Then the order of $\omega_k$ as a zero of $D_k$ (and hence of $D$) is determined by the order of the first derivative of $D_k$ that is not small when evaluated at $\omega_k$. First, we check the order of $D_k'(\omega_k)$. Using the product and chain rules,
+Then, the order of $\omega_k$ as a zero of $D_k$ (and hence of $D$) is determined by the order of the first derivative of $D_k$ that is not small when evaluated at $\omega_k$. First, we check the order of $D_k'(\omega_k)$. Using the product and chain rules,
 \begin{equation}
 D_k'(\omega) = \omega\left[ \frac{1}{v_{A0}^2m_0} (m_e\text{csch}^2{m_0x_0} - 1) - \frac{1}{v_{Ae}^2m_e}\coth{m_0x_0} \right].
 \end{equation}
@@ -1216,7 +1214,7 @@ Similarly, $I_{C_3}, I_{C_4}, I_{C_5} = \mathcal{O}(t^{-2})$ as $t \to \infty$.
 
 
 \subsubsection{Integral along \texorpdfstring{$C_2$}{C2}}
-As $L \to \infty$, points on the curve $C_2$ will behave like $|\omega| \to \infty$. When $|\omega| \to \infty$, $T_1 = \mathcal{O}(|\omega|)$ and $D = \mathcal{O}(|\omega|^2)$ (except when the contour intersects one or more of the poles), therefore the integrands behave like $T_1/D = \mathcal{O}(1/|\omega|)$. Therefore, the integral around $C_2$ approaches $0$ as $L \to \infty$.
+Points on the curve $C_2$ will behave like $|\omega| \to \infty$ as $L \to \infty$. When $|\omega| \to \infty$, $T_1 = \mathcal{O}(|\omega|)$ and $D = \mathcal{O}(|\omega|^2)$ (except when the contour intersects one or more of the poles), therefore the integrands behave like $T_1/D = \mathcal{O}(1/|\omega|)$. Therefore, the integral around $C_2$ approaches $0$ as $L \to \infty$.
 
 Since there is an infinite number of isolated poles that stretch out infinitely in the positive and negative imaginary direction, it is possible to choose a sequence of contours where $L \to \infty$ such that the above result does not hold. Any sequence of contours such that an infinite number of contours pass through poles as $L \to \infty$ would suffice for this. Given that we are free to choose the sequence of contours, we can choose a sequence that does not contain an infinite number of contours that pass through poles.
 
@@ -1268,19 +1266,19 @@ Putting all of this together, we find that
 \end{align}
 which is valid for $x < -x_0$. Similarly, we can derive the asymptotic solution for the regions $|x| < x_0$ and $x > x_0$, but their functional form is the same so we focus just on the solution given by Equation~\eqref{v asymptotic sol}.
 
-The solution is made up of three parts. The first term is an undamped sinusoid in time and corresponds to the contribution from the trapped kink body mode. There are no trapped sausage modes in the zero-beta slab, so they have no contribution to the solution. The second term is an exponentially decreasing term due to wave leakage in the form of leaky sausage and kink body modes. The terms that are $\mathcal{O}(t^{-2})$ as $t \to \infty$ are not due to collective modes but instead represent the propagation of an initial velocity impulse across the waveguide before collective modes are set up. It gives an indication as to the set up time of collective modes.
+The solution is made up of three parts. The first term is an undamped sinusoid in time and corresponds to the contribution from the trapped kink body mode. There are no trapped sausage modes in the zero-beta slab, so they have no contribution to the solution. The second term is an exponentially decreasing term due to wave leakage in the form of leaky sausage and kink body modes. The terms that are $\mathcal{O}(t^{-2})$ as $t \to \infty$ are not due to collective modes but, instead, represent the propagation of an initial velocity impulse across the waveguide before collective modes are set up. It gives an indication as to the set up time of collective modes.
 
 Like the magnetic flux tube \citep{rud_etal06b,ter_etal06}, the temporal evolution of a magnetic slab follows three phases: the \textit{initial phase}, the \textit{impulsive phase}, and the \textit{stationary phase}. The initial phase is dominated by the distribution of the initial disturbance. The impulsive phase is dominated by the leaky modes. The stationary phase is dominated by the trapped modes.
 
-The decrement $\gamma = \mathcal{O}((kx_0)^{-1})$ is large, therefore, the amplitude of the leaky modes attenuates rapidly. In general, these terms will decay faster than the $\mathcal{O}(t^{-2})$ terms. This means that, in general, the impulsive phase will be short to non-existent. In particular, the impulsive phase of the magnetic slab is, in general, significantly shorter than the impulsive phase for a magnetic flux tube, whose decrement $\gamma = \mathcal{O}(kx_0)$ is small \citep{rud_etal06b}.
+The decrement $\gamma = \mathcal{O}((kx_0)^{-1})$ is large, therefore, the amplitude of the leaky modes attenuates rapidly. In general, these terms will decay faster than the $\mathcal{O}(t^{-2})$ terms. This means that, in general, the impulsive phase will be short or possibly non-existent. In particular, the impulsive phase of the magnetic slab is, in general, significantly shorter than the impulsive phase for a magnetic flux tube, whose decrement $\gamma = \mathcal{O}(kx_0)$ is small \citep{rud_etal06b}.
 
-However, the initial conditions have a strong effect on the relative contributions of each of the terms and hence on the duration of each of the three phases \citep{ter_etal06,ter_etal07}. This can be to such an extent that the contribution of any individual mode could be zero or the any of the three phases might not exist. For example, a symmetric initial condition will induce only kink modes and an anti-symmetric initial condition will induce only kink modes. Higher order modes are induced by initial conditions that have a shorter characteristic length scale \citep{ter_etal07}.
+However, the initial conditions have a strong effect on the relative contributions of each of the terms and hence on the duration of each of the three phases \citep{ter_etal06,ter_etal07}. This can be to such an extent that the contribution of any individual mode could be zero or any of the three phases might not exist. For example, a symmetric initial condition will induce only kink modes and an anti-symmetric initial condition will induce only kink modes. Higher order modes are induced by initial conditions that have a shorter characteristic length scale \citep{ter_etal07}.
 
 
-\subsection{Generalising to an asymmetric slab}
-The solution found in the previous section is valid for a symmetric slab. The main affect that waveguide asymmetry has on the temporal evolution of an initial disturbance is that the principal kink mode, which is trapped by a symmetric slab, is leaky for thin asymmetric slabs. This has been shown by the presence of a cut-off value for trapped modes in the dispersion diagrams in Chapter~\ref{chap: EVP} and by \cite{all_etal17} and \cite{zsa_etal18}. This means that a thin asymmetric slab of cold plasma will not have a stationary phase for any initial condition because there are no trapped modes. All the energy from the initial condition is leaked out of the waveguide.
+\subsection{Generalising to an asymmetric slab} \label{sec: generalising to asym slab}
+The solution found in the previous section is valid for a symmetric slab. The main affect that waveguide asymmetry has on the evolution of an initial disturbance is that the principal kink mode, which is trapped by a symmetric slab, is leaky for thin asymmetric slabs. This has been shown by the presence of a cut-off value for trapped modes in the dispersion diagrams in Chapter~\ref{chap: EVP} and by \cite{all_etal17} and \cite{zsa_etal18}. This means that a thin asymmetric slab of cold plasma will not have a stationary phase for any initial condition because there are no trapped modes. All the energy from the initial condition is leaked out of the waveguide.
 
-It is worth comparing the principal kink mode in this problem to the ``principal leaky mode" whose physical relevance has been the subject of debate \citep{cal03,rud_etal06b,cal06,rud_etal06}. \cite{cal03} claimed that in addition to the trapped principle kink mode, which is indisputably physical, there exists a corresponding leaky mode whose real part of its frequency is equal to the principal kink frequency. This leaky mode was later shown to be unphysical by \cite{rud_etal06b}. In the present chapter, the principal kink mode which becomes leaky when the slab is asymmetric is not the mode that \cite{cal03} labelled the ``principal leaky mode". Instead, it is the principal trapped kink mode that has become leaky due to the waveguide asymmetry.
+It is worth comparing the principal kink mode in this problem to the ``principal leaky mode" whose physical relevance has been the subject of debate \citep{cal03,rud_etal06b,cal06,rud_etal06}. \cite{cal03} claimed that in addition to the trapped principle kink mode, which is indisputably physical, there exists a corresponding leaky mode whose real part of its frequency is equal to the principal kink frequency. This leaky mode was later shown to be unphysical by \cite{rud_etal06b}. In the present chapter, the principal kink mode, which becomes leaky when the slab is asymmetric, is not the mode that \cite{cal03} labelled the ``principal leaky mode". Instead, it is the principal trapped kink mode that has become leaky due to the waveguide asymmetry.
 
 
 \section{Chapter conclusions}
