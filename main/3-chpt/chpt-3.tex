@@ -1,6 +1,6 @@
 
 %------------------------------------------------------------------------------
-\chapter{Asymmetric waveguides - ray theory}
+\chapter{Ray theory}
 \label{chap: ray}
 %------------------------------------------------------------------------------
 
@@ -9,37 +9,37 @@
 \label{sec: ray intro}
 %------------------------------------------------------------------------------
 
-	In this section, we give an introduction to MHD ray optics, use ray optics theory to characterise guided and leaky modes of MHD waveguides, and provide an alternative derivation of the dispersion relation for MHD slab waveguides. The significance of this approach is that it could present a method of deriving a dispersion relation in cases where the differential equation approach is intractable.
+	In this section, we give an introduction to MHD ray theory, use ray theory to characterise guided and leaky modes of MHD waveguides, and provide an alternative derivation of the dispersion relation for MHD slab waveguides. The significance of this approach is that it could present a method of deriving a dispersion relation in cases where the differential equation approach is intractable.
 	
-	Ray optics (also known as ray theory or geometric optics) is an approach to studying wave propagation that models waves as continuous lines, known as \textit{rays}. It is extensively used in electromagnetic wave theory but has largely been neglected in MHD and solar physics. It provides a mathematically tractable description of phenomena such as reflection and refraction, but is inadequate to describe phenomena such as diffraction which require a wave-based approach.
+	Ray theory (also known as ray optics or geometric optics) is an approach to studying wave propagation that models waves as continuous lines, known as \textit{rays}. It is extensively used in electromagnetic wave theory but has largely been neglected in MHD and solar physics. It provides a mathematically tractable description of phenomena such as reflection and refraction, but is inadequate to describe phenomena such as diffraction which require a wave-based approach.
 	
-	Due to the dominance of its use in electromagnetism, ray optics is mostly encountered in isotropic media, that is, media for which wave propagation is independent of propagation direction. While MHD wave propagation is inherently anisotropic due to the magnetic field, isotropic ray optics remains instructive for MHD because some limiting cases in MHD exhibit isotropic wave propagation.
+	Due to the dominance of its use in electromagnetism, ray theory is mostly encountered in isotropic media, that is, media for which wave propagation is independent of propagation direction. While MHD wave propagation is inherently anisotropic due to the magnetic field, isotropic ray theory remains instructive for MHD because some limiting cases in MHD exhibit isotropic wave propagation.
 	
-	The seminal text for ray optics is \cite{bor_etal99}, which covers electromagnetic wave propagation in both isotropic and anisotropic media. Also, \cite{vei_etal10} gives a particularly intuitive description of electromagnetic wave propagation in uniaxial crystals which demonstrates the type of optical anisotropy that is a most similar to MHD media. The authors define a crystal axis is a direction along which propagating light suffers no birefringent, that is, rays are refracted in one, rather than many, direction. Uniaxial crystals are crystals which have one crystal axis. Light propagation along the plane perpendicular to the single crystal axis in a uniaxial crystal is isotropic. In this sense, the magnetic field direction is to MHD waves as the crystal axis is to light waves. 
+	The seminal text for ray theory is \cite{bor_etal99}, which covers electromagnetic wave propagation in both isotropic and anisotropic media. Also, \cite{vei_etal10} gives a particularly intuitive description of electromagnetic wave propagation in uniaxial crystals which demonstrates the type of optical anisotropy that is a most similar to MHD media. The authors define a crystal axis is a direction along which propagating light suffers no birefringent, that is, rays are refracted in one, rather than many, direction. Uniaxial crystals are crystals which have one crystal axis. Light propagation along the plane perpendicular to the single crystal axis in a uniaxial crystal is isotropic. In this sense, the magnetic field direction is to MHD waves as the crystal axis is to light waves. 
 	
-	The slab waveguide, the centrepiece of this thesis, is a prototypical model for guiding electromagnetic waves. The electromagnetic slab waveguide is formed by dielectric layers and is used in, for example, integrated optical circuits and optical fibres \citep{ram_etal84}. Modes analogous to MHD body modes, that is, modes which are spatially oscillatory within the waveguide, are guided by right-handed electromagnetic slabs. They are termed \textit{right-handed} because the electric field vector, magnetic field vector, and wavevector form a right-handed orthogonal set \citep{ram_etal84}. Modes analogous to MHD surface modes, that is, modes that are evanescent within the waveguide where the wave energy is confined to the interfaces, are guided by left-handed electromagnetic slabs  \cite{wan_etal08,ash13,sha_etal03}. Left-handed optical waveguides are more esoteric than right-handed optical waveguides because of the engineering complexity of meta-materials that are required to construct such waveguides.
+	The slab waveguide, the centrepiece of this thesis, is a prototypical model for guiding electromagnetic waves. The electromagnetic slab waveguide is formed by dielectric layers and is used in, for example, integrated optical circuits and optical fibres \citep{ram_etal84}. Modes analogous to MHD body modes, that is, modes which are spatially oscillatory within the waveguide, are guided by right-handed electromagnetic slabs. They are termed \textit{right-handed} because the electric field vector, magnetic field vector, and wavevector form a right-handed orthogonal set \citep{ram_etal84}. Modes analogous to MHD surface modes, that is, modes that are evanescent within the waveguide where the wave energy is confined to the interfaces, are guided by left-handed electromagnetic slabs \citep{wan_etal08,ash13,sha_etal03}. Left-handed optical waveguides are more esoteric than right-handed optical waveguides because of the engineering complexity of meta-materials that are required to construct such waveguides.
 	
 	\cite{Hu_etal09} give an overview of the theory and applications of electromagnetic slab waveguides. They focus on leaky modes, giving a particularly intuitive description of energy leakage as the result of partial internal reflection leading to energy being transmitted to the external region. Minimising energy leakage is key to avoiding energy losses in optical communication infrastructure. They also expand the theory of the W-type slab waveguide, which is constructed by two adjacent slab waveguides. \cite{mar74} generalises the theory of optical slab waveguides to an asymmetric slab, analogous to the asymmetric slab MHD waveguide modelled in this thesis.
 	
-	Severe inhomogeneities exists across a broad range of length scales in the solar atmosphere, from the global scale at the transition region between the chromosphere and the corona, to the smallest scales that we can currently resolve in magnetic bright points in inter-granular lanes. When waves are incident on these structures, the wave's energy is partially reflected and partially transmitted, with the remainder of the energy dissipated into the background plasma or converted to a different MHD wave mode. Ray optics is an appropriate model for the reflection and transmission of MHD waves.
+	Severe inhomogeneities exists across a broad range of length scales in the solar atmosphere, from the global scale at the transition region between the chromosphere and the corona, to the smallest scales that we can currently resolve in magnetic bright points in inter-granular lanes. When waves are incident on these structures, the wave's energy is partially reflected and partially transmitted, with the remainder of the energy dissipated into the background plasma or converted to a different MHD wave mode. Ray theory is an appropriate model for the reflection and transmission of MHD waves.
 	
-	The basic theory of MHD ray optics has been established for some time. \cite{mck70} calculated the reflection and transmission coefficients for MHD waves incident on the magnetopause. \cite{ver73} extended this by calculating the transmitted energy and \cite{wol_etal75} comparing to instances of large perturbations of the magnetopause by oscillations in the solar wind. The ray theory behind these results is particularly well explained by \cite{wal04}. Nonlinear MHD ray optics has recently been investigated by \cite{nun18} and \cite{nun20}.
+	The basic theory of MHD ray theory has been established for some time. \cite{mck70} calculated the reflection and transmission coefficients for MHD waves incident on the magnetopause. \cite{ver73} extended this by calculating the transmitted energy and \cite{wol_etal75} comparing to instances of large perturbations of the magnetopause by oscillations in the solar wind. The ray theory behind these results is particularly well explained by \cite{wal04}. Nonlinear MHD ray theory has recently been investigated by \cite{nun18} and \cite{nun20}.
 	
 	MHD waves have long been a considered mechanism for plasma heating. Wave eating of plasma in the Sun's corona would require energy to be efficiently transported from the solar interior and dissipated at a given height, but there is no wave mode that is both efficient at energy transportation and energy dissipation. One possibility is that mode conversion occurs between a mode with efficient energy transportation to a mode with efficient energy dissipation \citep{par_etal12}. To incorporate mode conversion to MHD ray theory, \cite{shu_etal06} developed a \textit{generalized ray theory}. This theory has also been used in helioseismology. \cite{cal06} numerically investigated the mode conversion of MHD waves in the Sun's interior at the position of equipartition between the sound and Alfv\'{e}n speeds and the acoustic cut-off position.
 	
 	\cite{lee_etal02a} utilise a numerical method known as \textit{invariant embedding} to solve a system of nonlinear boundary value differential equations to derive expressions for the reflection and transmission coefficients (that is, the amplitude modulation factor that a wave undergoes upon reflection or transmission) of MHD waves when propagating through arbitrary non-uniform regions. They then use this to derive a relationship between the reflection and transmission coefficients (that is, the amplitude modulation factor that a wave undergoes upon reflection or transmission) and the damping time of MHD waves.
 	
-	Using ray optics of MHD waves normally incident on a multi-layered plasma model of the interface between the solar wind and Earth's magnetosphere, \cite{leo_etal03} estimated that 40\% of the wave energy flux incident on the magnetosphere is transmitted into the magnetosphere. This is enough to explain the energy in moderate geomagnetic sub-storms.
+	Using ray theory of MHD waves normally incident on a multi-layered plasma model of the interface between the solar wind and Earth's magnetosphere, \cite{leo_etal03} estimated that 40\% of the wave energy flux incident on the magnetosphere is transmitted into the magnetosphere. This is enough to explain the energy in moderate geomagnetic sub-storms.
 	
-	This chapter uses ray optics to determine the discrete spectrum of eigenfrequencies of MHD waveguides. This is manifested by imposing the condition that rays that are internally reflected from the boundaries of the waveguide must have equal phase to rays that travel the same distance without reflection. This technique has been employed in standard electromagnetic ray theory \citep{bor_etal99}. In MHD, it has been explored for simple waveguides such as a symmetric slab waveguide modelling waves guided by a coronal hole \citep{dav_85}.
+	This chapter uses ray theory to determine the discrete spectrum of eigenfrequencies of MHD waveguides. This is manifested by imposing the condition that rays that are internally reflected from the boundaries of the waveguide must have equal phase to rays that travel the same distance without reflection. This technique has been employed in standard electromagnetic ray theory \citep{bor_etal99}. In MHD, it has been explored for simple waveguides such as a symmetric slab waveguide modelling waves guided by a coronal hole \citep{dav_85}.
 	
 	
 	%------------------------------------------------------------------------------
-	\section{Anisotropic ray optics}
+	\section{Anisotropic ray theory}
 	\label{sec: aniso ray}
 	%------------------------------------------------------------------------------
 		
-	There are two notions of a wave's direction: phase velocity and group velocity. The phase velocity, $\mathbf{v_{ph}} = \omega / |k| \mathbf{\hat{k}}$ is the velocity with which each peak and trough travels and the group velocity, $\mathbf{v_g} = \partial \omega / \partial \mathbf{k}$, is the velocity with which the envelope of a wave packet travels. In general, these directions are different. However, in ray optics of isotropic media, there is an unambiguous notion of direction of the wave. This can be proven as follows.
+	There are two notions of a wave's direction: phase velocity and group velocity. The phase velocity, $\mathbf{v_{ph}} = \omega / |k| \mathbf{\widehat{k}}$ is the velocity with which each peak and trough travels and the group velocity, $\mathbf{v_g} = \partial \omega / \partial \mathbf{k}$, is the velocity with which the envelope of a wave packet travels. In general, these directions are different. However, in the ray theory of isotropic media, there is an unambiguous notion of direction of the wave. This can be proven as follows.
 	
 	Using the quotient rule, we can show that the group and phase velocities are related by
 	\begin{equation}
@@ -62,11 +62,11 @@
 		\caption{In an anisotropic fluid, wave packets and wavefronts can travel in different directions.}
 		\label{fig: anisotropic ray direction}
 	\end{figure}
-	For anisotropic ray optics, a natural question to ask is: along which direction does the ray travel? The answer to this is dependent on the purpose. Of course, ray optics is merely a model of reality; its importance is in virtue of its utility rather than its truthfulness, \textit{per se}. So we are free to choose which is most useful. Ray optics using the phase direction, \textit{i.e.} the direction normal to wavefronts, is known as \textit{geometric optics} and ray optics using the group direction, \textit{i.e.} the direction along which the wave energy propagates, is known as \textit{Hamiltonian optics}. For our purpose, which is to derive the dispersion relation for guided MHD waves, we will be required to impose a condition of matching the phase of two reflected waves. This motivates the use of the phase direction for MHD rays. Therefore, geometrical optics is more suitable for the present purpose. This disambiguation is laid out more fully for electromagnetic ray optics by \cite{has88} and for MHD ray optics by \cite{wal77}.
+	For anisotropic ray theory, a natural question to ask is: along which direction does the ray travel? The answer to this is dependent on the purpose. Of course, ray theory is merely a model of reality; its importance is in virtue of its utility rather than its truthfulness, \textit{per se}. So we are free to choose which is most useful. Ray theory using the phase direction, \textit{i.e.} the direction normal to wavefronts, is known as \textit{geometric optics} and ray theory using the group direction, \textit{i.e.} the direction along which the wave energy propagates, is known as \textit{Hamiltonian optics}. For our purpose, which is to derive the dispersion relation for guided MHD waves, we will be required to impose a condition of matching the phase of two reflected waves. This motivates the use of the phase direction for MHD rays. Therefore, geometrical optics is more suitable for the present purpose. This disambiguation is laid out more fully for electromagnetic ray theory by \cite{has88} and for MHD ray theory by \cite{wal77}.
 	
 	A third characteristic speed is the \textit{ray velocity}, which is the speed of the energy ray, defined by $v_r = v_{ph}/\cos{\alpha}$, where $\alpha$ is the angle between the group velocity and the phase velocity. In other words, the ray velocity is the component of the phase velocity parallel to the group velocity. For an isotropic fluid, $\alpha = 0$, therefore making the ray velocity equal to the phase velocity.
 	
-	A key principle for ray optics is Fermat's Principle of Least Time, which states that the path taken by an energy ray between two points is that which takes least time for the ray to cover. We can use this to define the energy ray path. Then we can use this definition to determine a relationship between the phase angles of incident, reflection, and transmitted rays when a ray is incident on a planar interface as follows.
+	A key principle for ray theory is Fermat's Principle of Least Time, which states that the path taken by an energy ray between two points is that which takes least time for the ray to cover. We can use this to define the energy ray path. Then we can use this definition to determine a relationship between the phase angles of incident, reflection, and transmitted rays when a ray is incident on a planar interface as follows.
 	
 	\begin{figure}
 		\centering
@@ -109,7 +109,7 @@
 	
 	
 	%------------------------------------------------------------------------------
-	\section{Low-beta ray optics of a slab waveguide}
+	\section{Low-beta ray theory of a slab waveguide}
 	\label{sec: low beta}
 	%------------------------------------------------------------------------------
 	
@@ -117,11 +117,11 @@
 	\begin{equation}
 	v_\mathrm{ph}^2 = \frac{\omega^2}{k^2} = \frac{1}{2}\left[ (v_A^2 + c_0^2) \pm \sqrt{(v_A^2 + c_0^2)^2 - 4v_A^2c_0^2\frac{k_z^2}{k^2}} \right]. \label{MHD DR}
 	\end{equation}
-	When kinetic pressure is negligible compared to the magnetic pressure, \textit{i.e.} $v_A \gg c_0$, then the fast speed is approximately $v_A$, and the slow speed is approximately $0$. That is, the fast mode propagates isotropically at the Alfv\'{e}n speed and the slow mode degenerates. Clearly, the group velocity is also $\mathbf{v_g} = v_A \mathbf{\hat{k}}$, where $\mathbf{\hat{k}} = \mathbf{k}/k$, so is equal to the phase velocity. Hence, there is an unambiguous ray direction. Therefore, the ray theory of isotropic optical waveguides is isomorphic to low-beta MHD ray optics.
+	When kinetic pressure is negligible compared to the magnetic pressure, \textit{i.e.} $v_A \gg c_0$, then the fast speed is approximately $v_A$, and the slow speed is approximately $0$. That is, the fast mode propagates isotropically at the Alfv\'{e}n speed and the slow mode degenerates. Clearly, the group velocity is also $\mathbf{v_g} = v_A \mathbf{\widehat{k}}$, where $\mathbf{\widehat{k}} = \mathbf{k}/k$, so is equal to the phase velocity. Hence, there is an unambiguous ray direction. Therefore, the ray theory of isotropic optical waveguides is isomorphic to low-beta MHD ray theory.
 	
 	Consider an asymmetric slab MHD waveguide of low-beta plasma. Since MHD wave propagation in low-beta plasma is isotropic, the dispersion relation for guided low-beta MHD waves along an asymmetric slab can be derived in the same way as for guided electromagnetic waves in an asymmetric dielectric slab waveguide. The derivations differ only by notation.
 	
-	\cite{ram_etal84} used ray optics to show that the eigenfrequencies, $\omega$, of (transverse electric mode\footnote{In general, guided electromagnetic waves propagate in a superposition of transverse electric modes and transverse magnetic modes. The transverse electric modes have no electric field in the direction of propagation, and the transverse magnetic modes have no magnetic field in the direction of propagation. The transverse electric mode is analogous to the MHD modes due to their polarisation with respect to the slab boundaries.}) electromagnetic waves guided by an asymmetric dielectric waveguide satisfy the dispersion relation (their Equation~7 in Chapter~14.7)
+	\cite{ram_etal84} used ray theory to show that the eigenfrequencies, $\omega$, of (transverse electric mode\footnote{In general, guided electromagnetic waves propagate in a superposition of transverse electric modes and transverse magnetic modes. The transverse electric modes have no electric field in the direction of propagation, and the transverse magnetic modes have no magnetic field in the direction of propagation. The transverse electric mode is analogous to the MHD modes due to their polarisation with respect to the slab boundaries.}) electromagnetic waves guided by an asymmetric dielectric waveguide satisfy the dispersion relation (their Equation~7 in Chapter~14.7)
 	\begin{equation}
 	\tan{hd} = \frac{h(q + p)}{h^2 - pq}, \label{EM DR}
 	\end{equation}
@@ -137,24 +137,24 @@
 	
 	
 	%------------------------------------------------------------------------------
-	\section{Finite-beta ray optics of a slab waveguide}
+	\section{Finite-beta ray theory of a slab waveguide}
 	\label{sec: finite beta}
 	%------------------------------------------------------------------------------
 	
-	Next, we relax the low-beta condition. This allows for anisotropic wave propagation. This is most clearly illustrated in the Friedrichs diagrams which demonstrate how the phase and group speeds of MHD waves depend on the angle of propagation (see, for example, \citealp{goe_etal04,pri14}). In this section, we use MHD ray optics to derive the dispersion for an asymmetric slab.
+	Next, we relax the low-beta condition. This allows for anisotropic wave propagation. This is most clearly illustrated in the Friedrichs diagrams which demonstrate how the phase and group speeds of MHD waves depend on the angle of propagation (see, for example, \citealp{goe_etal04,pri14}). In this section, we use MHD ray theory to derive the dispersion for an asymmetric slab.
 	
 	Consider a small-amplitude magnetoacoustic phase ray propagating incident on the interface between plasma regions 0 and 2 at an angle of $\theta_i$. The velocity perturbation associated with this incident wave can be written $\mathbf{v_i} = (v_{ix}, 0, v_{iz})$ as we have already shown that the magnetoacoustic modes have no component perpendicular to the magnetic field and parallel to the slab boundaries. Only the Alfv\'{e}n mode perturbs the plasma in this direction, and that mode is decoupled from the magnetoacoustic modes. In general, the incident ray will be partially reflected and partially transmitted. Each of these waves can be decomposed into a linear superposition of plane waves, whose transverse velocity components have the form
 	\begin{align}
-	v_{ix} &= \hat{v}_{ix} e^{i(\mathbf{k_i}\cdot \mathbf{x} + \omega t)}, \\
-	v_{rx} &= \hat{v}_{rx} e^{i(\mathbf{k_r}\cdot \mathbf{x} - \omega t)}, \\
-	v_{tx} &= \hat{v}_{tx} e^{i(\mathbf{k_t}\cdot \mathbf{x} - \omega t)},
+	v_{ix} &= \widehat{v}_{ix} e^{i(\mathbf{k_i}\cdot \mathbf{x} + \omega t)}, \\
+	v_{rx} &= \widehat{v}_{rx} e^{i(\mathbf{k_r}\cdot \mathbf{x} - \omega t)}, \\
+	v_{tx} &= \widehat{v}_{tx} e^{i(\mathbf{k_t}\cdot \mathbf{x} - \omega t)},
 	\label{fourier}
 	\end{align}
 	where subscripts $i, r, t$ refer to the \textit{incident}, \textit{reflected}, and \textit{transmitted} waves. Let the angles that the incident, reflected, and transmitted rays make with the interface be $\theta_i$, $\theta_r$, and $\theta_t$, respectively.
 	
 	The interfaces between the plasmas are free surfaces with tangential magnetic field, so the dynamic and kinematic boundary conditions are equivalent to the normal velocity component and total pressure perturbation being continuous at the interface \citep{goe_etal04}. Continuity of normal velocity at $x = 0$ gives
 	\begin{equation}
-	\hat{v}_{ix}e^{i(k_{iz}z - \omega t)} + \hat{v}_{rx}e^{i(k_{rz}z - \omega t)} = \hat{v}_{tx}e^{i(k_{tz}z - \omega t)}. \label{norm vel 1}
+	\widehat{v}_{ix}e^{i(k_{iz}z - \omega t)} + \widehat{v}_{rx}e^{i(k_{rz}z - \omega t)} = \widehat{v}_{tx}e^{i(k_{tz}z - \omega t)}. \label{norm vel 1}
 	\end{equation}
 	The Law of Reflection tells us that $\theta_r = \theta_i$. The incident, reflected, and transmitted ways must have equal phase at the interface $x = 0$, known as the phase matching condition. This implies that the frequency on each side must be equal. Thus, Snell's Law tells us that the tangential components of the wave-vector components obey
 	\begin{equation}
@@ -162,20 +162,20 @@
 	\end{equation}
 	Therefore, by the Law of Reflection $k_r = k_i$. In particular, $k_{rx} = -k_{ix}$ and $k_{rz} = k_{iz}$. Therefore, Equation~\eqref{norm vel 1} reduces to
 	\begin{equation}
-	\hat{v}_{ix} + \hat{v}_{rx} = \hat{v}_{tx}. \label{cont vel}
+	\widehat{v}_{ix} + \widehat{v}_{rx} = \widehat{v}_{tx}. \label{cont vel}
 	\end{equation}
 	
 	The total pressure perturbation for a ray with wave-vector $\mathbf{k} = (k_x, 0, k_z)$ is derived as follows. The linearised perturbation in magnetic pressure is $p_m = B_0b_{iz}/\mu_0$, where $B_0$ and $b_{iz}$ are the equilibrium and $z$-component of the magnetic field in the slab region and $\mu_0$ is the magnetic permeability. Using the $z$-component of the induction equation,
 	\begin{equation}
-	\hat{b}_{iz} = \frac{B_0}{\omega}k_{ix}\hat{v}_x, \label{ind eq z}
+	\widehat{b}_{iz} = \frac{B_0}{\omega}k_{ix}\widehat{v}_x, \label{ind eq z}
 	\end{equation}
-	where $b_{iz} = \hat{b}_{iz} e^{i(\mathbf{k_i}\cdot \mathbf{x} + \omega t)}$. The energy and continuity equations can be combined to
+	where $b_{iz} = \widehat{b}_{iz} e^{i(\mathbf{k_i}\cdot \mathbf{x} + \omega t)}$. The energy and continuity equations can be combined to
 	\begin{equation}
 	\frac{\partial p}{\partial t} = - \rho_0 c_0^2 \nabla \cdot \mathbf{v}.
 	\end{equation}
 	A Fourier decomposition of this equation yields
 	\begin{equation}
-	\hat{p} = -\frac{\rho_0c_0^2}{\omega} (k_x\hat{v}_x + k_z\hat{v}_z). \label{pressure eq}
+	\widehat{p} = -\frac{\rho_0c_0^2}{\omega} (k_x\widehat{v}_x + k_z\widehat{v}_z). \label{pressure eq}
 	\end{equation}
 	The $z$-component of the momentum equation is
 	\begin{equation}
@@ -183,11 +183,11 @@
 	\end{equation}
 	which, when taking Fourier forms, reduces to
 	\begin{equation}
-	\hat{v}_z = - \frac{ic_0^2k_z}{k_zc_0^2 - \omega^2}k_x\hat{v}_x. \label{vx vz}
+	\widehat{v}_z = - \frac{ic_0^2k_z}{k_zc_0^2 - \omega^2}k_x\widehat{v}_x. \label{vx vz}
 	\end{equation}
 	Equations~\eqref{ind eq z},~\eqref{pressure eq}, and~\eqref{vx vz} combine to give an expression for the total pressure perturbation, namely
 	\begin{equation}
-	\hat{p}_T = \hat{p} + \hat{p}_m = \frac{\Lambda_0}{m_0}ik_x\hat{v}_x,
+	\widehat{p}_T = \widehat{p} + \widehat{p}_m = \frac{\Lambda_0}{m_0}ik_x\widehat{v}_x,
 	\end{equation}
 	where, as defined in \cite{all_etal17},
 	\begin{equation}
@@ -199,16 +199,16 @@
 	\end{equation}
 	Therefore, $k_{rx} = -k_{ix} = -im_0$ and $k_{tx} = im_2$. Hence, the condition of continuity of total pressure at the interface is equivalent
 	\begin{equation}
-	\Lambda_0(\hat{v}_{ix} - \hat{v}_{rx}) = \Lambda_2 \hat{v}_{tx}. \label{cont pressure}
+	\Lambda_0(\widehat{v}_{ix} - \widehat{v}_{rx}) = \Lambda_2 \widehat{v}_{tx}. \label{cont pressure}
 	\end{equation}
 	Equations~\eqref{cont vel} and~\eqref{cont pressure} can be solved simultaneously to find
 	\begin{align}
-	\hat{v}_{ix} &= \frac{1}{2}\hat{v}_{tx}\left(1 + \frac{\Lambda_2}{\Lambda_0}\right) \\
-	\hat{v}_{rx} &= \frac{1}{2}\hat{v}_{tx}\left(1 - \frac{\Lambda_2}{\Lambda_0}\right).
+	\widehat{v}_{ix} &= \frac{1}{2}\widehat{v}_{tx}\left(1 + \frac{\Lambda_2}{\Lambda_0}\right) \\
+	\widehat{v}_{rx} &= \frac{1}{2}\widehat{v}_{tx}\left(1 - \frac{\Lambda_2}{\Lambda_0}\right).
 	\end{align}
 	The ratio of these is the reflection coefficient, namely
 	\begin{equation}
-	r_2 := \frac{\hat{v}_{rx}}{\hat{v}_{ix}} = \frac{\Lambda_0 - \Lambda_2}{\Lambda_0 + \Lambda_2}. \label{reflection coefficient}
+	r_2 := \frac{\widehat{v}_{rx}}{\widehat{v}_{ix}} = \frac{\Lambda_0 - \Lambda_2}{\Lambda_0 + \Lambda_2}. \label{reflection coefficient}
 	\end{equation}
 	
 	Total internal reflection occurs for $\theta_i < \theta_c$, where $\cos{\theta_c} = k_t / k_i$. In this case,
@@ -230,7 +230,7 @@
 	\subsection{Body modes}
 	When $\Lambda_0$ is real, $k_{ix}$ is real, therefore Equation~\eqref{fourier} tells us that this corresponds to spatially oscillatory (rather than evanescent) incident rays. It will become clear that this necessitates guided body modes.
 	
-	In this case, $r_2$ is complex. In accordance with ray optics theory, the real part gives the ratio of amplitudes of the reflected and incident rays, and the imaginary part gives a phase shift that the incident ray undergoes upon reflection \citep{bor_etal99}. The reflection coefficient $r_2$ given by Equation~\eqref{reflection coefficient 2} has complex argument
+	In this case, $r_2$ is complex. In accordance with ray theory theory, the real part gives the ratio of amplitudes of the reflected and incident rays, and the imaginary part gives a phase shift that the incident ray undergoes upon reflection \citep{bor_etal99}. The reflection coefficient $r_2$ given by Equation~\eqref{reflection coefficient 2} has complex argument
 	\begin{equation}
 	\phi_2 = -2 \arctan\left(\frac{L_2}{\Lambda_0}\right).
 	\end{equation}
@@ -287,7 +287,7 @@
 	\end{equation}
 	Recall that $\Lambda_2 = iL_2$ and $\Lambda_1 = iL_1$, therefore, using the fact that $\tan(i\theta) = i\tanh{\theta}$ \citep{abr_etal65}, the above equation can be rewritten as
 	\begin{equation}
-	\Lambda_0 (\Lambda_1 + \Lambda_2) + (\Lambda_0^2 + \Lambda_1\Lambda_2)\tanh(2m_0x_0) = 0, \label{DR}
+	\Lambda_0 (\Lambda_1 + \Lambda_2) + (\Lambda_0^2 + \Lambda_1\Lambda_2)\tanh(2m_0x_0) = 0,
 	\end{equation}
 	where $m_0^2 < 0$. This is precisely the dispersion relation for MHD body modes guided by an asymmetric magnetic slab.
 	
@@ -329,7 +329,7 @@
 	\label{sec: leaky}
 	%------------------------------------------------------------------------------
 	
-	The condition imposed after Equation~\eqref{reflection coefficient}, where total internal reflection is supposed, restricts the dispersion relation to guided modes only. If this condition is relaxed, then a portion of the incident energy is transmitted into the external medium. Energy \textit{leaks} from the waveguide. The ray optics approach to leaky modes gives an intuitive explanation of energy leakage and a simple method of computing the power loss per unit length of the waveguide.
+	The condition imposed after Equation~\eqref{reflection coefficient}, where total internal reflection is supposed, restricts the dispersion relation to guided modes only. If this condition is relaxed, then a portion of the incident energy is transmitted into the external medium. Energy \textit{leaks} from the waveguide. The ray theory approach to leaky modes gives an intuitive explanation of energy leakage and a simple method of computing the power loss per unit length of the waveguide.
 	
 	Let $k_{tx}$ be real. Then, the transmitted ray is spatially oscillatory. In this case, it is physically impossible for the incident ray (and hence the reflected ray) to be evanescent. This is because evanescent rays do not transport energy in the evanescent direction, so there would be no energy source for the leakage in the external region \citep{goe_etal04}. Hence, if $k_{tx}$ is real, then so is $k_{ix}$ (and $k_{rx}$). Therefore, $\Lambda_{0, 2}$ are real. Hence, the reflection coefficient $r$ is real.
 	
@@ -361,3 +361,22 @@
 	\alpha_P = \frac{2k_x}{k_zx_0}\frac{\Lambda_0\Lambda_1}{(\Lambda_0 + \Lambda_1)^2}.
 	\end{equation}
 	Most notable is the inverse proportionality between the power loss coefficient and the non-dimensionalised slab width, $k_z x_0$. The thinner the slab is compared to the wavelength, the greater the proportion of power lost to the surrounding medium via lateral wave leakage.
+	
+	
+	%------------------------------------------------------------------------------
+	\section{Chapter conclusions}
+	\label{sec: ray theory conclusions}
+	%------------------------------------------------------------------------------
+	
+	In this chapter, we have made use of a mathematical approach known as ray theory to asymmetric MHD waves. In ray theory, a wave is modelled as having only a speed and a direction. MHD waves have two notions of direction, defined by the phase velocity and the group velocity. In general, these two directions are not parallel. This presents two options for defining the ray direction in a ray theory approach to MHD waves. We used the phase velocity to define the ray direction in this chapter because it allows us to impose a quantisation condition on the rays after reflecting of the interfaces that bound the waveguide.
+	
+	Using the phase ray approach, we first derived the dispersion relation for MHD waves in a zero-beta asymmetric slab. In a zero-beta plasma, the slow magneto-acoustic mode degenerates and the fast magneto-acoustic mode propagated isotropically. Given this isotropic propagation, the phase and group velocities are parallel so ray direction is not ambiguous. Next, we derived the dispersion relation for MHD waves in finite-beta plasma. In this more general case, we utilised anisotropic ray theory to derive the dispersion relation for an asymmetric slab. This demonstrates a novel technique for deriving dispersion relations in MHD that does not require the solution of sophisticated differential equations.
+	
+	Leaky modes are intuitive in the ray theory framework. Leaky modes occur when total internal reflection is not achieved by rays propagating within the waveguide. Instead, upon intersecting the interface, the ray splits into two. One ray reflects back into the waveguide, and the other is refracted through the interface and propagates into the half-planar plasma region outside the slab. This external ray is not free to propagate energy from the oscillating slab laterally away. After each internal reflection, the energy of the internal ray is diminished, as more and more energy is leaked as kinetic energy in the surrounding plasma.
+	
+	
+	
+	
+	
+	
+	

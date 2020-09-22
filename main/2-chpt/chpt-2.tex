@@ -1,6 +1,6 @@
 
 %------------------------------------------------------------------------------
-\chapter{Asymmetric waveguides - eigenvalue problem}
+\chapter{Eigenvalue problem}
 \label{chap: EVP}
 %------------------------------------------------------------------------------
 
@@ -10,17 +10,17 @@
 \label{sec: EVP intro}
 %------------------------------------------------------------------------------
 
-The aim of this chapter is to investigate the physics of asymmetric MHD waves as an eigenvalue problem (EVP). To isolate the behaviour introduced when symmetry is broken, it is instructive to analyse the a simple model that supports asymmetric MHD waves. That way, any novel behaviour can be unambiguously attributed to the asymmetry of the model rather than another factor. The simplest model of an asymmetric waveguide is an asymmetric magnetic slab\footnote{More precisely, the simplest model of an asymmetric MHD waveguide is an interface between different plasmas; the asymmetric slab is the simplest asymmetric waveguide that can oscillate in a collective body mode (see Section~\ref{sec: body}).}, breaking the symmetry of the magnetic slab analysed in Chapter~\ref{sec: slab} and by \cite{rob81b}.
+The aim of this chapter is to investigate the physics of asymmetric MHD waves as an eigenvalue problem (EVP). To isolate the behaviour introduced when symmetry is broken, it is instructive to analyse the a simple model that supports asymmetric MHD waves. That way, any novel behaviour can be unambiguously attributed to the asymmetry of the model rather than another factor. The simplest model of an asymmetric waveguide is an asymmetric magnetic slab\footnote{More precisely, the simplest model of an asymmetric MHD waveguide is an interface between different plasmas; the asymmetric slab is the simplest asymmetric waveguide that can oscillate in a collective body mode (see Section~\ref{sec: asym eigenmodes}).}, breaking the symmetry of the symmetric magnetic slab analysed in Section~\ref{sec: MHD waves sym slab} and by \cite{rob81b}.
 
-The EVP approach to MHD wave problems was first employed by \cite{alf42} to derive the theoretic existence and propagation speed of magnetically driven waves in the fluid, the result that awarded him the Nobel Prize in Physics in 1970. He showed that in a homogeneous plasma there are three types of waves that propagate, as shown in Chapter~\ref{sec: MHD waves hom}. The wave with intermediate speed became known as the \textit{Alfv\'{e}n wave}. This theoretical result sparked the search for Alfv\'{e}n waves across several areas of plasma physics, from experimental, with early detection in magnetised mercury \citep{lun49}, sodium \citep{leh54}, and bismuth \citep{hes_etal73}, to geophysics, with a surprisingly early detection of Alfv\'{e}n waves in the Earth's ionosphere, driven by a nuclear weapon test \citep{ber_etal60}.
+The EVP approach to MHD wave problems was first employed by \cite{alf42} to derive the theoretic existence and propagation speed of magnetically driven waves in the fluid, the result that awarded him the Nobel Prize in Physics in 1970. He showed that in a homogeneous plasma there are three types of waves that propagate, as shown in Section~\ref{sec: MHD waves in hom}. The wave with intermediate speed became known as the \textit{Alfv\'{e}n wave}. This theoretical result sparked the search for Alfv\'{e}n waves across several areas of plasma physics, from experimental, with early detection in magnetised mercury \citep{lun49}, sodium \citep{leh54}, and bismuth \citep{hes_etal73}, to geophysics, with a surprisingly early detection of Alfv\'{e}n waves in the Earth's ionosphere, driven by a nuclear weapon test \citep{ber_etal60}.
 
 More relevant to the present thesis is that the discovery of Alfv\'{e}n waves got the solar physics world asking the question: \textit{are there Alfv\'{e}n waves on the Sun?} The difficulty in establishing a confident affirmative answer to this question is that, in structured plasma like that of the solar atmosphere, MHD waves demonstrate mixed properties \citep{goo_etal09,goo_etal12,goo_etal19}. By this we mean that, in general, they can propagate both vorticity (like Alfv\'{e}n waves do) and compression (like magneto-acoustic waves do). In some circumstances, such as when the plasma is cold, the fast kink magneto-acoustic wave is almost completely incompressible, and therefore produces a similar observational signature to Alfv\'{e}n wave. These nearly incompressible kink modes have rather confusingly become known A \textit{Alfv\'{e}nic} and have ubiquitous presence in the solar atmosphere \citep{tom_etal07}. This explains the erroneous detection of Alfv\'{e}n waves in the corona \citep{tom_etal07}, which are more likely to have been kink waves \citep{van_etal08b,erd_etal08}. More likely observations of Alfv\'{e}n waves have since been made in X-ray jets \citep{cir_etal07} and in magnetic bright points \citep{jes_etal09}. A review of the theory and observations of solar Alfv\'{e}n waves was conducted by \cite{mat_etal13}.
 
 After the detection of ubiquitous MHD waves in the solar atmosphere, whether they be Alfv\'{e}n, Alfv\'{e}nic, or another kind entirely, comes the question: \textit{do they contribute to the heating of the corona?} This question must be answered in two parts: (1) \textit{is there enough energy transported in these waves to heat the corona?} and (2) \textit{is there a mechanism for converting this wave energy into thermal energy?} \cite{wit_etal77}, amongst others, have shown that an energy input of $10^2 - 10^4$~W~m$^{-2}$ is required to balance the thermal losses from radiation and solar wind in order to maintain the corona's high temperatures of approximately 2~MK. Many acclaimed Alfv\'{e}n wave observational studies have estimated the energy density transported by the observed MHD waves to be sufficient. This has been backed up by numerical studies that show that sufficient energy can be found in, for example, high-frequency torsional Alfv\'{e}n waves \citep{sri_etal17}. A number of mechanisms for dissipating this wave energy into the coronal environment have been proposed, including phase mixing \citep{hey_etal83} and resonant absorption \citep{ion78}, that can significantly shorten the time-scale for energy dissipation by resistive or viscous processes. MHD waves remain a strong candidate for explaining the unexpectedly high coronal temperatures but the matter is far from settled. The current status of MHD wave heating is reviewed by a number of papers \citep{mat_etal13,dem_etal15}.
 
-A selection of MHD waveguides have been investigated with an EVP approach. The first non-uniform plasma system that was investigated with an EVP was the tangential interface between semi-infinite plasma regions with distinct parameters (\citealp{zaj_etal75,rob81a}; see Chapter~\ref{sec: tangential interface}). They showed the existence of trapped MHD surface waves that can be either \textit{fast} or \textit{slow}, depending on the phase difference between the pressure gradient and magnetic restoring forces. The contact discontinuity, where the magnetic field intersects the interface, was shown by \cite{vic_etal18} to contain most of its oscillatory power in modes that leak energy laterally away from the interface. Two parallel tangential interfaces, in the form of a symmetric slab waveguide, were shown by \cite{rob81b} and \cite{edw_etal82} to oscillate in both surface and body modes, depending on whether the spatial signature of the wave is evanescent or oscillatory within the slab (see Chapter~\ref{sec: symmetric slab}).
+A selection of MHD waveguides have been investigated with an EVP approach. The first non-uniform plasma system that was investigated with an EVP was the tangential interface between semi-infinite plasma regions with distinct parameters (\citealp{zaj_etal75,rob81a}; see Section~\ref{sec: MHD waves interface}). They showed the existence of trapped MHD surface waves that can be either \textit{fast} or \textit{slow}, depending on the phase difference between the pressure gradient and magnetic restoring forces. The contact discontinuity, where the magnetic field intersects the interface, was shown by \cite{vic_etal18} to contain most of its oscillatory power in modes that leak energy laterally away from the interface. Two parallel tangential interfaces, in the form of a symmetric slab waveguide, were shown by \cite{rob81b} and \cite{edw_etal82} to oscillate in both surface and body modes, depending on whether the spatial signature of the wave is evanescent or oscillatory within the slab (see Section~\ref{sec: MHD waves sym slab}).
 
-Modelling the cylindrical nature of coronal loops, focus moved towards cylindrical waveguides. This began with an investigation by \cite{edw_etal83} into the oscillatory modes of straight cylindrical flux tubes of infinite length (see Chapter~\ref{sec: magnetic flux tube}). They showed the existence of \textit{fluting modes}, which have azimuthal wavenumber $m \geq 2$, in addition to the already familiar sausage ($m = 0$) and kink ($m = 1$) modes. Inhomogeneities in the solar atmosphere as such that it is unlikely that the axisymmetry of a circular cross-sectional cylinder will be sufficient to model coronal loops. To accommodate the diversion from axisymmetry, elliptical cross-sectional tubes were investigated by \cite{gu_etal80}, \cite{rud03}, \cite{erd_etal09}, and \cite{mor_etal11}. The sausage mode (and other even-ordered azimuthal modes) differs from its counterpart in circular cross-sectional tubes only by it's phase speed, whereas the kink mode (and other odd-ordered azimuthal modes) splits into two modes with axial displacement polarized along the major and minor axes.
+Modelling the cylindrical nature of coronal loops, focus moved towards cylindrical waveguides. This began with an investigation by \cite{edw_etal83} into the oscillatory modes of straight cylindrical flux tubes of infinite length (see Section~\ref{sec: MHD waves tube}). They showed the existence of \textit{fluting modes}, which have azimuthal wavenumber $m \geq 2$, in addition to the already familiar sausage ($m = 0$) and kink ($m = 1$) modes. Inhomogeneities in the solar atmosphere as such that it is unlikely that the axisymmetry of a circular cross-sectional cylinder will be sufficient to model coronal loops. To accommodate the diversion from axisymmetry, elliptical cross-sectional tubes were investigated by \cite{gu_etal80}, \cite{rud03}, \cite{erd_etal09}, and \cite{mor_etal11}. The sausage mode (and other even-ordered azimuthal modes) differs from its counterpart in circular cross-sectional tubes only by it's phase speed, whereas the kink mode (and other odd-ordered azimuthal modes) splits into two modes with axial displacement polarized along the major and minor axes.
 
 Other EVP investigations of MHD waves have studied the effect of curvature, including a curved magnetic slab \citep{ver_etal06a,ver_etal06b} and a semi-toroidal loop \citep{van_etal04}. The semi-toroidal loop is a mathematical model that approximates coronal loops well. It was shown that curvature has no first-order effect on the frequency and damping time of kink quasi-mode oscillations. This result has justifiably made the solar physics community more comfortable applying the more simple theory of MHD waves in straight waveguide models to curved solar structures. The effects of curvature on coronal loop kink oscillations is reviewed by \cite{van_etal09}.
 
@@ -160,41 +160,42 @@ We begin with the ideal MHD equations, linearised around a static equilibrium wi
 	\frac{\partial^2 v_y}{\partial t^2} &= \frac{\partial}{\partial y}\left[ (c_j^2 + v_{Aj}^2)\nabla\cdot\bv - v_{Aj}^2\frac{\partial v_z}{\partial z} \right] + v_{Aj}^2 \frac{\partial^2 v_y}{\partial z^2} \label{mom y} \\
 	\frac{\partial^2 v_z}{\partial t^2} &= c_j^2\frac{\partial}{\partial z}(\nabla\cdot\bv). \label{mom z}
 \end{align}
-Seeking solutions of the form $f(\mathbf{x},t) = \hat{f}(x) \exp\{i(ly + kz - \omega t)\}$, where $\mathbf{k} = (0, l, k)$ is the wavenumber vector and $\omega$ is the angular frequency, for $\mathbf{v}$ in Equation~\eqref{mom y} gives
+Seeking solutions of the form $f(\mathbf{x},t) = \widehat{f}(x) \exp\{i(ly + kz - \omega t)\}$, where $\mathbf{k} = (0, l, k)$ is the wavenumber vector and $\omega$ is the angular frequency, for $\mathbf{v}$ in Equation~\eqref{mom y} gives
 \begin{equation}
-(k^2v_{Aj}^2 - \omega^2)\hat{v}_y = l((c_j^2 + v_{Aj}^2)(i\hat{v}_x' - l\hat{v}_y - k\hat{v}_z) + kv_{Aj}^2\hat{v}_z),
+(k^2v_{Aj}^2 - \omega^2)\widehat{v}_y = l((c_j^2 + v_{Aj}^2)(i\widehat{v}_x' - l\widehat{v}_y - k\widehat{v}_z) + kv_{Aj}^2\widehat{v}_z),
 \end{equation}
 where $' = d/dx$. If the component of the wavenumber in the $y$-direction is zero, \textit{i.e.} $l = 0$, then this equation reduces to
 \begin{equation}
-(k^2v_{Aj}^2 - \omega^2)\hat{v}_y(x) = 0,
+(k^2v_{Aj}^2 - \omega^2)\widehat{v}_y(x) = 0,
 \end{equation}
-which yield two solutions. Firstly, $\omega^2 = k^2v_{Aj}^2$ is a solution corresponding to shear Alfv\'{e}n waves with different phase speed for each magnetic iso-surface (in this case the isosurfaces are surfaces parallel to the $yz$-plane). The second solution is $\hat{v}_y(x) = 0$ for all $x$ and therefore $v_y = 0$, \textit{i.e.} waves without perturbation component along the slab and perpendicular to the magnetic field. These solutions correspond to magneto-acoustic modes. Thus we have a decoupling of the Alfv\'{e}n modes from the magneto-acoustic modes.
+which yield two solutions. Firstly, $\omega^2 = k^2v_{Aj}^2$ is a solution corresponding to shear Alfv\'{e}n waves with different phase speed for each magnetic iso-surface (in this case the isosurfaces are surfaces parallel to the $yz$-plane). The second solution is $\widehat{v}_y(x) = 0$ for all $x$ and therefore $v_y = 0$, \textit{i.e.} waves without perturbation component along the slab and perpendicular to the magnetic field. These solutions correspond to magneto-acoustic modes. Thus we have a decoupling of the Alfv\'{e}n modes from the magneto-acoustic modes.
 
 Focusing from here on magneto-acoustic modes, we seek solutions of the Fourier form
 \begin{equation}
-\bv(\mathbf{x},t)=(\hat{v}_x(x)\textrm{e}^{i(kz-\omega{t})}, 0, \hat{v}_z(x)\textrm{e}^{i(kz-\omega{t})}).
+\bv(\mathbf{x},t)=(\widehat{v}_x(x)\textrm{e}^{i(kz-\omega{t})}, 0, \widehat{v}_z(x)\textrm{e}^{i(kz-\omega{t})}).
 \label{vcomponents}
 \end{equation}
-This restricts the investigation to magneto-acoustic waves propagating parallel to the equilibrium magnetic field, with velocity perturbation amplitude $\hat{v}_x(x)$ in the $x$-direction, and $\hat{v}_z(x)$ in the $z$-direction. With this ansatz, Equation~\eqref{mom y} degenerates and Equations~\eqref{mom x} and~\eqref{mom z} become
+This restricts the investigation to magneto-acoustic waves propagating parallel to the equilibrium magnetic field, with velocity perturbation amplitude $\widehat{v}_x(x)$ in the $x$-direction, and $\widehat{v}_z(x)$ in the $z$-direction. With this ansatz, Equation~\eqref{mom y} degenerates and Equations~\eqref{mom x} and~\eqref{mom z} become
 \begin{align}
-&-\omega^2\hat{v}_x = (c_j^2+v_\textrm{Aj}^2)(\hat{v}_x'' + ik\hat{v}_z') - v_\textrm{Aj}^2ik\hat{v}_z'-v_\textrm{Aj}^2k^2\hat{v}_x, \label{mom x 2} \\
-&-\omega^2\hat{v}_z = c_j^2ik(\hat{v}_x' + ik\hat{v}_z). \label{mom z 2}
+&-\omega^2\widehat{v}_x = (c_j^2+v_\textrm{Aj}^2)(\widehat{v}_x'' + ik\widehat{v}_z') - v_\textrm{Aj}^2ik\widehat{v}_z'-v_\textrm{Aj}^2k^2\widehat{v}_x, \label{mom x 2} \\
+&-\omega^2\widehat{v}_z = c_j^2ik(\widehat{v}_x' + ik\widehat{v}_z). \label{mom z 2}
 \end{align}
-These equations can be combined to give an ordinary differential equation for $\hat{v}_x$, namely
+These equations can be combined to give an ordinary differential equation for $\widehat{v}_x$, namely
 \begin{equation}
-\hat{v}_x'' - m_j^2\hat{v}_x = 0, \quad \text{where} \quad
+\widehat{v}_x'' - m_j^2\widehat{v}_x = 0, \quad \text{where} \quad
 m_j^2 = \frac{(k^2v_\textrm{Aj}^2 - \omega^2)(k^2c_j^2 - \omega^2)}{(c_j^2 + v_\textrm{Aj}^2)(k^2c_\textrm{Tj}^2 - \omega^2)}. \label{v_x ODE}
 \end{equation}
 This is identical to the corresponding equation governing, for example, a tangential interface or a symmetric slab, derived in Sections~\ref{sec: MHD waves interface} and~\ref{sec: MHD waves sym slab} by \cite{rob81a} and \cite{edw_etal82}.
 
-Solutions of Equations~\eqref{v_x ODE} are a linear combination of hyperbolic functions or trigonometric functions depending on the sign of the non-zero term $m_j^2$. Given that the trigonometric functions are identical to hyperbolic functions with imaginary sign, we progress from here with hyperbolic functions only, without loss of generality. We restrict our model to waves trapped by the slab by imposing the boundary condition $\hat{v}_x \to 0$ as $|x| \to \infty$. Thus, the general solution for the velocity perturbation in the $x$-direction is
+Solutions of Equations~\eqref{v_x ODE} are a linear combination of hyperbolic functions or trigonometric functions depending on the sign of the non-zero term $m_j^2$. Given that the trigonometric functions are identical to hyperbolic functions with imaginary sign, we progress from here with hyperbolic functions only, without loss of generality. We restrict our model to waves trapped by the slab by imposing the boundary condition $\widehat{v}_x \to 0$ as $|x| \to \infty$. Thus, the general solution for the velocity perturbation in the $x$-direction is
 \begin{equation}
-\hat{v}_x(x)=
+\widehat{v}_x(x)=
 \begin{cases}
 A(\cosh{m_1x} + \sinh{m_1x}), & \text{if } x < -x_0, \\
 B\cosh{m_0x} + C\sinh{m_0x}, & \text{if } |x| \leq {x_0}, \\
 D(\cosh{m_2x} - \sinh{m_2x}), & \text{if  } x > x_0, 
-\end{cases} \label{vsoln}
+\end{cases}
+\label{vsoln}
 \end{equation}
 where $A$, $B$, $C$, and $D$ are arbitrary constants (with respect to $x$). The remaining boundary conditions are continuity of velocity and total pressure across the slab boundaries at $x = \pm{x_0}$.
 
@@ -204,7 +205,7 @@ With the aim of finding an expression for the total pressure perturbation, the E
 \end{equation}
 Using the above equation and the $z$-component of Equation~\eqref{ind eqn lin}, the perturbation in total pressure (plasma pressure, $p$, plus magnetic pressure, $B_jB_z/\mu$) across the whole domain has amplitude
 \begin{equation}
-\hat{p}_T(x) = \frac{\Lambda_j}{m_j}\hat{v}_x'(x), \label{tot p}
+\widehat{p}_T(x) = \frac{\Lambda_j}{m_j}\widehat{v}_x'(x), \label{tot p}
 \end{equation}
 where
 \begin{equation}
@@ -237,7 +238,6 @@ D
 0
 \end{matrix}
 \right),
-\label{coefmatrix}
 \end{equation}
 where $c_j = \cosh{m_jx_0}$ and $s_j = \sinh{m_jx_0}$ for $j=0,1,2$, for brevity. The condition for the existence of non-trivial solutions to this system of equations is that the determinant of the matrix is zero. Applying this condition gives us the dispersion relation for an asymmetric slab, namely
 \begin{equation}
@@ -250,7 +250,7 @@ By expanding each $\Lambda_j$, we can write this dispersion relation in familiar
 \end{align}
 
 
-\subsubsection{First-order asymmetric slab}
+\subsubsection{First-order asymmetric slab} \label{sec: first order slab}
 
 There is a key qualitative difference between waves propagating along symmetric and asymmetric magnetic slabs. The dispersion relation governing an asymmetric slab is a single equation, whereas the dispersion relation governing a symmetric slab \citep{rob81a} consists of two independent equations, corresponding to the sausage and kink eigenmodes. This corresponds to mixed properties of the asymmetric eigenmodes.
 
@@ -285,7 +285,7 @@ Therefore,
 \end{equation}
 Therefore, to linear order of waveguide asymmetry, if the dispersion relation, Equation~\eqref{DR lambda} is satisfied, then either $D_s(\omega) = 0$ or $D_k(\omega) = 0$, which completes the proof of Equation~\eqref{DR approx lambda}.
 
-The expressions for the variables $\Lambda_i$ for $i=0,1,2$ in Equations~\eqref{Lambdas} can be employed to yield the approximately symmetric dispersion relation
+The expressions for the variables $\Lambda_i$ for $i = 0,1,2$ in Equations~\eqref{Lambdas} can be employed to yield the approximately symmetric dispersion relation
 \begin{equation}
 (\omega^2 - \omega_{A0}^2)\left(\frac{\rho_0}{\rho_1}\frac{m_1}{(\omega^2 - \omega_{A1}^2)} + \frac{\rho_0}{\rho_2}\frac{m_2}{(\omega^2 - \omega_{A2}^2)}\right) + 2m_0\left(\begin{matrix}\tanh \\ \coth \end{matrix}\right)(m_0x_0) = 0. \label{DR approx}
 \end{equation}
@@ -296,7 +296,7 @@ This equation is now in a form similar to the dispersion relation corresponding 
 where internal and external parameters are denoted by subscripts $i$ and $e$.
 
 
-\subsection{Asymmetric eigenmodes}
+\subsection{Asymmetric eigenmodes} \label{sec: asym eigenmodes}
 There is a rich spectrum of MHD eigenmodes on an asymmetric magnetic slab. The key distinctions of these modes from the eigenmodes of a symmetric slab are discussed in this subsection. To aid the reader's understanding, we have created over a hundred three-dimensional animations of symmetric and asymmetric eigenmodes in a magnetic slab, available at \cite{all_etal18c}. The videos visualise the oscillations in the slab boundaries, magnetic field, density, and velocity field. The eigenmodes in visualised are:
 \begin{itemize}
 	\item Alfv\'{e}n modes:
@@ -651,17 +651,17 @@ and the dispersion relation for a slab with first order asymmetry simplifies to
 Analytical solutions to the dispersion relation can only be made under further assumptions about the plasma. In this section, incompressible (Section~\ref{sec: incomp}), zero-beta (Section~\ref{sec: zero-beta}), thin slab (Section~\ref{sec: thin slab}), and wide slab (Section~\ref{sec: wide slab}) approximations are explored. First, we deal with spurious solutions in Section~\ref{sec: spurious}.
 
 \subsubsection{Spurious solutions} \label{sec: spurious}
-There are three sets of spurious roots to the dispersion relation given by $\omega = \pm kv_{A0}$, $\omega = \pm kc_0$, and $\omega = \pm kc_{T0}$. To treat these cases we refer back to the ODE for $\hat{v}_x(x)$ within the slab, Equation~\eqref{v_x ODE}.
+There are three sets of spurious roots to the dispersion relation given by $\omega = \pm kv_{A0}$, $\omega = \pm kc_0$, and $\omega = \pm kc_{T0}$. To treat these cases we refer back to the ODE for $\widehat{v}_x(x)$ within the slab, Equation~\eqref{v_x ODE}.
 
-When $\omega = \pm kc_{T0}$, $m_0$ is singular, in which case the solution to Equation~\eqref{v_x ODE} is $\hat{v}_x(x) = 0$ within the slab. From Equation\eqref{mom z 2}, it follows that $\hat{v}_z \propto \hat{v}_x'$, we therefore also have $\hat{v}_z(x) = 0$. Given that we are assuming ideal plasma so that the magnetic flux is frozen to the plasma, this means that there is no magnetic field perturbation either. Therefore, $\omega = \pm kc_{T0}$ is a spurious solution.
+When $\omega = \pm kc_{T0}$, $m_0$ is singular, in which case the solution to Equation~\eqref{v_x ODE} is $\widehat{v}_x(x) = 0$ within the slab. From Equation\eqref{mom z 2}, it follows that $\widehat{v}_z \propto \widehat{v}_x'$, we therefore also have $\widehat{v}_z(x) = 0$. Given that we are assuming ideal plasma so that the magnetic flux is frozen to the plasma, this means that there is no magnetic field perturbation either. Therefore, $\omega = \pm kc_{T0}$ is a spurious solution.
 
-When $\omega = \pm kc_0$, we have $m_0 = 0$, therefore Equation~\eqref{v_x ODE} has general solution $\hat{v}_x(x) = Bx + C$ for constants $B$ and $C$. Equation~\eqref{mom z 2} further shows that  $\hat{v}_x' = 0$. Therefore, $B = 0$ and $\hat{v}_x(x) = C$. The $z$-component of Equation~\eqref{ind eqn lin} tells us that $\hat{b}_z \propto \hat{v}_x'$ and so $\hat{b}_z = 0$, therefore the magnetic pressure perturbation is zero. It can be shown that the plasma pressure is
+When $\omega = \pm kc_0$, we have $m_0 = 0$, therefore Equation~\eqref{v_x ODE} has general solution $\widehat{v}_x(x) = Bx + C$ for constants $B$ and $C$. Equation~\eqref{mom z 2} further shows that  $\widehat{v}_x' = 0$. Therefore, $B = 0$ and $\widehat{v}_x(x) = C$. The $z$-component of Equation~\eqref{ind eqn lin} tells us that $\widehat{b}_z \propto \widehat{v}_x'$ and so $\widehat{b}_z = 0$, therefore the magnetic pressure perturbation is zero. It can be shown that the plasma pressure is
 \begin{equation}
-\hat{p}(x) = - \frac{i\rho_0c_0^2}{\omega}\left[\frac{Cx(k^2v_A^2 - \omega^2)}{c_0^2} + C_2\right],
+\widehat{p}(x) = - \frac{i\rho_0c_0^2}{\omega}\left[\frac{Cx(k^2v_A^2 - \omega^2)}{c_0^2} + C_2\right],
 \end{equation}
-within the slab, for constant $C_2$. To balance total pressure over each interface we must have $C = 0$. This means that $v_x(x) = 0$ within the slab and therefore across the whole domain. Therefore the pressure outside the slab is zero (since it is proportional to $\hat{v}_x' = 0$), and by matching pressure, it is zero within the slab. Therefore this solution is the trivial solution rather than a wave.
+within the slab, for constant $C_2$. To balance total pressure over each interface we must have $C = 0$. This means that $v_x(x) = 0$ within the slab and therefore across the whole domain. Therefore the pressure outside the slab is zero (since it is proportional to $\widehat{v}_x' = 0$), and by matching pressure, it is zero within the slab. Therefore this solution is the trivial solution rather than a wave.
 
-On the other hand, when $\omega = kv_A$, the total pressure amplitude, $\hat{P}(x)$, is such that
+On the other hand, when $\omega = kv_A$, the total pressure amplitude, $\widehat{P}(x)$, is such that
 \begin{equation}
 \widehat{P}(x)=\widehat{v}_x'(x)
 \begin{cases}
@@ -672,12 +672,12 @@ On the other hand, when $\omega = kv_A$, the total pressure amplitude, $\hat{P}(
 \end{equation}
 where
 \begin{equation}
-\Lambda_0=-\frac{i\rho_0(k^2v_\textrm{A}^2-\omega^2)}{m_0\omega}, \quad \Lambda_1=\frac{i\rho_1\omega}{m_1}, \quad \text{and} \quad \Lambda_2=\frac{i\rho_2\omega}{m_2}. \label{Lambdas}
+\Lambda_0 = -\frac{i\rho_0(k^2v_\textrm{A}^2-\omega^2)}{m_0\omega}, \quad \Lambda_1=\frac{i\rho_1\omega}{m_1}, \quad \text{and} \quad \Lambda_2=\frac{i\rho_2\omega}{m_2}.
 \end{equation}
-(the derivation for this still holds). Note that the singularity due to the division by $m_0^2$ is regulated by the factor of $k^2v_A^2 - \omega^2$ in $\Lambda_0$. Therefore, since $\hat{v}_x' = B$ is constant in the slab, then so is $\hat{P}$. When we match the total pressure over the boundaries we find that the slab must be symmetric. Therefore $B=0$ to ensure that the velocity profile is symmetric. Therefore $\hat{v}_x' = B = 0$, so there is no pressure perturbation. In particular, there is no pressure perturbation outside the slab, which implies that there is no velocity perturbation outside the slab, because they both depend on the same constants. Therefore by continuity of velocity and the fact that it is constant within the slab, the velocity perturbation is zero everywhere. Therefore there is no wave.
+(the derivation for this still holds). Note that the singularity due to the division by $m_0^2$ is regulated by the factor of $k^2v_A^2 - \omega^2$ in $\Lambda_0$. Therefore, since $\widehat{v}_x' = B$ is constant in the slab, then so is $\widehat{P}$. When we match the total pressure over the boundaries we find that the slab must be symmetric. Therefore $B=0$ to ensure that the velocity profile is symmetric. Therefore $\widehat{v}_x' = B = 0$, so there is no pressure perturbation. In particular, there is no pressure perturbation outside the slab, which implies that there is no velocity perturbation outside the slab, because they both depend on the same constants. Therefore by continuity of velocity and the fact that it is constant within the slab, the velocity perturbation is zero everywhere. Therefore there is no wave.
 
 
-\subsubsection{Limiting case - incompressible plasma} \label{sec: incomp}
+\subsubsection{Limiting case - incompressible} \label{sec: incomp}
 
 Compressibility is essential for the propagation of sound waves. Consider the dispersion relation, Equation~\eqref{DR non-mag}, in the limit of incompressibility, that is, when $\gamma \to \infty$. In this limit, the sound speeds become unbounded and the tube speed in the slab behaves like $c_{T0} \to {v_{A0}}$. This means that $m_j \to {k}$ for $j = 0, 1, 2$, so that the dispersion relation reduces to
 \begin{equation}
@@ -935,7 +935,7 @@ For a wide slab width, $kx_0 \gg 1$, Figure~\ref{fig: slow modes density 3} illu
 	\label{fig: body eigenmodes}
 \end{figure}
 
-In the present study, the avoided crossing occurs between quasi-kink and quasi-sausage surface solutions to the asymmetric slab. This explains why the dispersion relation does not decouple into two equations (Section~\ref{sec: symmetric comp}). Figure~\ref{fig: avoided crossing} demonstrates that during the transition across the avoided crossing, the quasi-sausage and quasi-kink modes exchange the slab boundary upon which the largest perturbation occurs. For example, the left plots of Figure~\ref{fig: xi} show that the quasi-sausage mode has its highest amplitude on the interface of highest local phase-speed (equivalently, lowest external density). The quasi-kink mode demonstrates the opposite behaviour. The central plots show the special case of a symmetric slab, where $\rho_1 = \rho_2$, demonstrating the spatial antisymmetry and symmetry in the symmetric sausage and kink mode, respectively. As the left external density, $\rho_1$, dominates the right external density, $\rho_2$, the right plots of Figure~\ref{fig: xi} show that, again, the quasi-sausage mode has its higher amplitude on the interface of higher local phase-speed, but this is now on the other interface. By the term \textit{local phase speed}, we are referring to the phase-speed that a slow surface mode propagating along that interface would have if the other interface were not there. Each interface of an asymmetric magnetic slab has a distinct local phase-speed and they are inversely proportional to the density in the non-magnetic region \citep{rob81a}.
+In the present study, the avoided crossing occurs between quasi-kink and quasi-sausage surface solutions to the asymmetric slab. This explains why the dispersion relation does not decouple into two equations (Section~\ref{sec: first order slab}). Figure~\ref{fig: avoided crossing} demonstrates that during the transition across the avoided crossing, the quasi-sausage and quasi-kink modes exchange the slab boundary upon which the largest perturbation occurs. For example, the left plots of Figure~\ref{fig: xi} show that the quasi-sausage mode has its highest amplitude on the interface of highest local phase-speed (equivalently, lowest external density). The quasi-kink mode demonstrates the opposite behaviour. The central plots show the special case of a symmetric slab, where $\rho_1 = \rho_2$, demonstrating the spatial antisymmetry and symmetry in the symmetric sausage and kink mode, respectively. As the left external density, $\rho_1$, dominates the right external density, $\rho_2$, the right plots of Figure~\ref{fig: xi} show that, again, the quasi-sausage mode has its higher amplitude on the interface of higher local phase-speed, but this is now on the other interface. By the term \textit{local phase speed}, we are referring to the phase-speed that a slow surface mode propagating along that interface would have if the other interface were not there. Each interface of an asymmetric magnetic slab has a distinct local phase-speed and they are inversely proportional to the density in the non-magnetic region \citep{rob81a}.
 
 When they exist, the fast quasi-sausage and quasi-kink surface modes demonstrate an identical behaviour (not shown). As demonstrated analytically in Equations~\eqref{thin slab saus body}, \eqref{thin slab kink body} and~\eqref{wide slab saus body}-\eqref{wide slab kink body2}, the body modes are not dependent on internal or external densities to quadratic order in $kx_0$. This means that body modes demonstrate only a weak dependence on the external densities, and an avoided crossing does not occur between these modes.
 
@@ -965,7 +965,7 @@ Consider a system of two identical masses of mass $m$ between two fixed walls, w
 	\end{matrix}
 	\right).
 \end{equation}
-Looking for wave solutions of the form $x_1(t) = \hat{x}_1 e^{-i\omega t}$, and similar for $x_2(t)$, and defining $\omega_j = k_j/m$ for $j = 0, 1, 2$, gives
+Looking for wave solutions of the form $x_1(t) = \widehat{x}_1 e^{-i\omega t}$, and similar for $x_2(t)$, and defining $\omega_j = k_j/m$ for $j = 0, 1, 2$, gives
 \begin{equation}
 	\left(
 	\begin{matrix}
@@ -975,8 +975,8 @@ Looking for wave solutions of the form $x_1(t) = \hat{x}_1 e^{-i\omega t}$, and 
 	\right)
 	\left(
 	\begin{matrix}
-		\hat{x}_1 \\
-		\hat{x}_2
+		\widehat{x}_1 \\
+		\widehat{x}_2
 	\end{matrix}
 	\right) = 
 	\left(
@@ -994,12 +994,12 @@ which has solutions
 \begin{equation}
 	\omega_\pm^2 = \frac{1}{2}\left[ \omega_2^2 - \omega_1^2 + 2\omega_0^2 \pm \sqrt{(\omega_2^2 - \omega_2^2) + \omega_0^4} \right].
 \end{equation}
-Thus, there are two eigenfrequences of the system. This is to be expected because the system has two degrees of freedom: the one-dimensional movement of each of the two masses. The eigenfunctions (\textit{i.e.} the values of $\hat{x}_1$ and $\hat{x}_2$) associated with these eigenfrequencies are found by substituting the eigenfrequencies back into Equation~\eqref{coupled oscillator matrix}. Thus, we find that the ratio of the oscillation amplitudes of each mass is
+Thus, there are two eigenfrequences of the system. This is to be expected because the system has two degrees of freedom: the one-dimensional movement of each of the two masses. The eigenfunctions (\textit{i.e.} the values of $\widehat{x}_1$ and $\widehat{x}_2$) associated with these eigenfrequencies are found by substituting the eigenfrequencies back into Equation~\eqref{coupled oscillator matrix}. Thus, we find that the ratio of the oscillation amplitudes of each mass is
 \begin{align}
-	\frac{\hat{x}_1}{\hat{x}_2} & = -\frac{1}{\omega_0^2}(\omega_2^2 + \omega_0^2 - \omega_\pm^2) \\
+	\frac{\widehat{x}_1}{\widehat{x}_2} & = -\frac{1}{\omega_0^2}(\omega_2^2 + \omega_0^2 - \omega_\pm^2) \\
 	& = -\frac{1}{2W}\left[1 \pm \sqrt{1 + 4W^2} \right]. \label{coupled oscillator ratio}
 \end{align}
-where $W = \omega_0^2 / (\omega_2^2 - \omega_1^2)$. Without loss of generality, let $\omega_2 > \omega_1$ so that $W > 0$. Then, considering Equation~\ref{coupled oscillator ratio}, the eigenmode with eigenfrequency $\omega_+$ gives $\hat{x}_1 / \hat{x}_2 < 0$, \textit{i.e.} the masses oscillate in anti-phase. This is known as the \textit{breathing mode} and is equivalent to the sausage modes of the MHD slab model. The eigenmode with eigenfrequency $\omega_-$ gives $\hat{x}_1 / \hat{x}_2 > 0$, \textit{i.e.} the masses oscillate in phase. This is known as the \textit{sloshing mode} and is equivalent to the kink modes of the MHD slab model.
+where $W = \omega_0^2 / (\omega_2^2 - \omega_1^2)$. Without loss of generality, let $\omega_2 > \omega_1$ so that $W > 0$. Then, considering Equation~\ref{coupled oscillator ratio}, the eigenmode with eigenfrequency $\omega_+$ gives $\widehat{x}_1 / \widehat{x}_2 < 0$, \textit{i.e.} the masses oscillate in anti-phase. This is known as the \textit{breathing mode} and is equivalent to the sausage modes of the MHD slab model. The eigenmode with eigenfrequency $\omega_-$ gives $\widehat{x}_1 / \widehat{x}_2 > 0$, \textit{i.e.} the masses oscillate in phase. This is known as the \textit{sloshing mode} and is equivalent to the kink modes of the MHD slab model.
 
 Comparing with the magnetic slab model, the three springs here correspond to the three regions of plasma, and the masses to the plasma interfaces. The breathing mode has highest amplitude on the mass connected to the external spring with lowest spring constant and the sloshing mode has highest amplitude on the mass connected to the external spring with highest spring constant (shown analytically in Appendix~\ref{app: coupled oscillator modes}). A higher spring constant in this model is analogous to a lower density outside the magnetic slab. This is because a higher spring constant in an uncoupled spring-mass system gives a higher characteristic frequency. This gives motivation as to why the surface modes of the asymmetric magnetic slab have higher amplitudes on different sides for quasi-sausage and quasi-kink modes.
 
@@ -1164,7 +1164,7 @@ Accurate mode identification is a key aspect of SMS. Different modes can differ 
 
 \subsubsection{Quasi-symmetric eigenmodes}
 
-It is possible for asymmetric MHD waves to have similar observational qualities to symmetric MHD waves. This can occur when the restoring force (that is, the sum of the pressure gradient and Lorentz forces) of MHD perturbations is equal at both interfaces. This can occur in an asymmetric slab when the asymmetry in the pressure gradient force is precisely balanced by the asymmetry in the Lorentz force. We describe an eigenmode with this property as an \textit{quasi-symmetric} mode. Equivalently, we define quasi-symmetric modes to be eigenmodes which have equal amplitude on each boundary of the slab\footnote{If we further specify that the penetration depth of perturbations in the external plasma be equal on each side of the slab, so that the eigenfunction is symmetric, then it must be the case that the external parameters are equal and we have a symmetric slab.}. This is equivalent to setting $\hat{v}_x (-x_0) = - \hat{v}_x (x_0)$ for quasi-sausage modes and $\hat{v}_x (-x_0) = \hat{v}_x (x_0)$ for quasi-kink modes. The aim in this subsection is to prove that the necessary and sufficient condition for the existence of quasi-symmetric eigenmodes of an asymmetric magnetic slab is
+It is possible for asymmetric MHD waves to have similar observational qualities to symmetric MHD waves. This can occur when the restoring force (that is, the sum of the pressure gradient and Lorentz forces) of MHD perturbations is equal at both interfaces. This can occur in an asymmetric slab when the asymmetry in the pressure gradient force is precisely balanced by the asymmetry in the Lorentz force. We describe an eigenmode with this property as an \textit{quasi-symmetric} mode. Equivalently, we define quasi-symmetric modes to be eigenmodes which have equal amplitude on each boundary of the slab\footnote{If we further specify that the penetration depth of perturbations in the external plasma be equal on each side of the slab, so that the eigenfunction is symmetric, then it must be the case that the external parameters are equal and we have a symmetric slab.}. This is equivalent to setting $\widehat{v}_x (-x_0) = - \widehat{v}_x (x_0)$ for quasi-sausage modes and $\widehat{v}_x (-x_0) = \widehat{v}_x (x_0)$ for quasi-kink modes. The aim in this subsection is to prove that the necessary and sufficient condition for the existence of quasi-symmetric eigenmodes of an asymmetric magnetic slab is
 \begin{equation}
 \frac{\rho_1}{m_1}(k^2v_{A1}^2 - \omega^2) = \frac{\rho_2}{m_2}(k^2v_{A2}^2 - \omega^2), \label{quasi-sym condition}
 \end{equation}
@@ -1172,7 +1172,7 @@ for a given frequency, $\omega$, and wavenumber, $k$.
 
 To show that Equation~\eqref{quasi-sym condition} is sufficient for there to exist quasi-symmetric modes, consider an asymmetric magnetic slab with parameters that satisfy Equation~\eqref{quasi-sym condition}. Under this supposition, the transverse velocity perturbation solution for quasi-sausage modes reduces to
 \begin{equation}
-\hat{v}_x(x) =
+\widehat{v}_x(x) =
 \begin{cases}
 A(\cosh{m_1x} + \sinh{m_1x}) & \text{if } x < -x_0, \\
 C\sinh{m_0x} & \text{if } |x| \leq x_0, \\
@@ -1185,34 +1185,34 @@ A = \frac{-Cs_0}{c_1 - s_1}, \quad
 D = \frac{Cs_0}{c_2 - s_2}, \quad
 C \text{ is arbitrary}.
 \end{equation}
-We have denoted $c_j = \cosh{m_jx_0}$ and $s_j = \sinh{m_jx_0}$, for $j = 1, 2$, for brevity. The solution within the slab, $|x| \leq x_0$, is an odd function of $x$, therefore $\hat{v}_x(x_0) = -\hat{v}_x(-x_0)$. Therefore Equation~\eqref{quasi-sym condition} is a sufficient condition for the existence of quasi-symmetric modes. For quasi-kink modes, a similar proof is followed, where we find that $\hat{v}_x(x)$ is an even function within the slab.
+We have denoted $c_j = \cosh{m_jx_0}$ and $s_j = \sinh{m_jx_0}$, for $j = 1, 2$, for brevity. The solution within the slab, $|x| \leq x_0$, is an odd function of $x$, therefore $\widehat{v}_x(x_0) = -\widehat{v}_x(-x_0)$. Therefore Equation~\eqref{quasi-sym condition} is a sufficient condition for the existence of quasi-symmetric modes. For quasi-kink modes, a similar proof is followed, where we find that $\widehat{v}_x(x)$ is an even function within the slab.
 
 To show that Equation~\eqref{quasi-sym condition} is necessary for there to exist quasi-symmetric modes, consider an asymmetric magnetic slab which supports quasi-symmetric modes. The transverse velocity perturbation solution is given by
 \begin{equation}
-\hat{v}_x(x) =
+\widehat{v}_x(x) =
 \begin{cases}
 A(\cosh{m_1x} + \sinh{m_1x}) & \text{if } x < -x_0, \\
 B\cosh{m_0x} + C\sinh{m_0x} & \text{if } |x| \leq x_0, \\
-D(\cosh{m_2x} - \sinh{m_2x}) & \text{if } x > x_0, \label{vsoln}
+D(\cosh{m_2x} - \sinh{m_2x}) & \text{if } x > x_0,
 \end{cases}
 \end{equation}
 where
 \begin{align}
-A &= \frac{1}{c_1 - s_1}(Bc_0 - Cs_0), \label{constA C} \\ 
-D &= \frac{1}{c_2 - s_2}(Bc_0 + Cs_0), \label{constD C} \\
-B &= \frac{\Lambda_0c_0 + \Lambda_1s_0}{\Lambda_0s_0 + \Lambda_1c_0}C = -\frac{\Lambda_0c_0 + \Lambda_2s_0}{\Lambda_0s_0 + \Lambda_2c_0}C, \label{constB C} \\
+A &= \frac{1}{c_1 - s_1}(Bc_0 - Cs_0), \\ 
+D &= \frac{1}{c_2 - s_2}(Bc_0 + Cs_0), \\
+B &= \frac{\Lambda_0c_0 + \Lambda_1s_0}{\Lambda_0s_0 + \Lambda_1c_0}C = -\frac{\Lambda_0c_0 + \Lambda_2s_0}{\Lambda_0s_0 + \Lambda_2c_0}C, \\
 C & \text{ is arbitrary},
 \end{align}
 for quasi-sausage modes, and
 \begin{align}
-A &= \frac{1}{c_1 - s_1}(Bc_0 - Cs_0), \label{constA B} \\ 
-D &= \frac{1}{c_2 - s_2}(Bc_0 + Cs_0), \label{constD B} \\
-C &= \frac{\Lambda_0s_0 + \Lambda_1c_0}{\Lambda_0c_0 + \Lambda_1s_0}B = -\frac{\Lambda_0s_0 + \Lambda_2c_0}{\Lambda_0c_0 + \Lambda_2s_0}B, \label{constB B} \\
+A &= \frac{1}{c_1 - s_1}(Bc_0 - Cs_0), \\ 
+D &= \frac{1}{c_2 - s_2}(Bc_0 + Cs_0), \\
+C &= \frac{\Lambda_0s_0 + \Lambda_1c_0}{\Lambda_0c_0 + \Lambda_1s_0}B = -\frac{\Lambda_0s_0 + \Lambda_2c_0}{\Lambda_0c_0 + \Lambda_2s_0}B, \\
 B & \text{ is arbitrary},
 \end{align}
 for quasi-kink modes. Given the supposition that the slab supports quasi-symmetric modes, we have, for quasi-sausage modes,
 \begin{align}
-\hat{v}_x(-x_0) &= -\hat{v}_x(x_0), \\
+\widehat{v}_x(-x_0) &= -\widehat{v}_x(x_0), \\
 \implies \left(\frac{\Lambda_0c_0 + \Lambda_1s_0}{\Lambda_0s_0 + \Lambda_1c_0}\right) c_0 - s_0 &= -\left(\frac{\Lambda_0c_0 + \Lambda_1s_0}{\Lambda_0s_0 + \Lambda_1c_0}\right)c_0 - s_0, \\
 \implies \Lambda_0c_0 + \Lambda_1s_0 &= 0. \label{quasi-sym proof 1}
 \end{align}
@@ -1220,7 +1220,7 @@ Similarly, taking the second expression for $B$, we deduce that
 \begin{equation}
 \Lambda_0c_0 + \Lambda_2s_0 = 0. \label{quasi-sym proof 2}
 \end{equation}
-By subtracting Equation~\eqref{quasi-sym proof 2} from Equation~\eqref{quasi-sym proof 1}, it follows that $\Lambda_1 = \Lambda_2$, which is equivalent to Equation~\eqref{quasi-sym condition}. This concludes the proof that Equation~\eqref{quasi-sym condition} is a necessary condition for the existence of quasi-symmetric quasi-sausage modes. For quasi-kink modes, a similar proof can be followed to show that $\hat{v}_x(x_0) = \hat{v}_x(-x_0)$ implies Equation~\eqref{quasi-sym condition}. This completes the proof that Equation~\eqref{quasi-sym condition} is a necessary and sufficient condition for the existence of quasi-symmetric modes.
+By subtracting Equation~\eqref{quasi-sym proof 2} from Equation~\eqref{quasi-sym proof 1}, it follows that $\Lambda_1 = \Lambda_2$, which is equivalent to Equation~\eqref{quasi-sym condition}. This concludes the proof that Equation~\eqref{quasi-sym condition} is a necessary condition for the existence of quasi-symmetric quasi-sausage modes. For quasi-kink modes, a similar proof can be followed to show that $\widehat{v}_x(x_0) = \widehat{v}_x(-x_0)$ implies Equation~\eqref{quasi-sym condition}. This completes the proof that Equation~\eqref{quasi-sym condition} is a necessary and sufficient condition for the existence of quasi-symmetric modes.
 
 The main consequence of this result is that one can not conclude from an observation of a MHD wave that appears symmetric (\textit{i.e.} that the boundary oscillations have equal amplitudes) that the underlying waveguide is symmetric. This fallacy could lead to incorrect mode identification and therefore erroneous diagnosis of the background plasma.
 
@@ -1304,7 +1304,7 @@ To appreciate the potential misidentification, consider a hypothetical observati
 
 One possible resolution to this problem is to measure the background parameters on each side of the waveguide to determine the degree of asymmetry before identifying the modes. If the waveguide is determined to be symmetric, symmetric modes can be identified. If not, the more general asymmetric modes can be identified.
 
-One problem with this approach is that determining the key background parameters, the density and magnetic field strength, is often very difficult and estimates will have an associated uncertainty large enough that it would often not be possible to rule out the possibility of asymmetry. Another problem with this approach is that even relatively small degrees of waveguide asymmetry can cause significant asymmetry in the eigenmodes. For example, the second panel of Figure~\ref{fig: xi} shows a case where the ratio of the external densities is only $\rho_2 / \rho_1 = 2/1.5 = 1.33$ (\textit{i.e.} a relative difference of 33\%), yet the asymmetry in the eigenfunctions, measured, for example, by the ratio of the oscillation amplitudes at each interface, is approximately $|\hat{\xi}_x(x_0) / \hat{\xi}_x(-x_0)| \approx 4$ for quasi-kink modes and 0.25 for quasi-sausage modes, \textit{i.e.} a relative difference of approximately 400\%, easily sufficient to show up in observations. This is a increase in the relative difference of a factor of 12.
+One problem with this approach is that determining the key background parameters, the density and magnetic field strength, is often very difficult and estimates will have an associated uncertainty large enough that it would often not be possible to rule out the possibility of asymmetry. Another problem with this approach is that even relatively small degrees of waveguide asymmetry can cause significant asymmetry in the eigenmodes. For example, the second panel of Figure~\ref{fig: xi} shows a case where the ratio of the external densities is only $\rho_2 / \rho_1 = 2/1.5 = 1.33$ (\textit{i.e.} a relative difference of 33\%), yet the asymmetry in the eigenfunctions, measured, for example, by the ratio of the oscillation amplitudes at each interface, is approximately $|\widehat{\xi}_x(x_0) / \widehat{\xi}_x(-x_0)| \approx 4$ for quasi-kink modes and 0.25 for quasi-sausage modes, \textit{i.e.} a relative difference of approximately 400\%, easily sufficient to show up in observations. This is a increase in the relative difference of a factor of 12.
 
 A second resolution is to independently measure the propagation speeds of the cross-sectional width oscillation and axial oscillation. Distinct eigenmodes propagate at distinct phase-speeds\footnote{This is an example of the uniqueness of eigenvalues in Sturm-Liouville systems (see, for example, \citealp{boy_etal12}).}. If, in fact, the observation is of a superposition of symmetric sausage and kink eigenmodes, then each eigenmode will propagate at a distinct phase speed. Specifically, the cross-sectional oscillation will propagate at a different speed to the axial oscillation, and the oscillations will become out of phase. Whereas, if the oscillations in cross-sectional width and axis are both due to a single asymmetric eigenmode, then they will both share the same propagation speed and remain in phase. If different propagation speeds between these oscillations can be identified, then it will more likely be a superposition of symmetric modes than asymmetric modes.
 

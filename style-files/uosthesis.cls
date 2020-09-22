@@ -111,7 +111,7 @@
 {\huge \textsc{\@author}}
 \par
 \vspace*{5mm}
-{\Large Professor \textsc{R\'obert Erd\'elyi}}
+{\Large Professor \textsc{Robertus Erd\'elyi}}
 \par
 }
 {

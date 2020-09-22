@@ -9,7 +9,7 @@
 \label{sec: sun}
 %------------------------------------------------------------------------------
 
-The Sun is hot. It is so hot that thermal energy overcomes the electromagnetic force between subatomic particles so that they struggle to form neutral atoms. Instead the hottest regions of the Sun are composed of a fully ionised soup of electrons and nuclei known as \textit{plasma}. Due to the dissociation of charges in a plasma, it can conduct electricity and therefore has an associated magnetic field. This magnetic field interacts with the fluid in a nonlinear coupling between the magnetic field and the plasma motion. This coupling can be described mathematically by \textit{magnetohydrodynamic (MHD) theory}.
+The Sun is hot. It is so hot that thermal energy overcomes the electromagnetic force between subatomic particles so that they struggle to form neutral atoms. Instead the hottest regions of the Sun are composed of a fully ionised soup of electrons and nuclei known as \textit{plasma}. Due to the dissociation of charges in a plasma, it can conduct electricity and therefore has an associated magnetic field. This magnetic field interacts with the fluid in a nonlinear coupling between the magnetic field and the plasma motion. This coupling can be described mathematically by the theory of \textit{magnetohydrodynamics (MHD)}.
 
 The Sun's atmosphere, particularly the most extended region, known as the \textit{corona}, is dominated by a complex, dynamic, and inhomogeneous magnetic field. This magnetic field contributes to the astronomical energy that drives many of the most energetic events in the solar system, including jets, eruptions, and flares. These dynamic solar events, as well as convectional buffeting from the bubbling interior Sun, drive waves in the solar atmosphere which can be guided by the inhomogeneous magnetic field. What differentiates these waves from waves in fluids, such as sound waves in air, is the contribution of the magnetic field to the waves' restoring force. These waves are known as \textit{magnetohydrodynamic waves}. MHD waves whose restoring force is a combination of the pressure gradient and the magnetic force, but not other forces such as gravity and Coriolis which as neglected in this thesis, are known as \textit{magneto-acoustic waves}.
 
@@ -127,7 +127,7 @@ This result has the important corollary that the magnetic field lines are frozen
 \label{sec: waves}
 %------------------------------------------------------------------------------
 
-\subsection{Magnetohydrodynamic waves in a homogeneous plasma}
+\subsection{Magnetohydrodynamic waves in a homogeneous plasma} \label{sec: MHD waves in hom}
 Whilst the Sun's atmosphere is in reality inhomogeneous, it is instructive to first study the MHD waves that propagate in a homogeneous plasma. We start with the ideal MHD equations derived in Section~\ref{sec: MHD eqns},
 \begin{align}
 	\frac{\partial\rho}{\partial t} + \nabla\cdot(\rho \bv) &= 0, \\
@@ -149,18 +149,18 @@ where $c_0 = \sqrt{\gamma p_0/\rho_0}$ is the \textit{sound speed}. This system 
 \end{equation}
 where we have dropped the apostrophe on $\bv$ for brevity. The form of this equation motivates a search for solutions of the form
 \begin{equation}
-	\bv(\mathbf{x}, t) = \hat{\bv}e^{i(\mathbf{k}\cdot\mathbf{x} - \omega t)},
+	\bv(\mathbf{x}, t) = \widehat{\bv}e^{i(\mathbf{k}\cdot\mathbf{x} - \omega t)},
 \end{equation}
-corresponding to \textit{plane-waves} with wavenumber vector $\mathbf{k}$, circular frequency $\omega$, and amplitude $\hat{\bv}$ that is spatially uniform. This reduces Equation~\eqref{homogeneous wave eqn} to an eigenvalue problem with eigenfrequency $\omega^2$, namely
+corresponding to \textit{plane-waves} with wavenumber vector $\mathbf{k}$, circular frequency $\omega$, and amplitude $\widehat{\bv}$ that is spatially uniform. This reduces Equation~\eqref{homogeneous wave eqn} to an eigenvalue problem with eigenfrequency $\omega^2$, namely
 \begin{equation}
-	\omega^2\hat{\bv} = c_0^2\mathbf{k}(\mathbf{k}\cdot\hat{\bv}) + \frac{1}{\mu\rho_0}(\mathbf{k}\times(\mathbf{k}\times(\hat{\bv}\times\bB_0)))\times\bB_0. \label{homogeneous wave eqn 2}
+	\omega^2\widehat{\bv} = c_0^2\mathbf{k}(\mathbf{k}\cdot\widehat{\bv}) + \frac{1}{\mu\rho_0}(\mathbf{k}\times(\mathbf{k}\times(\widehat{\bv}\times\bB_0)))\times\bB_0. \label{homogeneous wave eqn 2}
 \end{equation}
 
 With the aim of first studying a limiting solution, the ratio of the first term to the second term on the right hand side fo the above equation is
 \begin{equation}
-	\frac{|c_0^2\mathbf{k}(\mathbf{k}\cdot\hat{\bv})|}{|\frac{1}{\mu\rho_0}(\mathbf{k}\times(\mathbf{k}\times(\hat{\bv}\times\bB_0)))\times\bB_0|} = \frac{c_0^2}{v_A^2},
+	\frac{|c_0^2\mathbf{k}(\mathbf{k}\cdot\widehat{\bv})|}{|\frac{1}{\mu\rho_0}(\mathbf{k}\times(\mathbf{k}\times(\widehat{\bv}\times\bB_0)))\times\bB_0|} = \frac{c_0^2}{v_A^2},
 \end{equation}
-where $v_A = B_0/\sqrt{\mu\rho_0}$ is the \textit{Alfv\'{e}n speed}. When the sound speed dominates the Alfv\'{e}n speed\footnote{This is known as the \textit{high beta limit}. Here, beta refers to the plasma beta parameter defined as the ratio of kinetic pressure to magnetic pressure and can be written as $\beta = \frac{2c_0^2}{\gamma v_A^2}$}, and assuming that $\mathbf{k}\cdot\hat{\bv} \neq 0$ so that the fluid is compressible, taking the dot product of $\mathbf{k}$ and Equation~\eqref{homogeneous wave eqn 2} leads to $\omega = \pm kc_0$. These solutions correspond to forwards and backwards propagating \textit{sound waves}. They are longitudinal waves that propagate isotropically in a homogeneous fluid.
+where $v_A = B_0/\sqrt{\mu\rho_0}$ is the \textit{Alfv\'{e}n speed}. When the sound speed dominates the Alfv\'{e}n speed\footnote{This is known as the \textit{high beta limit}. Here, beta refers to the plasma beta parameter defined as the ratio of kinetic pressure to magnetic pressure and can be written as $\beta = \frac{2c_0^2}{\gamma v_A^2}$}, and assuming that $\mathbf{k}\cdot\widehat{\bv} \neq 0$ so that the fluid is compressible, taking the dot product of $\mathbf{k}$ and Equation~\eqref{homogeneous wave eqn 2} leads to $\omega = \pm kc_0$. These solutions correspond to forwards and backwards propagating \textit{sound waves}. They are longitudinal waves that propagate isotropically in a homogeneous fluid.
 
 When neither the sound speed or Alfv\'{e}n speed dominates, we can write Equation~\eqref{homogeneous wave eqn 2} in component form as
 \begin{equation}
@@ -170,9 +170,9 @@ When neither the sound speed or Alfv\'{e}n speed dominates, we can write Equatio
 		-k_xk_zc_0^2 & 0 & \omega^2 - k_z^2c_0^2
 	\end{matrix}\right)
 	\left(\begin{matrix}
-		\hat{v}_x \\
-		\hat{v}_y \\
-		\hat{v}_z
+		\widehat{v}_x \\
+		\widehat{v}_y \\
+		\widehat{v}_z
 	\end{matrix} \right) = 0,
 \end{equation}
 where, without loss of generality, we have let $\mathbf{k} = (k_x, 0, k_z)$. For there to exist non-trivial solutions to this equation, the determinant of the matrix must vanish, that is
@@ -206,16 +206,16 @@ MHD wave propagation along a tangential interface, where the magnetic field is t
 \end{equation}
 The interface between the two regions is at $x = 0$, without loss of generality. Given a magnetic field that is initially tangent to the interface, the magnetic field must be tangent to the interface for all time due to ideal magnetic flux conservation (see Section~\ref{sec: mag flux conservation}).
 
-To derive the dispersion relation, first we seek plane wave solutions to the linearised ideal MHD equations, Equations \eqref{cont eqn lin}-\eqref{ind eqn lin} by assuming that parameters behave like $f(x) = \hat{f}e^{i(kz - \omega t)}$, where $k$ and $\omega$ are the wavenumber and angular frequency of the waves that propagate in the $z$-direction. They are then combined to show that the transverse velocity perturbation, $\hat{v}_x$, satisfies a Helmholtz differential equation for each of the two plasma regions, denoted by subscript $-$ and $+$, namely
+To derive the dispersion relation, first we seek plane wave solutions to the linearised ideal MHD equations, Equations \eqref{cont eqn lin}-\eqref{ind eqn lin} by assuming that parameters behave like $f(x) = \widehat{f}e^{i(kz - \omega t)}$, where $k$ and $\omega$ are the wavenumber and angular frequency of the waves that propagate in the $z$-direction. They are then combined to show that the transverse velocity perturbation, $\widehat{v}_x$, satisfies a Helmholtz differential equation for each of the two plasma regions, denoted by subscript $-$ and $+$, namely
 \begin{equation}
-\hat{v}_x'' - m_\pm^2\hat{v}_x = 0, \quad \text{where} \quad
+\widehat{v}_x'' - m_\pm^2\widehat{v}_x = 0, \quad \text{where} \quad
 m_\pm^2 = \frac{(\omega_{A\pm}^2 - \omega^2)(\omega_\pm^2 - \omega^2)}{(c_\pm^2 + v_{A\pm}^2)(\omega_{T\pm}^2 - \omega^2)}, \label{ODE for v}
 \end{equation}
-where $'=\textrm{d}/\textrm{d}x$ and $\omega_{A\pm} = kv_{A\pm}$, $\omega_{\pm} = kc_{\pm}$, and $\omega_{T\pm} = kc_{T\pm}$, are each region's respective Alfv\'{e}n, sound, and tube frequency. Solutions to this equation are a linear combination of exponential functions, $e^{\pm m_\pm x}$, if $m_\pm^2 > 0$, or trigonometric functions, $\cos{m_\pm x}$ and $\sin{m_\pm x}$, if $m_\pm^2 < 0$. We restrict our model to waves trapped by the slab by imposing the boundary condition $\hat{v}_x \to 0$ as $|x| \to \infty$. This ensures that $m_\pm^2 > 0$, leading to solutions of the form
+where $'=\textrm{d}/\textrm{d}x$ and $\omega_{A\pm} = kv_{A\pm}$, $\omega_{\pm} = kc_{\pm}$, and $\omega_{T\pm} = kc_{T\pm}$, are each region's respective Alfv\'{e}n, sound, and tube frequency. Solutions to this equation are a linear combination of exponential functions, $e^{\pm m_\pm x}$, if $m_\pm^2 > 0$, or trigonometric functions, $\cos{m_\pm x}$ and $\sin{m_\pm x}$, if $m_\pm^2 < 0$. We restrict our model to waves trapped by the slab by imposing the boundary condition $\widehat{v}_x \to 0$ as $|x| \to \infty$. This ensures that $m_\pm^2 > 0$, leading to solutions of the form
 \begin{equation}
-\hat{v}_x(x)=
+\widehat{v}_x(x)=
 \begin{cases}
-Ae^{m_-x}, & \text{if } x < 0, \\
+Ae^{m_-x}, & \text{if } x \leq 0, \\
 Be^{-m_+x}, & \text{if } x > 0,
 \end{cases} \label{vsoln}
 \end{equation}
@@ -223,7 +223,7 @@ where $A$ and $B$ are constant with respect to $x$. Equation \eqref{vsoln} gives
 \begin{equation}
 	\rho_+m_-(\omega^2 - \omega_{A+}^2) + \rho_-m_+(\omega^2 - \omega_{A-}^2) = 0. \label{DR interface}
 \end{equation}
-The solutions to this equation correspond to \textit{surface} magneto-acoustic modes. These are modes whose eigenfunction decays exponentially away from the interface and owe their existence to the interface. The radicals in $m_\pm$ resist the use of analytical methods to find the solutions, unless further approximations are made (see Section~\ref{sec: asym slab}).
+The solutions to this equation correspond to \textit{surface} magneto-acoustic modes. These are modes whose eigenfunction decays exponentially away from the interface and owe their existence to the interface. The radicals in $m_\pm$ resist the use of analytical methods to find the solutions, unless further approximations are made (see Section~\ref{sec: analytical solutions}).
 
 There also exist Alfv\'{e}n modes, which are sometimes referred to as \textit{shear Alfv\'{e}n modes} in the slab geometry, which we decoupled from the magneto-acoustic modes due to our choice of ansatz. Alfv\'{e}n modes propagate along the magnetic field and perturb it tangentially to the interface, without perturbing the density. Since the perturbations are tangential to the interface, each magnetic isosurface, defined as a surface of constant magnetic field, is free to oscillate independently (in ideal MHD). These Alfv\'{e}n modes are local modes in that they only oscillate a strict subset of the whole domain, therefore, they do not owe their existence to the interface, and are therefore not discussed in any more detail here.
 
@@ -268,7 +268,7 @@ B_i & \text{if } r \leq r_0, \\
 B_e & \text{if } r > r_0.
 \end{cases}
 \end{equation}
-We seek solutions of the form $f(\mathbf{r}) = \hat{f}(r)e^{i(kz + m\phi - \omega t)}$. Note that this form necessitates that $m \in \mathbb{Z}$, to maintain azimuthal continuity in each variable. Then, dropping the hat for brevity, the perturbation in total pressure, $p_T$, inside the tube obeys the equation
+We seek solutions of the form $f(\mathbf{r}) = \widehat{f}(r)e^{i(kz + m\phi - \omega t)}$. Note that this form necessitates that $m \in \mathbb{Z}$, to maintain azimuthal continuity in each variable. Then, dropping the hat for brevity, the perturbation in total pressure, $p_T$, inside the tube obeys the equation
 \begin{equation}
 	p_T'' + \frac{1}{r}p_T' - (m_i^2 + \frac{m^2}{r^2})p_T = 0.
 \end{equation}
@@ -300,7 +300,7 @@ The remainder of this thesis is structured as follows:
 	\item \textbf{Chapter 2}: We establish and solve the eigenvalue problem for MHD waves propagating along a magnetic slab waveguide where the external plasma is asymmetric. This is the simplest MHD waveguide that demonstrates asymmetry. The dispersion relation is derived and is solved analytically under certain approximations, and numerically. The eigenmodes can exist as a generalisation of the traditional sausage and kink modes. Two implications for solar observations are discussed. First, we establish the existence of quasi-symmetric eigenmodes. These are modes that have symmetric amplitudes on the waveguide interfaces even though they propagate along asymmetric waveguides, which could lead to misidentification of eigenmodes. Secondly, we discuss the difficulty of distinguishing an asymmetric MHD wave from a superposition of symmetric MHD waves in solar atmospheric structures.
 	\item \textbf{Chapter 3}: We introduce ray optics as a mathematical model of MHD wave propagation. We introduce the ambiguities that arise in MHD ray optics due to the anisotropy of the magnetic field. Then we derive the dispersion relation for the asymmetric slab using ray optics. This approach provides an intuitive notion of lateral wave leakage as transmission of wave power due to partial internal reflection.
 	\item \textbf{Chapter 4}: We establish and solve the initial value problem (IVP) of MHD waves propagating along a magnetic slab waveguide. First, we solve the IVP under the assumption that the plasma is incompressible. Along the way, we revisit and correct a major error in a related paper by \cite{rae_etal81} that solves an initial value problem of surface MHD waves on a tangential interface. Finally, we solve the more difficult IVP under the zero-beta assumption, showing that the perturbed waveguide evolves through three phases: the initial phase, the impulsive phase, and the stationary phase. We show that the impulsive phase is much shorter for a slab waveguide than a cylindrical waveguide.
-	\item \textbf{Chapter 5}: We derive two new inversion techniques that use the symmetry of asymmetric MHD waves to diagnose parameters of the background plasma that are otherwise impossible to measure. We coin these techniques the \textit{Amplitude Ratio Method} and the \textit{Minimum Perturbation Shift Method}. This is the first time that a solar magneto-seismology technique has employed the asymmetry of MHD waves. By diagnosing the Alfv\'{e}n speed in five chromospheric fibrils, we perform a first use of the Amplitude Ratio Method on solar observations. Our results corroborate with previous analyses of chromospheric fibrils that use different methods.
+	\item \textbf{Chapter 5}: We derive two new inversion techniques that use the symmetry of asymmetric MHD waves to diagnose parameters of the background plasma that are otherwise impossible to measure. We coin these techniques the \textit{amplitude ratio method} and the \textit{minimum perturbation shift method}. This is the first time that a solar magneto-seismology technique has employed the asymmetry of MHD waves. By diagnosing the Alfv\'{e}n speed in five chromospheric fibrils, we perform a first use of the amplitude ratio method on solar observations. Our results corroborate with previous analyses of chromospheric fibrils that use different methods.
 	\item \textbf{Chapter 6}: A summary and discussion of the conclusions of this thesis.
 	\item \textbf{Chapter 7}: A discussion of possible further work that would build upon this thesis.
 \end{itemize}
